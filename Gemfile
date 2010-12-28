@@ -26,5 +26,4 @@ group :test do
   gem 'webrat', '0.7.2'
   gem 'factory_girl_rails', '1.0'
   gem 'email_spec' 
-  gem 'cover_me', '>= 1.0.0.rc2'
 end
