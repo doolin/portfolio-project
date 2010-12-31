@@ -26,5 +26,5 @@ group :test do
   gem 'rspec-rails'
   gem 'webrat', '0.7.2'
   gem 'factory_girl_rails', '1.0'
-  gem 'email_spec' 
+#  gem 'email_spec' 
 end
