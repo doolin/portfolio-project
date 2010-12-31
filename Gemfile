@@ -4,7 +4,6 @@ gem 'rails', '3.0.0'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'devise'
 gem 'dynamic_form'
-gem "compass", ">= 0.10.6"
 
 group :cucumber do
   gem 'capybara'
