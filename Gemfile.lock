@@ -51,6 +51,8 @@ GEM
     celerity (0.8.6)
     childprocess (0.1.6)
       ffi (~> 0.6.3)
+    compass (0.10.6)
+      haml (>= 3.0.4)
     configuration (1.2.0)
     cucumber (0.10.0)
       builder (>= 2.1.2)
@@ -81,6 +83,7 @@ GEM
       spruz (>= 0.1.0)
     gherkin (2.3.3)
       json (~> 1.4.6)
+    haml (3.0.23)
     i18n (0.4.2)
     json (1.4.6)
     json_pure (1.4.6)
@@ -174,6 +177,7 @@ PLATFORMS
 DEPENDENCIES
   annotate-models (= 1.0.4)
   capybara
+  compass (>= 0.10.6)
   cucumber
   cucumber-rails
   database_cleaner
