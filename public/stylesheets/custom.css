@@ -18,6 +18,9 @@ body {
   border-style: solid;
   border-width: 1px;
   border-color: #777;
+ -moz-box-shadow: 10px 10px 5px #888;
+ -webkit-box-shadow: 10px 10px 5px #888;
+  box-shadow: 10px 10px 5px #888;
 }
 
 .container {
@@ -40,6 +43,10 @@ header h1 {
   font-family: "lobster-1","lobster-2"; 
 }
 
+
+h2.projects-listing {
+  font-family: "lobster-1","lobster-2";   
+}
 
 header img {
   padding: 1em;
