@@ -1,5 +1,7 @@
 PortfolioProject::Application.routes.draw do
 
+  devise_for :members
+
   resources :projects
 
   root :to => "projects#index"

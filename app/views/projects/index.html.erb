@@ -5,19 +5,25 @@
     <th>Name</th>
     <th>Summary</th>
     <th>Client</th>
+    <th>Tags</th>
+<!--
     <th></th>
     <th></th>
     <th></th>
+-->
   </tr>
 
 <% @projects.each do |project| %>
   <tr>
-    <td><%= project.name %></td>
+    <td><%= link_to project.name, project %></td>
     <td><%= project.summary %></td>
     <td><%= project.client %></td>
+    <td><%= project.tags %></td>
+    <!--
     <td><%= link_to 'Show', project %></td>
     <td><%= link_to 'Edit', edit_project_path(project) %></td>
     <td><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></td>
+    -->
   </tr>
 <% end %>
 </table>
