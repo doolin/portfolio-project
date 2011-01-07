@@ -1,13 +1,19 @@
 
-<header class="header">
-<h1>The Portfolio Project</h1>
+<header class="span-18 last">
 
-  <div id="member_nav">
+
+<div class="span-13">  
+   <h1>The Portfolio Project</h1>
+</div>
+  <nav id="member_nav" class="span-4 last">
   <% if member_signed_in? %>
     Signed in as <%= current_member.email %>. Not you?
     <%= link_to "Sign out", destroy_member_session_path %>
   <% else %>
-    <%= link_to "Sign up", new_member_registration_path %> or <%= link_to "Sign in", new_member_session_path %>.
+    <%= link_to "Sign up", new_member_registration_path %> | 
+    <%= link_to "Sign in", new_member_session_path %> |
   <% end %>
-  </div>
+  <%= link_to "Home", root_path %>
+  </nav>
+
 </header>

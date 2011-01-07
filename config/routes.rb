@@ -1,10 +1,36 @@
 PortfolioProject::Application.routes.draw do
 
+=begin
+  
+  get "sales/index"
+
+  get "sales/new"
+
+  get "sales/create"
+
+  get "sales/show"
+
+  get "sales/destroy"
+
+  get "sales/update"
+
+  get "sales/edit"
+=end
+
   devise_for :members
 
   resources :projects
+  resources :sales
 
-  root :to => "projects#index"
+  # After the user is authenticated, reroute
+  # to his or her project list.
+  namespace :member do
+    root :to => "projects#index"
+  end
+ 
+  # All non-logged in users go to sales page.
+  root :to => "sales#index"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
