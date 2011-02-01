@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
   
-  @site_name = "Portfolio project"
   
   def contact
+    @site_name = "Portfolio project"
   end
 
   def disclaimer
@@ -12,12 +12,19 @@ class PagesController < ApplicationController
   end
 
   def terms
+    @site_name = "Portfolio Project"
   end
 
   def about
+    @site_name = "Portfolio Project"
   end
 
   def privacy
+    @site_name = "Portfolio Project"
+  end
+  
+  def disclaimer
+    @site_name = "Portfolio Project"
   end
 
 end
