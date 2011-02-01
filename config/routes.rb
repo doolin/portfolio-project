@@ -32,7 +32,7 @@ PortfolioProject::Application.routes.draw do
 
   devise_for :members
   # Needs a controller...
-  #resources :members
+  resources :members
 
   resources :projects
   resources :sales

@@ -8,4 +8,5 @@ class Project < ActiveRecord::Base
   validates :member_id, :presence => true
   
   default_scope :order => 'projects.created_at DESC'
+  
 end
