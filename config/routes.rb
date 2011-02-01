@@ -1,5 +1,18 @@
 PortfolioProject::Application.routes.draw do
 
+
+  get "pages/contact"
+
+  get "pages/disclaimer"
+
+  get "pages/disclosure"
+
+  get "pages/terms"
+
+  get "pages/about"
+
+  get "pages/privacy"
+
 =begin
   
   get "sales/index"
@@ -18,15 +31,18 @@ PortfolioProject::Application.routes.draw do
 =end
 
   devise_for :members
+  # Needs a controller...
+  #resources :members
 
   resources :projects
   resources :sales
 
   # After the user is authenticated, reroute
   # to his or her project list.
-  namespace :member do
-    root :to => "projects#index"
-  end
+  # But this isn't working...
+#  namespace :member do
+#    root :to => "projects#index"
+#  end
  
   # All non-logged in users go to sales page.
   root :to => "sales#index"
