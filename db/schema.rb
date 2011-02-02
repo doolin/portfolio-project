@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110202181320) do
+ActiveRecord::Schema.define(:version => 20110202205940) do
 
   create_table "members", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -41,6 +41,9 @@ ActiveRecord::Schema.define(:version => 20110202181320) do
     t.string   "tags"
     t.integer  "member_id"
     t.text     "description"
+    t.string   "pointofcontact"
+    t.datetime "startdate"
+    t.datetime "finishdate"
   end
 
 end

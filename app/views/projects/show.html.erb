@@ -3,6 +3,8 @@
 
 <p id="notice"><%= notice %></p>
 
+<div class="project">
+  
 <p>
   <b>Name:</b>
   <%= @project.name %>
@@ -12,6 +14,14 @@
   <b>Summary:</b>
   <%= @project.summary %>
 </p>
+
+<p>
+  <b>Starting date:</b>
+  <%= @project.startdate.strftime("%B %Y") %>
+  <b>Finish date:</b>
+  <%= @project.finishdate.strftime("%B %Y") %>
+</p>
+
 
 <p>
   <b>Description:</b>
@@ -24,12 +34,19 @@
 </p>
 
 <p>
+  <b>Point of contact:</b>
+  <%= @project.pointofcontact %>
+</p>
+
+<p>
   <b>Tags:</b>
   <%= @project.tags %>
 </p>
 
 <p>
   <%= link_to 'Edit', edit_project_path(@project) %> | 
-  <%= link_to 'Destroy', project_path(@project), :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to 'Delete', project_path(@project), :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to 'Back to list', projects_path %>
 </p>
+
+</div><!-- class=project -->

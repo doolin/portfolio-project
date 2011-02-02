@@ -16,6 +16,14 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label :startdate %><br />
+    <%= f.date_select :startdate %>
+  </div>
+  <div class="field">
+    <%= f.label :finishdate %><br />
+    <%= f.date_select :finishdate %>
+  </div>
+  <div class="field">
     <%= f.label :summary %><br />
     <%= f.text_field :summary %>
   </div>
@@ -26,6 +34,10 @@
   <div class="field">
     <%= f.label :client %><br />
     <%= f.text_field :client %>
+  </div>
+  <div class="field">
+    <%= f.label "Point of contact" %><br />
+    <%= f.text_field :pointofcontact %>
   </div>
   <div class="field">
     <%= f.label :tags %><br />
