@@ -1,6 +1,5 @@
 PortfolioProject::Application.routes.draw do
 
-
   get "pages/contact"
 
   get "pages/disclaimer"
@@ -13,7 +12,7 @@ PortfolioProject::Application.routes.draw do
 
   get "pages/privacy"
 
-=begin
+#=begin
   
   get "sales/index"
 
@@ -28,9 +27,11 @@ PortfolioProject::Application.routes.draw do
   get "sales/update"
 
   get "sales/edit"
-=end
+#=end
+
 
   devise_for :members
+
   # Needs a controller...
   resources :members
 

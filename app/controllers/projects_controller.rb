@@ -43,8 +43,10 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.xml
   def create
-    @project = Project.new(params[:project])
-
+    #@project = Project.new(params[:project])
+    @project = current_member.projects.build(params[:project])
+    flash[:success] = "New project created!"
+    
     respond_to do |format|
       if @project.save
         format.html { redirect_to(@project, :notice => 'Project was successfully created.') }

@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
 
-  attr_accessible :name, :summary, :client, :tags
+  attr_accessible :name, :summary, :client, :tags, :description
   
   belongs_to :member
 

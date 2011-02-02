@@ -1,0 +1,20 @@
+
+<h2>Members</h2>
+
+<table class="profile">
+  <tr>
+    <td class="main">
+      <% unless @members.empty? %>
+        <table class="projects" summary="Members">
+          <%= render @members %>
+        </table>
+
+      <% end %>
+    </td>
+    <td class="sidebar round">
+      <strong>Name</strong> 
+      <strong>URL</strong> 
+      <strong>Projects</strong> 
+    </td>
+  </tr>
+</table

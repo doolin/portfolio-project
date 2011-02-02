@@ -1,0 +1,25 @@
+
+
+<table class="profile">
+  <tr>
+    <td class="main">
+      <% unless @member.projects.empty? %>
+        <table class="projects" summary="Member projects">
+          <tr>
+            <td>Project name</td>
+            <td>Summary</td>
+            <td>Description</td>
+            <td>Client</td>
+            <td>Tags</td>
+           </tr>
+           <%= render @projects %>
+         </table>
+      <% end %>
+    </td>
+    <td class="sidebar round">
+      <strong>Name</strong> <%= @member.membername %><br />
+      <strong>URL</strong> <%= link_to member_path(@member), @member %><br />
+      <strong>Projects</strong> <%= @member.projects.count %>
+    </td>
+  </tr>
+</table>
