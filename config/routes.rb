@@ -36,6 +36,7 @@ PortfolioProject::Application.routes.draw do
   resources :members
 
   resources :projects
+  
   resources :sales
 
   # After the user is authenticated, reroute

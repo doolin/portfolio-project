@@ -10,4 +10,9 @@ class Project < ActiveRecord::Base
   
   default_scope :order => 'projects.created_at DESC'
   
+  def membername(id)
+    member = Member.find(id)
+    member.firstname + " " + member.lastname
+  end
+
 end

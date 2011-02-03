@@ -6,11 +6,11 @@
       <% unless @member.projects.empty? %>
         <table class="projects" summary="Member projects">
           <tr>
-            <td>Project name</td>
-            <td>Summary</td>
-            <td>Description</td>
-            <td>Client</td>
-            <td>Tags</td>
+            <th>Project name</th>
+            <th>Summary</th>
+            <th>Description</th>
+            <th>Client</th>
+            <th>Tags</th>  
            </tr>
            <%= render @projects %>
          </table>
