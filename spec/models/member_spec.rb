@@ -19,7 +19,7 @@ describe Member do
       @member.projects.should == [@p2, @p1]
     end
     
-    it "should destroy associated microposts" do
+    it "should destroy associated projects" do
       @member.destroy
       [@p1, @p2].each do |p|
         Project.find_by_id(p.id).should be_nil
