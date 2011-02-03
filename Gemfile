@@ -4,6 +4,8 @@ gem 'rails', '3.0.0'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'devise'
 gem 'dynamic_form'
+#gem 'friendly_id' # Looks cool, check into it later.
+gem 'stringex'
 
 group :cucumber do
   gem 'capybara'
