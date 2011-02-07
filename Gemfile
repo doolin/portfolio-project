@@ -6,6 +6,8 @@ gem 'devise'
 gem 'dynamic_form'
 #gem 'friendly_id' # Looks cool, check into it later.
 gem 'stringex'
+gem 'gravatar_image_tag'
+gem 'dalli'
 
 group :cucumber do
   gem 'capybara'

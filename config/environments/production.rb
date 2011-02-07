@@ -50,5 +50,7 @@ PortfolioProject::Application.configure do
   # From Devise
   # Test this, create a Trac ticket
   config.action_mailer.default_url_options = { :host => 'project-portfolio.com' }
-  
+
+  # Memcache
+  config.cache_store = :dalli_store  
 end
