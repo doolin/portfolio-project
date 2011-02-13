@@ -8,6 +8,7 @@ gem 'dynamic_form'
 gem 'stringex'
 gem 'gravatar_image_tag'
 gem 'dalli'
+gem 'possessive'
 
 group :cucumber do
   gem 'capybara'

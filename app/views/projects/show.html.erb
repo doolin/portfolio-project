@@ -1,8 +1,8 @@
 
 <% title "Project display" %>
 
-<p id="notice"><%= notice %></p>
 
+<section>
 <div class="project">
   
 <p>
@@ -16,16 +16,16 @@
 </p>
 
 <p>
-  <b>Starting date:</b>
+  <b>Dates:</b>
   <%= @project.startdate.strftime("%B %Y") %>
-  <b>Finish date:</b>
+  <em>to </em>
   <%= @project.finishdate.strftime("%B %Y") %>
 </p>
 
 
 <p>
   <b>Description:</b>
-  <%= @project.description %>
+  <%= @project.description.html_safe %>
 </p>
 
 <p>
@@ -46,7 +46,10 @@
 <p>
   <%= link_to 'Edit', edit_project_path(@project) %> | 
   <%= link_to 'Delete', project_path(@project), :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to 'Back to list', projects_path %>
+  <%= link_to @project.membername(@project.member_id).possessive + ' projects', '/members/'+ @project.member_id.to_s  %> |
+  <%= link_to 'All projects', projects_path %>
 </p>
 
 </div><!-- class=project -->
+</section>
+
