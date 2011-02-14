@@ -49,7 +49,7 @@
   
    
   <%= 
-  link_to @project.membername(@project.member_id) + ' projects', '/members/' + @project.member_id.to_s  
+  link_to @project.membername(@project.member_id).possessive + ' projects', '/members/' + @project.member_id.to_s  
   %> |
 
   
