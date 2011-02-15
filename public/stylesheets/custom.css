@@ -54,6 +54,11 @@ header img {
   background: #fff;
 }
 
+
+div.frontpage {
+  font-size: 125%;
+}
+
 /**
  *   SECTION MASTER
  */
