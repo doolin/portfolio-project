@@ -3,5 +3,5 @@
 
    	
 $(document).ready( function() {
-  $(".tags").css("color","black")
+  $(".tags").css("color","black");
 });

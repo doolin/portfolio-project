@@ -10,7 +10,7 @@ gem 'gravatar_image_tag'
 gem 'dalli'
 gem 'possessive'
 gem 'jquery-rails'
-
+gem 'aws-s3'
 
 group :cucumber do
   gem 'capybara'
