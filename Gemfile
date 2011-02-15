@@ -9,6 +9,8 @@ gem 'stringex'
 gem 'gravatar_image_tag'
 gem 'dalli'
 gem 'possessive'
+gem 'jquery-rails'
+
 
 group :cucumber do
   gem 'capybara'

@@ -38,10 +38,12 @@
   <%= @project.pointofcontact %>
 </p>
 
-<p>
-  <b>Tags:</b>
+<div class="tags-wrapper">
+  <strong>Tags:</strong>
+  <div class="tags">
   <%= @project.tags %>
-</p>
+  </div>
+</div>
 
 <p>
   <%= link_to 'Edit', edit_project_path(@project) %> | 
