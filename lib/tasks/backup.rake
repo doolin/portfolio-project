@@ -73,7 +73,7 @@ end
 
 
 
-name :perez do
+namespace :perez do
 
   desc "backup db from heroku and send to S3"
   task :backup => :environment do
