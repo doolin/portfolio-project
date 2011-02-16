@@ -4,4 +4,10 @@
    	
 $(document).ready( function() {
   $(".tags").css("color","black");
+  
+
+  $('#summary').startCounting({limit: 10});
+
+
+  
 });
