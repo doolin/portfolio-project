@@ -86,7 +86,7 @@ namespace :perez do
 
     puts "dumping sql file.."
 
-    backup_name =  "#{APP_NAME}_#{Time.now.to_s(:number)}.sql"
+    backup_name =  "#{Time.now.to_s(:number)}_#{AP_NAME}.dump"
     backup_path = "tmp/#{backup_name}"
     
     `echo #{DB_CONFIG['password']} | pg_dump #{DB_CONFIG['database']} -Fc --username=#{DB_CONFIG['username']} --host=#{DB_CONFIG['host']} > #{backup_path}`
