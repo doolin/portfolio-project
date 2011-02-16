@@ -7,6 +7,7 @@ $(document).ready( function() {
   
 
   $('#project_summary').startCounting({limit: 255});
+  $('#project_description').startCounting({limit: 2500});
 
 
   
