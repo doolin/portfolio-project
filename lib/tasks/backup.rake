@@ -5,6 +5,7 @@
 
 
 require 'rake'
+require 'yaml'
 require 'aws/s3'
 
 #BACKUP_BUCKET_NAME = 'inventium-test'
@@ -42,6 +43,13 @@ namespace :backups do
     puts backup_name
   end 
 
+
+  desc "Extract the database configuration"
+  task :getdbconfig do 
+    #DB_CONFIG = YAML::load(ERB.new(IO.read(File.join(RAILS_ROOT, 'config', 'database.yml'))).result)[RAILS_ENV]
+    DB_CONFIG = YAML::load(ERB.new(IO.read(File.join(Rails.root.to_s, 'config', 'database.yml'))).result)[Rails.env]
+    puts DB_CONFIG
+  end
 
 end
 
