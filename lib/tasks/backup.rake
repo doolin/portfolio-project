@@ -35,10 +35,19 @@ namespace :backups do
 
   end
 
+
+  desc "Dump a postgres database into tmp"
+  task :pgdump
+    puts "backup started @ #{Time.now}"
+    puts "dumping sql file.."
+    backup_name =  "#{APP_NAME}_#{Time.now.to_s(:number)}.sql"
+    backup_path = "tmp/#{backup_name}"
+    DB_CONFIG = YAML::load(ERB.new(IO.read(File.join(Rails.root.to_s, 'config', 'database.yml'))).result)[Rails.env]
+    `echo #{DB_CONFIG['password']} | pg_dump #{DB_CONFIG['database']} -Fc --username=#{DB_CONFIG['username']} --host=#{DB_CONFIG['host']} > #{backup_path}`
+  end
  
   desc "Create a name for the backup file"
   task :createname do 
-  
     backup_name = Time.now.strftime("%Y%m%d_%H%M%S") + "_#{APP_NAME}" 
     puts backup_name
   end 
