@@ -37,7 +37,7 @@ namespace :backups do
 
 
   desc "Dump a postgres database into tmp"
-  task :pgdump
+  task :pgdump do
     puts "backup started @ #{Time.now}"
     puts "dumping sql file.."
     backup_name =  "#{APP_NAME}_#{Time.now.to_s(:number)}.sql"
