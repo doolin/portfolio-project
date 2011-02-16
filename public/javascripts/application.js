@@ -6,7 +6,7 @@ $(document).ready( function() {
   $(".tags").css("color","black");
   
 
-  $('#summary').startCounting({limit: 10});
+  $('#project_summary').startCounting({limit: 255});
 
 
   
