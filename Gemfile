@@ -27,6 +27,14 @@ group :development do
   gem 'annotate-models', '1.0.4'
 end
 
+group :mysql do
+  gem 'mysql2'
+end
+
+group :postgresql do
+  gem 'pg'
+end
+
 group :test do
   gem 'rspec'
   gem 'rspec-rails'

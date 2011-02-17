@@ -100,7 +100,9 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    mysql2 (0.2.6)
     nokogiri (1.4.4)
+    pg (0.10.1)
     polyglot (0.3.1)
     possessive (1.0.0)
     predicated (0.2.2)
@@ -199,6 +201,8 @@ DEPENDENCIES
   gravatar_image_tag
   jquery-rails
   launchy
+  mysql2
+  pg
   possessive
   rails (= 3.0.0)
   rspec

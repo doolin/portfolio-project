@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20110217201007) do
 
   create_table "profiles", :force => true do |t|
     t.integer  "member_id"
-    t.text     "bio",        :limit => 500
+    t.text     "bio"
     t.string   "website"
     t.string   "twitter"
     t.string   "facebook"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20110217201007) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
-    t.text     "summary",        :limit => 255
+    t.text     "summary"
     t.string   "client"
     t.datetime "created_at"
     t.datetime "updated_at"

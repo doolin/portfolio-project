@@ -12,12 +12,12 @@ staging:
   pool: 5
   timeout: 5000
 
-postgres:
+postgresql:
   adapter: postgresql
   encoding: unicode
-  database: portproj_development
+  database: portproj
   pool: 5
-  username: portproj
+  username: postgres
   password: 
 
 mysql:
@@ -26,8 +26,8 @@ mysql:
   reconnect: false
   database: portproj_development
   pool: 5
-  username: portproj
-  password:
+  username: root
+  password: root
   socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
