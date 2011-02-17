@@ -79,7 +79,7 @@ namespace :perez do
   task :backup => :environment do
 
     APP_NAME = 'portproj' # put your app name here
-    BACKUP_BUCKET = 'inventium-test' # put your backup bucket name here
+    BACKUP_BUCKET = 'portfolio-project' # put your backup bucket name here
     DB_CONFIG = YAML::load(ERB.new(IO.read(File.join(RAILS_ROOT, 'config', 'database.yml'))).result)[RAILS_ENV]
 
     puts "backup started @ #{Time.now}"
