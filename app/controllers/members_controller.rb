@@ -3,6 +3,7 @@ class MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @projects = @member.projects
+    @profile = @member.profile
   end
   
   def index

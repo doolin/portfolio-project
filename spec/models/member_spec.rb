@@ -28,24 +28,26 @@ describe Member do
   end
     
     
-=begin      
+      
   describe "profile associations" do
 
     before(:each) do
       @member = Factory(:member)
       @p1 = Factory(:profile, :member => @member, :created_at => 1.day.ago)
-      @p2 = Factory(:profile, :member => @member, :created_at => 1.hour.ago)
     end
 
-    it "should destroy the associated profile" do
+    it "should have a profile" do
+      @member.profile.should == @p1
+    end
+    
+    it "destroys the associated profile" do
       @member.destroy
-      [@p1, @p2].each do |p|
+      [@p1].each do |p|
         Profile.find_by_id(p.id).should be_nil
       end
     end
 
   end 
-=end    
     
     
   describe "saving" do
