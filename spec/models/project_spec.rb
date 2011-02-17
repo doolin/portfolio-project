@@ -51,7 +51,7 @@ describe Project do
     end
     
     it "should reject long Summary" do
-      @member.projects.build(:summary => "a" * 141).should_not be_valid
+      @member.projects.build(:summary => "a" * 256).should_not be_valid
     end
 
     it "should require nonblank Name" do

@@ -6,6 +6,8 @@ Factory.define :member do |member|
   member.email                 "david.doolinl@example.com"
   member.password              "foobar"
   member.password_confirmation "foobar"
+  member.firstname             "First"
+  member.lastname              "Last"
 end
 
 Factory.sequence :email do |n|
@@ -22,3 +24,8 @@ Factory.define :project do |p|
   p.finishdate DateTime.new  
 end
 
+=begin
+Factory.define :profile do |p|
+	p.name "User name"
+	p.website "http://mywebsite.com/"	
+=end

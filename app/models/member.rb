@@ -9,7 +9,11 @@ class Member < ActiveRecord::Base
                   :firstname, :lastname, :membername
 
   has_many :projects, :dependent => :destroy
-
+  #has_one :profile, :dependent => :destroy
+  
+  validates :firstname, :presence => true
+  validates :lastname, :presence => true
+  validates_uniqueness_of :email
   
   
 end
