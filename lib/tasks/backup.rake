@@ -8,7 +8,7 @@ require 'rake'
 require 'yaml'
 require 'aws/s3'
 
-BACKUP_BUCKET_NAME = 'inventium-test'
+BACKUP_BUCKET_NAME = 'portfolio-project'
 #FILENAME = 'testfile.txt'
 
 APP_NAME = "portproj"
