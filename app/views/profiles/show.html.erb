@@ -1,1 +1,19 @@
-<h2>Show profile</h2>
+<h2> <%= @firstname.possessive %> profile</h2>
+
+<section>
+<div class="profile">
+  
+<p>
+  <b>Website:</b>
+  <%= @profile.website %>
+</p>
+
+
+<p>
+  <%= link_to 'Edit', edit_profile_path(@profile) %> | 
+  <%= link_to 'Delete', profile_path(@profile), :confirm => 'Are you sure?', :method => :delete %> |
+</p>
+
+</div><!-- class=project -->
+</section>
+

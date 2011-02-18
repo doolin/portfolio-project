@@ -10,4 +10,5 @@ class MembersController < ApplicationController
     #@member = Member.find(params[:id])
     @members = Member.find(:all)
   end
+    
 end

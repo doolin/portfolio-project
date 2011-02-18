@@ -34,9 +34,11 @@ PortfolioProject::Application.routes.draw do
 
   # Needs a controller...
   resources :members
-  
   match '/members/:id', :to => redirect {|params| "/#{params[:membername]}" }
 
+  resources :profiles
+  
+  
   resources :projects
   
   resources :sales
