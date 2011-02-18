@@ -24,6 +24,7 @@ class ProfilesController < ApplicationController
     # Use find_by_url in the future...
     @profile = Profile.find(params[:id])
     @firstname = Member.find(current_member.id).firstname
+    @member = Member.find(current_member.id)
   end
   
   def edit
