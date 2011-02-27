@@ -1,5 +1,7 @@
 <h2>Sign up</h2>
 
+<% resource.build_profile %>
+
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
@@ -17,6 +19,12 @@
 
   <p><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></p>
+
+<%# Nested! %>
+    <%= f.fields_for :profile do |profile_form| %>
+      <p><%= profile_form.label :twitter %><br />
+      <%= profile_form.text_field :twitter %></p>
+    <% end %>
 
   <p><%= f.submit "Sign up" %></p>
 <% end %>

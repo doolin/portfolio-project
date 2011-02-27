@@ -22,9 +22,13 @@ class ProfilesController < ApplicationController
   
   def show
     # Use find_by_url in the future...
-    @profile = Profile.find(params[:id])
-    @firstname = Member.find(current_member.id).firstname
-    @member = Member.find(current_member.id)
+    profile_id = Member.find(params[:id])
+    #@profile = Profile.find(params[:id])
+    @profile = Profile.find(profile_id)
+    #@firstname = Member.find(current_member.id).firstname
+    @firstname = Member.find(profile_id).firstname
+    #@member = Member.find(current_member.id)
+    @member = Member.find(profile_id)
   end
   
   def edit

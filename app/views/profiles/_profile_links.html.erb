@@ -1,0 +1,8 @@
+
+<p>
+<% if member_signed_in? %>
+  <%= link_to 'Edit', edit_profile_path(@profile) %> | 
+  <%= link_to 'Delete', profile_path(@profile), :confirm => 'Are you sure?', :method => :delete %> |
+<% end %>
+Profile link
+</p>

@@ -25,6 +25,7 @@ group :development do
   gem 'wrong'
   gem 'rspec-rails'
   gem 'annotate-models', '1.0.4'
+  gem 'selenium-webdriver'
 end
 
 group :mysql do

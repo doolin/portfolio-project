@@ -1,13 +1,10 @@
 class Profile < ActiveRecord::Base
     
-  attr_accessible :website
+  attr_accessible :website, :firstname, :lastname, :twitter, :bio 
   
-  belongs_to :member
+  belongs_to :member #, :foreign_key => 'member_id'
   
-#  def firstname(id)
-#    member = Member.find(id)
-#    member.firstname
-#  end
+# http://railsforum.com/viewtopic.php?id=42819
 
   
 end

@@ -6,6 +6,17 @@
 <p>
   <%= gravatar_for @member %>
 </p>  
+
+<p>
+  <b>First name:</b>
+  <%= @profile.firstname %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @profile.lastname %>
+</p>
+
 <p>
   <b>Bio:</b>
   <%= @profile.bio %>
@@ -28,10 +39,7 @@
   <%= @profile.linkedin %>
 </p>
 
-<p>
-  <%= link_to 'Edit', edit_profile_path(@profile) %> | 
-  <%= link_to 'Delete', profile_path(@profile), :confirm => 'Are you sure?', :method => :delete %> |
-</p>
+  <%= render 'profile_links' %>
 
 </div><!-- class=project -->
 </section>
