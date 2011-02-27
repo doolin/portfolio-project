@@ -1,10 +1,15 @@
 class Profile < ActiveRecord::Base
     
-  attr_accessible :website, :firstname, :lastname, :twitter, :bio 
+  attr_accessible :website, :firstname, :lastname, :twitter, :bio, :url 
   
-  belongs_to :member #, :foreign_key => 'member_id'
+  belongs_to :member
   
-# http://railsforum.com/viewtopic.php?id=42819
+  acts_as_url :lastname, :sync_url => :true
+  
+  def to_param
+    url
+  end
 
-  
 end
+
+# http://railsforum.com/viewtopic.php?id=42819

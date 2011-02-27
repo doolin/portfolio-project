@@ -17,8 +17,8 @@
     </td>
     <td class="sidebar round">
       <%= gravatar_for @member %><br /><br />
-      <strong><%= @member.firstname %> <%= @member.lastname %></strong><br />
-      <strong>URL</strong> <%= link_to member_path(@member), @member %><br />
+      <strong><%= @member.firstname %> <%= @member.lastname %></strong> | 
+      <strong> <%= link_to "Profile", @profile %></strong><br />
       <strong>Projects</strong> <%= @member.projects.count %>
     </td>
   </tr>

@@ -4,6 +4,7 @@ class ProfilesController < ApplicationController
       
   def index
     redirect_to 'profile/show'
+    #@profiles = Profile.all
   end
   
   def new
@@ -20,24 +21,31 @@ class ProfilesController < ApplicationController
     end
   end
   
-  def show
-    # Use find_by_url in the future...
-    profile_id = Member.find(params[:id])
-    #@profile = Profile.find(params[:id])
-    @profile = Profile.find(profile_id)
+      #@profile = Profile.find(params[:id])
     #@firstname = Member.find(current_member.id).firstname
-    @firstname = Member.find(profile_id).firstname
     #@member = Member.find(current_member.id)
-    @member = Member.find(profile_id)
+    # Use find_by_url in the future...
+
+  def show
+        
+    #profile_id = Member.find(params[:id])
+
+    #@profile = Profile.find_by_url(profile_id)
+    @profile = Profile.find_by_url(params[:id])
+    
+    #@firstname = Member.find(profile_id).firstname
+    
+    #@member = Member.find(profile_id)
+    @member = Member.find(@profile.member_id)
   end
   
   def edit
     # Use find_by_url in the future...
-    @profile = Profile.find(params[:id])
+    @profile = Profile.find_by_url(params[:id])
   end
   
   def update
-    @profile = Profile.find(params[:id])
+    @profile = Profile.find_by_url(params[:id])
 
     respond_to do |format|
       if @profile.update_attributes(params[:profile])
@@ -55,7 +63,7 @@ class ProfilesController < ApplicationController
 
   #:private
   
-  def firstname
-    current_member.firstname
-  end
+#  def firstname
+#    current_member.firstname
+#  end
 end
