@@ -8,7 +8,8 @@ class MembersController < ApplicationController
   
   def index
     #@member = Member.find(params[:id])
-    @members = Member.find(:all)
+    #@members = Member.find(:all)
+    redirect_to profiles_path
   end
     
 end

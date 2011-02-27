@@ -2,13 +2,15 @@
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>Member name</th>
+    <th>Member since</th>
   </tr>
 
 
 <% @profiles.each do |profile| %>
   <tr>
-    <td><%= link_to profile.lastname, profile %></td>
+    <td><%= link_to profile.firstname + " " + profile.lastname, profile %></td>
+    <td><%= profile.created_at.strftime("%B %e, %Y") %></td>
   </tr>
 <% end %>
 </table>

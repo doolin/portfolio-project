@@ -30,7 +30,7 @@ PortfolioProject::Application.routes.draw do
 #=end
 
 
-  devise_for :members
+  devise_for :members, :controllers => { :registrations => "registrations" }
 
   # Needs a controller...
   resources :members

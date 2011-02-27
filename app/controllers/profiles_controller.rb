@@ -3,8 +3,8 @@ class ProfilesController < ApplicationController
   before_filter :authenticate_member!, :except => [:show, :index]
       
   def index
-    redirect_to 'profile/show'
-    #@profiles = Profile.all
+    #redirect_to 'profile/show'
+    @profiles = Profile.find(:all)
   end
   
   def new

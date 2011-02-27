@@ -13,8 +13,9 @@ class Member < ActiveRecord::Base
   accepts_nested_attributes_for :profile
   #has_many :websites, :through => :profile  
 
-  validates :firstname, :presence => true
-  validates :lastname, :presence => true
+  #Move these to Profiles
+  #validates :firstname, :presence => true
+  #validates :lastname, :presence => true
   validates_uniqueness_of :email
   
   
