@@ -2,7 +2,7 @@ class CreateProfiles < ActiveRecord::Migration
   def self.up
     create_table :profiles do |t|
       t.integer  :member_id  
-      t.text     :bio, :limit => 500
+      t.text     :bio
       t.string   :website
       t.string   :twitter
       t.string   :facebook
