@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0'
+gem 'rails' 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'devise'
 gem 'dynamic_form'
@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'aws-s3'
 
 group :cucumber do
+  gem "builder", "~> 2.1.2"  
   gem 'capybara'
   gem 'database_cleaner'
   gem 'cucumber-rails'
@@ -24,7 +25,8 @@ end
 group :development do
   gem 'wrong'
   gem 'rspec-rails'
-  gem 'annotate-models', '1.0.4'
+  gem 'annotate-models'
+  #gem 'annotate-models', '1.0.4'
   gem 'selenium-webdriver'
 end
 
@@ -39,7 +41,9 @@ end
 group :test do
   gem 'rspec'
   gem 'rspec-rails'
-  gem 'webrat', '0.7.2'
-  gem 'factory_girl_rails', '1.0'
+  gem 'webrat'
+  gem 'factory_girl_rails'
+  #gem 'webrat', '0.7.2'
+  #gem 'factory_girl_rails', '1.0'
 #  gem 'email_spec' 
 end
