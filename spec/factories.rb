@@ -32,3 +32,12 @@ Factory.define :profile do |p|
   p.lastname              "Last"
 	p.website "http://mywebsite.com/"	
 end
+
+=begin
+Factory.define :user do |user|
+  user.name                  { |n| "user-#{n}"}
+  user.email                 { |n| "user-#{n}@example.com"}
+  user.password              { |n| "foobar-#{n}"}
+  user.password_confirmation { |n| "foobar-#{n}"}
+end
+=end
