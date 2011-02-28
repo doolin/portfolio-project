@@ -1,6 +1,6 @@
 
 <p>
-  <% if (current_member.id == @project.member_id) %>
+  <% if (member_signed_in? && (current_member.id == @project.member_id)) %>
     <%= link_to 'Edit', edit_project_path(@project) %> | 
     <%= link_to 'Delete', project_path(@project), :confirm => 'Are you sure?', :method => :delete %> |
   <% end %>
