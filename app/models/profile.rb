@@ -1,6 +1,7 @@
 class Profile < ActiveRecord::Base
     
-  attr_accessible :website, :firstname, :lastname, :twitter, :bio, :url 
+  attr_accessible :website, :firstname, :lastname, :twitter, :bio, :url,
+                  :facebook, :linkedin 
   
   belongs_to :member
 
