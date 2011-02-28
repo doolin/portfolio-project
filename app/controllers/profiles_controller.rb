@@ -3,7 +3,6 @@ class ProfilesController < ApplicationController
   before_filter :authenticate_member!, :except => [:show, :index]
       
   def index
-    #redirect_to 'profile/show'
     @profiles = Profile.find(:all)
   end
   
@@ -13,33 +12,18 @@ class ProfilesController < ApplicationController
   end
   
   def create
-    #@profile = Profile.new 
-    #@profile = current_member.profile.build(params[:profile])
     @profile = current_member.build_profile(params[:profile])
     if @profile.save
       redirect_to(@profile, :notice => 'Profile was successfully created.')
     end
   end
   
-  # FIXME: This is all stuff pulled out of the show method.
-  # Delete it all asap.
-    #@profile = Profile.find(params[:id])
-    #@firstname = Member.find(current_member.id).firstname
-    #@member = Member.find(current_member.id)
-    # Use find_by_url in the future...
-
   def show
-    #profile_id = Member.find(params[:id])
-    #@profile = Profile.find_by_url(profile_id)
     @profile = Profile.find_by_url(params[:id])
-    
-    #@firstname = Member.find(profile_id).firstname    
-    #@member = Member.find(profile_id)
     @member = Member.find(@profile.member_id)
   end
   
   def edit
-    # Use find_by_url in the future...
     @profile = Profile.find_by_url(params[:id])
   end
   
