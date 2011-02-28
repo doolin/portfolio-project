@@ -1,8 +1,10 @@
 
-<p>
+<div id="profile-links">
 <% if member_signed_in? %>
   <%= link_to 'Edit', edit_profile_path(@profile) %> | 
   <%= link_to 'Delete', profile_path(@profile), :confirm => 'Are you sure?', :method => :delete %> |
 <% end %>
-Profile link
-</p>
+  <%= 
+    link_to 'Projects', '/members/' + @profile.member_id.to_s  
+   %>
+</div>

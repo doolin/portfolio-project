@@ -21,20 +21,19 @@ class ProfilesController < ApplicationController
     end
   end
   
-      #@profile = Profile.find(params[:id])
+  # FIXME: This is all stuff pulled out of the show method.
+  # Delete it all asap.
+    #@profile = Profile.find(params[:id])
     #@firstname = Member.find(current_member.id).firstname
     #@member = Member.find(current_member.id)
     # Use find_by_url in the future...
 
   def show
-        
     #profile_id = Member.find(params[:id])
-
     #@profile = Profile.find_by_url(profile_id)
     @profile = Profile.find_by_url(params[:id])
     
-    #@firstname = Member.find(profile_id).firstname
-    
+    #@firstname = Member.find(profile_id).firstname    
     #@member = Member.find(profile_id)
     @member = Member.find(@profile.member_id)
   end
@@ -61,6 +60,8 @@ class ProfilesController < ApplicationController
   def destroy  
   end
 
+
+  
   #:private
   
 #  def firstname
