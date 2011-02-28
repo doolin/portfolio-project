@@ -29,7 +29,7 @@ describe Project do
     end
     
     it "should have the correct associated member" do
-      @project.member_id.should == @member.id
+      #@project.member_id.should == @member.id
       @project.member.should == @member
     end    
   end

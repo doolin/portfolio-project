@@ -1,16 +1,12 @@
 PortfolioProject::Application.routes.draw do
 
-  get "pages/contact"
-
-  get "pages/disclaimer"
-
-  get "pages/disclosure"
-
-  get "pages/terms"
-
-  get "pages/about"
-
-  get "pages/privacy"
+  
+  match '/contact', :to => 'pages#contact' 
+  match '/about', :to => 'pages#about'
+  match '/terms', :to => 'pages#terms'
+  match '/disclaimer', :to => 'pages#disclaimer'
+  match '/disclosure', :to => 'pages#disclosure'
+  match '/privacy', :to => 'pages#privacy'
 
 #=begin
   

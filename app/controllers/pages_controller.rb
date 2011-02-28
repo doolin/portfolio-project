@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   
   def contact
     @site_name = "Portfolio project"
+    @title ="Contact"
   end
 
   def disclaimer
@@ -17,6 +18,7 @@ class PagesController < ApplicationController
 
   def about
     @site_name = "Portfolio Project"
+    @title = "About"
   end
 
   def privacy

@@ -26,8 +26,7 @@ describe Member do
       end
     end
   end
-    
-    
+        
       
   describe "profile associations" do
 
