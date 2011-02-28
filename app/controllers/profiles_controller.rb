@@ -49,6 +49,11 @@ class ProfilesController < ApplicationController
     Member.find(id).projects.count
   end
   
+  
+  def current_member?(id)
+    current_member.id == id
+  end
+
   #:private
   
 #  def firstname
