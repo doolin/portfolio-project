@@ -44,7 +44,10 @@ class ProfilesController < ApplicationController
   def destroy  
   end
 
-
+  # FIXME: Make a macro or something to remove ugliness from view.
+  def number_of_projects(id)
+    Member.find(id).projects.count
+  end
   
   #:private
   

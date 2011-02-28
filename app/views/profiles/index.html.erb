@@ -1,9 +1,10 @@
-<h2 class="profiles-listing">All Profiles</h2>
 
+<h2 class="profiles-listing">All Profiles</h2>
 <table>
   <tr>
     <th>Member name</th>
     <th>Member since</th>
+    <th>Number of projects</th>
   </tr>
 
 
@@ -11,6 +12,7 @@
   <tr>
     <td><%= link_to profile.firstname + " " + profile.lastname, profile %></td>
     <td><%= profile.created_at.strftime("%B %e, %Y") %></td>
+    <td><%= Member.find(profile.member_id).projects.count %></td>
   </tr>
 <% end %>
 </table>

@@ -3,4 +3,5 @@
   <tr>
     <td><%= link_to member.firstname + ' ' + member.lastname, member %></td>
     <td><%= member.created_at.strftime("%B %e, %Y") %></td>
+    <td><%= @member.projects.count %></td>
   </tr>
