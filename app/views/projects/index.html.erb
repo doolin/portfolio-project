@@ -4,7 +4,6 @@
   <tr>
     <th>Name</th>
     <th>Summary</th>
-    <th>Client</th>
     <th>Tags</th>
     <th>Owner</th>
   </tr>
@@ -14,7 +13,6 @@
   <tr>
     <td><%= link_to project.name, project %></td>
     <td><%= project.summary %></td>
-    <td><%= project.client %></td>
     <td><%= project.tags %></td>
 	<td><%= 
       link_to project.membername(project.member_id), '/members/' + project.member_id.to_s  
