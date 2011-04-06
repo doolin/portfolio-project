@@ -6,7 +6,8 @@ class Member < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-                  :firstname, :lastname, :membername, :profile_attributes
+                  :firstname, :lastname, :membername, :profile_attributes,
+                  :recoverable
 
   has_many :projects, :dependent => :destroy
   has_one :profile, :dependent => :destroy
