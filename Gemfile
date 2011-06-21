@@ -41,7 +41,7 @@ end
 group :test do
   gem 'rspec'
   gem 'rspec-rails'
-  gem 'webrat'
+#  gem 'webrat'
   gem 'factory_girl_rails'
 # autotest
 # autotest-rails-pure
