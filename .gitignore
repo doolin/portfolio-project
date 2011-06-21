@@ -12,3 +12,5 @@ coverage.data
 .DS_Store
 ./*.sqlite3
 ./*.dump
+bin/
+bin/*

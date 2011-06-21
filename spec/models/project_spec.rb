@@ -83,5 +83,28 @@ describe Project do
     end
     
   end
+
+=begin
+
+From the RSpec-users list Shlomi Zadok
+
+Do this instead:
+
+group :development, :test do
+  gem 'rspec-rails', '2.5.0'
+end
+
+group :test do
+  gem 'webrat', '0.7.1'
+end
+
+rspec-rails needs to be in the development env in order to expose the rake tasks and the test environment in order to be loaded when you run the spec suite. It has a dependency on rspec, so you don't need to list rspec explicitly.
+
+Webrat only needs to be in the development env.
+
+HTH,
+David
+=end 
+=end
   
 end

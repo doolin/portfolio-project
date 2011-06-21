@@ -20,7 +20,7 @@ describe ProjectsController do
     it "assigns the requested project as @project" do
       Project.stub(:find).with("37") { mock_project }
       get :show, :id => "37"
-      assigns(:project).should be(mock_project)
+      assigns(:project).should eq(mock_project)
     end
   end
 
@@ -28,7 +28,7 @@ describe ProjectsController do
     it "assigns a new project as @project" do
       Project.stub(:new) { mock_project }
       get :new
-      assigns(:project).should be(mock_project)
+      assigns(:project).should eq(mock_project)
     end
   end
 

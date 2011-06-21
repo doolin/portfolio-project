@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails' 
-gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'sqlite3'
 gem 'devise'
 gem 'dynamic_form'
 #gem 'friendly_id' # Looks cool, check into it later.
@@ -13,7 +13,7 @@ gem 'jquery-rails'
 gem 'aws-s3'
 
 group :cucumber do
-  gem "builder", "~> 2.1.2"  
+#  gem "builder", "~> 2.1.2"  
   gem 'capybara'
   gem 'database_cleaner'
   gem 'cucumber-rails'
