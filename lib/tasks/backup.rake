@@ -92,7 +92,7 @@ namespace :perez do
 
     puts "backup started @ #{Time.now}"
 
-    puts "dumping sql file.."
+    puts "dumping sql file..."
 
     backup_name =  "#{Time.now.to_s(:number)}_#{APP_NAME}.dump"
     backup_path = "tmp/#{backup_name}"
@@ -105,12 +105,13 @@ namespace :perez do
     backup_name += ".gz"
     backup_path = "tmp/#{backup_name}"
 
-    puts "uploading #{backup_name} to S3..."
+    puts "connecting to S..."
       AWS::S3::Base.establish_connection!(
-        :access_key_id     => ENV['S3_KEY'],
+        :access_key_id => ENV['S3_KEY'],
         :secret_access_key => ENV['S3_SECRET']
-      )
+        )
 
+=begin
     begin
       bucket = AWS::S3::Bucket.find(BACKUP_BUCKET)
     rescue AWS::S3::NoSuchBucket
@@ -118,11 +119,13 @@ namespace :perez do
       bucket = AWS::S3::Bucket.find(BACKUP_BUCKET)
     end
 
+    puts "uploading #{backup_name} to S3..."
+    
     AWS::S3::S3Object.store(backup_name, File.open(backup_path,"r"), bucket.name, :content_type => 'application/x-gzip')
     `rm -rf #{backup_path}`
     puts "backup completed @ #{Time.now}"
   end
-  
+=end  
 
 end
 
