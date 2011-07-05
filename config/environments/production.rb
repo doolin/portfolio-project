@@ -49,7 +49,7 @@ PortfolioProject::Application.configure do
   
   # From Devise
   # Test this, create a Trac ticket
-  config.action_mailer.default_url_options = { :host => 'gmail.com' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # Memcache
   config.cache_store = :dalli_store  
