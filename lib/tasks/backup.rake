@@ -8,6 +8,14 @@ require 'rake'
 require 'yaml'
 require 'aws/s3'
 
+=begin
+module ::PortfolioProject
+  class Application
+    include Rake::DSL
+  end
+end
+=end
+
 BACKUP_BUCKET_NAME = 'portfolio-project'
 #FILENAME = 'testfile.txt'
 
