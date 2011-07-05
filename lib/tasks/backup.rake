@@ -3,7 +3,7 @@
 # http://devcenter.heroku.com/articles/config-vars
 # http://devcenter.heroku.com/articles/s3
 
-
+require 'rake/dsl_definition'
 require 'rake'
 require 'yaml'
 require 'aws/s3'
