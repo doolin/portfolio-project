@@ -124,8 +124,8 @@ namespace :perez do
     AWS::S3::S3Object.store(backup_name, File.open(backup_path,"r"), bucket.name, :content_type => 'application/x-gzip')
     `rm -rf #{backup_path}`
     puts "backup completed @ #{Time.now}"
-  end
-=end  
+=end
+ end  
 
 end
 
