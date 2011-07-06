@@ -97,7 +97,9 @@ namespace :perez do
     backup_name =  "#{Time.now.to_s(:number)}_#{APP_NAME}.dump"
     backup_path = "tmp/#{backup_name}"
     
-    `echo #{DB_CONFIG['password']} | pg_dump #{DB_CONFIG['database']} -Fc --username=#{DB_CONFIG['username']} --host=#{DB_CONFIG['host']} > #{backup_path}`
+    #`echo #{DB_CONFIG['password']} | pg_dump #{DB_CONFIG['database']} -Fc --username=#{DB_CONFIG['username']} --host=#{DB_CONFIG['host']} > #{backup_path}`
+    # Assumes PGPASSWORD is set.
+    `pg_dump #{DB_CONFIG['database']} -Fc --username=#{DB_CONFIG['username']} --host=#{DB_CONFIG['host']} > #{backup_path}`
   
     puts "gzipping sql file..."
     `gzip #{backup_path}`
@@ -111,7 +113,7 @@ namespace :perez do
         :secret_access_key => ENV['S3_SECRET']
         )
 
-=begin
+#=begin
     begin
       bucket = AWS::S3::Bucket.find(BACKUP_BUCKET)
     rescue AWS::S3::NoSuchBucket
@@ -124,7 +126,8 @@ namespace :perez do
     AWS::S3::S3Object.store(backup_name, File.open(backup_path,"r"), bucket.name, :content_type => 'application/x-gzip')
     `rm -rf #{backup_path}`
     puts "backup completed @ #{Time.now}"
-=end
+#=end
+
  end  
 
 end
