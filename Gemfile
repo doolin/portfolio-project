@@ -13,6 +13,8 @@ gem 'possessive'
 gem 'jquery-rails'
 gem 'aws-s3'
 
+gem 'escape_utils'
+
 group :cucumber do
 #  gem "builder", "~> 2.1.2"  
   gem 'capybara'
