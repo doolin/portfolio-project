@@ -3,49 +3,41 @@ require 'spec_helper'
 
 describe "LayoutLinks" do
 
-  it "should have a Home page at '/'" do
-    get '/'
-    response.should have_selector('title', :content => "Portfolio Project")
-  end
-
   it "should have a Contact page at '/contact'" do
     get '/contact'
-    #response.should have_selector('title', :content => "Contact")
-    response.should have_selector('h2', :content => "Contact")
+    response.should render_template(:contact)
   end
 
   it "should have an About page at '/about'" do
     get '/about'
-    response.should have_selector('title', :content => "About")
+    response.should render_template(:about)
   end
 
   it "should have a Disclaimer page at '/disclaimer'" do
-    pending "Add this link later"
+    #pending "Add this link later"
     get '/disclaimer'
-    response.should have_selector('title', :content => "Discplaimer")
+    response.should render_template(:disclaimer)
   end
 
   it "should have a Disclosure page at '/disclosure'" do
-    pending "Add this link later"
+    #pending "Add this link later"
     get '/disclosure'
-    response.should have_selector('title', :content => "Disclosure")
+    response.should render_template(:disclosure)
   end
 
   it "should have a Privacy page at '/privacy'" do
     get '/privacy'
-    #response.should have_selector('title', :content => "Privacy")
-    response.should have_selector('h2', :content => "Privacy")
+    response.should render_template(:privacy)
   end
 
   it "should have a Terms & Conditions page at '/terms'" do
     get '/terms'
-    #response.should have_selector('title', :content => "Terms & Conditions")
-    response.should have_selector('h2', :content => "Terms & Conditions")
+    response.should render_template(:terms)
   end
 
   it "should have a Help page at '/help'" do
-    pending "Develop a help system"
+    #pending "Develop a help system"
     get '/help'
-    response.should have_selector('title', :content => "Help")
+    response.should render_template(:help)
   end
 end

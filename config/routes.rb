@@ -1,12 +1,13 @@
 PortfolioProject::Application.routes.draw do
 
   
-  match '/contact', :to => 'pages#contact' 
-  match '/about', :to => 'pages#about'
-  match '/terms', :to => 'pages#terms'
+  match '/contact',    :to => 'pages#contact' 
+  match '/about',      :to => 'pages#about'
+  match '/terms',      :to => 'pages#terms'
   match '/disclaimer', :to => 'pages#disclaimer'
   match '/disclosure', :to => 'pages#disclosure'
-  match '/privacy', :to => 'pages#privacy'
+  match '/privacy',    :to => 'pages#privacy'
+  match '/help',       :to => 'pages#help'
 
 #=begin
   

@@ -12,6 +12,9 @@ class PagesController < ApplicationController
   def disclosure
   end
 
+  def help
+  end
+
   def terms
     @site_name = "Portfolio Project"
   end
@@ -26,6 +29,10 @@ class PagesController < ApplicationController
   end
   
   def disclaimer
+    @site_name = "Portfolio Project"
+  end
+
+  def help
     @site_name = "Portfolio Project"
   end
 

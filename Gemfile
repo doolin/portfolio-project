@@ -44,13 +44,12 @@ group :test do
   gem 'rspec-rails'
 #  gem 'webrat'
   gem 'factory_girl_rails'
-# autotest
-# autotest-rails-pure
-# autotest-fsevent
-# autotest-growl
-# spork
+  gem 'autotest'
+  gem 'autotest-rails-pure'
+  gem 'autotest-fsevent'
+  gem 'autotest-growl'
+  gem 'spork'
 # metric_fu
   #gem 'webrat', '0.7.2'
-  #gem 'factory_girl_rails', '1.0'
 #  gem 'email_spec' 
 end
