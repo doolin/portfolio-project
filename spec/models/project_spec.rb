@@ -19,7 +19,7 @@ describe Project do
   end
   
   describe "member associations" do
-    
+
     before(:each) do
       @project = @member.projects.create(@attr)
     end
@@ -98,7 +98,10 @@ group :test do
   gem 'webrat', '0.7.1'
 end
 
-rspec-rails needs to be in the development env in order to expose the rake tasks and the test environment in order to be loaded when you run the spec suite. It has a dependency on rspec, so you don't need to list rspec explicitly.
+rspec-rails needs to be in the development env in order to expose 
+the rake tasks and the test environment in order to be loaded when 
+you run the spec suite. It has a dependency on rspec, so you don't 
+need to list rspec explicitly.
 
 Webrat only needs to be in the development env.
 

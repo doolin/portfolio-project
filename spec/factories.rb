@@ -12,10 +12,6 @@ end
 #  member.lastname              "Last"
 #end
 
-Factory.sequence :email do |n|
-  "person-#{n}@example.com"
-end
-
 Factory.define :project do |p|
   p.name "Project test"
   p.summary  "Test example"
@@ -24,6 +20,11 @@ Factory.define :project do |p|
   p.tags  "TDD, BDD"
   p.startdate DateTime.new
   p.finishdate DateTime.new  
+end
+
+
+Factory.sequence :email do |n|
+  "person-#{n}@example.com"
 end
 
 

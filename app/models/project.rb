@@ -5,13 +5,13 @@ class Project < ActiveRecord::Base
   
   belongs_to :member
 
-  validates :summary, :presence => true, :length => { :maximum => 255 }
-  validates :member_id, :presence => true
-  validates :name, :presence => true, :length => { :maximum => 140 }
+  validates :summary,     :presence => true, :length => { :maximum => 255 }
+  validates :member_id,   :presence => true
+  validates :name,        :presence => true, :length => { :maximum => 140 }
   validates :description, :presence => true, :length => { :maximum => 2500 }
-  validates :startdate, :presence => true
-  validates :finishdate, :presence => true
-  validates :client,  :length => { :maximum => 140 }
+  validates :startdate,   :presence => true
+  validates :finishdate,  :presence => true
+  validates :client,                         :length => { :maximum => 140 }
   
   
   default_scope :order => 'projects.created_at DESC'
