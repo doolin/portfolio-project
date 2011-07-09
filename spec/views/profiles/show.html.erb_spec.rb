@@ -20,22 +20,26 @@ describe 'profile/show.html.erb' do
   end  
 =end
 
-  it "renders the member's profile page" do
+  xit "renders the member's profile page" do
+    
     render
     rendered.should have_selector('a', :content => 'Edit')
   end
 
 end
 
-=begin
+
 describe "profiles/_profile_links.html.erb" do
   
-  it "should have text Projects" do
-    pending "Projects as anchor text."  
+  it "should have link to Edit" do
+    #pending "Projects as anchor text."
+      controller.request.path_parameters["controller"].should eq("profiles")
+      controller.request.path_parameters["action"].should be_nil
+#    render
+#    rendered.should have_selector('a', :content => 'Edit')
   end
   
   it "should have a link to Projects" do
     pending "Add link to projects"
   end  
 end    
-=end 

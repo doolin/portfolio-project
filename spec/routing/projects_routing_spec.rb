@@ -1,7 +1,8 @@
 require "spec_helper"
 
 describe ProjectsController do
-  describe "routing" do
+
+  describe "routing, explicit, long form" do
 
     it "recognizes and generates #index" do
       { :get => "/projects" }.should route_to(:controller => "projects", :action => "index")
@@ -32,4 +33,49 @@ describe ProjectsController do
     end
 
   end
+
+
+  describe "routing short form, url redirect" do
+
+    before(:each) do
+      @project = Project.create(:name => 'New project')
+    end
+
+    it "routes GET projects_path to the /index action" do
+      get(projects_path).should \
+        route_to('projects#index')
+    end
+
+    it "routes GET project_path(@project) to the /show action" do
+      get(project_path(@project)).should \
+        route_to('projects#show', :id => @project.url)
+    end
+
+    it "routes GET edit_project_path(@project) to the /edit action" do
+      get(edit_project_path(@project)).should \
+        route_to('projects#edit', :id => @project.url)
+    end
+
+    it "routes GET new_project_path to the /new action" do
+      get(new_project_path).should \
+        route_to('projects#new')
+    end
+
+    it "routes POST project_path to the /create action" do
+      post(projects_path).should \
+        route_to('projects#create')
+    end
+
+    it "routes DELETE project_path(@project) to the /destroy action" do
+      delete(project_path(@project)).should \
+        route_to('projects#destroy', :id => @project.url)
+    end
+
+    it "routes PUT project_path(@project) to the /update action" do
+      put(project_path(@project)).should \
+        route_to('projects#update', :id => @project.url)
+    end
+
+  end
+
 end

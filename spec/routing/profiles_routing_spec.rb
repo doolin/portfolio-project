@@ -76,7 +76,7 @@ end
 
 
 
-describe "named routes for Profiles" do
+describe "named routes for Profiles (long form)" do
 
   before(:each) do
     @member = Member.create(:email => 'foo@bar.com', 
@@ -100,7 +100,7 @@ describe "named routes for Profiles" do
     { :get => edit_profile_path(@profile) }.should route_to(:controller => "profiles", :action => 'edit', :id => 'bar')
   end
 
-  it "routes GET new_profile_path(@profile) to the /new action" do
+  it "routes GET new_profile_path to the /new action" do
     #p new_profile_path
     { :get => new_profile_path }.should route_to(:controller => "profiles", :action => "new")
   end

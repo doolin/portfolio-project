@@ -35,4 +35,3 @@ describe "profiles/_form.html.erb" do
     controller.request.path_parameters["action"].should be_nil
   end
 end
-    
