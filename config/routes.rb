@@ -1,6 +1,19 @@
 PortfolioProject::Application.routes.draw do
 
-  
+  # The priority is based upon order of creation:
+  # first created -> highest priority.
+
+  # All non-logged in users go to sales page.
+  root :to => "sales#index"
+
+  get "sales/index"
+  get "sales/new"
+  get "sales/create"
+  get "sales/show"
+  get "sales/destroy"
+  get "sales/update"
+  get "sales/edit"
+
   match '/contact',    :to => 'pages#contact' 
   match '/about',      :to => 'pages#about'
   match '/terms',      :to => 'pages#terms'
@@ -9,51 +22,22 @@ PortfolioProject::Application.routes.draw do
   match '/privacy',    :to => 'pages#privacy'
   match '/help',       :to => 'pages#help'
 
-#=begin
-  
-  get "sales/index"
-
-  get "sales/new"
-
-  get "sales/create"
-
-  get "sales/show"
-
-  get "sales/destroy"
-
-  get "sales/update"
-
-  get "sales/edit"
-#=end
-
-
   devise_for :members, :controllers => { :registrations => "registrations" }
 
   # Needs a controller...
   resources :members
   #match '/members/:id', :to => redirect {|params| "/#{params[:membername]}" }
-
   resources :profiles
-  
-  
   resources :projects
-  
   resources :sales
 
   # After the user is authenticated, reroute
   # to his or her project list.
   # But this isn't working...
-#  namespace :member do
-#    root :to => "projects#index"
-#  end
+  #  namespace :member do
+  #    root :to => "projects#index"
+  #  end
  
-  # All non-logged in users go to sales page.
-  root :to => "sales#index"
-
-
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
@@ -98,13 +82,4 @@ PortfolioProject::Application.routes.draw do
   #     resources :products
   #   end
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => "welcome#index"
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
 end
