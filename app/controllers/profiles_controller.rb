@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
 
-  before_filter :authenticate_member!, :except => [:show, :index]
+  before_filter :authenticate_member!, :except => [:show]
       
   def index
     @profiles = Profile.find(:all)
@@ -41,7 +41,12 @@ class ProfilesController < ApplicationController
     end
   end
   
-  def destroy  
+  def destroy
+    @profile = Profile.find_by_url(params[:id])
+    @profile.destroy
+    # From cacklist...
+    #redirect_back_or root_path
+    redirect_to root_path
   end
 
   # FIXME: Make a macro or something to remove ugliness from view.

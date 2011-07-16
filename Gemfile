@@ -26,6 +26,7 @@ group :cucumber do
 end  
 
 group :development do
+  gem 'ruby-debug19'
   gem 'wrong'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
