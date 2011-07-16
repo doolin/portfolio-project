@@ -1,4 +1,4 @@
-Feature: Member creates a new project
+Feature: Member creates project
 
   Projects are the lynchpin of the application, and each
   member needs to be able to accurately and quickly create

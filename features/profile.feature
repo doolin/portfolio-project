@@ -1,4 +1,4 @@
-Feature: Member creates a new profile
+Feature: Member creates profile
 
   Profiles provide more background information for users.
 
