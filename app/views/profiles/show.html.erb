@@ -1,7 +1,9 @@
 <h2> <%= @profile.firstname.possessive %> profile</h2>
 
 
-<%= flash[:notice] %>
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, :class => "flash #{key}" unless value.blank? %>
+<% end %>
 
 <section>
 <div class="profile">

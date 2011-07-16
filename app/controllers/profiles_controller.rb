@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = current_member.build_profile(params[:profile])
     if @profile.save
-      redirect_to(@profile, :notice => 'Profile was successfully created.')
+      redirect_to(@profile, :flash => { :success => 'Profile was successfully created.' })
     end
   end
   
@@ -32,7 +32,7 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.update_attributes(params[:profile])
-        format.html { redirect_to(@profile, :notice => 'Profile was successfully updated.') }
+        format.html { redirect_to(@profile, :flash => { :success => 'Profile was successfully updated.' }) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -46,7 +46,7 @@ class ProfilesController < ApplicationController
     @profile.destroy
     # From cacklist...
     #redirect_back_or root_path
-    redirect_to root_path
+    redirect_to(root_path, :flash => { :success => 'Profile was successfully removed.' })
   end
 
   # FIXME: Make a macro or something to remove ugliness from view.
