@@ -16,7 +16,8 @@ gem 'aws-s3'
 gem 'escape_utils'
 
 group :cucumber do
-#  gem "builder", "~> 2.1.2"  
+#  gem "builder", "~> 2.1.2"
+#  gem 'webrat'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'cucumber-rails'

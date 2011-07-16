@@ -84,15 +84,15 @@ Given /^member is signed as "([^"]*)" and password "([^"]*)"$/ do |email, passwo
   @member = Member.new(:name => name,
             :email => email,
             :password => password,
-            :password_confirmation => password).save!
+            :password_confirmation => password,
+            :firstname => 'MFoo',
+            :lastname => 'MBar').save!
   Given %{member is not logged in}
   When %{I go to the sign in page}
   And %{I fill in "Email" with "#{email}"}
   And %{I fill in "Password" with "#{password}"}
   And %{I press "Sign in"}
   #Then %{I should be signed in}
-
-#  pending # express the regexp above with the code you wish you had
 end
 
 Given /^is on the Create Profile page$/ do
@@ -101,37 +101,53 @@ Given /^is on the Create Profile page$/ do
 end
 
 When /^the member fills out all the profile fields correctly$/ do
-  #visit new_profile_path
   firstname = "Foo"
   lastname = "Bar"
-  #visit('/profiles/new')
   And %{I fill in "Firstname" with "#{firstname}"}
   And %{I fill in "Lastname" with "#{lastname}"}
-  #And %{I press "Sign in"}
-  #pending # express the regexp above with the code you wish you had
 end
 
 When /^the member presses the "([^"]*)" button$/ do |button|
   click_button(button)
-  #click_button(button)
-  #pending # express the regexp above with the code you wish you had
 end
 
 Then /^the member is shown the page for the new profile$/ do
+  # Fixme: the url needs to be extracted from the data
   visit ('bar')
-  #pending # express the regexp above with the code you wish you had
 end
 
 Given /^is on the create project page$/ do
-  pending # express the regexp above with the code you wish you had
+  visit new_project_path
 end
 
+
+# Date and time gem: https://gist.github.com/558786
 When /^the member fills out all the project fields correctly$/ do
-  pending # express the regexp above with the code you wish you had
+  name = "New project"
+  #startdate = "2011-07-16"
+  #finishdate = "2011-02-03 00:00:00.000000"
+  summary = "New project summary"
+  description = "New project description"
+  And %{I fill in "Name" with "#{name}"}
+  And %{I fill in "Summary" with "#{summary}"}
+  And %{I fill in "Description" with "#{description}"}
+
+  # Time and date fields are broken in Capybara, or
+  # perhaps it's more accurate to say that Rails doesn't
+  # implement something easily used for matching. Also,
+  # HTML 5 is coming with it's own date/time form element.
+  # Widespread adoption may be a few years in the future.
+  # For now, getting the project to work correctly requires
+  # removing the presence requirement of dates.
+  #select(value, :from => field)
+  #select_date("July 16, 2011", :from => 'Startdate')
+  #And %{I select "#{startdate}" from "Startdate"}
+  #And %{I select #{finishdate} from "Finishdate"}
 end
 
 Then /^the member is shown the page for the new project$/ do
-  pending # express the regexp above with the code you wish you had
+  # Fixme: the url needs to be extracted from the data
+  visit ('new-project')
 end
 
 

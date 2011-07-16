@@ -10,3 +10,4 @@ Feature: Member creates project
     When the member fills out all the project fields correctly
     And the member presses the "Create Project" button
     Then the member is shown the page for the new project
+    #Then show me the page
