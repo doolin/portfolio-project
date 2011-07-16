@@ -32,11 +32,11 @@ describe Profile do
     end
 
     it "should require nonblank firstname" do
-      @member.build_profile(:firstname =>" ").should_not be_valid
+      @member.build_profile(@attr.merge({:firstname => ' '})).should_not be_valid
     end
 
     it "should require nonblank lsstname" do
-      @member.build_profile(:lsstname =>" ").should_not be_valid
+      @member.build_profile(@attr.merge({:lastname => ' '})).should_not be_valid
     end
 
   end

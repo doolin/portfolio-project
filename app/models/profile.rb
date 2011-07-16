@@ -6,8 +6,8 @@ class Profile < ActiveRecord::Base
   belongs_to :member
 
   validates :member_id, :presence => true
-  #validates :firstname, :presence => true
-  #validates :lastname,  :presence => true
+  validates :firstname, :presence => true
+  validates :lastname,  :presence => true
   
   acts_as_url :lastname, :sync_url => :true
   
