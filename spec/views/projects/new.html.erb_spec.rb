@@ -15,7 +15,7 @@ describe "projects/new.html.erb" do
   it "renders new project form" do
     render
 
-    # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
+    # TODO: Switch all of this to Capybara/RSpec once the 'within' issue is solved
     assert_select "form", :action => projects_path, :method => "post" do
       assert_select "input#project_name", :name => "project[name]"
       assert_select "textarea#project_summary", :name => "project[summary]"
@@ -33,13 +33,5 @@ describe "projects/new.html.erb" do
   it "infers the controller action" do
     controller.request.path_parameters["action"].should eq("new")
   end
-
-
-describe "projects/_form.html.erb" do
-  it "includes a link to new" do
-    pending "Not clear what Relishapp wants here (http://relishapp.com/rspec/rspec-rails/v/2-5/dir/view-specs/view-spec-infers-controller-path-and-action)"
-    controller.request.path_parameters["action"].should be_nil
-  end
-end
     
 end
