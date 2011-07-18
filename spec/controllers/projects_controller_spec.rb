@@ -3,6 +3,7 @@ require 'spec_helper'
 describe ProjectsController do
 
   def mock_project(stubs={})
+    @member = mock(Member)
     (@mock_project ||= mock_model(Project).as_null_object).tap do |project|
     #(@mock_project ||= mock_model(Project).as_new_record.as_null_object).tap do |project|
       project.stub(stubs) unless stubs.empty?
@@ -50,11 +51,18 @@ describe ProjectsController do
         assigns(:project).should be(@mock_project)
       end
 
+
+
+
       it "redirects to the created project" do
-        pending "Need to add a Devise sign in for this..."
+        
+        member = Factory(:member)
+        sign_in member
+        #member.build_profile(stub(Profile))
+        #pending "Need to add a Devise sign in for this..."
         Project.stub(:new) { mock_project(:save => true) }
         post :create, :project => {}
-        response.should redirect_to(project_url(mock_project))
+        response.should redirect_to(project_url(@mock_project))
       end
 
       it "redirects to the sign in page when not logged in" do
@@ -83,24 +91,29 @@ describe ProjectsController do
 
   describe "PUT update" do
 
+    before(:each) do 
+      @member = Factory(:member)
+      sign_in @member
+    end
+
     describe "with valid params" do
 
-      it "updates the requested project" do
-        pending "Need Devise log in..."
-        Project.should_receive(:find).with("37") { mock_project }
+      xit "updates the requested project" do
+        #Project.should_receive(:find).with("37") { mock_project }
+        Project.stub(:find).with("37") { mock_project }
         mock_project.should_receive(:update_attributes).with({'these' => 'params'})
         put :update, :id => "37", :project => {'these' => 'params'}
       end
 
-      it "assigns the requested project as @project" do
-        pending "Need Devise log in..."
-        Project.stub(:find) { mock_project(:update_attributes => true) }
+      xit "assigns the requested project as @project" do
+        #Project.stub(:find).with("37") { mock_project }
+        Project.stub(:find).with("1") { mock_project(:update_attributes => true) }
         put :update, :id => "1"
-        assigns(:project).should be(mock_project)
+        assigns(:project).should be(@mock_project)
       end
 
-      it "redirects to the project" do
-        pending "Need Devise log in..."
+      xit "redirects to the project" do
+        #pending "Need Devise log in..."
         Project.stub(:find) { mock_project(:update_attributes => true) }
         put :update, :id => "1"
         response.should redirect_to(project_url(mock_project))
@@ -108,15 +121,13 @@ describe ProjectsController do
     end
 
     describe "with invalid params" do
-      it "assigns the project as @project" do
-        pending "Need Devise log in..."
+      xit "assigns the project as @project" do
         Project.stub(:find) { mock_project(:update_attributes => false) }
         put :update, :id => "1"
         assigns(:project).should be(mock_project)
       end
 
-      it "re-renders the 'edit' template" do
-        pending "Need Devise log in..."
+      xit "re-renders the 'edit' template" do
         Project.stub(:find) { mock_project(:update_attributes => false) }
         put :update, :id => "1"
         response.should render_template("edit")
@@ -126,6 +137,7 @@ describe ProjectsController do
 
     describe "when not an authenticated member" do
        it "should redirect to the sign in page" do
+         sign_out @member
          Project.stub(:find) { mock_project(:update_attributes => true) }
          put :update, :id => "1"
          response.should redirect_to(new_member_session_path)
@@ -134,21 +146,27 @@ describe ProjectsController do
 
   end
 
-=begin
+#=begin
   describe "DELETE destroy" do
-    it "destroys the requested project" do
+
+    before(:each) do 
+      @member = Factory(:member)
+      sign_in @member
+    end
+
+
+    xit "destroys the requested project" do
       Project.should_receive(:find).with("37") { mock_project }
       mock_project.should_receive(:destroy)
       delete :destroy, :id => "37"
     end
 
-    it "redirects to the projects list" do
+    xit "redirects to the projects list" do
       Project.stub(:find) { mock_project }
       delete :destroy, :id => "1"
       response.should redirect_to(projects_url)
     end
   end
-
-=end
+#=end
 
 end
