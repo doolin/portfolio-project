@@ -50,7 +50,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'autotest'
   gem 'autotest-rails-pure'
-  gem 'autotest-fsevent'
+#  gem 'autotest-fsevent'
   gem 'autotest-growl'
   gem 'spork'
 # metric_fu
