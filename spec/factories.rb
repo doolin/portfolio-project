@@ -15,13 +15,14 @@ end
 #end
 
 Factory.define :project do |p|
-  p.name "Project test"
-  p.summary  "Test example"
+  p.name        "Project test"
+  p.summary     "Test example"
   p.description "Some short, descriptive text for testing."
-  p.client  "RSpec"
-  p.tags  "TDD, BDD"
-  p.startdate DateTime.new
-  p.finishdate DateTime.new  
+  p.client      "RSpec"
+  p.tags        "TDD, BDD"
+  p.startdate   DateTime.new
+  p.finishdate  DateTime.new
+  p.url         'project-test'
 end
 
 

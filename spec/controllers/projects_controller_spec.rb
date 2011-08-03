@@ -161,9 +161,15 @@ describe ProjectsController do
       delete :destroy, :id => "37"
     end
 
-    xit "redirects to the projects list" do
-      Project.stub(:find) { mock_project }
-      delete :destroy, :id => "1"
+    it "destroys the requested project by url" do
+      Project.should_receive(:find_by_url).with("new-project") { mock_project }
+      mock_project.should_receive(:destroy)
+      delete :destroy, :id => "new-project"
+    end
+
+    it "redirects to the projects list" do
+      Project.stub(:find_by_url) { mock_project }
+      delete :destroy, :id => "new-project"
       response.should redirect_to(projects_url)
     end
   end
