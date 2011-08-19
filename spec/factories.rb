@@ -32,9 +32,9 @@ end
 
 
 Factory.define :profile do |p|
-  p.firstname             "First"
-  p.lastname              "Last"
-	p.website "http://mywebsite.com/"	
+  p.firstname "First"
+  p.lastname  "Last"
+  p.website   "http://mywebsite.com/"
 end
 
 =begin
