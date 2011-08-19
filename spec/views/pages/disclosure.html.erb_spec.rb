@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe "pages/disclosure.html.erb" do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should render the Terms page" do
+    render
+    rendered.should =~ /disclosure/
+  end
 end

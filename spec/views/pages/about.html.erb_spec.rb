@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe "pages/about.html.erb" do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should render the About page" do
+    render
+    rendered.should =~ /About/
+  end
 end
