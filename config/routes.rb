@@ -6,14 +6,6 @@ PortfolioProject::Application.routes.draw do
   # All non-logged in users go to sales page.
   root :to => "sales#index"
 
-  get "sales/index"
-  get "sales/new"
-  get "sales/create"
-  get "sales/show"
-  get "sales/destroy"
-  get "sales/update"
-  get "sales/edit"
-
   match '/contact',    :to => 'pages#contact' 
   match '/about',      :to => 'pages#about'
   match '/terms',      :to => 'pages#terms'
@@ -29,7 +21,6 @@ PortfolioProject::Application.routes.draw do
   #match '/members/:id', :to => redirect {|params| "/#{params[:membername]}" }
   resources :profiles
   resources :projects
-  resources :sales
 
   # After the user is authenticated, reroute
   # to his or her project list.
