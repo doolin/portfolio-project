@@ -17,6 +17,7 @@ class Member < ActiveRecord::Base
   #Move these to Profiles
   #validates :firstname, :presence => true
   #validates :lastname, :presence => true
+  validates :membername, :presence => true
   validates_uniqueness_of :email
   
   

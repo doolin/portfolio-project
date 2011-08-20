@@ -12,10 +12,10 @@ end
 
 #Given /^I am a member named "([^"]*)" with an email "([^"]*)" and password "([^"]*)"$/ do |name, email, password|
 Given /^member name is "([^"]*)" with email "([^"]*)" and password "([^"]*)"$/ do |name, email, password|
-  Member.new(:name => name,
-            :email => email,
-            :password => password,
-            :password_confirmation => password).save!
+  Member.new(:membername => name,
+             :email => email,
+             :password => password,
+             :password_confirmation => password).save!
 end
 
 Given /^member is on sign_in page$/ do
@@ -151,4 +151,29 @@ Then /^the member is shown the page for the new project$/ do
 end
 
 
+Given /^a site visitor who is not a member$/ do
+  visit('/members/sign_out') # ensure that at least
+end
+
+When /^the visitor is on the sign up page$/ do
+  visit '/members/sign_up'
+end
+
+When /^fills in the sign up form$/ do
+  membername = "foobar"
+  email = "foo@bar.com"
+  password = "testem"
+  And %{I fill in "Membername" with "#{membername}"}
+  And %{I fill in "Email" with "#{email}"}
+  And %{I fill in "Password" with "#{password}"}
+  And %{I fill in "Password confirmation" with "#{password}"}
+end
+
+When /^presses the "([^"]*)" button$/ do |button|
+  click_button(button)
+end
+
+Then /^the new member should be on the new Profile page$/ do
+  And %{I should see "New profile"}
+end
 

@@ -13,7 +13,7 @@ Feature: Member logs on
     When I return next time
     Then I should be already signed in
 
-  Scenario: Member is not signed up
+  Scenario: Reader who is not a member cannot sign in
     Given member is not logged in
     And no user exists with an email of "user@test.com"
     When I go to the sign in page
@@ -31,5 +31,11 @@ Feature: Member logs on
     Then I should see "Sign up"
     And I go to the home page
     And I should be signed out
-  
 
+  Scenario: New member signs up
+    Given a site visitor who is not a member
+    When the visitor is on the sign up page
+    And fills in the sign up form
+    And presses the "Sign up" button
+    Then the new member should be on the new Profile page
+    #Then show me the page
