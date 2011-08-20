@@ -10,38 +10,38 @@
 <% end %>
 
   
-<p>
-  <b>Name:</b>
+<div class="name fn">
+  <strong>Name:</strong>
   <%= @project.name %>
-</p>
+</div>
 
-<p>
-  <b>Summary:</b>
+<div class="summary">
+  <strong>Summary:</strong>
   <%= @project.summary %>
-</p>
+</div>
 
-<p>
-  <b>Dates:</b>
-  <%= @project.startdate.strftime("%B %Y") %>
+<div class="dates">
+  <strong>Dates:</strong>
+  <span class="start-date"><%= @project.startdate.strftime("%B %Y") %></span>
   <em>to </em>
-  <%= @project.finishdate.strftime("%B %Y") %>
-</p>
+  <span class="end-date"><%= @project.finishdate.strftime("%B %Y") %></span>
+</div>
 
 
-<p>
-  <b>Description:</b>
+<div class="description">
+  <strong>Description:</strong>
   <%= @project.description.html_safe %>
-</p>
+</div>
 
-<p>
-  <b>Client:</b>
+<div class="client">
+  <strong>Client:</strong>
   <%= @project.client %>
-</p>
+</div>
 
-<p>
-  <b>Point of contact:</b>
+<div class="point-of-contact">
+  <strong>Point of contact:</strong>
   <%= @project.pointofcontact %>
-</p>
+</div>
 
 <div class="tags-wrapper">
   <strong>Tags:</strong>
