@@ -8,10 +8,15 @@ Feature: Member logs on
     And member name is "foo" with email "user@test.com" and password "please"
     When I go to the sign in page
     And I sign in as "user@test.com/please"
-    Then I should see "Portfolio Project"
     And I should be signed in
-    When I return next time
-    Then I should be already signed in
+    Then I should see "My Projects"
+
+  @wip
+  Scenario: Member saves sesssion information as rememberable
+    Given member is signed in
+    Then member signs out
+    When member returns next time
+    Then member should be already signed in
 
   Scenario: Reader who is not a member cannot sign in
     Given member is not logged in

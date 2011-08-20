@@ -10,11 +10,9 @@ Feature: Member creates project
     When the member fills out all the project fields correctly
     And the member presses the "Create Project" button
     Then the member is shown the page for the new project
-    #Then show me the page
 
   Scenario: Guest reader is directed to signup page
     Given a reader is not logged in
     And is on the project page
     When the reader clicks New Project link
     Then the reader should be on the sign in page
-    #Then show me the page  

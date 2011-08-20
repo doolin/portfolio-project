@@ -52,7 +52,6 @@ Given /^member is not logged in$/ do
 end
 
 Then /^I should be signed in$/ do
-  Then %{I should see "Portfolio Project"}
   And  %{I should see "Sign out"}
   #And  %{I should not see "Sign up"}
 end
@@ -81,7 +80,8 @@ end
 
 Given /^member is signed as "([^"]*)" and password "([^"]*)"$/ do |email, password|
   name = "foobar"
-  @member = Member.new(:name => name,
+  # Member.new may not work
+  @member = Member.create(:membername => name,
             :email => email,
             :password => password,
             :password_confirmation => password,

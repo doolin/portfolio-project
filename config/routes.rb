@@ -3,6 +3,8 @@ PortfolioProject::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
+
+
   # All non-logged in users go to sales page.
   root :to => "sales#index"
 
@@ -18,17 +20,19 @@ PortfolioProject::Application.routes.draw do
 
   # Needs a controller...
   resources :members
+
+  # After the user is authenticated, reroute
+  # to his or her profile.
+  # But this isn't working in Cucumber...
+  namespace :member do
+    root :to => 'members#show'
+  end
+
+
   #match '/members/:id', :to => redirect {|params| "/#{params[:membername]}" }
   resources :profiles
   resources :projects
 
-  # After the user is authenticated, reroute
-  # to his or her project list.
-  # But this isn't working...
-  #  namespace :member do
-  #    root :to => "projects#index"
-  #  end
- 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
