@@ -29,6 +29,8 @@ describe "profiles/_profile_links.html.erb" do
   before(:each) do
     @member = Factory(:member)
     @profile = Factory(:profile, :member => @member, :created_at => 1.day.ago)
+    @project = Factory(:project, :member => @member)
+    sign_in @member
   end
 
   it "should have link to Edit" do
