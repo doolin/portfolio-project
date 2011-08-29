@@ -17,8 +17,8 @@ gem 'escape_utils'
 
 group :cucumber do
 #  gem "builder", "~> 2.1.2"
-#  gem 'webrat'
-  gem 'capybara'
+  gem 'webrat'
+#  gem 'capybara'
   gem 'database_cleaner'
   gem 'cucumber-rails'
   gem 'cucumber'
@@ -44,8 +44,8 @@ end
 group :test do
   gem 'rspec'
   gem 'rspec-rails'
-#  gem 'webrat'
-  gem 'capybara'
+  gem 'webrat'
+#  gem 'capybara'
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'autotest'
