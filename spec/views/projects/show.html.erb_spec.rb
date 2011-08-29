@@ -15,9 +15,14 @@ describe "projects/show.html.erb" do
     rendered.should match(/Client/)
   end
 
-  xit "has a URI field for the project" do
+  it "has a description block for the project" do
     render
-    rendered.should have_selector('input', :name => 'project[uri]')
+    rendered.should have_selector('div.description')
+  end
+
+  it "has a URI field for the project" do
+    render
+    rendered.should have_selector('div.uri')
   end
 
 end
