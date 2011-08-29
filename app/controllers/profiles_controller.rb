@@ -7,7 +7,15 @@ class ProfilesController < ApplicationController
   end
   
   def new
+=begin
+  if current_member.has_profile?
+    redirect_to edit_profile_path
+  else # new profile
+=end
+
     @profile = Profile.new
+    # TODO: Get rid of firstname in Member, it's
+    # a bad model.
     @firstname = Member.find(current_member.id).firstname
   end
   
