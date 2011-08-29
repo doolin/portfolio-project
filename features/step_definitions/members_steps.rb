@@ -78,7 +78,7 @@ end
 #########  Project and profile
 
 
-Given /^member is signed as "([^"]*)" and password "([^"]*)"$/ do |email, password|
+Given /^member is signed in as "([^"]*)" and password "([^"]*)"$/ do |email, password|
   name = "foobar"
   # Member.new may not work
   @member = Member.create(:membername => name,
