@@ -19,7 +19,8 @@
       <%= gravatar_for @member %><br /><br />
       <strong><%= @member.firstname %> <%= @member.lastname %></strong> | 
       <strong> <%= link_to "Profile", @profile %></strong><br />
-      <strong>Projects</strong> <%= @member.projects.count %>
+      <strong>Projects</strong> <%= @member.projects.count %><br />
+      <%= link_to 'New Project', new_project_path %><br />
     </td>
   </tr>
 </table>
