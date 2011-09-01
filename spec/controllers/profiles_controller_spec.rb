@@ -53,7 +53,7 @@ describe ProfilesController do
 
     it "should create a new profile for signed in member" do
       lambda do
-        post :create, :profile => { :firstname => 'foo', :lastname => 'bar' }
+        post :create, :profile => { :firstname => 'foo', :lastname => 'bar' }#, :website => 'http://foo.com' }
       end.should change(Profile, :count).by(1)
     end
 

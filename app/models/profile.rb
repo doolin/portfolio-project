@@ -13,7 +13,8 @@ class Profile < ActiveRecord::Base
   #validates_format_of :website, :with => URI::regexp(%w(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?
   #validates_format_of :website, :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix #, :on => :create
 
-  validates :website, :format => { :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix }#, :on => :create
+  validates :website, :format => { :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix },
+            :allow_nil => true, :on => :update, :on => :create
 
   acts_as_url :lastname, :sync_url => :true
   
@@ -21,9 +22,11 @@ class Profile < ActiveRecord::Base
     url
   end
 
+=begin
   def validate_url
     false
   end
+=end
 
 end
 

@@ -44,8 +44,11 @@ describe Profile do
       @member.build_profile(@attr.merge({:website => 'http://foobar.com/'})).should be_valid
     end
 
-    it "should not validate bogus urls" do
+    it "should not validate url with bogus protocol" do
       @member.build_profile(@attr.merge({:website => 'httt://foobar.com/'})).should_not be_valid
+    end
+
+    it "should not validate url with bogus domain" do
       @member.build_profile(@attr.merge({:website => 'http://foobar/'})).should_not be_valid
     end
 
