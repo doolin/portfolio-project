@@ -26,8 +26,8 @@ describe Member do
       end
     end
   end
-        
-      
+
+
   describe "profile associations" do
 
     before(:each) do
@@ -38,7 +38,7 @@ describe Member do
     it "should have a profile" do
       @member.profile.should == @p1
     end
-    
+
     it "destroys the associated profile" do
       @member.destroy
       [@p1].each do |p|
@@ -47,8 +47,8 @@ describe Member do
     end
 
   end 
-    
-    
+
+
   describe "saving" do
   	
   	it 'requires first and last name' do
@@ -56,12 +56,12 @@ describe Member do
       Factory.build(:member, :firstname => nil).should_not be_valid
       Factory.build(:member, :lastname => nil).should_not be_valid
     end
-    
+
     it "should enforce unique email" do
     	m1 = Factory(:member)
     	m2 = Factory.build(:member, :email => m1.email).should_not be_valid
     end
-    	
-  end  
-    
+
+  end
+
 end
