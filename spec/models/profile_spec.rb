@@ -38,7 +38,7 @@ describe Profile do
     it "should require nonblank lastname" do
       @member.build_profile(@attr.merge({:lastname => ' '})).should_not be_valid
     end
-    
+
     # http://intridea.com/2009/2/18/quick-tip-url-validation-in-rails?blog=company
     it "should validate any given urls" do
       @member.build_profile(@attr.merge({:website => 'http://foobar.com/'})).should be_valid

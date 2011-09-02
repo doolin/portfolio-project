@@ -9,12 +9,9 @@ class Profile < ActiveRecord::Base
   validates :firstname, :presence => true
   validates :lastname,  :presence => true
   
-  #validates_format_of :website, :with => URI::regexp(%w(http https))
-  #validates_format_of :website, :with => URI::regexp(%w(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?
-  #validates_format_of :website, :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix #, :on => :create
-
-  validates :website, :format => { :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix },
-            :allow_nil => true, :on => :update, :on => :create
+  #validates :website, :format => { :with => /(^$)|(^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix, :on => :create, :allow_nil => true, :on => :update }
+  #https://github.com/ihower/validates_url_of/blob/master/lib/validates_url_of.rb#L28
+  validates :website, :format => { :with => /(^$)|(^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix, :allow_nil => true, :on => :create }
 
   acts_as_url :lastname, :sync_url => :true
   

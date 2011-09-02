@@ -60,6 +60,7 @@ describe ProfilesController do
   end
 
   describe "PUT 'update'" do
+
     it "should update the profile for signed in member" do
       put :update, :id => @profile.url, :profile => { :firstname => 'Foo', :lastname => 'Bar' }
       @profile.reload
@@ -67,6 +68,14 @@ describe ProfilesController do
       @profile.firstname.should eq('Foo')
       @profile.lastname.should eq('Bar')
     end
+
+    it "should update the profile for nil website" do
+      put :update, :id => @profile.url, :profile => { :firstname => 'Foo', :lastname => 'Bar', :website => nil }
+      @profile.reload
+      response.should redirect_to(profile_path(@profile))
+      @profile.website.should be_nil
+    end
+
   end
 
   describe "DELETE 'destroy'" do
