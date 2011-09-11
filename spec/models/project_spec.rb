@@ -93,7 +93,7 @@ describe Project do
 
   describe "accessible attributes" do
 
-    # http://guides.rubyonrails.org/association_basics.html
+    # http://guides.rubyonrails.org/association_basics.html#has_many-association-reference
     # This is also a false positive against saving the :uri when it's
     # not given in attr_accessible...
     # TODO: This doesn't smell very good, needs more work.
