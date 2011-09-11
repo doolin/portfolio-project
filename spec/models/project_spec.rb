@@ -16,6 +16,7 @@ describe Project do
 
   it "should create a new instance given valid attributes" do
     @member.projects.create!(@attr)
+    @member.projects.first.should be_valid
   end
   
   describe "member associations" do
@@ -78,8 +79,30 @@ describe Project do
       @member.projects.build(:finishdate =>" ").should_not be_valid
     end
 
+    # False positive. Where did these tests come from?
+    it "should reject long Client" do
+      @member.projects.build(:client => "a" * 138).should_not be_valid
+    end
+
     it "should reject long Client" do
       @member.projects.build(:client => "a" * 141).should_not be_valid
+    end
+
+  end
+
+
+  describe "accessible attributes" do
+
+    # http://guides.rubyonrails.org/association_basics.html
+    # This is also a false positive against saving the :uri when it's
+    # not given in attr_accessible...
+    # TODO: This doesn't smell very good, needs more work.
+    it "should save URI attribute" do
+      @member.projects.create(@attr.merge({:uri => 'http://foobar.com/'})).should be_valid
+      #puts @member.projects.to_s
+      # This is the smelly part...
+      @project = @member.projects.first
+      @project.uri.should =~ /http:\/\/foobar.com\//
     end
     
   end

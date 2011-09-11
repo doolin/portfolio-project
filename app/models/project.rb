@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
 
   attr_accessible :name, :summary, :client, :tags, :description, :pointofcontact,
-                  :startdate, :finishdate, :url, :member_id
+                  :startdate, :finishdate, :url, :member_id, :uri
   
   belongs_to :member
 
