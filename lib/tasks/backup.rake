@@ -98,7 +98,7 @@ namespace :perez do
     backup_path = "tmp/#{backup_name}"
     
     #`echo #{DB_CONFIG['password']} | pg_dump #{DB_CONFIG['database']} -Fc --username=#{DB_CONFIG['username']} --host=#{DB_CONFIG['host']} > #{backup_path}`
-     system "PG_PASSWORD=#{DB_CONFIG['password']} pg_dump #{DB_CONFIG['database']} -Fc --username=#{DB_CONFIG['username']} --host=#{DB_CONFIG['host']} > #{backup_path}"
+     system "PGPASSWORD=#{DB_CONFIG['password']} pg_dump #{DB_CONFIG['database']} -Fc --username=#{DB_CONFIG['username']} --host=#{DB_CONFIG['host']} > #{backup_path}"
     # Assumes PGPASSWORD is set, check DB_CONFIG.
     #`pg_dump #{DB_CONFIG['database']} -Fc --username=#{DB_CONFIG['username']} --host=#{DB_CONFIG['host']} > #{backup_path}`
   
