@@ -42,6 +42,7 @@ group :postgresql do
 end
 
 group :test do
+  gem 'mock-aws-s3'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'webrat'
