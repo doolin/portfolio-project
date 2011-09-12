@@ -22,6 +22,11 @@ class ProfilesController < ApplicationController
   def create
     @profile = current_member.build_profile(params[:profile])
     if @profile.save
+      # TODO: Refactor and test, should go into model
+      @member = Member.find(@profile.member_id)
+      @member.firstname = @profile.firstname
+      @member.lastname = @profile.lastname
+      @member.save
       redirect_to(@profile, :flash => { :success => 'Profile was successfully created.' })
     end
   end
@@ -40,6 +45,11 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.update_attributes(params[:profile])
+      # TODO: Refactor and test, should go into model
+        @member = Member.find(@profile.member_id)
+        @member.firstname = @profile.firstname
+        @member.lastname = @profile.lastname
+        @member.save
         format.html { redirect_to(@profile, :flash => { :success => 'Profile was successfully updated.' }) }
         format.xml  { head :ok }
       else

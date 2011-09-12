@@ -25,9 +25,15 @@ class Project < ActiveRecord::Base
   
   def membername(id)
     member = Member.find(id)
-    member.firstname + " " + member.lastname
+    if member.firstname && member.lastname
+      member.firstname + " " + member.lastname
+    elsif member.membername
+      member.membername
+    else
+      'This member'
+    end
   end
- 
+
   def to_param
     url
   end
