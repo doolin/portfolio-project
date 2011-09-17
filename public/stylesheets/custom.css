@@ -342,3 +342,9 @@ div#user_nav { float: right; font-size: 0.9em; }
 .f {
   text-align: right;
 }
+
+
+div.newsletter-form {
+  margin: 5px 15px;
+  float: right;
+}
