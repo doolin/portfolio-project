@@ -5,53 +5,53 @@
 <section>
 <div class="project">
 
-<% flash.each do |key, value| %>
-  <%= content_tag :div, value, :class => "flash #{key}" unless value.blank? %>
-<% end %>
+  <% flash.each do |key, value| %>
+    <%= content_tag :div, value, :class => "flash #{key}" unless value.blank? %>
+  <% end %>
 
   
-<div class="name fn">
-  <strong>Name:</strong>
-  <%= @project.name %>
-</div>
+  <div class="name fn">
+    <strong>Name:</strong>
+    <%= @project.name %>
+  </div>
 
-<div class="summary">
-  <strong>Summary:</strong>
-  <%= @project.summary %>
-</div>
+  <div class="summary">
+    <strong>Summary:</strong>
+    <%= @project.summary %>
+  </div>
 
-<div class="dates">
-  <strong>Dates:</strong>
-  <span class="start-date"><%= @project.startdate.strftime("%B %Y") %></span>
-  <em>to </em>
-  <span class="end-date"><%= @project.finishdate.strftime("%B %Y") %></span>
-</div>
+  <div class="dates">
+    <strong>Dates:</strong>
+    <span class="start-date"><%= @project.startdate.strftime("%B %Y") %></span>
+    <em>to </em>
+    <span class="end-date"><%= @project.finishdate.strftime("%B %Y") %></span>
+  </div>
 
 
-<div class="description">
-  <strong>Description:</strong>
-  <%= @project.description.html_safe %>
-</div>
+  <div class="description">
+    <strong>Description:</strong>
+    <%= @project.description.html_safe %>
+  </div>
 
-<div class="client">
-  <strong>Client:</strong>
-  <%= @project.client %>
-</div>
+  <div class="client">
+    <strong>Client:</strong>
+    <%= @project.client %>
+  </div>
 
-<div class="uri">
-  <strong>Link to project:</strong>
-  <%= link_to @project.uri, @project.uri %>
-</div>
+  <div class="uri">
+    <strong>Link to project:</strong>
+    <%= link_to @project.uri, @project.uri %>
+  </div>
 
-<div class="point-of-contact">
-  <strong>Point of contact:</strong>
-  <%= @project.pointofcontact %>
-</div>
+  <div class="point-of-contact">
+    <strong>Point of contact:</strong>
+    <%= @project.pointofcontact %>
+  </div>
 
-<div class="tags">
-  <strong>Tags:</strong>
-  <%= @project.tags %>
-</div>
+  <div class="tags">
+    <strong>Tags:</strong>
+    <%= @project.tags %>
+  </div>
 
   <%= render 'project_links' %>
 
