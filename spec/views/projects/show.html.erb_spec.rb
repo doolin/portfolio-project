@@ -37,6 +37,9 @@ describe 'projects/show.html.erb' do
     render
     rendered.should have_selector('div.requiredskills')
   end
+  
+  # If a field is nil, the .html_safe method doesn't work.
+  xit "handles an error if the skills field is blank"
 
   it "does not have a foobar field for the project" do
     render

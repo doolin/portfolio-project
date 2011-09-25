@@ -33,8 +33,8 @@
   </div>
 
   <div class="requiredskills">
-    <strong>Required skilles:</strong>
-    <%= @project.requiredskills.html_safe %>
+    <strong>Required skills:</strong>
+    <%= @project.requiredskills.html_safe unless @project.requiredskills.blank? %>
   </div>
 
   <div class="client">
