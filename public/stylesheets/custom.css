@@ -349,6 +349,20 @@ div#user_nav { float: right; font-size: 0.9em; }
   text-align: right;
 }
 
+div > span.label {
+  padding: 25px 0px;
+  font-weight: bold;
+}
+
+div.project {
+  margin-top: 25px;
+  padding-top: 50px;
+}
+
+div.project > div {
+  margin: 20px;
+}
+
 
 div.newsletter-form {
   font-size: 85%;

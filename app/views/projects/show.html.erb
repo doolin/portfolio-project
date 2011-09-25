@@ -11,49 +11,49 @@
 
   
   <div class="name fn">
-    <strong>Name:</strong>
+    <span class="label">Name:</span>
     <%= @project.name %>
   </div>
 
   <div class="summary">
-    <strong>Summary:</strong>
+    <span class="label">Summary:</span>
     <%= @project.summary %>
   </div>
 
   <div class="dates">
-    <strong>Dates:</strong>
+    <span class="label">Dates:</span>
     <span class="start-date"><%= @project.startdate.strftime("%B %Y") %></span>
     <em>to </em>
     <span class="end-date"><%= @project.finishdate.strftime("%B %Y") %></span>
   </div>
 
   <div class="description">
-    <strong>Description:</strong>
+    <span class="label">Description:</span>
     <%= @project.description.html_safe %>
   </div>
 
   <div class="requiredskills">
-    <strong>Required skills:</strong>
+    <span class="label">Required skills:</span>
     <%= @project.requiredskills.html_safe unless @project.requiredskills.blank? %>
   </div>
 
   <div class="client">
-    <strong>Client:</strong>
+    <span class="label">Client:</span>
     <%= @project.client %>
   </div>
 
   <div class="uri">
-    <strong>Link to project:</strong>
+    <span class="label">Link to project:</span>
     <%= link_to @project.uri, @project.uri %>
   </div>
 
   <div class="point-of-contact">
-    <strong>Point of contact:</strong>
+    <span class="label">Point of contact:</span>
     <%= @project.pointofcontact %>
   </div>
 
   <div class="tags">
-    <strong>Tags:</strong>
+    <span class="label">Tags:</span>
     <%= @project.tags %>
   </div>
 
