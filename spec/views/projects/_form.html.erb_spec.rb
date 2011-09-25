@@ -26,6 +26,11 @@ describe "projects/_form.html.erb" do
     rendered.should have_selector('input', :name => 'project[uri]')
   end
 
+  it "has a Required Skills field for the project" do
+    render
+    rendered.should have_selector('textarea', :name => 'project[requiredskills]')
+  end
+
 end
 
 =begin

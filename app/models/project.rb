@@ -1,14 +1,15 @@
 class Project < ActiveRecord::Base
 
   attr_accessible :name, :summary, :client, :tags, :description, :pointofcontact,
-                  :startdate, :finishdate, :url, :member_id, :uri
+                  :startdate, :finishdate, :url, :member_id, :uri, :requiredskills
   
   belongs_to :member
 
-  validates :summary,     :presence => true, :length => { :maximum => 255 }
-  validates :member_id,   :presence => true
-  validates :name,        :presence => true, :length => { :maximum => 140 }
-  validates :description, :presence => true, :length => { :maximum => 2500 }
+  validates :summary,        :presence => true, :length => { :maximum => 255 }
+  validates :requiredskills, :length => { :maximum => 255 }
+  validates :member_id,      :presence => true
+  validates :name,           :presence => true, :length => { :maximum => 140 }
+  validates :description,    :presence => true, :length => { :maximum => 2500 }
 
   # The Rails date_select form helper is problematic, being difficult to use
   # for extracting form elements. At the moment, the Rails date_select is
