@@ -41,6 +41,12 @@ textarea#project_summary {
   padding:5px;
 }
 
+textarea#project_requiredskills {
+  width:390px;
+  height:40px;
+  padding:5px;
+}
+
 textarea#profile_bio {
   width:390px;
   height:150px;
