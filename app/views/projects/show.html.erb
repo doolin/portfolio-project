@@ -27,10 +27,14 @@
     <span class="end-date"><%= @project.finishdate.strftime("%B %Y") %></span>
   </div>
 
-
   <div class="description">
     <strong>Description:</strong>
     <%= @project.description.html_safe %>
+  </div>
+
+  <div class="requiredskills">
+    <strong>Required skilles:</strong>
+    <%= @project.requiredskills.html_safe %>
   </div>
 
   <div class="client">

@@ -33,6 +33,11 @@ describe 'projects/show.html.erb' do
     rendered.should have_selector('div.uri')
   end
 
+  it "has a Required Skills field for the project" do
+    render
+    rendered.should have_selector('div.requiredskills')
+  end
+
   it "does not have a foobar field for the project" do
     render
     rendered.should_not have_selector('div.foobar')
