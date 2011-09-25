@@ -8,5 +8,10 @@ Feature: Visitor browses Portfolio Project web site
   
   Scenario: Visitor examines privacy policy
     Given the visitor is on the home page
-    And the visitor click the "Privacy Policy" link
-    Then the visitor should see the Privacy Policy web page
+    And the visitor clicks "Privacy"
+    Then the visitor should see the privacy policy web page
+
+  Scenario: Visitor examines newsletter form privacy link
+    Given the visitor is on the home page
+    And the visitor clicks "We respect your email privacy"
+    Then the visitor should see the privacy policy web page

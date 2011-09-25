@@ -14,6 +14,12 @@ module NavigationHelpers
     when /^the sign in page$/
       '/members/sign_in'
 
+    when /^Privacy$/
+      privacy_path
+
+    when /^We respect your email privacy$/
+      privacy_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

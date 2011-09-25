@@ -1,12 +1,12 @@
 
 Given /^the visitor is on the home page$/ do
-  pending # express the regexp above with the code you wish you had
+  visit root_path
 end
 
-Given /^the visitor click the "([^"]*)" link$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+Given /^the visitor clicks "([^"]*)"$/ do |page_name|
+  visit path_to(page_name)
 end
 
-Then /^the visitor should see the Privacy Policy web page$/ do
-  pending # express the regexp above with the code you wish you had
+Then /^the visitor should see the privacy policy web page$/ do
+  page.should have_css('div#privacy-policy')
 end
