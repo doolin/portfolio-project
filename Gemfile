@@ -27,6 +27,7 @@ group :cucumber do
 end  
 
 group :development do
+  gem 'webrat'
   gem 'ruby-debug19'
   gem 'wrong'
   gem 'rspec-rails'

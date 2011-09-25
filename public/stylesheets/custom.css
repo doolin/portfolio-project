@@ -345,6 +345,12 @@ div#user_nav { float: right; font-size: 0.9em; }
 
 
 div.newsletter-form {
-  margin: 5px 15px;
+  font-size: 85%;
+  width: 225px;
+  margin: 45px 15px 5px 15px;
   float: right;
+}
+
+input.text {
+  width: 200px;
 }
