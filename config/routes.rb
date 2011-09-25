@@ -18,6 +18,9 @@ PortfolioProject::Application.routes.draw do
   match 'thank-you',          :to => 'pages#thank-you'
   match 'already-subscribed', :to => 'pages#already-subscribed'
   
+  # Having a problem dealing with a form in Capybara.
+  # Might test this in rspec instead.
+  #match '/scripts/addlead.pl',:to => 'pages#thank-you'
 
   devise_for :members, :controllers => { :registrations => "registrations" }
 
