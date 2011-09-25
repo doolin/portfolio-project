@@ -15,6 +15,9 @@ class PagesController < ApplicationController
   def help
   end
 
+  def confirmation
+  end
+
   def terms
     @site_name = "Portfolio Project"
   end
