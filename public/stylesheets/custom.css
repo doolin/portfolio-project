@@ -190,25 +190,6 @@ a:visited {
 }
 
 
-/**
- * FOOTER
- */
-
-footer {
-  background-color: #eee;
-  text-align: center;
-  margin-top: 10px;
-  width: 710px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
-}
-
-footer nav {
-  float: none;
-}
-
-
 /* User show page */
 
 table.profile {
@@ -343,12 +324,34 @@ form.new_micropost textarea {
 }
 
 
+/**
+ * Template partials
+ */
 div#user_nav { float: right; font-size: 0.9em; }
 
 .f {
   text-align: right;
 }
 
+
+/**
+ * Front page
+ */
+div.newsletter-form {
+  font-size: 85%;
+  width: 225px;
+  margin: 45px 15px 5px 15px;
+  float: right;
+}
+
+input.text {
+  width: 200px;
+}
+
+
+/**
+ * Project pages
+ */
 div > span.label {
   padding: 25px 0px;
   font-weight: bold;
@@ -364,13 +367,19 @@ div.project > div {
 }
 
 
-div.newsletter-form {
-  font-size: 85%;
-  width: 225px;
-  margin: 45px 15px 5px 15px;
-  float: right;
+/**
+ * Footer
+ */
+footer {
+  background-color: #eee;
+  text-align: center;
+  margin-top: 10px;
+  width: 710px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 0px 10px 0px;
 }
 
-input.text {
-  width: 200px;
+footer nav {
+  float: none;
 }
