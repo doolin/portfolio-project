@@ -1,29 +1,25 @@
 
-<h2>Projects are how we work</h2>
+<h1></h1>
 
 <div class="frontpage">
-
-  <div class="copy span-15">
-     <p>
-      Resumes are dead. People don't care about some stale list of jobs and 
-      degrees.
-    </p>
-
-    <p>
-      These days, people want to know: <em>What can you do?</em>
-    </p>
-
-    <p> 
-      Talk is cheap. Instead of talking, show people what you've done.
-    </p>
-
-    <%= pluralize(@projects.count, 'Project') %>
-    <p>
-    <%= link_to "Sign up", new_member_registration_path %>, or 
-    check out the <%= link_to 'list of projects', projects_path %> 
-    </p>
+  <div id="hero">
+      <h1>A new, better way to show your work.</h1>
+      <img src="http://placehold.it/900x300" />
+      <br />
+      <span id="project_count"><%= pluralize(@projects.count, 'Project') %> created so far.</span>
+      <br />
+      <%= link_to "Sign up", new_member_registration_path %>
   </div>
 
-  <%= render 'sales/frontpage-form' %>
-  
+  <div class="copy">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ligula dui, condimentum quis posuere vel, placerat non lorem. Maecenas erat eros, congue ut dictum fringilla, mollis id nulla. Integer nunc quam, sollicitudin sit amet consequat posuere, malesuada consequat nibh. Aliquam iaculis nulla a lectus adipiscing vel tincidunt nunc volutpat. Fusce vitae diam ligula, in dignissim sem.
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ligula dui, condimentum quis posuere vel, placerat non lorem. Maecenas erat eros, congue ut dictum fringilla, mollis id nulla. Integer nunc quam, sollicitudin sit amet consequat posuere, malesuada consequat nibh. Aliquam iaculis nulla a lectus adipiscing vel tincidunt nunc volutpat. Fusce vitae diam ligula, in dignissim sem.
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ligula dui, condimentum quis posuere vel, placerat non lorem. Maecenas erat eros, congue ut dictum fringilla, mollis id nulla. Integer nunc quam, sollicitudin sit amet consequat posuere, malesuada consequat nibh. Aliquam iaculis nulla a lectus adipiscing vel tincidunt nunc volutpat. Fusce vitae diam ligula, in dignissim sem.
+  </div>
+
 </div>
+
+<%= link_to "Sign up", new_member_registration_path %>, or 
+check out the <%= link_to 'list of projects', projects_path %>

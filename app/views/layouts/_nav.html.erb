@@ -1,9 +1,12 @@
 <div id="full_width_nav_area" class="full_width">
   <div class="page">
-    <div id="full_width_nav">
+    <div id="full_width_nav" class="cf">
+      
+       <p id="logo"><%= link_to "The Portfolio Project", root_path %></p>    
+      
        <nav id="member_nav" class="last">
        <% if member_signed_in? %>
-         <%= link_to "Profile", profiles_path %> | 
+         <%= link_to "Profile", profile_path(current_member.lastname.downcase) %> | 
          <%= link_to "Projects", member_path(current_member) %> |          
          Signed in as <%= current_member.email %>. Not you?
          <%= link_to "Sign out", destroy_member_session_path %>

@@ -6,7 +6,7 @@ body {
   background: #ECE6BA;
 }
 */
-body { background: #ccc; }
+body { background: #ccc url(http://subtlepatterns.com/patterns/square_bg.png); }
 .full_width > .page {width: 940px; margin: auto; }
 
 /* For modern browsers */
@@ -27,18 +27,19 @@ body { background: #ccc; }
 
 /** Nav Area **/
 #full_width_nav_area { background: #222;}
-	#full_width_nav { padding: .5em 0;}
-		nav {color: #999;}
+	#full_width_nav { padding: 1em 0;}
+		nav {color: #999; float: right;}
 			nav a { color: #fff; text-decoration: none; font-weight: 900;}
 
 /** Header Area **/
 #header_area { background: #fff url(../images/custom2/headerbg.png) bottom center repeat-x;}
-	#header { padding: 2em 0 1.5em; height: 140px;}
-	#logo a{   font-family: "lobster-1","lobster-2"; font-size: 3em; text-decoration: none;}
+	#header { padding: 2em 0 1.5em; height: 200px;}
+	#logo {float: left; width: auto; margin: 0; }
+		#logo a{   font-family: "lobster-1","lobster-2"; text-decoration: none;}
 
 /** Content Area**/
 	#content {background: none repeat scroll 0 0 #FFFFFF;
-	    margin: -70px auto 20px; padding: .5em;}
+	    margin: -200px auto 20px; padding: .5em;}
 
 textarea#project_description  {}
 textarea#project_summary {}
@@ -49,38 +50,21 @@ textarea#profile_bio {}
 /**
  *   HEADER
  */
-header {
+header { }
 
-}
+h2.projects-listing { }
 
-header h1 {
-
-}
+header img { }
 
 
-h2.projects-listing {
-
-}
-
-header img {
-
-}
-
-
-div.frontpage {
-
-}
+div.frontpage { }
 
 /**
  *   SECTION MASTER
  */
-section {
+section { }
 
-}
-
-section h1 {
-
-}
+section h1 { }
 
 .contactform h2,
 .sidebar h2 {
@@ -90,10 +74,6 @@ section h1 {
 tbody tr:nth-child(even) td, tbody tr.even td {
   background:#eee;
 }
-
-
-
-
 
 /* Sign up button */
 
@@ -206,8 +186,7 @@ div#user_nav {  }
 /**
  * Front page
  */
-div.newsletter-form {  background: #fff; padding: .5em;} 
-input.text {}
+#hero { text-align: center; border-bottom: 1px dotted #ccc; margin: 0 0 20px 0;}
 
 /**
  * Project pages
