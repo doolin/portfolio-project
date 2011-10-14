@@ -191,7 +191,7 @@ div#user_nav {  }
  */
 #hero { text-align: center; border-bottom: 1px dotted #ccc; margin: 0 0 20px 0; padding: 0 0 2em 0;}
 .copy { margin: 1em;}
-.copy img { margin: 0 1em 1em 0;}
+.copy img { margin: 0 1em 1em 0; border: 3px solid #eee;}
 
 /**
  * Project pages
