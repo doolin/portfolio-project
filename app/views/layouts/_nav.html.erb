@@ -1,0 +1,10 @@
+<nav id="member_nav" class="last">
+<%= link_to "Home", root_path %> | 
+<% if member_signed_in? %>
+  Signed in as <%= current_member.email %>. Not you?
+  <%= link_to "Sign out", destroy_member_session_path %>
+<% else %>
+  <%= link_to "Sign up", new_member_registration_path %> | 
+  <%= link_to "Sign in", new_member_session_path %> |
+<% end %>
+</nav>

@@ -7,8 +7,8 @@
     <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
     <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
     <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
-    <%= # stylesheet_link_tag 'custom', :media => 'screen' %>
-    <%=  stylesheet_link_tag 'custom-2', :media => 'screen' %>
+    <% stylesheet_link_tag 'custom', :media => 'screen' %>
+    <%=  stylesheet_link_tag 'custom2', :media => 'screen' %>
     <%= javascript_include_tag :defaults %>    
     <%= javascript_include_tag 'ajaxray_textcounting' %>        
     <script type="text/javascript" src="http://use.typekit.com/zac5ngr.js"></script>
@@ -17,14 +17,11 @@
 </head>
 <body>
   <div class="container">
-
-<%= render 'layouts/header' %>
-
-<%= yield %>
-
-<%= render 'layouts/footer' %>
-
+    <%= render 'layouts/header' %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
   </div>
+  
 <%= render 'layouts/analytics' %>
 </body>
 </html>
