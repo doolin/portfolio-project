@@ -16,12 +16,19 @@
     <%= csrf_meta_tag %>
 </head>
 <body>
-  <div class="container">
-    <%= render 'layouts/header' %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
-  </div>
   
+  <%= render :partial => 'layouts/nav' %>
+  <%= render 'layouts/header' %>
+  <div id="content_area" class="full_width">
+    <div class="page">
+      <div id="content" class="cf">
+         <%= yield %>
+      </div>
+    </div>
+  </div>
+  <%= render 'layouts/footer' %>
+
+
 <%= render 'layouts/analytics' %>
 </body>
 </html>

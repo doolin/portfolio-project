@@ -6,35 +6,39 @@ body {
   background: #ECE6BA;
 }
 */
-body {
+body { background: #ccc; }
+.full_width > .page {width: 940px; margin: auto; }
 
+/* For modern browsers */
+.cf:before,
+.cf:after {
+    content:"";
+    display:table;
 }
 
-.container {
-
+.cf:after {
+    clear:both;
 }
 
-.container {
-  width: 710px;
-  padding: 0px 15px;
+/* For IE 6/7 (trigger hasLayout) */
+.cf {
+    zoom:1;
 }
 
+/** Nav Area **/
+#full_width_nav_area { background: #222;}
+	#full_width_nav { padding: .5em 0;}
 
-textarea#project_description  {
+/** Header Area **/
+#header_area { background: #fff url(../images/custom2/headerbg.png) repeat-x }
+	#header { padding: 2em 0 1.5em;}
+	#logo a{   font-family: "lobster-1","lobster-2"; font-size: 3em; text-decoration: none;}
 
-}
+textarea#project_description  {}
+textarea#project_summary {}
+textarea#project_requiredskills {}
 
-textarea#project_summary {
-
-}
-
-textarea#project_requiredskills {
-
-}
-
-textarea#profile_bio {
-
-}
+textarea#profile_bio {}
 
 /**
  *   HEADER
@@ -220,38 +224,24 @@ form.new_micropost textarea {
  * Template partials
  */
 div#user_nav {  }
-
-.f {
-
-}
-
+.f {}
 
 /**
  * Front page
  */
-div.newsletter-form {
-}
-
-input.text {
-}
-
+div.newsletter-form { width: 312px; background: #ccc; padding: .5em; margin: -100px 0 0 0; 
+input.text {}
 
 /**
  * Project pages
  */
-div > span.label {
-}
-
-div.project {
-}
-
-div.project > div {
-}
+div > span.label {}
+div.project {}
+div.project > div {}
 
 
 /**
  * Footer
  */
-footer {}
-
+#footer_area { background: #222; padding: .5em 0;}
 footer nav {}

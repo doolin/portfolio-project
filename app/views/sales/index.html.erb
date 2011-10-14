@@ -3,27 +3,27 @@
 
 <div class="frontpage">
 
-<%= render 'sales/frontpage-form' %>
+  <div class="copy span-15">
+     <p>
+      Resumes are dead. People don't care about some stale list of jobs and 
+      degrees.
+    </p>
 
-<div class="copy">
-<p>
-Resumes are dead. People don't care about some stale list of jobs and 
-degrees.
-</p>
+    <p>
+      These days, people want to know: <em>What can you do?</em>
+    </p>
 
-<p>
-	These days, people want to know: <em>What can you do?</em>
-</p>
+    <p> 
+      Talk is cheap. Instead of talking, show people what you've done.
+    </p>
 
-<p> 
-	Talk is cheap. Instead of talking, show people what you've done.
-</p>
+    <%= pluralize(@projects.count, 'Project') %>
+    <p>
+    <%= link_to "Sign up", new_member_registration_path %>, or 
+    check out the <%= link_to 'list of projects', projects_path %> 
+    </p>
+  </div>
 
-
-<p>
-      <%= link_to "Sign up", new_member_registration_path %>, or 
-      check out the <%= link_to 'list of projects', projects_path %> 
-</p>
-</div>
-
+  <%= render 'sales/frontpage-form' %>
+  
 </div>
