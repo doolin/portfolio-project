@@ -6,6 +6,7 @@ body {
   background: #ECE6BA;
 }
 */
+@import url('cta-buttons.css');
 body { background: #ccc url(http://subtlepatterns.com/patterns/square_bg.png); }
 .full_width > .page {width: 940px; margin: auto; }
 
@@ -19,6 +20,8 @@ body { background: #ccc url(http://subtlepatterns.com/patterns/square_bg.png); }
 .cf:after {
     clear:both;
 }
+
+.alignLeft {float: left;}
 
 /* For IE 6/7 (trigger hasLayout) */
 .cf {
@@ -186,7 +189,9 @@ div#user_nav {  }
 /**
  * Front page
  */
-#hero { text-align: center; border-bottom: 1px dotted #ccc; margin: 0 0 20px 0;}
+#hero { text-align: center; border-bottom: 1px dotted #ccc; margin: 0 0 20px 0; padding: 0 0 2em 0;}
+.copy { margin: 1em;}
+.copy img { margin: 0 1em 1em 0;}
 
 /**
  * Project pages
