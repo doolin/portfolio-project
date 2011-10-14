@@ -28,11 +28,17 @@ body { background: #ccc; }
 /** Nav Area **/
 #full_width_nav_area { background: #222;}
 	#full_width_nav { padding: .5em 0;}
+		nav {color: #999;}
+			nav a { color: #fff; text-decoration: none; font-weight: 900;}
 
 /** Header Area **/
-#header_area { background: #fff url(../images/custom2/headerbg.png) repeat-x }
-	#header { padding: 2em 0 1.5em;}
+#header_area { background: #fff url(../images/custom2/headerbg.png) bottom center repeat-x;}
+	#header { padding: 2em 0 1.5em; height: 140px;}
 	#logo a{   font-family: "lobster-1","lobster-2"; font-size: 3em; text-decoration: none;}
+
+/** Content Area**/
+	#content {background: none repeat scroll 0 0 #FFFFFF;
+	    margin: -70px auto 20px; padding: .5em;}
 
 textarea#project_description  {}
 textarea#project_summary {}
@@ -86,35 +92,6 @@ tbody tr:nth-child(even) td, tbody tr.even td {
 }
 
 
-/* Navigation */
-
-nav {
- 
-}
-
-nav {
-
-}
-
-nav ul {
-
-}
-
-nav ul li {
-
-}
-
-nav ul li a {
-
-}
-
-nav ul li a:visited {
-
-}
-
-nav ul li a:hover {
-
-}
 
 
 
@@ -229,7 +206,7 @@ div#user_nav {  }
 /**
  * Front page
  */
-div.newsletter-form { width: 312px; background: #ccc; padding: .5em; margin: -100px 0 0 0; 
+div.newsletter-form {  background: #fff; padding: .5em;} 
 input.text {}
 
 /**

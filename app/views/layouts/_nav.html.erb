@@ -2,11 +2,14 @@
   <div class="page">
     <div id="full_width_nav">
        <nav id="member_nav" class="last">
-       <%= link_to "Home", root_path %> | 
        <% if member_signed_in? %>
+         <%= link_to "Profile", profiles_path %> | 
+         <%= link_to "Projects", member_path(current_member) %> |          
          Signed in as <%= current_member.email %>. Not you?
          <%= link_to "Sign out", destroy_member_session_path %>
        <% else %>
+         <%= link_to "Home", root_path %> |        
+         <%= link_to "About", '/about' %> | 
          <%= link_to "Sign up", new_member_registration_path %> | 
          <%= link_to "Sign in", new_member_session_path %>
        <% end %>
