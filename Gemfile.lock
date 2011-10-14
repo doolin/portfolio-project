@@ -105,7 +105,6 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     mock-aws-s3 (0.6.0)
-    mysql2 (0.3.7)
     nokogiri (1.5.0)
     orm_adapter (0.0.5)
     pg (0.11.0)
@@ -222,7 +221,6 @@ DEPENDENCIES
   jquery-rails
   launchy
   mock-aws-s3
-  mysql2
   pg
   possessive
   rails
