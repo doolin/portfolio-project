@@ -1,0 +1,208 @@
+/**
+ *   BODY
+ */
+/*
+body {
+  background: #ECE6BA;
+}
+*/
+@import url('cta-buttons.css');
+body { background: #ccc url(http://subtlepatterns.com/patterns/square_bg.png); }
+.full_width > .page {width: 940px; margin: auto; }
+
+/* For modern browsers */
+.cf:before,
+.cf:after {
+    content:"";
+    display:table;
+}
+
+.cf:after {
+    clear:both;
+}
+
+.alignLeft {float: left;}
+
+/* For IE 6/7 (trigger hasLayout) */
+.cf {
+    zoom:1;
+}
+
+/** Nav Area **/
+#full_width_nav_area { background: #222;}
+	#full_width_nav { padding: 1em 0;}
+		nav {color: #999; float: right; margin: .8em 0 0 0;}
+			nav a { color: #fff; text-decoration: none; font-weight: 900; }
+
+/** Header Area **/
+#header_area { background: #fff url(../images/custom2/headerbg.png) bottom center repeat-x;}
+	#header { padding: 2em 0 1.5em; height: 200px;}
+	#logo {float: left; width: auto; margin: 0; }
+		#logo a{ font-size: 2em; font-family: "lobster-1","lobster-2"; text-decoration: none; color: #fff;}
+
+/** Content Area**/
+	#content {background: none repeat scroll 0 0 #FFFFFF;
+	    margin: -200px auto 20px; padding: .5em;}
+
+textarea#project_description  {}
+textarea#project_summary {}
+textarea#project_requiredskills {}
+
+textarea#profile_bio {}
+
+/**
+ *   HEADER
+ */
+header { }
+
+h2.projects-listing { }
+
+header img { }
+
+
+div.frontpage { }
+
+/**
+ *   SECTION MASTER
+ */
+section { }
+
+section h1 { }
+
+.contactform h2,
+.sidebar h2 {
+  font-family: "lobster-1","lobster-2";
+}
+
+tbody tr:nth-child(even) td, tbody tr.even td {
+  background:#eee;
+}
+
+/* Sign up button */
+
+a.signup_button {
+
+}
+
+
+.round {
+
+}
+
+
+/**
+ *   LINKS
+ */
+
+a { }
+
+a:hover { }
+
+a:visited { }
+
+
+/* User show page */
+
+table.profile {}
+
+td.main {}
+
+td.sidebar {}
+
+.profile img.gravatar {}
+
+div.field, div.actions {}
+
+.field_with_errors {
+}
+
+.field_with_errors label {
+}
+
+#error_explanation {
+}
+
+#error_explanation h2 {
+}
+
+#error_explanation p {
+}
+
+#error_explanation ul li {
+}
+
+ul.users {
+
+}
+
+.users li {
+
+}
+
+
+h1.micropost {
+
+}
+
+table.microposts {
+
+}
+
+table.microposts tr {
+ 
+}
+
+table.microposts tr td.gravatar {
+}
+
+table.microposts tr td.micropost {
+}
+
+table.microposts tr td.micropost span.timestamp {
+}
+
+div.user_info img {
+}
+
+div.user_info a {
+}
+
+div.user_info span.user_name {
+}
+
+div.user_info span.microposts {
+}
+
+form.new_micropost {
+}
+
+form.new_micropost textarea {
+}
+
+
+/**
+ * Template partials
+ */
+div#user_nav {  }
+.f {}
+
+/**
+ * Front page
+ */
+#hero { text-align: center; border-bottom: 1px dotted #ccc; margin: 0 0 20px 0; padding: 0 0 2em 0;}
+.copy { margin: 1em;}
+.copy img { margin: 0 1em 1em 0; border: 3px solid #eee;}
+
+/**
+ * Project pages
+ */
+div > span.label {}
+div.project {}
+div.project > div {}
+
+
+/**
+ * Footer
+ */
+#footer_area { background: #222; padding: .5em 0;}
+footer nav {}
