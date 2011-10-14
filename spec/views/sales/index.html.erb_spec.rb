@@ -11,6 +11,7 @@ describe "sales/index.html.erb" do
   end
 
   it "should display the home page" do
+    @projects = mock(Project).as_null_object
     render
     rendered.should =~ /Talk is cheap/
   end
