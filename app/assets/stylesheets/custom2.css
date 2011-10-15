@@ -6,7 +6,7 @@ body {
   background: #ECE6BA;
 }
 */
-@import url('cta-buttons.css');
+/* @import url('cta-buttons.css');*/
 body { background: #ccc url(http://subtlepatterns.com/patterns/square_bg.png); }
 .full_width > .page {width: 940px; margin: auto; }
 
