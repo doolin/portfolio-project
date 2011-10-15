@@ -9,11 +9,10 @@
     <%= content_tag :div, value, :class => "flash #{key}" unless value.blank? %>
   <% end %>
 
-  
-  <div class="name fn">
-    <span class="label">Name:</span>
+  <h1 class="name fn">
     <%= @project.name %>
-  </div>
+  </h1>
+  
 
   <div class="summary">
     <span class="label">Summary:</span>
@@ -32,25 +31,34 @@
     <%= @project.description.html_safe %>
   </div>
 
+  <% if @project.requiredskills %>
   <div class="requiredskills">
     <span class="label">Required skills:</span>
     <%= @project.requiredskills.html_safe unless @project.requiredskills.blank? %>
   </div>
+  <% end %>
 
+  <% if @project.client %>
   <div class="client">
     <span class="label">Client:</span>
     <%= @project.client %>
   </div>
+  <% end %>
 
+
+  <% if @project.uri %>
   <div class="uri">
     <span class="label">Link to project:</span>
     <%= link_to @project.uri, @project.uri %>
   </div>
+  <% end %>
 
+  <% if @project.pointofcontact %>
   <div class="point-of-contact">
     <span class="label">Point of contact:</span>
     <%= @project.pointofcontact %>
   </div>
+  <% end %>
 
   <div class="tags">
     <span class="label">Tags:</span>
