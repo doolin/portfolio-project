@@ -18,7 +18,8 @@ describe 'projects/show.html.erb' do
 
   it "renders attributes in <p>" do
     render
-    rendered.should match(/Name/)
+    # Name changed to h1 element
+    #rendered.should match(/Name/)
     rendered.should match(/Summary/)
     rendered.should match(/Client/)
   end
