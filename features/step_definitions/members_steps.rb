@@ -128,9 +128,11 @@ When /^the member fills out all the project fields correctly$/ do
   #finishdate = "2011-02-03 00:00:00.000000"
   summary = "New project summary"
   description = "New project description"
+  tags = "tag1, tag2"
   And %{I fill in "Name" with "#{name}"}
   And %{I fill in "Summary" with "#{summary}"}
   And %{I fill in "Description" with "#{description}"}
+  And %{I fill in "Tags" with "#{tags}"}
 
   # Time and date fields are broken in Capybara, or
   # perhaps it's more accurate to say that Rails doesn't
