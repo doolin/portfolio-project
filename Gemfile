@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rake', '0.8.7'
-gem 'rails' 
+gem 'rails', '3.0.10'
 gem 'sqlite3'
 gem 'devise'
 gem 'dynamic_form'

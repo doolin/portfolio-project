@@ -223,7 +223,7 @@ DEPENDENCIES
   mock-aws-s3
   pg
   possessive
-  rails
+  rails (= 3.0.10)
   rake (= 0.8.7)
   rspec
   rspec-rails
