@@ -1,0 +1,10 @@
+<li class="profile_block">
+  <%= link_to (gravatar_for Member.find(profile.member_id),  :size => '200'), profile  %>
+  <div class="profile_info">
+    <ul>
+      <li><%= profile.firstname %> <%= profile.lastname %></li>
+      <li>Total Projects - <%= Member.find(profile.member_id).projects.count %></li>
+      <li>Member Since -<%= profile.created_at.strftime("%B %e, %Y") %></li>
+    </ul>
+  </div>
+</li><!-- End of profile's block -->
