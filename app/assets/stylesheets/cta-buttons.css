@@ -211,14 +211,14 @@
 	padding-left:37px;
 	display:block;
 	height:50px;
-	background:transparent url(../images/custom2/sprite.png) no-repeat;
+	background:transparent url(/assets/custom2/sprite.png) no-repeat;
 }
 .icon-go, .icon-more {
 	margin-right:-5px;
 	padding-right:40px;
 	display:block;
 	height:50px;
-	background:transparent url(../images/custom2/sprite.png) no-repeat;
+	background:transparent url(/assets/custom2/sprite.png) no-repeat;
 }
 .icon-download {background-position:0 -141px;}
 .icon-check {background-position:0 -66px;}
