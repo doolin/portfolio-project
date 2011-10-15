@@ -194,8 +194,8 @@ div#user_nav {  }
 	.copy img { margin: 0 1em 1em 0; border: 3px solid #eee;}
 
 /** Profile Index **/
-	#profiles_display_block { }
-		#profiles_display_block .profile_block { list-style: none; float: left; width: 25%;}
+	#profiles_display_block {width: 920px; }
+		#profiles_display_block .profile_block { list-style: none; float: left; width: 25%; margin: 0 0 2em 0;}
 		#profiles_display_block .profile_block .inner { position: relative; overflow: hidden; border: 1px solid #ccc; height: 200px; width: 200px;}
 			.profile_info { background: rgba(255,255,255, .9); position: absolute; bottom: -38px; left: 0; padding: 0 0 .1em .5em; width: 200px; border-top: 1px solid #ccc;}
 				.profile_info ul { margin: 0; padding: 0;}
