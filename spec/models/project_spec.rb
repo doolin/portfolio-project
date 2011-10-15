@@ -5,12 +5,13 @@ describe Project do
   before(:each) do
     @member = Factory(:member)
     @attr = {
-      :name => "Foo project",
-      :summary => "We did it again.",
-      :client => "Dave D",
+      :name        => "Foo project",
+      :summary     => "We did it again.",
+      :client      => "Dave D",
       :description => "A short description for testing.",
-      :startdate => DateTime.new,
-      :finishdate => DateTime.new
+      :startdate   => DateTime.new,
+      :finishdate  => DateTime.new,
+      :tags        => 'foobar'
     }
   end
 
