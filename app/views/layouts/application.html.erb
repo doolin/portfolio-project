@@ -4,13 +4,8 @@
   <title>Portfolio Project | <%= content_for?(:title) ? yield(:title) : "what got done" %></title>
     <meta name="google-site-verification" content="UPtemx8lzwim6H0JAhLQG-6Tam4H_E1uimeuKTEs0jk" />
 
-    <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
-    <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
-    <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
-    <% stylesheet_link_tag 'custom', :media => 'screen' %>
-    <%=  stylesheet_link_tag 'custom2', :media => 'screen' %>
-    <%= javascript_include_tag :defaults %>    
-    <%= javascript_include_tag 'ajaxray_textcounting' %>        
+    <%= stylesheet_link_tag 'application', :media => 'screen' %>
+    <%= javascript_include_tag 'application' %>
     <script type="text/javascript" src="http://use.typekit.com/zac5ngr.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <%= csrf_meta_tag %>
