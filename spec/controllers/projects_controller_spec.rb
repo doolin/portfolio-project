@@ -50,7 +50,25 @@ describe ProjectsController do
         assigns(:project).should be(@mock_project)
       end
 
-
+      # TODO: Some evidence from Profile test indicates that
+      # a has_one association will not allow a second instance
+      # to be constructed, whereas here, it could. This is worthy
+      # of some investigation.
+      it "should create a new project for signed in member" do
+        @member = Factory(:member)
+        sign_in @member
+        lambda do
+        post :create, :project => { :name => "Project test",
+          :summary        => "Test example",
+          :description    => "Some short, descriptive text for testing.",
+          :requiredskills => "Cat herding",
+          :client         => "RSpec",
+          :tags           => "TDD, BDD",
+          :startdate      =>  DateTime.new,
+          :finishdate     =>  DateTime.new,
+          :url            => 'project-test'}
+        end.should change(Project, :count).by(1)
+      end
 
 
       it "redirects to the created project" do

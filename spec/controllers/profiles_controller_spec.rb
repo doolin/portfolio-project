@@ -51,11 +51,34 @@ describe ProfilesController do
   
   describe "POST 'create'" do
 
+
+    # TODO: This test used to pass, but apparently, if the
+    # has_one association (Member -> Profile) is already
+    # instantiated, this test as originally written fails.
+    # Investigate further by deleting the original profile,
+    # then rebuilding it here with the :create action
     it "should create a new profile for signed in member" do
+      sign_out @member
+      @newmember  = Factory(:member, :email => 'foofppf@gmail.com')
+      sign_in @newmember
       lambda do
-        post :create, :profile => { :firstname => 'foo', :lastname => 'bar' }#, :website => 'http://foo.com' }
+        post :create, :profile => { :firstname => 'foo', :lastname => 'bar' }
       end.should change(Profile, :count).by(1)
     end
+
+    # TODO: from note above, a little testing.
+    it "should create a profile for member without a profile" do
+      @member.profile.destroy
+      lambda do
+        post :create, :profile => { :firstname => 'foo', :lastname => 'bar' }
+      end.should change(Profile, :count).by(1)
+    end
+
+    xit "creates a new profile" do
+      Profile.should_receive(:new).with('firstname' => 'foo')
+      post :create, :profile => { 'firstname' => 'foo' }
+    end
+    it "saves the profile"
 
   end
 
