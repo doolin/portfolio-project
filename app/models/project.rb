@@ -18,6 +18,7 @@ class Project < ActiveRecord::Base
   validates :startdate,   :presence => true
   validates :finishdate,  :presence => true
   validates :client,                         :length => { :maximum => 140 }
+  validates :tags,        :presence => true
   
   
   default_scope :order => 'projects.created_at DESC'
