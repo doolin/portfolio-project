@@ -9,55 +9,58 @@
     <div class="profile_name">   
       <h2><%= @profile.firstname %> <%= @profile.lastname %></h2>
       <%= render :partial => "social_links" %>
+
     </div>
 
     <div class="profile_gravatar">
-      <p>
         <%= gravatar_for @member, :size => '140' %>
-      </p> 
+        <%= render 'profile_links' %>
+        <br />
     </div>
   </div>
 
-  <div class="profile_contact">
+  <div class="profile_contact cf">
     
-    <h3>Contact Information</h3>
-    
-    <p>
-      <b>Website:</b>
-      <%= link_to @profile.website, @profile.website %>
-    </p>
-    <p>
-      <b>Twitter:</b>
-      <%= @profile.twitter %>
-    </p>
-    <p>
-      <b>Facebook:</b>
-      <%= @profile.facebook %>
-    </p>
-    <p>
-      <b>LinkedIn:</b>
-      <%= @profile.linkedin %>
-    </p>
+    <h3 class="alignLeft">Contact Information</h3>
+    <div class="inner alignRight">
+      <p>
+        <b>Website:</b>
+        <%= link_to @profile.website, @profile.website %>
+      </p>
+      <p>
+        <b>Twitter:</b>
+        <%= @profile.twitter %>
+      </p>
+      <p>
+        <b>Facebook:</b>
+        <%= @profile.facebook %>
+      </p>
+      <p>
+        <b>LinkedIn:</b>
+        <%= @profile.linkedin %>
+      </p>
+    </div>
   </div>
 
-  <div class="profile_bio">
-    <h3>Biography</h3>     
-    <p>
-      <b>Bio:</b>
-      <%= @profile.bio %>
-    </p>  
+  <div class="profile_bio cf">
+    <h3 class="alignLeft">Biography</h3>   
+    <div class="inner alignRight">
+      <p>
+        <b>Bio:</b>
+        <%= @profile.bio %>
+      </p>   
+    </div>  
+
   </div>
 
-  <div class="profile_projects">
-   <h3>Projects</h3> 
-    <p>
-      <ul>
-        <%= render :partial => "profiles/projects", :collection => @projects, :as => "project" %>
-      </ul>
-    </p>
+  <div class="profile_projects cf">
+   <h3 class="alignLeft">Projects</h3> 
+   <div class="inner alignRight">
+       <ul>
+         <%= render :partial => "profiles/projects", :collection => @projects, :as => "project" %>
+       </ul>
+   </div>
   </div>
-
-  <%= render 'profile_links' %>
 
 </div><!-- class=project -->
 </section>

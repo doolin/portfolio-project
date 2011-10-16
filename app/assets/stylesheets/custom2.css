@@ -22,6 +22,7 @@ body { background: #ccc url(http://subtlepatterns.com/patterns/square_bg.png); }
 }
 
 .alignLeft {float: left;}
+.alignRight {float: right;}
 
 /* For IE 6/7 (trigger hasLayout) */
 .cf {
@@ -102,6 +103,9 @@ tbody tr:nth-child(even) td, tbody tr.even td {
 				.profile_name h2  {font-size: 3em; margin: .5em 0 0 0;}
 			.profile_gravatar { float: right;}
 					.profile_gravatar img { border: 3px solid #eee;}
+					
+	.profile h3 { width: 180px; font-weight: 900; }
+	.profile .inner { width: 700px; border-left: 1px dotted #ccc; padding: 0 0 0 1.4em; margin: 0 0 1em 0;}			
 
 	.social_links { margin: 0; padding: 5px 0 0 0;}
 		.social_links li { float: left; list-style: none; margin-right: 1em;}
