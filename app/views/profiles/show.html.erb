@@ -1,6 +1,3 @@
-<h2> <%= @profile.firstname.possessive %> profile</h2>
-
-
 <% flash.each do |key, value| %>
   <%= content_tag :div, value, :class => "flash #{key}" unless value.blank? %>
 <% end %>
@@ -8,35 +5,57 @@
 <section>
 <div class="profile">
   
-<p>
-  <%= gravatar_for @member %>
-</p>  
+  <div class="profile_header cf">
+    <div class="profile_name">   
+      <h2><%= @profile.firstname %> <%= @profile.lastname %></h2>
+      <%= render :partial => "social_links" %>
+    </div>
 
-<p>
-  <b>Member name:</b>
-  <%= @profile.firstname %>   <%= @profile.lastname %>
-</p>
-<p>
-  <b>Bio:</b>
-  <%= @profile.bio %>
-</p>
+    <div class="profile_gravatar">
+      <p>
+        <%= gravatar_for @member, :size => '140' %>
+      </p> 
+    </div>
+  </div>
 
-<p>
-  <b>Website:</b>
-  <%= link_to @profile.website, @profile.website %>
-</p>
-<p>
-  <b>Twitter:</b>
-  <%= @profile.twitter %>
-</p>
-<p>
-  <b>Facebook:</b>
-  <%= @profile.facebook %>
-</p>
-<p>
-  <b>LinkedIn:</b>
-  <%= @profile.linkedin %>
-</p>
+  <div class="profile_contact">
+    
+    <h3>Contact Information</h3>
+    
+    <p>
+      <b>Website:</b>
+      <%= link_to @profile.website, @profile.website %>
+    </p>
+    <p>
+      <b>Twitter:</b>
+      <%= @profile.twitter %>
+    </p>
+    <p>
+      <b>Facebook:</b>
+      <%= @profile.facebook %>
+    </p>
+    <p>
+      <b>LinkedIn:</b>
+      <%= @profile.linkedin %>
+    </p>
+  </div>
+
+  <div class="profile_bio">
+    <h3>Biography</h3>     
+    <p>
+      <b>Bio:</b>
+      <%= @profile.bio %>
+    </p>  
+  </div>
+
+  <div class="profile_projects">
+   <h3>Projects</h3> 
+    <p>
+      <ul>
+        <%= render :partial => "profiles/projects", :collection => @projects, :as => "project" %>
+      </ul>
+    </p>
+  </div>
 
   <%= render 'profile_links' %>
 

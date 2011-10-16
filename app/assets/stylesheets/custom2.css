@@ -78,113 +78,6 @@ tbody tr:nth-child(even) td, tbody tr.even td {
   background:#eee;
 }
 
-/* Sign up button */
-
-a.signup_button {
-
-}
-
-
-.round {
-
-}
-
-
-/**
- *   LINKS
- */
-
-a { }
-
-a:hover { }
-
-a:visited { }
-
-
-/* User show page */
-
-table.profile {}
-
-td.main {}
-
-td.sidebar {}
-
-.profile img.gravatar {}
-
-div.field, div.actions {}
-
-.field_with_errors {
-}
-
-.field_with_errors label {
-}
-
-#error_explanation {
-}
-
-#error_explanation h2 {
-}
-
-#error_explanation p {
-}
-
-#error_explanation ul li {
-}
-
-ul.users {
-
-}
-
-.users li {
-
-}
-
-
-h1.micropost {
-
-}
-
-table.microposts {
-
-}
-
-table.microposts tr {
- 
-}
-
-table.microposts tr td.gravatar {
-}
-
-table.microposts tr td.micropost {
-}
-
-table.microposts tr td.micropost span.timestamp {
-}
-
-div.user_info img {
-}
-
-div.user_info a {
-}
-
-div.user_info span.user_name {
-}
-
-div.user_info span.microposts {
-}
-
-form.new_micropost {
-}
-
-form.new_micropost textarea {
-}
-
-
-/**
- * Template partials
- */
-div#user_nav {  }
-.f {}
 
 /**
  * Front page
@@ -201,6 +94,17 @@ div#user_nav {  }
 				.profile_info ul { margin: 0; padding: 0;}
 					.profile_info li { list-style: none;}
 						.profile_info .member_name { font-weight: 900; font-size: 14px;}
+						
+/** Individual Profiles **/		
+	.profile { padding:0 1em; }
+		.profile .profile_header { border-bottom: 1px solid #eee; margin: 0 0 2em 0;}
+			.profile_name {float: left; }
+				.profile_name h2  {font-size: 3em; margin: .5em 0 0 0;}
+			.profile_gravatar { float: right;}
+					.profile_gravatar img { border: 3px solid #eee;}
+
+	.social_links { margin: 0; padding: 5px 0 0 0;}
+		.social_links li { float: left; list-style: none; margin-right: 1em;}
 
 /**
  * Project pages

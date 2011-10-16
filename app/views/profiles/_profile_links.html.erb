@@ -1,5 +1,5 @@
 
-<div id="profile-links">
+<div class="profile-links">
 <% if (member_signed_in? && (current_member.id == @profile.member_id)) %>
   <%= link_to 'Edit', edit_profile_path(@profile), %> | 
   <%= link_to 'Delete', profile_path(@profile), :confirm => 'Are you sure?', :method => :delete %> |
