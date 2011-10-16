@@ -16,12 +16,12 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :startdate %><br />
-    <%= f.date_select :startdate %>
+    <%= f.label 'Starting date' %><br />
+    <%= f.date_select(:startdate, :start_year => 1990) %>
   </div>
   <div class="field">
-    <%= f.label :finishdate %><br />
-    <%= f.date_select :finishdate %>
+    <%= f.label 'Finishing date (leave blank for "Present")' %><br />
+    <%= f.date_select(:finishdate, :start_year => 1990) %>
   </div>
   <div class="field" id="summary">
     <%= f.label :summary %><br />
