@@ -1,6 +1,3 @@
-<h2> <%= @profile.firstname.possessive %> profile</h2>
-
-
 <% flash.each do |key, value| %>
   <%= content_tag :div, value, :class => "flash #{key}" unless value.blank? %>
 <% end %>
@@ -8,37 +5,62 @@
 <section>
 <div class="profile">
   
-<p>
-  <%= gravatar_for @member %>
-</p>  
+  <div class="profile_header cf">
+    <div class="profile_name">   
+      <h2><%= @profile.firstname %> <%= @profile.lastname %></h2>
+      <%= render :partial => "social_links" %>
 
-<p>
-  <b>Member name:</b>
-  <%= @profile.firstname %>   <%= @profile.lastname %>
-</p>
-<p>
-  <b>Bio:</b>
-  <%= @profile.bio %>
-</p>
+    </div>
 
-<p>
-  <b>Website:</b>
-  <%= link_to @profile.website, @profile.website %>
-</p>
-<p>
-  <b>Twitter:</b>
-  <%= @profile.twitter %>
-</p>
-<p>
-  <b>Facebook:</b>
-  <%= @profile.facebook %>
-</p>
-<p>
-  <b>LinkedIn:</b>
-  <%= @profile.linkedin %>
-</p>
+    <div class="profile_gravatar">
+        <%= gravatar_for @member, :size => '140' %>
+        <%= render 'profile_links' %>
+        <br />
+    </div>
+  </div>
 
-  <%= render 'profile_links' %>
+  <div class="profile_contact cf">
+    
+    <h3 class="alignLeft">Contact Information</h3>
+    <div class="inner alignRight">
+      <p>
+        <b>Website:</b>
+        <%= link_to @profile.website, @profile.website %>
+      </p>
+      <p>
+        <b>Twitter:</b>
+        <%= @profile.twitter %>
+      </p>
+      <p>
+        <b>Facebook:</b>
+        <%= @profile.facebook %>
+      </p>
+      <p>
+        <b>LinkedIn:</b>
+        <%= @profile.linkedin %>
+      </p>
+    </div>
+  </div>
+
+  <div class="profile_bio cf">
+    <h3 class="alignLeft">Biography</h3>   
+    <div class="inner alignRight">
+      <p>
+        <b>Bio:</b>
+        <%= @profile.bio %>
+      </p>   
+    </div>  
+
+  </div>
+
+  <div class="profile_projects cf">
+   <h3 class="alignLeft">Projects</h3> 
+   <div class="inner alignRight">
+       <ul>
+         <%= render :partial => "profiles/projects", :collection => @projects, :as => "project" %>
+       </ul>
+   </div>
+  </div>
 
 </div><!-- class=project -->
 </section>

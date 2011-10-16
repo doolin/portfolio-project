@@ -18,7 +18,7 @@ describe 'profiles/show.html.erb' do
 
   it "renders the member's profile page" do
     render
-    rendered.should =~ /profile/
+    rendered.should have_selector('div.profile')
   end
 
 end

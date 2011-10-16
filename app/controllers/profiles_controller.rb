@@ -34,6 +34,7 @@ class ProfilesController < ApplicationController
   def show
     @profile = Profile.find_by_url(params[:id])
     @member = Member.find(@profile.member_id)
+    @projects = @member.projects
   end
   
   def edit
