@@ -7,16 +7,20 @@
        <nav id="member_nav" class="last">
        <% if member_signed_in? %>
          <% if current_member.profile %>
-           <%= link_to "Profile", profile_path(current_member.lastname.downcase) %> |
+           <%= link_to "My Profile", profile_path(current_member.lastname.downcase) %> |
          <% end %>
          <% if !current_member.projects.empty? %>
            <%= link_to "My Projects", member_path(current_member) %> |
+           <% count = Project.count %>
+           <%= link_to "All #{count} Projects", projects_path %> |
          <% end %>
-         Signed in as <%= current_member.email %>. Not you?
+         Signed in as <%= current_member.email %> |
          <%= link_to "Sign out", destroy_member_session_path %>
        <% else %>
-         <%= link_to "Home", root_path %> |        
+         <%= link_to "Home", root_path %> | 
          <%= link_to "About", '/about' %> | 
+         <% count = Project.count %>
+         <%= link_to "All #{count} Projects", projects_path %> |
          <%= link_to "Sign up", new_member_registration_path %> | 
          <%= link_to "Sign in", new_member_session_path %>
        <% end %>
