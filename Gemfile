@@ -1,7 +1,10 @@
 source 'http://rubygems.org'
 
 gem 'rake'
-gem 'rails', '3.1'
+gem 'rails', '3.1.1'
+gem 'sitemap_generator'
+gem 'carrierwave'
+gem 'fog'
 
 group :production do
   gem "pg"
