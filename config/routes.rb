@@ -4,7 +4,6 @@ PortfolioProject::Application.routes.draw do
   # first created -> highest priority.
 
 
-
   # All non-logged in users go to sales page.
   root :to => "sales#index"
 
@@ -41,6 +40,14 @@ PortfolioProject::Application.routes.draw do
 
   resources :profiles
   resources :projects
+
+
+  resources :sitemaps, :only => :index
+  #match '/sitemap', :to => '/sitemap.xml', :controller => 'sitemaps'
+
+
+
+
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
