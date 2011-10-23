@@ -25,7 +25,7 @@ xml.tag! 'urlset', 'xmlns' => 'http://www.sitemaps.org/schemas/sitemap/0.9' do
   @projects.each do |project|
     xml.url {
       xml.loc("#{base_url}/projects/#{project.url.to_s}")
-      xml.lastmod(project.updated_at)
+      xml.lastmod(project.updated_at.strftime("%Y-%m-%d"))
       xml.changefreq("weekly")
       xml.priority("0.7")
     }
@@ -34,7 +34,7 @@ xml.tag! 'urlset', 'xmlns' => 'http://www.sitemaps.org/schemas/sitemap/0.9' do
   @profiles.each do |profile|
     xml.url {
       xml.loc("#{base_url}/profiles/#{profile.url.to_s}")
-      xml.lastmod(profile.updated_at)
+      xml.lastmod(profile.updated_at.strftime("%Y-%m-%d"))
       xml.changefreq("weekly")
       xml.priority("0.7")
     }
