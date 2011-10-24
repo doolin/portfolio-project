@@ -29,7 +29,8 @@ namespace :perez do
 
     APP_NAME = 'portproj' # put your app name here
     BACKUP_BUCKET = 'portfolio-project' # put your backup bucket name here
-    DB_CONFIG = YAML::load(ERB.new(IO.read(File.join(RAILS_ROOT, 'config', 'database.yml'))).result)[RAILS_ENV]
+    #DB_CONFIG = YAML::load(ERB.new(IO.read(File.join(RAILS_ROOT, 'config', 'database.yml'))).result)[RAILS_ENV]
+    DB_CONFIG = YAML::load(ERB.new(IO.read(File.join(Rails.root, 'config', 'database.yml'))).result)[Rails.env]
 
     puts "backup started @ #{Time.now}"
 

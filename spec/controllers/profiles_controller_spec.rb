@@ -17,7 +17,9 @@ describe ProfilesController do
     it "redirects to sign in path when signed out" do
       sign_out @member
       get :index
-      response.should redirect_to(new_member_session_path)
+      # Changing the behavior, we want the profiles page indexed for SEO.
+      #response.should redirect_to(new_member_session_path)
+      response.should render_template("index")
     end
   end
 
