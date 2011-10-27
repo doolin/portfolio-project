@@ -23,7 +23,13 @@ end
 
  From  http://rubyforge.org/pipermail/rspec-users/2011-July/020315.html
 
- You _can_ use shared content, but what you have here ^^ doesn't work as written. The scope in the shared_examples_for block is an example group scope, not an example scope, so methods like fill_in and click_button are not available. You'd want to wrap them in a before block. Also, page.has_content?(...) will return true or false, but will not act like an expectation (i.e. RSpec won't care which it returns).
+ You _can_ use shared content, but what you have here ^^ doesn't 
+ work as written. The scope in the shared_examples_for block is 
+ an example group scope, not an example scope, so methods like 
+ fill_in and click_button are not available. You'd want to wrap 
+ them in a before block. Also, page.has_content?(...) will return 
+ true or false, but will not act like an expectation (i.e. RSpec 
+ won't care which it returns).
 
 Here are a couple of ways you could do this that will work as Chris expects:
 
