@@ -34,11 +34,11 @@ describe "projects/new.html.erb" do
     controller.request.path_parameters["action"].should eq("new")
   end
     
-  xit "should have the correct <title> element " do
+  it "should have the correct <title> element " do
     render(:template => "projects/new.html.erb", :layout => 'layouts/application')
     # have_selector is from webrat 
     # https://github.com/brynary/webrat/blob/master/lib/webrat/core/matchers/have_selector.rb
-    rendered.should have_selector("title", :content => "Privacy | Portfolio Project")
+    rendered.should have_selector("title", :content => "Add your new Project or Accomplishment | Portfolio Project")
     # http://blog.carbonfive.com/2011/03/02/a-look-at-specifying-views-in-rspec/
     #view.content_for(:sidebar).should have_selector('div.quote')
   end
