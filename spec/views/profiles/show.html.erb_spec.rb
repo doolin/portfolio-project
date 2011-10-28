@@ -21,11 +21,12 @@ describe 'profiles/show.html.erb' do
     rendered.should have_selector('div.profile')
   end
 
-  xit "should have the correct <title> element " do
+  it "should have the correct <title> element " do
     render(:template => "profiles/show.html.erb", :layout => 'layouts/application')
+    title = @member.firstname + " " + @member.lastname.possessive + ' Profile | Portfolio Project'
     # have_selector is from webrat 
     # https://github.com/brynary/webrat/blob/master/lib/webrat/core/matchers/have_selector.rb
-    rendered.should have_selector("title", :content => "Privacy | Portfolio Project")
+    rendered.should have_selector("title", :content => title)
     # http://blog.carbonfive.com/2011/03/02/a-look-at-specifying-views-in-rspec/
     #view.content_for(:sidebar).should have_selector('div.quote')
   end
