@@ -24,6 +24,7 @@ Factory.define :project do |p|
   p.startdate       DateTime.new
   p.finishdate      DateTime.new
   p.url            'project-test'
+  p.uri            'http://example.com/uri'
 end
 
 
