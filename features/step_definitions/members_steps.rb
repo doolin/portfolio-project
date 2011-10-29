@@ -15,7 +15,9 @@ Given /^member name is "([^"]*)" with email "([^"]*)" and password "([^"]*)"$/ d
   Member.new(:membername => name,
              :email => email,
              :password => password,
-             :password_confirmation => password).save!
+             :password_confirmation => password,
+             :firstname => 'foo',
+             :lastname => 'bar').save!
 end
 
 Given /^member is on sign_in page$/ do
