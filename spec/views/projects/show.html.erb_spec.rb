@@ -7,6 +7,7 @@ describe 'projects/show.html.erb' do
     #assign(:project, mock_model(Project).as_new_record.as_null_object)
     @member   = Factory(:member)
     @project   = Factory(:project, :name => 'Slicer', :member => @member)
+    @profile   = Factory(:profile, :member => @member)
     #sign_in @member
   end
 

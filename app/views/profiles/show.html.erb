@@ -7,20 +7,8 @@
 
 <section>
 <div class="profile">
-  
-  <div class="profile_header cf">
-    <div class="profile_name">   
-      <h2><%= @profile.firstname %> <%= @profile.lastname %></h2>
-      <%= render :partial => "social_links" %>
 
-    </div>
-
-    <div class="profile_gravatar">
-        <%= gravatar_for @member, :size => '140' %>
-        <%= render 'profile_links' %>
-        <br />
-    </div>
-  </div>
+  <%= render 'profile_header' %>
 
   <div class="profile_contact cf">
     

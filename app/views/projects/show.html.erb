@@ -2,12 +2,17 @@
 <% title @project.name %>
 
 
-<section>
-<div class="project">
-
   <% flash.each do |key, value| %>
     <%= content_tag :div, value, :class => "flash #{key}" unless value.blank? %>
   <% end %>
+
+
+  <%= render 'profiles/profile_header' %>
+
+
+<section>
+<div class="project">
+
 
   <h1 class="name fn">
     <%= @project.name %>

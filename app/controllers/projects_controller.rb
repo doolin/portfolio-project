@@ -18,6 +18,10 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find_by_url(params[:id])
 
+    @profile = Profile.find(@project.member_id)
+    @member = Member.find(@profile.member_id)
+
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @project }

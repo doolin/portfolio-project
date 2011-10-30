@@ -133,19 +133,23 @@ div.project > div {
 }
 
 div.profile-listing h2 {
-  margin-bottom: 12px;
+  margin-bottom: 9px;
   padding-top: 6px;
 }
 
 div.profile-listing p {
   text-indent: 10px;
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 div.profile-listing span.label {
   font-weight: bold;
   font-style: italic;
+}
+
+div.profile_contact p {
+  margin-bottom: 8px;
 }
 
 /**

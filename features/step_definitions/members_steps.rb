@@ -88,7 +88,12 @@ Given /^member is signed in as "([^"]*)" and password "([^"]*)"$/ do |email, pas
             :password => password,
             :password_confirmation => password,
             :firstname => 'MFoo',
-            :lastname => 'MBar').save!
+            :lastname => 'MBar')#.save!
+  #@member.save!
+  #puts @member.member_id
+  @profile = @member.build_profile({:firstname => 'Foo', :lastname => 'bar'})
+  #puts @profile.inspect # Also, p object is an alias for puts object.inspect
+  @profile.save
   Given %{member is not logged in}
   When %{I go to the sign in page}
   And %{I fill in "Email" with "#{email}"}

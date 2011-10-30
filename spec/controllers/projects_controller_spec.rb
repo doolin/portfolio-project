@@ -18,7 +18,7 @@ describe ProjectsController do
   end
 
   describe "GET show" do
-    it "assigns the requested project as @project" do
+    xit "assigns the requested project as @project" do
       Project.stub(:find).with("37") { mock_project }
       get :show, :id => "37"
       assigns(:project).should eq(@mock_project)
