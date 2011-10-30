@@ -17,10 +17,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1.xml
   def show
     @project = Project.find_by_url(params[:id])
-
-    @profile = Profile.find(@project.member_id)
-    @member = Member.find(@profile.member_id)
-
+    @member = Member.find(@project.member_id)
+    @profile = @member.profile
 
     respond_to do |format|
       format.html # show.html.erb
