@@ -7,16 +7,17 @@ PortfolioProject::Application.routes.draw do
   # All non-logged in users go to sales page.
   root :to => "sales#index"
 
-  match '/contact',           :to => 'pages#contact' 
-  match '/about',             :to => 'pages#about'
-  match '/terms',             :to => 'pages#terms'
-  match '/disclaimer',        :to => 'pages#disclaimer'
-  match '/disclosure',        :to => 'pages#disclosure'
-  match '/confirmation',      :to => 'pages#confirmation'
-  match '/privacy',           :to => 'pages#privacy'
-  match '/help',              :to => 'pages#help'
-  match 'thank-you',          :to => 'pages#thank-you'
-  match 'already-subscribed', :to => 'pages#already-subscribed'
+  match '/contact',            :to => 'pages#contact'
+  match '/about',              :to => 'pages#about'
+  match '/faq',                :to => 'pages#faq'
+  match '/terms',              :to => 'pages#terms'
+  match '/disclaimer',         :to => 'pages#disclaimer'
+  match '/disclosure',         :to => 'pages#disclosure'
+  match '/confirmation',       :to => 'pages#confirmation'
+  match '/privacy',            :to => 'pages#privacy'
+  match '/help',               :to => 'pages#help'
+  match '/thank-you',          :to => 'pages#thank-you'
+  match '/already-subscribed', :to => 'pages#already-subscribed'
   
   # Having a problem dealing with a form in Capybara.
   # Might test this in rspec instead.
