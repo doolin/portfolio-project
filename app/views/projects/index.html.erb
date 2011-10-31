@@ -5,21 +5,34 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Summary</th>
-    <th>Tags</th>
+    <th>
+      Projects
+    </th>
     <th>Owner</th>
   </tr>
 
 
 <% @projects.each do |project| %>
   <tr>
-    <td><%= link_to project.name, project %></td>
-    <td><%= project.summary %></td>
-    <td><%= project.tags %></td>
-	<td><%= 
-      link_to project.membername(project.member_id), '/members/' + project.member_id.to_s  
-    %></td>
+    <td>
+<div class='profile-listing'>
+  <h3><%= link_to project.name, project, :class => 'project-name' %></h3>
+  <p class='project-summary'>
+    <span class='label'>Summary</span>
+    <%= project.summary %>
+  </p>
+  <p class='project-tags'>
+    <span class='label'>Tags</span>
+    <%= project.tags %>
+  </p>
+</div>
+    </td>
+	  <td>
+	    <div class="alignRight">
+	    <%= link_to (gravatar_for Member.find(project.member_id),  :size => '64'), '/members/' + project.member_id.to_s %><br />
+      <%= link_to project.membername(project.member_id), '/members/' + project.member_id.to_s %>
+      </div>
+    </td>
   </tr>
 <% end %>
 </table>
