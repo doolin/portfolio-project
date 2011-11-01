@@ -14,6 +14,7 @@ PortfolioProject::Application.routes.draw do
   match '/disclaimer',         :to => 'pages#disclaimer'
   match '/disclosure',         :to => 'pages#disclosure'
   match '/confirmation',       :to => 'pages#confirmation'
+  match '/newsletter',         :to => 'pages#newsletter'
   match '/privacy',            :to => 'pages#privacy'
   match '/help',               :to => 'pages#help'
   match '/thank-you',          :to => 'pages#thank-you'
