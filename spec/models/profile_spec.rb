@@ -40,15 +40,19 @@ describe Profile do
     end
 
     # http://intridea.com/2009/2/18/quick-tip-url-validation-in-rails?blog=company
-    it "should validate any given urls" do
+    xit "should validate any given urls" do
       @member.build_profile(@attr.merge({:website => 'http://foobar.com/'})).should be_valid
     end
 
-    it "should not validate url with bogus protocol" do
+    xit "should validate any given urls without http" do
+      @member.build_profile(@attr.merge({:website => 'foobar.com/'})).should be_valid
+    end
+
+    xit "should not validate url with bogus protocol" do
       @member.build_profile(@attr.merge({:website => 'httt://foobar.com/'})).should_not be_valid
     end
 
-    it "should not validate url with bogus domain" do
+    xit "should not validate url with bogus domain" do
       @member.build_profile(@attr.merge({:website => 'http://foobar/'})).should_not be_valid
     end
 
