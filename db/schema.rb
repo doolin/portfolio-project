@@ -11,11 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110925224904) do
+ActiveRecord::Schema.define(:version => 20111108165550) do
 
   create_table "members", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
+    t.string   "password_salt",                       :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -36,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20110925224904) do
 
   create_table "profiles", :force => true do |t|
     t.integer  "member_id"
-    t.text     "bio"
+    t.text     "bio",        :limit => 500
     t.string   "website"
     t.string   "twitter"
     t.string   "facebook"
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20110925224904) do
     t.string   "url"
     t.string   "uri"
     t.string   "requiredskills"
+    t.string   "uri_anchor"
   end
 
   add_index "projects", ["member_id"], :name => "index_projects_on_member_id"

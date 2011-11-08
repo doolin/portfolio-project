@@ -1,8 +1,9 @@
 class Project < ActiveRecord::Base
 
   attr_accessible :name, :summary, :client, :tags, :description, :pointofcontact,
-                  :startdate, :finishdate, :url, :member_id, :uri, :requiredskills
-  
+                  :startdate, :finishdate, :url, :member_id, :uri, :requiredskills,
+                  :uri_anchor
+
   belongs_to :member
 
   validates :summary,        :presence => true, :length => { :maximum => 255 }
