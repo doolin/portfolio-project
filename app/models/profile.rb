@@ -1,8 +1,8 @@
 class Profile < ActiveRecord::Base
     
   attr_accessible :website, :firstname, :lastname, :twitter, :bio, :url,
-                  :facebook, :linkedin 
-  
+                  :facebook, :linkedin, :website_anchor
+
   belongs_to :member
 
   validates :member_id, :presence => true

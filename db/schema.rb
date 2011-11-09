@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111108165550) do
+ActiveRecord::Schema.define(:version => 20111109155155) do
 
   create_table "members", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20111108165550) do
 
   create_table "profiles", :force => true do |t|
     t.integer  "member_id"
-    t.text     "bio",        :limit => 500
+    t.text     "bio",            :limit => 500
     t.string   "website"
     t.string   "twitter"
     t.string   "facebook"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(:version => 20111108165550) do
     t.string   "firstname"
     t.string   "lastname"
     t.string   "url"
+    t.string   "url_anchor"
+    t.string   "website_anchor"
   end
 
   create_table "projects", :force => true do |t|
