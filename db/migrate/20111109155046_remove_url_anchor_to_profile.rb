@@ -1,9 +1,9 @@
 class RemoveUrlAnchorToProfile < ActiveRecord::Migration
   def up
-    remove_column :profiles, :ur_anchor
+    remove_column :profiles, :url_anchor
   end
 
   def down
-    add_column :profiles, :ur_anchor, :string
+    add_column :profiles, :url_anchor, :string
   end
 end
