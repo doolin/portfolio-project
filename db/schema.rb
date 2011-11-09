@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111109155921) do
+ActiveRecord::Schema.define(:version => 20111109160641) do
 
   create_table "members", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(:version => 20111109155921) do
     t.string   "firstname"
     t.string   "lastname"
     t.string   "url"
-    t.string   "url_anchor"
     t.string   "website_anchor"
   end
 
