@@ -177,6 +177,13 @@ textarea#project_requiredskills {
 }
 
 
+time.start-date {
+  color: #333;
+}
+time.end-date {
+  color: #333;
+}
+
 
 /**
  * Footer

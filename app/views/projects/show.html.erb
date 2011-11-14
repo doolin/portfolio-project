@@ -26,9 +26,9 @@
 
   <div class="dates">
     <span class="label">Dates:</span>
-    <span class="start-date"><%= @project.startdate.strftime("%B %Y") %></span>
+    <time class="start-date" datetime="<%= @project.startdate.strftime("%Y-%m-%d") %>"><%= @project.startdate.strftime("%B %Y") %></time>
     <em>to </em>
-    <span class="end-date"><%= @project.finishdate.strftime("%B %Y") %></span>
+    <time class="end-date" datetime="<%= @project.startdate.strftime("%Y-%m-%d") %>"><%= @project.finishdate.strftime("%B %Y") %></time>
   </div>
 
   <div class="description">
