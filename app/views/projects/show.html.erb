@@ -11,27 +11,27 @@
 
 
 <section>
-<div class="project">
+<div class="project" itemscope itemtype="http://schema.org/Project">
 
 
-  <h1 class="name fn">
+  <h1 class="name fn" itemprop="name">
     <%= @project.name %>
   </h1>
   
 
-  <div class="summary">
+  <div class="summary"  itemprop="summary">
     <span class="label">Summary:</span>
     <%= @project.summary %>
   </div>
 
   <div class="dates">
     <span class="label">Dates:</span>
-    <time class="start-date" datetime="<%= @project.startdate.strftime("%Y-%m-%d") %>"><%= @project.startdate.strftime("%B %Y") %></time>
+    <time class="start-date" itemprop="startTime" datetime="<%= @project.startdate.strftime("%Y-%m-%d") %>"><%= @project.startdate.strftime("%B %Y") %></time>
     <em>to </em>
-    <time class="end-date" datetime="<%= @project.startdate.strftime("%Y-%m-%d") %>"><%= @project.finishdate.strftime("%B %Y") %></time>
+    <time class="end-date" itemprop="endTime" datetime="<%= @project.startdate.strftime("%Y-%m-%d") %>"><%= @project.finishdate.strftime("%B %Y") %></time>
   </div>
 
-  <div class="description">
+  <div class="description"  itemprop="description">
     <span class="label">Description:</span>
     <%= @project.description.html_safe %>
   </div>
@@ -44,7 +44,7 @@
   <% end %>
 
   <% if @project.client %>
-  <div class="client">
+  <div class="client" itemprop="client">
     <span class="label">Client:</span>
     <%= @project.client %>
   </div>
