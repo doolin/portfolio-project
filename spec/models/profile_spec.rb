@@ -40,11 +40,11 @@ describe Profile do
     end
 
     # http://intridea.com/2009/2/18/quick-tip-url-validation-in-rails?blog=company
-    xit "should validate any given urls" do
+    it "should validate any given urls" do
       @member.build_profile(@attr.merge({:website => 'http://foobar.com/'})).should be_valid
     end
 
-    xit "should validate any given urls without http" do
+    it "should validate any given urls without http" do
       @member.build_profile(@attr.merge({:website => 'foobar.com/'})).should be_valid
     end
 
