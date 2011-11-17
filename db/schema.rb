@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111109162248) do
+ActiveRecord::Schema.define(:version => 20111117180143) do
 
   create_table "members", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20111109162248) do
     t.string   "lastname"
     t.string   "url"
     t.string   "website_anchor"
+    t.string   "gprofile_url"
   end
 
   create_table "projects", :force => true do |t|

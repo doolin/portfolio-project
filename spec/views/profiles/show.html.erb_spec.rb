@@ -57,4 +57,15 @@ describe "profiles/_profile_links.html.erb" do
     rendered.should have_selector('a', :content => 'Projects')
   end  
 
+  xit "should have a link to Google Profile" do
+    render
+    rendered.should have_selector('a', :content => 'sjdfhldgksjhl')
+  end  
+
+  # I think this is unnecessary...
+  xit "should not display Google Profile information" do
+    sign_out @member
+    render
+    rendered.should have_selector('a', :content => 'dfjlskjhlk')
+  end  
 end
