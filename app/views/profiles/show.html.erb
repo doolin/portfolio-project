@@ -19,6 +19,10 @@
         <%= link_to @profile.website_anchor, @profile.website %>
       </p>
       <p>
+        <b>Google </b>
+        <%= link_to 'profile', @profile.gprofile_url if @profile.gprofile_url%>
+      </p>
+      <p>
         <b>Twitter:</b>
         <%= @profile.twitter %>
       </p>
