@@ -7,10 +7,10 @@
        <nav id="member_nav" class="last">
        <% if member_signed_in? %>
          <% if current_member.profile %>
-           <%= link_to "My Profile", profile_path(current_member.lastname.downcase) %> |
+           <%= link_to "My Profile", profile_path(current_member.lastname.downcase), :rel => 'me' %> |
          <% end %>
          <% if !current_member.projects.empty? %>
-           <%= link_to "My Projects", member_path(current_member) %> |
+           <%= link_to "My Projects", member_path(current_member), :rel => 'me' %> |
            <% count = Project.count %>
            <%= link_to "All #{count} Projects", projects_path %> |
          <% end %>
