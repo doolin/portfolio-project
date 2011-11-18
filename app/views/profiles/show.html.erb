@@ -20,7 +20,7 @@
       </p>
       <p>
         <b>Google </b>
-        <%= link_to 'profile', @profile.gprofile_url if @profile.gprofile_url%>
+        <%= link_to 'profile', @profile.gprofile_url, :rel => 'me' if @profile.gprofile_url%>
       </p>
       <p>
         <b>Twitter:</b>
