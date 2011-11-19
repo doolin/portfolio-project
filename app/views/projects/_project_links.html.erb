@@ -5,7 +5,7 @@
     <%= link_to 'Delete', project_path(@project), :confirm => 'Are you sure?', :method => :delete %> |
   <% end %>
   <%=
-    link_to @project.membername(@project.member_id).possessive + ' projects', '/members/' + @project.member_id.to_s, :rel => 'author' %> | 
+    link_to @project.membername(@project.member_id).possessive + ' projects', '/members/' + @project.member_id.to_s %> | 
   <%= link_to 'All projects', projects_path %>
 
 </p>
