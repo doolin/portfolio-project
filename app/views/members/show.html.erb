@@ -21,7 +21,7 @@ title(@member.firstname + " " + @member.lastname)
     <td class="sidebar round">
       <%= gravatar_for @member %><br /><br />
       <strong><%= @member.firstname %> <%= @member.lastname %></strong> |
-      <strong> <%= link_to "Profile", @profile %></strong><br />
+      <strong> <%= link_to "Profile", @profile, :rel => 'author' %></strong><br />
       <strong>Projects</strong> <%= @member.projects.count %><br />
       <%= link_to "New Project", new_project_path, :class => "cta cta-yellow" %><br />
     </td>
