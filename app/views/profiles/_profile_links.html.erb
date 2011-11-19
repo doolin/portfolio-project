@@ -5,6 +5,6 @@
   <%= link_to 'Delete', profile_path(@profile), :confirm => 'Are you sure?', :method => :delete %> |
 <% end %>
   <%= 
-    link_to 'Projects', '/members/' + @profile.member_id.to_s, :rel => 'author'
+    link_to 'Projects', '/members/' + @profile.member_id.to_s
    %>
 </div>
