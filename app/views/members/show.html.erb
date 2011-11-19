@@ -22,7 +22,6 @@ title(@member.firstname + " " + @member.lastname)
       <%= gravatar_for @member %><br /><br />
       <strong><%= @member.firstname %> <%= @member.lastname %></strong> |
       <strong> <%= link_to "Profile", @profile, :rel => 'author' %></strong><br />
-        <b>Google </b> <%= link_to 'profile', @profile.gprofile_url, :rel => 'me' if @profile.gprofile_url %><br />
       <strong>Projects</strong> <%= @member.projects.count %><br />
       <%= link_to "New Project", new_project_path, :class => "cta cta-yellow" %><br />
     </td>
