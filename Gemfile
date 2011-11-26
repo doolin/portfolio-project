@@ -51,6 +51,7 @@ group :development do
   gem 'wrong'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
+  gem 'rb-fsevent'
 end
 
 group :postgresql do
