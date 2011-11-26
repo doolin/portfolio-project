@@ -1,6 +1,6 @@
 /*
- *= require_self
- *= require blueprint/screen
+ *= require_tree ./foundation
  *= require cta-buttons
- *= require custom2
+ *= require custom3
+ *= require_self
 */

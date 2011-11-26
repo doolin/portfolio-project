@@ -1,9 +1,12 @@
-<div id="full_width_nav_area" class="full_width">
-  <div class="page">
-    <div id="full_width_nav" class="cf">
-      
+
+<div id="topbar-asset" class="container">
+  <div class="row">
+
+    <div class="four columns">
        <p id="logo"><%= link_to "The Portfolio Project", root_path %></p>    
-      
+    </div>
+
+    <div class="eight columns">
        <nav id="member_nav" class="last">
        <% if member_signed_in? %>
          <% if current_member.profile %>
@@ -26,5 +29,6 @@
        <% end %>
        </nav>
     </div>
+
   </div>
 </div>
