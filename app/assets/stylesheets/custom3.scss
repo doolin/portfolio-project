@@ -4,20 +4,142 @@
 
 body {
   background: #ccc url('http://subtlepatterns.com/patterns/square_bg.png');
-  color: #f32;
+  color: #222;
+  max-width: 940;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  color: #111;
+  font-size: 36px;
+  font-weight: normal;
+  font-style: normal;
+}
+
+h2 {
+  color: #111;
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  height: 36px;
+}
+
+h3 {
+  color: #111;
+  font-size: 22px;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.full_width > .page {
+  width: 940px; 
+  margin: auto;
+}
+
+.alignLeft {
+  float: left;
+}
+
+.alignRight {
+  float: right;
 }
 
 #topbar-asset {
   background: #222;
-  border-bottom: solid 4px #00a5ff;
-  padding: 15px 20px 13px 20px; 
+/*  border-bottom: solid 4px #00a5ff;*/
+/*  padding: 15px 20px 13px 20px;*/
+  padding-top: 20px;
+  height: 40px;
 }
+
 
 #logo a { 
   font-size: 2em;
   font-family: "lobster-1","lobster-2";
   text-decoration: none;
   color: #fff;
+}
+
+nav {
+  color: #999; 
+  float: right; 
+/*  margin: .8em 0 0 0;*/
+}
+
+nav a { 
+  color: #fff; 
+  text-decoration: none; 
+  font-weight: 900;
+}
+
+
+/* Fool the eye into right alignment with
+ * the main body of the page. 
+ */
+#member_nav {
+  padding-right: 5px;
+}
+
+#header_area { 
+  background: #fff url(/assets/custom2/headerbg.png) bottom center repeat-x;
+}
+
+#header {
+  padding: 2em 0 1.5em; 
+  height: 200px;
+}
+
+/* For modern browsers */
+.cf:before,
+.cf:after {
+    content:"";
+    display:table;
+}
+
+.cf:after {
+    clear:both;
+}
+
+#content {
+  background: none repeat scroll 0 0 #FFFFFF;
+  margin: -200px auto 20px;
+  padding: .5em;
+}
+
+div.frontpage { }
+
+#hero { 
+  text-align: center;
+  border-bottom: 1px dotted #ccc;
+  margin: 0 0 20px 0;
+  padding: 0 0 2em 0;
+}
+
+.copy {
+  margin: 1em;
+  font-size: 120%;
+}
+
+.copy img {
+  margin: 0 1em 1em 0;
+  border: 3px solid #eee;
+}
+
+/**
+ * Need to add a bottom marging to compensate for the
+ * height of the footer. This is a fine place to use Sass.
+ * http://ryanfait.com/sticky-footer/
+ * http://ryanfait.com/resources/footer-stick-to-bottom-of-page/
+ * http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page
+ */
+footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+
+footer > div.container {
+  position: relative;
 }
 
 #footer_area {
@@ -27,6 +149,12 @@ body {
   bottom: 0px;
 }
 
-.alignRight {
-  float: right;
+
+/**
+ * Override typography.css
+ */
+p.footer-text {
+  margin-bottom: 9px;
+  padding-top: 9px;
+  font-size: 90%;
 }

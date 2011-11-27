@@ -3,11 +3,11 @@
   <div class="row">
 
     <div class="four columns">
-       <p id="logo"><%= link_to "The Portfolio Project", root_path %></p>    
+       <p id="logo" class="nav-text"><%= link_to "The Portfolio Project", root_path %></p>
     </div>
 
     <div class="eight columns">
-       <nav id="member_nav" class="last">
+       <nav id="member_nav" class="alignRight">
        <% if member_signed_in? %>
          <% if current_member.profile %>
            <%= link_to "My Profile", profile_path(current_member.lastname.downcase), :rel => 'author' %> |
