@@ -7,28 +7,26 @@ body {
   color: #222;
 /*  max-width: 940;*/
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  margin-bottom: 55px;
+}
+
+h1, h2, h3 {
+  color: #111;
+  font-weight: normal;
+  font-style: normal;
 }
 
 h1 {
-  color: #111;
   font-size: 36px;
-  font-weight: normal;
-  font-style: normal;
 }
 
 h2 {
-  color: #111;
-  font-size: 24px;
-  font-weight: normal;
-  font-style: normal;
   height: 36px;
+  font-size: 24px;
 }
 
 h3 {
-  color: #111;
   font-size: 18px;
-  font-weight: normal;
-  font-style: normal;
 }
 
 .full_width > .page {
