@@ -128,6 +128,12 @@ div.frontpage { }
   border: 3px solid #eee;
 }
 
+table {
+  border: none;
+}
+tbody tr:nth-child(even) td, tbody tr.even td {
+  background:#eee;
+}
 
 /** Profile Index **/
   #profiles_display_block {width: 920px; }
