@@ -111,6 +111,11 @@ a {
 
 div.frontpage { }
 
+.contactform h2,
+.sidebar h2 {
+  font-family: "lobster-1","lobster-2";
+}
+
 #hero { 
   text-align: center;
   border-bottom: 1px dotted #ccc;
@@ -173,6 +178,52 @@ tbody tr:nth-child(even) td, tbody tr.even td {
   font-weight: 900;
   font-style: italic;
 }
+
+
+/**
+ * Project pages
+ */
+/*
+div > span.label {}
+div.project {}
+div.project > div {}
+*/
+div > span.label {
+  padding: 25px 0px;
+  font-weight: bold;
+}
+
+div.project {
+  margin-top: 25px;
+  padding-top: 50px;
+}
+
+div.project > div {
+  margin: 20px;
+}
+
+div.profile-listing h2 {
+  margin-bottom: 9px;
+  padding-top: 6px;
+}
+
+div.profile-listing p {
+  text-indent: 10px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+div.profile-listing span.label {
+  font-weight: bold;
+  font-style: italic;
+}
+
+div.profile_contact p {
+  margin-bottom: 8px;
+}
+
+
+
 
 /**
  *   Edit project form.
