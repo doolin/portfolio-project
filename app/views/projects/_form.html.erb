@@ -1,4 +1,6 @@
+
 <%= form_for(@project) do |f| %>
+
   <% if @project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -10,6 +12,17 @@
       </ul>
     </div>
   <% end %>
+
+
+<dl class="tabs contained">
+  <dd><a href="#simpleContained1" class="active">The basics</a></dd>
+  <dd><a href="#simpleContained2">Describe, in detail</a></dd>
+  <dd><a href="#simpleContained3">Links and extras</a></dd>
+</dl>
+
+<ul class="tabs-content contained">
+
+<li class="active" id="simpleContained1Tab">
 
   <div class="field">
     <%= f.label :name %><br />
@@ -27,10 +40,17 @@
     <%= f.label :summary %><br />
     <%= f.text_area :summary, :size => "60x12" %>
   </div>
+</li>
+
+  <li id="simpleContained2Tab">
+
   <div class="field" id="description">
     <%= f.label :description %><br />
     <%= f.text_area :description, :size => "60x24"%>
   </div>
+</li>
+
+<li id="simpleContained3Tab">
   <div class="field" id="requiredskills">
     <%= f.label "Required Skills" %><br />
     <%= f.text_area :requiredskills, :size => "60x6"%>
@@ -55,6 +75,9 @@
     <%= f.label :tags %><br />
     <%= f.text_field :tags %>
   </div>
+</li>
+
+</ul>
 
   <div class="actions">
     <%= f.submit %>

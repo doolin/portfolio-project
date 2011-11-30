@@ -3,6 +3,7 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require_tree ./foundation
 //= require_self
 //= require ajaxray_textcounting
    	
