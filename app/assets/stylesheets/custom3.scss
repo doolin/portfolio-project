@@ -225,37 +225,4 @@ div.profile_contact p {
 
 @import 'custom3/project-form';
 
-
-/**
- * Need to add a bottom marging to compensate for the
- * height of the footer. This is a fine place to use Sass.
- * http://ryanfait.com/sticky-footer/
- * http://ryanfait.com/resources/footer-stick-to-bottom-of-page/
- * http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page
- */
-footer {
-  position: fixed;
-  bottom: 0px;
-  width: 100%;
-}
-
-footer > div.container {
-  position: relative;
-}
-
-#footer_area {
-  background-color: #222;
-  color: #fff;
-  padding: .5em 0;
-  bottom: 0px;
-}
-
-
-/**
- * Override typography.css
- */
-p.footer-text {
-  margin-bottom: 9px;
-  padding-top: 9px;
-  font-size: 90%;
-}
+@import 'custom3/footer';
