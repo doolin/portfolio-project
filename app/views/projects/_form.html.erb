@@ -25,20 +25,20 @@
 <li class="active" id="simpleContained1Tab">
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br />
   </div>
-  <div class="field">
-    <%= f.label 'Starting date' %><br />
-    <%= f.date_select(:startdate, :start_year => 1990) %>
+  <div class="field date">
+    <%= f.label 'Starting date' %>
+    <%= f.date_select(:startdate, :start_year => 1990) %><br />
   </div>
-  <div class="field">
-    <%= f.label 'Finishing date (leave blank for "Present")' %><br />
-    <%= f.date_select(:finishdate, :start_year => 1990) %>
+  <div class="field date">
+    <%= f.label 'Finishing date (leave blank for "Present")' %>
+    <%= f.date_select(:finishdate, :start_year => 1990, :include_blank => true) %><br />
   </div>
   <div class="field" id="summary">
-    <%= f.label :summary %><br />
-    <%= f.text_area :summary, :size => "60x12" %>
+    <%= f.label :summary %>
+    <%= f.text_area :summary, :size => "60x12" %><br />
   </div>
 
 

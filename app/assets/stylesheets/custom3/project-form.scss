@@ -26,6 +26,11 @@ textarea#project_requiredskills {
   height: auto;
 }
 
+/* Somewhat kludgy */
+div.date > select {
+  display: inline;
+}
+
 
 time.start-date {
   color: #333;
