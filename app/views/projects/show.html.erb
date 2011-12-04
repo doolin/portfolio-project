@@ -19,55 +19,71 @@
   </h1>
   
 
-  <div class="summary"  itemprop="summary">
-    <span class="label">Summary:</span>
+  <div class="profile_summary cf"  itemprop="summary">
+    <h3 class="alignLeft">Summary</h3>
+    <div class="inner alignRight">
     <%= @project.summary %>
+    </div>
   </div>
 
-  <div class="dates">
-    <span class="label">Dates:</span>
-    <time class="start-date" itemprop="startTime" datetime="<%= @project.startdate.strftime("%Y-%m-%d") %>"><%= @project.startdate.strftime("%B %Y") %></time>
-    <em>to </em>
-    <time class="end-date" itemprop="endTime" datetime="<%= @project.startdate.strftime("%Y-%m-%d") %>"><%= @project.finishdate.strftime("%B %Y") %></time>
+  <div class="dates cf">
+    <h3 class="alignLeft">Dates</h3>
+    <div class="inner alignRight">
+      <time class="start-date" itemprop="startTime" datetime="<%= @project.startdate.strftime("%Y-%m-%d") %>"><%= @project.startdate.strftime("%B %Y") %></time>
+      <em>to </em>
+      <time class="end-date" itemprop="endTime" datetime="<%= @project.startdate.strftime("%Y-%m-%d") %>"><%= @project.finishdate.strftime("%B %Y") %></time>
+    </div>
   </div>
 
-  <div class="description"  itemprop="description">
-    <span class="label">Description:</span>
-    <%= @project.description.html_safe %>
+  <div class="description cf"  itemprop="description">
+    <h3 class="alignLeft">Description</h3>
+    <div class="inner alignRight">
+      <%= @project.description.html_safe %>
+    </div>
   </div>
 
-  <% if @project.requiredskills %>
-  <div class="requiredskills">
-    <span class="label">Required skills:</span>
-    <%= @project.requiredskills.html_safe unless @project.requiredskills.blank? %>
-  </div>
-  <% end %>
-
-  <% if @project.client %>
-  <div class="client" itemprop="client">
-    <span class="label">Client:</span>
-    <%= @project.client %>
-  </div>
-  <% end %>
-
-
-  <% if @project.uri %>
-  <div class="uri">
-    <span class="label">Link to project:</span>
-    <%= link_to @project.uri_anchor, @project.uri %>
+  <% unless @project.requiredskills.blank? %>
+  <div class="requiredskills cf">
+    <h3 class="alignLeft">Required skills</h3>
+    <div class="inner alignRight">
+      <%= @project.requiredskills.html_safe unless @project.requiredskills.blank? %>
+    </div>
   </div>
   <% end %>
 
-  <% if @project.pointofcontact %>
-  <div class="point-of-contact">
-    <span class="label">Point of contact:</span>
-    <%= @project.pointofcontact %>
+  <% unless @project.client.blank? %>
+  <div class="client cf" itemprop="client">
+    <h3 class="alignLeft">Client</h3>
+    <div class="inner alignRight">
+      <%= @project.client %>
+    </div>
   </div>
   <% end %>
 
-  <div class="tags">
-    <span class="label">Tags:</span>
-    <%= @project.tags %>
+
+  <% unless @project.uri.blank? %>
+  <div class="uri cf">
+    <h3 class="alignLeft">Link to project</h3>
+    <div class="inner alignRight">
+      <%= link_to @project.uri_anchor, @project.uri %>
+    </div>
+  </div>
+  <% end %>
+
+  <% unless @project.pointofcontact.blank? %>
+  <div class="point-of-contact cf">
+    <h3 class="alignLeft">Point of contact</h3>
+    <div class="inner alignRight">
+      <%= @project.pointofcontact %>
+    </div>
+  </div>
+  <% end %>
+
+  <div class="tags cf">
+    <h3 class="alignLeft">Tags:</h3>
+    <div class="inner alignRight">
+      <%= @project.tags %>
+    </div>
   </div>
 
   <%= render 'project_links' %>

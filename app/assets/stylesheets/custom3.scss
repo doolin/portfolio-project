@@ -1,5 +1,10 @@
 /**
- *   Foundation styles
+ * Foundation-based styles.
+ * 
+ * This top-level file handles the global overrides to
+ * the Foundation base styles. @import'ed files override
+ * or extend the styling for elements specific to the 
+ * Portfolio Project.
  */
 
 body {
@@ -7,11 +12,13 @@ body {
   color: #222;
 /*  max-width: 940;*/
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  /* font-family: "minion-pro-1", "minion-pro-2", Georgia, serif; */
   margin-bottom: 55px;
 }
 
 h1, h2, h3 {
   color: #111;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: normal;
   font-style: normal;
 }
@@ -42,50 +49,15 @@ h3 {
   float: right;
 }
 
-#topbar-asset {
-  background: #222;
-/*  border-bottom: solid 4px #00a5ff;*/
-/*  padding: 15px 20px 13px 20px;*/
-  padding-top: 20px;
-  height: 40px;
-}
 
 
-#logo a { 
-  font-size: 2em;
-  font-family: "lobster-1","lobster-2";
-  text-decoration: none;
-  color: #fff;
-}
-
-nav {
-  color: #999; 
-  float: right; 
-/*  margin: .8em 0 0 0;*/
-}
-
-nav a { 
-  color: #fff; 
-  text-decoration: none;
-  font-weight: 900;
-}
-
-
-/* Fool the eye into right alignment with
- * the main body of the page. 
+/**
+ * Everything past here should be imported.
  */
-#member_nav {
-  padding-right: 5px;
-}
 
-#header_area { 
-  background: #fff url(/assets/custom2/headerbg.png) bottom center repeat-x;
-}
+@import 'custom3/nav';
+@import 'custom3/header';
 
-#header {
-  padding: 2em 0 1.5em; 
-  height: 200px;
-}
 
 /* For modern browsers */
 .cf:before,
@@ -164,10 +136,28 @@ tbody tr:nth-child(even) td, tbody tr.even td {
     .social_links li { float: left; list-style: none; margin-right: 1em;}
 
 
+
 .profile h2 {
   height: 54px;
   font-size: 36px;
 }
+
+
+.project {padding: 0 1em; margin:0;}
+
+.project h3 { width: 180px; font-weight: 900; }
+.project .inner { width: 700px; border-left: 1px dotted #ccc; padding: 0 0 0 1.4em; margin: 0 0 1em 0;}     
+
+/*
+div.project {
+  margin-top: 15px;
+  padding-top: 10px;
+}
+
+div.project > div {
+  margin: 15px;
+}
+*/
 
 .label {
   font-weight: 900;
@@ -193,14 +183,6 @@ div > span.label {
   font-weight: bold;
 }
 
-div.project {
-  margin-top: 15px;
-  padding-top: 10px;
-}
-
-div.project > div {
-  margin: 15px;
-}
 
 div.profile-listing h2 {
   margin-bottom: 9px;
@@ -222,7 +204,7 @@ div.profile_contact p {
   margin-bottom: 8px;
 }
 
-
+@import 'custom3/form';
 @import 'custom3/project-form';
 
 @import 'custom3/footer';

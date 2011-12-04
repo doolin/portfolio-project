@@ -1,0 +1,28 @@
+
+div.field {
+  margin-bottom: 20px;
+}
+
+form label {
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 2px;
+}
+
+.field > textarea {
+  margin: 0px;
+}
+
+/* Somewhat kludgy */
+div.date > select {
+  display: inline;
+}
+
+
+time.start-date {
+  color: #333;
+}
+time.end-date {
+  color: #333;
+}
+

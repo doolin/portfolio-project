@@ -1,14 +1,10 @@
 
+
 form.edit_project {
   color: #f67;
   color: #000;
   //margin-left: 100px;
   //width: 600px;
-}
-
-form label {
-  font-weight: bold;
-  font-style: italic;
 }
 
 textarea#project_description  {
@@ -24,18 +20,5 @@ textarea#project_summary {
 textarea#project_requiredskills {
   width: auto;
   height: auto;
-}
-
-/* Somewhat kludgy */
-div.date > select {
-  display: inline;
-}
-
-
-time.start-date {
-  color: #333;
-}
-time.end-date {
-  color: #333;
 }
 
