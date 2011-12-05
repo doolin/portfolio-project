@@ -1,0 +1,8 @@
+#header_area {
+  background: white url(/assets/custom2/headerbg.png) bottom center repeat-x;
+}
+
+#header {
+  padding: 2em 0 1.5em;
+  height: 200px;
+}

@@ -1,33 +1,42 @@
 /**
- *   Foundation styles
+ * Foundation-based styles.
+ * 
+ * This top-level file handles the global overrides to
+ * the Foundation base styles. @import'ed files override
+ * or extend the styling for elements specific to the 
+ * Portfolio Project.
  */
 body {
   background: #cccccc url("http://subtlepatterns.com/patterns/square_bg.png");
   color: #222;
   /*  max-width: 940;*/
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  /* font-family: "minion-pro-1", "minion-pro-2", Georgia, serif; */
+  margin-bottom: 55px;
+}
+
+h1, h2, h3 {
+  color: #111;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-style: normal;
 }
 
 h1 {
-  color: #111;
   font-size: 36px;
-  font-weight: normal;
-  font-style: normal;
 }
 
 h2 {
-  color: #111;
-  font-size: 24px;
-  font-weight: normal;
-  font-style: normal;
   height: 36px;
+  font-size: 24px;
 }
 
 h3 {
-  color: #111;
   font-size: 18px;
-  font-weight: normal;
-  font-style: normal;
+}
+
+div.copy h3 {
+  font-size: 22px;
 }
 
 .full_width > .page {
@@ -43,12 +52,16 @@ h3 {
   float: right;
 }
 
+/**
+ * Everything past here should be imported.
+ */
 #topbar-asset {
   background: #222;
   /*  border-bottom: solid 4px #00a5ff;*/
   /*  padding: 15px 20px 13px 20px;*/
   padding-top: 20px;
   height: 40px;
+  font-weight: 900;
 }
 
 #logo a {
@@ -107,6 +120,11 @@ a {
   padding: .5em;
 }
 
+.contactform h2,
+.sidebar h2 {
+  font-family: "lobster-1","lobster-2";
+}
+
 #hero {
   text-align: center;
   border-bottom: 1px dotted #ccc;
@@ -122,6 +140,14 @@ a {
 .copy img {
   margin: 0 1em 1em 0;
   border: 3px solid #eee;
+}
+
+table {
+  border: none;
+}
+
+tbody tr:nth-child(even) td, tbody tr.even td {
+  background: #eee;
 }
 
 /** Profile Index **/
@@ -223,18 +249,115 @@ a {
   font-size: 36px;
 }
 
+div.field input {
+  width: 350px;
+}
+
+textarea#profile_bio {
+  width: 350px;
+  height: auto;
+}
+
+.project {
+  padding: 0 1em;
+  margin: 0;
+}
+
+.project h3 {
+  width: 180px;
+  font-weight: 900;
+}
+
+.project .inner {
+  width: 700px;
+  border-left: 1px dotted #ccc;
+  padding: 0 0 0 1.4em;
+  margin: 0 0 1em 0;
+}
+
+/*
+div.project {
+  margin-top: 15px;
+  padding-top: 10px;
+}
+
+div.project > div {
+  margin: 15px;
+}
+*/
+.label {
+  font-weight: 900;
+  font-style: italic;
+}
+
 .profile span.label {
   font-weight: 900;
   font-style: italic;
 }
 
 /**
- *   Edit project form.
+ * Project pages
  */
+/*
+div > span.label {}
+div.project {}
+div.project > div {}
+*/
+div > span.label {
+  padding: 25px 0px;
+  font-weight: bold;
+}
+
+div.profile-listing h2 {
+  margin-bottom: 9px;
+  padding-top: 6px;
+}
+
+div.profile-listing p {
+  text-indent: 10px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+div.profile-listing span.label {
+  font-weight: bold;
+  font-style: italic;
+}
+
+div.profile_contact p {
+  margin-bottom: 8px;
+}
+
+div.field {
+  margin-bottom: 20px;
+}
+
+form label {
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 2px;
+}
+
+.field > textarea {
+  margin: 0px;
+}
+
+/* Somewhat kludgy */
+div.date > select {
+  display: inline;
+}
+
+time.start-date {
+  color: #333;
+}
+
+time.end-date {
+  color: #333;
+}
+
 form.edit_project {
   color: #f67;
   color: #000;
-  margin-left: 200px;
 }
 
 textarea#project_description {
@@ -250,14 +373,6 @@ textarea#project_summary {
 textarea#project_requiredskills {
   width: auto;
   height: auto;
-}
-
-time.start-date {
-  color: #333;
-}
-
-time.end-date {
-  color: #333;
 }
 
 /**
