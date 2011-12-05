@@ -36,6 +36,10 @@ h3 {
   font-size: 18px;
 }
 
+div.copy h3 {
+  font-size: 22px;
+}
+
 .full_width > .page {
   width: 940px; 
   margin: auto;
@@ -140,6 +144,16 @@ tbody tr:nth-child(even) td, tbody tr.even td {
 .profile h2 {
   height: 54px;
   font-size: 36px;
+}
+
+div.field input {
+  width: 350px;
+}
+
+
+textarea#profile_bio {
+  width: 350px;
+  height: auto;
 }
 
 
