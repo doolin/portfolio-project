@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
 
   belongs_to :member
 
-  validates :summary,        :presence => true, :length => { :maximum => 255 }
+  validates :summary,        :presence => true, :length => { :maximum => 500 }
   validates :requiredskills, :length => { :maximum => 255 }
   validates :member_id,      :presence => true
   validates :name,           :presence => true, :length => { :maximum => 140 }
