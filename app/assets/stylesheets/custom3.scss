@@ -53,6 +53,9 @@ div.copy h3 {
   float: right;
 }
 
+a {
+  text-decoration: underline;
+}
 
 
 /**
@@ -75,9 +78,6 @@ div.copy h3 {
 }
 
 
-a {
-  text-decoration: underline;
-}
 
 #content {
   background: none repeat scroll 0 0 #FFFFFF;
@@ -116,45 +116,16 @@ tbody tr:nth-child(even) td, tbody tr.even td {
   background:#eee;
 }
 
-/** Profile Index **/
-  #profiles_display_block {width: 920px; }
-    #profiles_display_block .profile_block { list-style: none; float: left; width: 25%; margin: 0 0 2em 0;}
-    #profiles_display_block .profile_block .inner { position: relative; overflow: hidden; border: 1px solid #ccc; height: 200px; width: 200px;}
-      .profile_info { background: rgba(255,255,255, .9); position: absolute; bottom: -38px; left: 0; padding: 0 0 .1em .5em; width: 200px; border-top: 1px solid #ccc;}
-        .profile_info ul { margin: 0; padding: 0;}
-          .profile_info li { list-style: none;}
-            .profile_info .member_name { font-weight: 900; font-size: 14px;}
-            
-/** Individual Profiles **/   
-  .profile { padding:0 1em; }
-    .profile .profile_header { border-bottom: 1px solid #eee; margin: 0 0 2em 0;}
-      .profile_name {float: left; }
-        .profile_name h2  {font-size: 3em; margin: .5em 0 0 0;}
-      .profile_gravatar { float: right;}
-          .profile_gravatar img { border: 3px solid #eee;}
-          
-  .profile h3 { width: 180px; font-weight: 900; }
-  .profile .inner { width: 700px; border-left: 1px dotted #ccc; padding: 0 0 0 1.4em; margin: 0 0 1em 0;}     
 
-  .social_links { margin: 0; padding: 5px 0 0 0;}
-    .social_links li { float: left; list-style: none; margin-right: 1em;}
+@import 'custom3/profile';
 
 
-
-.profile h2 {
-  height: 54px;
-  font-size: 36px;
-}
 
 div.field input {
   width: 350px;
 }
 
 
-textarea#profile_bio {
-  width: 350px;
-  height: auto;
-}
 
 
 .project {padding: 0 1em; margin:0;}
@@ -178,10 +149,6 @@ div.project > div {
   font-style: italic;
 }
 
-.profile span.label {
-  font-weight: 900;
-  font-style: italic;
-}
 
 
 /**
@@ -197,26 +164,6 @@ div > span.label {
   font-weight: bold;
 }
 
-
-div.profile-listing h2 {
-  margin-bottom: 9px;
-  padding-top: 6px;
-}
-
-div.profile-listing p {
-  text-indent: 10px;
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-
-div.profile-listing span.label {
-  font-weight: bold;
-  font-style: italic;
-}
-
-div.profile_contact p {
-  margin-bottom: 8px;
-}
 
 
 @import 'custom3/pages';
