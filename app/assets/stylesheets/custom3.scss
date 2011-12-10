@@ -57,6 +57,18 @@ a {
   text-decoration: underline;
 }
 
+.label {
+  font-weight: 900;
+  font-style: italic;
+}
+
+
+
+div > span.label {
+  padding: 25px 0px;
+  font-weight: bold;
+}
+
 
 /**
  * Everything past here should be imported.
@@ -126,43 +138,7 @@ div.field input {
 }
 
 
-
-
-.project {padding: 0 1em; margin:0;}
-
-.project h3 { width: 180px; font-weight: 900; }
-.project .inner { width: 700px; border-left: 1px dotted #ccc; padding: 0 0 0 1.4em; margin: 0 0 1em 0;}     
-
-/*
-div.project {
-  margin-top: 15px;
-  padding-top: 10px;
-}
-
-div.project > div {
-  margin: 15px;
-}
-*/
-
-.label {
-  font-weight: 900;
-  font-style: italic;
-}
-
-
-
-/**
- * Project pages
- */
-/*
-div > span.label {}
-div.project {}
-div.project > div {}
-*/
-div > span.label {
-  padding: 25px 0px;
-  font-weight: bold;
-}
+@import 'custom3/project';
 
 
 
