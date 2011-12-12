@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(:version => 20111117180143) do
   create_table "members", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -37,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20111117180143) do
 
   create_table "profiles", :force => true do |t|
     t.integer  "member_id"
-    t.text     "bio",            :limit => 500
+    t.text     "bio"
     t.string   "website"
     t.string   "twitter"
     t.string   "facebook"

@@ -13,7 +13,7 @@ When /^the reader clicks New Project link$/ do
 end
 
 Then /^the reader should be on the sign in page$/ do
-  Then %{I should be on the sign in page}
+  step %{I should be on the sign in page}
 end
 
 Given /^is on the member's show page$/ do

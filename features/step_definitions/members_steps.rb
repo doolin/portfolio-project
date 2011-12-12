@@ -94,11 +94,12 @@ Given /^member is signed in as "([^"]*)" and password "([^"]*)"$/ do |email, pas
   @profile = @member.build_profile({:firstname => 'Foo', :lastname => 'bar'})
   #puts @profile.inspect # Also, p object is an alias for puts object.inspect
   @profile.save
-  Given %{member is not logged in}
-  When %{I go to the sign in page}
-  And %{I fill in "Email" with "#{email}"}
-  And %{I fill in "Password" with "#{password}"}
-  And %{I press "Sign in"}
+  #Given %{member is not logged in}
+  step %{member is not logged in}
+  step %{I go to the sign in page}
+  step %{I fill in "Email" with "#{email}"}
+  step %{I fill in "Password" with "#{password}"}
+  step %{I press "Sign in"}
   #Then %{I should be signed in}
 end
 
@@ -136,10 +137,10 @@ When /^the member fills out all the project fields correctly$/ do
   summary = "New project summary"
   description = "New project description"
   tags = "tag1, tag2"
-  And %{I fill in "Name" with "#{name}"}
-  And %{I fill in "Summary" with "#{summary}"}
-  And %{I fill in "Description" with "#{description}"}
-  And %{I fill in "Tags" with "#{tags}"}
+  step %{I fill in "Name" with "#{name}"}
+  step %{I fill in "Summary" with "#{summary}"}
+  step %{I fill in "Description" with "#{description}"}
+  step %{I fill in "Tags" with "#{tags}"}
 
   # Time and date fields are broken in Capybara, or
   # perhaps it's more accurate to say that Rails doesn't

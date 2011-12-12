@@ -5,6 +5,9 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+Member.create(:membername => 'doolin2', :email => 'david.doolin+testseed@gmail.com', :password => 'foobar', :password_confirmation => 'foobar')
+=begin
 Project.create(:name        => 'First project from seed',
                :member_id   => 1,
                :summary     => 'This is the summary',
@@ -12,3 +15,4 @@ Project.create(:name        => 'First project from seed',
                :startdate   => "2011-12-10 00:00:00",
                :finishdate  => "2011-12-10 00:00:00",
                :tags        => 'foo bar')
+=end
