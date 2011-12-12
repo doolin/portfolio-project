@@ -20,12 +20,12 @@ class Project < ActiveRecord::Base
   validates :finishdate,  :presence => true
   validates :client,                         :length => { :maximum => 140 }
   validates :tags,        :presence => true
-  
-  
+
+
   default_scope :order => 'projects.created_at DESC'
   
   acts_as_url :name, :sync_url => :true
-  
+
   def membername(id)
     member = Member.find(id)
     if member.firstname && member.lastname
@@ -40,5 +40,5 @@ class Project < ActiveRecord::Base
   def to_param
     url
   end
-  
+
 end
