@@ -52,6 +52,20 @@ div.copy h3 {
   float: right;
 }
 
+a {
+  text-decoration: underline;
+}
+
+.label {
+  font-weight: 900;
+  font-style: italic;
+}
+
+div > span.label {
+  padding: 25px 0px;
+  font-weight: bold;
+}
+
 /**
  * Everything past here should be imported.
  */
@@ -108,10 +122,6 @@ nav a {
 
 .cf:after {
   clear: both;
-}
-
-a {
-  text-decoration: underline;
 }
 
 #content {
@@ -249,13 +259,38 @@ tbody tr:nth-child(even) td, tbody tr.even td {
   font-size: 36px;
 }
 
-div.field input {
-  width: 350px;
+.profile span.label {
+  font-weight: 900;
+  font-style: italic;
+}
+
+div.profile-listing h2 {
+  margin-bottom: 9px;
+  padding-top: 6px;
+}
+
+div.profile-listing p {
+  text-indent: 10px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+div.profile-listing span.label {
+  font-weight: bold;
+  font-style: italic;
+}
+
+div.profile_contact p {
+  margin-bottom: 8px;
 }
 
 textarea#profile_bio {
   width: 350px;
   height: auto;
+}
+
+div.field input {
+  width: 350px;
 }
 
 .project {
@@ -285,16 +320,6 @@ div.project > div {
   margin: 15px;
 }
 */
-.label {
-  font-weight: 900;
-  font-style: italic;
-}
-
-.profile span.label {
-  font-weight: 900;
-  font-style: italic;
-}
-
 /**
  * Project pages
  */
@@ -303,29 +328,11 @@ div > span.label {}
 div.project {}
 div.project > div {}
 */
-div > span.label {
-  padding: 25px 0px;
-  font-weight: bold;
-}
-
-div.profile-listing h2 {
-  margin-bottom: 9px;
-  padding-top: 6px;
-}
-
-div.profile-listing p {
-  text-indent: 10px;
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-
-div.profile-listing span.label {
-  font-weight: bold;
-  font-style: italic;
-}
-
-div.profile_contact p {
-  margin-bottom: 8px;
+.pages {
+  background-color: #efefef;
+  margin-top: -200px;
+  margin-bottom: 20px;
+  padding: 0px;
 }
 
 div.field {
