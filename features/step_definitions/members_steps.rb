@@ -34,11 +34,11 @@ Given /^member is on sign_in page$/ do
 end
 
 When /^I sign in as "(.*)\/(.*)"$/ do |email, password|
-  Given %{member is not logged in}
-  When %{I go to the sign in page}
-  And %{I fill in "Email" with "#{email}"}
-  And %{I fill in "Password" with "#{password}"}
-  And %{I press "Sign in"}
+  step %{member is not logged in}
+  step %{I go to the sign in page}
+  step %{I fill in "Email" with "#{email}"}
+  step %{I fill in "Password" with "#{password}"}
+  step %{I press "Sign in"}
 end
 
 When /^the user signs in$/ do
@@ -54,7 +54,7 @@ Given /^member is not logged in$/ do
 end
 
 Then /^I should be signed in$/ do
-  And  %{I should see "Sign out"}
+  step  %{I should see "Sign out"}
   #And  %{I should not see "Sign up"}
 end
 
@@ -71,9 +71,9 @@ When /^I return next time$/ do
 end
 
 Then /^I should be signed out$/ do
-  And %{I should see "Sign up"}
-  And %{I should see "Sign in"}
-  And %{I should not see "Logout"}
+  step %{I should see "Sign up"}
+  step %{I should see "Sign in"}
+  step %{I should not see "Logout"}
 end
 
 
@@ -111,8 +111,8 @@ end
 When /^the member fills out all the profile fields correctly$/ do
   firstname = "Foo"
   lastname = "Bar"
-  And %{I fill in "Firstname" with "#{firstname}"}
-  And %{I fill in "Lastname" with "#{lastname}"}
+  step %{I fill in "Firstname" with "#{firstname}"}
+  step %{I fill in "Lastname" with "#{lastname}"}
 end
 
 When /^the member presses the "([^"]*)" button$/ do |button|
@@ -173,10 +173,10 @@ When /^fills in the sign up form$/ do
   membername = "foobar"
   email = "foo@bar.com"
   password = "testem"
-  And %{I fill in "Membername" with "#{membername}"}
-  And %{I fill in "Email" with "#{email}"}
-  And %{I fill in "Password" with "#{password}"}
-  And %{I fill in "Password confirmation" with "#{password}"}
+  step %{I fill in "Membername" with "#{membername}"}
+  step %{I fill in "Email" with "#{email}"}
+  step %{I fill in "Password" with "#{password}"}
+  step %{I fill in "Password confirmation" with "#{password}"}
 end
 
 When /^presses the "([^"]*)" button$/ do |button|
@@ -184,6 +184,6 @@ When /^presses the "([^"]*)" button$/ do |button|
 end
 
 Then /^the new member should be on the new Profile page$/ do
-  And %{I should see "New profile"}
+  step %{I should see "New profile"}
 end
 
