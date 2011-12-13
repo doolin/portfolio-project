@@ -29,11 +29,11 @@
     <%= f.text_field :name %><br />
   </div>
   <div class="field date">
-    <%= f.label 'Starting date' %>
+    <%= f.label :startdate %>
     <%= f.date_select(:startdate, :start_year => 1990) %><br />
   </div>
   <div class="field date">
-    <%= f.label 'Finishing date (leave blank for "Present")' %>
+    <%= f.label :finishdate %>
     <%= f.date_select(:finishdate, :start_year => 1990, :include_blank => true) %><br />
   </div>
   <div class="field" id="summary">

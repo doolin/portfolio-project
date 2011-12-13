@@ -132,8 +132,8 @@ end
 # Date and time gem: https://gist.github.com/558786
 When /^the member fills out all the project fields correctly$/ do
   name = "New project"
-  #startdate = "2011-07-16"
-  #finishdate = "2011-02-03 00:00:00.000000"
+  startdate = "2011-07-16"
+  finishdate = "2011-08-03"
   summary = "New project summary"
   description = "New project description"
   tags = "tag1, tag2"
@@ -149,8 +149,18 @@ When /^the member fills out all the project fields correctly$/ do
   # Widespread adoption may be a few years in the future.
   # For now, getting the project to work correctly requires
   # removing the presence requirement of dates.
+  # Note that webrat select_date and cucumber select_date
+  # have different parameters. Not sure about Capybara,
+  # might be worth checking.
   #select(value, :from => field)
-  #select_date("July 16, 2011", :from => 'Startdate')
+  #select_date("July 16, 2011", :from => 'Starting date')
+  #select_date("July 16, 2011", :from => 'jksfglkadhg Starting date')
+  #select_date("July 16, 2011", :with => 'project_startdate')
+  #select_date("2011-07-16")
+  select_date('Startdate', :with => startdate)
+  select_date('Finishdate', :with => finishdate)
+  #select_date("July 16, 2011")
+  #select_date('2011-07-16 00:00:00', :from => 'Starting date')
   #And %{I select "#{startdate}" from "Startdate"}
   #And %{I select #{finishdate} from "Finishdate"}
 end
