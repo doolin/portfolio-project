@@ -10,26 +10,6 @@
 @import 'custom3/base';
 
 
-h1, h2, h3 {
-  color: #111;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-weight: normal;
-  font-style: normal;
-}
-
-h1 {
-  font-size: 36px;
-}
-
-h2 {
-  height: 36px;
-  font-size: 24px;
-}
-
-h3 {
-  font-size: 18px;
-}
-
 div.copy h3 {
   font-size: 22px;
 }
@@ -47,9 +27,6 @@ div.copy h3 {
   float: right;
 }
 
-a {
-  text-decoration: underline;
-}
 
 .label {
   font-weight: 900;
@@ -70,6 +47,8 @@ div > span.label {
 
 @import 'custom3/nav';
 @import 'custom3/header';
+/* @import 'custom3/main'; */
+@import 'custom3/footer';
 
 
 /* For modern browsers */
@@ -115,13 +94,6 @@ div.frontpage { }
   border: 3px solid #eee;
 }
 
-table {
-  border: none;
-}
-tbody tr:nth-child(even) td, tbody tr.even td {
-  background:#eee;
-}
-
 
 @import 'custom3/profile';
 
@@ -134,10 +106,7 @@ div.field input {
 
 @import 'custom3/project';
 
-
-
 @import 'custom3/pages';
 @import 'custom3/form';
 @import 'custom3/project-form';
 
-@import 'custom3/footer';
