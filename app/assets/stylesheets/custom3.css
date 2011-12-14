@@ -6,6 +6,9 @@
  * or extend the styling for elements specific to the 
  * Portfolio Project.
  */
+/**
+ * SMACSS-style base.
+ */
 body {
   background: #cccccc url("http://subtlepatterns.com/patterns/square_bg.png");
   color: #222;
@@ -35,10 +38,21 @@ h3 {
   font-size: 18px;
 }
 
-div.copy h3 {
-  font-size: 22px;
+a {
+  text-decoration: underline;
 }
 
+table {
+  border: none;
+}
+
+tbody tr:nth-child(even) td, tbody tr.even td {
+  background: #eee;
+}
+
+/**
+ * SMACSS-style layout directives, layouts.scss
+ */
 .full_width > .page {
   width: 940px;
   margin: auto;
@@ -52,13 +66,13 @@ div.copy h3 {
   float: right;
 }
 
-a {
-  text-decoration: underline;
-}
-
 .label {
   font-weight: 900;
   font-style: italic;
+}
+
+div.copy h3 {
+  font-size: 22px;
 }
 
 div > span.label {
@@ -67,7 +81,7 @@ div > span.label {
 }
 
 /**
- * Everything past here should be imported.
+ * Nav bar styling, nav.scss
  */
 #topbar-asset {
   background: #222;
@@ -104,6 +118,9 @@ nav a {
   padding-right: 5px;
 }
 
+/**
+ * Header styling, header.scss
+ */
 #header_area {
   background: white url(/assets/custom2/headerbg.png) bottom center repeat-x;
 }
@@ -113,6 +130,48 @@ nav a {
   height: 200px;
 }
 
+/**
+ * Main content area, SMACSS-style.
+ */
+/**
+ * Footer styling, footer.scss
+ */
+/**
+ * Need to add a bottom marging to compensate for the
+ * height of the footer. This is a fine place to use Sass.
+ * http://ryanfait.com/sticky-footer/
+ * http://ryanfait.com/resources/footer-stick-to-bottom-of-page/
+ * http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page
+ */
+footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+
+footer > div.container {
+  position: relative;
+}
+
+#footer_area {
+  background-color: #222;
+  color: #fff;
+  padding: .5em 0;
+  bottom: 0px;
+}
+
+/**
+ * Override typography.css
+ */
+p.footer-text {
+  margin-bottom: 9px;
+  padding-top: 9px;
+  font-size: 90%;
+}
+
+/**
+ * Back in custom3.scss.
+ */
 /* For modern browsers */
 .cf:before,
 .cf:after {
@@ -150,14 +209,6 @@ nav a {
 .copy img {
   margin: 0 1em 1em 0;
   border: 3px solid #eee;
-}
-
-table {
-  border: none;
-}
-
-tbody tr:nth-child(even) td, tbody tr.even td {
-  background: #eee;
 }
 
 /** Profile Index **/
@@ -329,7 +380,7 @@ div.project {}
 div.project > div {}
 */
 .pages {
-  background-color: #efefef;
+  background-color: #fff;
   margin-top: -200px;
   margin-bottom: 20px;
   padding: 0px;
@@ -380,37 +431,4 @@ textarea#project_summary {
 textarea#project_requiredskills {
   width: auto;
   height: auto;
-}
-
-/**
- * Need to add a bottom marging to compensate for the
- * height of the footer. This is a fine place to use Sass.
- * http://ryanfait.com/sticky-footer/
- * http://ryanfait.com/resources/footer-stick-to-bottom-of-page/
- * http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page
- */
-footer {
-  position: fixed;
-  bottom: 0px;
-  width: 100%;
-}
-
-footer > div.container {
-  position: relative;
-}
-
-#footer_area {
-  background-color: #222;
-  color: #fff;
-  padding: .5em 0;
-  bottom: 0px;
-}
-
-/**
- * Override typography.css
- */
-p.footer-text {
-  margin-bottom: 9px;
-  padding-top: 9px;
-  font-size: 90%;
 }

@@ -1,3 +1,6 @@
+/**
+ * Header styling, header.scss
+ */
 #header_area {
   background: white url(/assets/custom2/headerbg.png) bottom center repeat-x;
 }
