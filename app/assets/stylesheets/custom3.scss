@@ -10,10 +10,6 @@
 @import 'custom3/base';
 
 
-div.copy h3 {
-  font-size: 22px;
-}
-
 .full_width > .page {
   width: 940px; 
   margin: auto;
@@ -34,16 +30,16 @@ div.copy h3 {
 }
 
 
+div.copy h3 {
+  font-size: 22px;
+}
+
 
 div > span.label {
   padding: 25px 0px;
   font-weight: bold;
 }
 
-
-/**
- * Everything past here should be imported.
- */
 
 @import 'custom3/nav';
 @import 'custom3/header';
@@ -61,7 +57,6 @@ div > span.label {
 .cf:after {
     clear:both;
 }
-
 
 
 #content {
@@ -94,15 +89,11 @@ div.frontpage { }
   border: 3px solid #eee;
 }
 
-
 @import 'custom3/profile';
-
-
 
 div.field input {
   width: 350px;
 }
-
 
 @import 'custom3/project';
 
