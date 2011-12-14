@@ -6,13 +6,24 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-Member.create(:membername => 'doolin2', :email => 'david.doolin+testseed@gmail.com', :password => 'foobar', :password_confirmation => 'foobar')
-=begin
-Project.create(:name        => 'First project from seed',
-               :member_id   => 1,
-               :summary     => 'This is the summary',
-               :description => 'This is the description',
-               :startdate   => "2011-12-10 00:00:00",
-               :finishdate  => "2011-12-10 00:00:00",
-               :tags        => 'foo bar')
-=end
+@member = Member.create(:membername => 'doolin2', :email => 'david.doolin+testseed@gmail.com', :password => 'foobar', :password_confirmation => 'foobar', :firstname => 'Dave', :lastname => 'Doolin')
+
+#=begin
+@project_attrs = {:name        => 'First project from seed',
+                  :summary     => 'This is the summary',
+                  :description => 'This is the description',
+                  :startdate   => "2011-12-10 00:00:00",
+                  :finishdate  => "2011-12-10 00:00:00",
+                  :tags        => 'foo bar'}
+@member.projects.build(@project_attrs)
+@member.save
+#=end
+
+
+#=begin
+@profile_attr = {:firstname => "Dave",
+                 :lastname  => "Doolin",
+                 :created_at => 1.minute.ago}
+@member.build_profile(@profile_attr)
+@member.save
+#=end
