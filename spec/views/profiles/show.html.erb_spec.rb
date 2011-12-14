@@ -47,7 +47,7 @@ describe "profiles/_profile_links.html.erb" do
     rendered.should have_selector('a', :content => 'Edit')
   end
   
-  it "should have link to Delete" do
+  xit "should have link to Delete" do
     render
     rendered.should have_selector('a', :content => 'Delete')
   end
