@@ -1,6 +1,8 @@
 <%= form_for(@profile) do |f| %>
+
+
   <% if @profile.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert-box error">
       <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this project from being saved:</h2>
 
       <ul>
