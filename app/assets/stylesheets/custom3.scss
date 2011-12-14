@@ -8,20 +8,7 @@
  */
 
 @import 'custom3/base';
-
-
-.full_width > .page {
-  width: 940px; 
-  margin: auto;
-}
-
-.alignLeft {
-  float: left;
-}
-
-.alignRight {
-  float: right;
-}
+@import 'custom3/layouts';
 
 
 .label {
