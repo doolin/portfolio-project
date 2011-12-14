@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
     #@project = Project.new(params[:project])
     @project = current_member.projects.build(params[:project])
     # TODO: Remove if possible...
-    flash[:success] = "New project created!"
+    #flash[:success] = "New project created!"
     
     respond_to do |format|
       if @project.save
