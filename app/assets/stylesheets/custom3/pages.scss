@@ -1,7 +1,21 @@
 
+/**
+ * custom3/pages.scss which currently controls layout
+ * on the front page sales modules. Probably needs
+ * renaming in the future.
+ */
+
 .pages {
   background-color: #fff;
-  margin-top: -200px;
+  //margin-top: -200px;
+  margin-top: 20px;
   margin-bottom: 20px;
-  padding: 0px;
+  padding-left: 10px;
+  padding-right: 7px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.offset-up {
+  margin-top: -200px;
 }

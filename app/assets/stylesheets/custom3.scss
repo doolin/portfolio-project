@@ -49,7 +49,6 @@ div > span.label {
     clear:both;
 }
 
-
 #content {
   background: none repeat scroll 0 0 #FFFFFF;
   margin: -200px auto 20px;
@@ -62,6 +61,7 @@ div.frontpage { }
 .sidebar h2 {
   font-family: "lobster-1","lobster-2";
 }
+
 
 #hero { 
   text-align: center;
@@ -89,6 +89,7 @@ div.field input {
 @import 'custom3/project';
 
 @import 'custom3/pages';
+@import 'custom3/sales';
 @import 'custom3/form';
 @import 'custom3/project-form';
 
