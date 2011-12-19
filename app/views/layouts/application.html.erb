@@ -17,34 +17,15 @@
   <%= render 'layouts/nav' %>
   <%= render 'layouts/header' %>
 
-
-
-
-<div class="container">
-  <div class="row pages offset-up">
-    <div class="twelve columns centered">
-      <%= yield %>
-    </div><!-- columns -->
-  </div><!-- row -->
-</div><!-- container -->
-
-  <%= render 'sales/offers' %>
-
-
-<div class="container">
-  <div class="row pages">
-    <div class="twelve columns centered">
-      <%= yield %>
-    </div><!-- columns -->
-  </div><!-- row -->
-</div><!-- container -->
-
-
-  <%= render 'layouts/content'%>
-
+  <div class="container">
+    <div class="row pages offset-up">
+      <div class="twelve columns centered">
+        <%= yield %>
+      </div><!-- columns -->
+    </div><!-- row -->
+  </div><!-- container -->
 
   <%= render 'layouts/footer' %>
-
 
 <%= render 'layouts/analytics' %>
 </body>
