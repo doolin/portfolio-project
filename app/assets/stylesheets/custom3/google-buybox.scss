@@ -1,0 +1,62 @@
+
+/**
+ * custom3/google-buybox.scss
+ */
+
+.buybox {
+  background-color: #f23;
+  padding: 0px;
+  margin: 10px;
+}
+
+.buybox p {
+  margin: 0px 0 0 5px;
+}
+
+.buybox h3 {
+  color: #000;
+  font-family: arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  background-color: #2aa;
+  border-style: solid;
+  border-color: purple;
+  border-top-width: 5px;
+  border-bottom-width: 5px;
+  border-width: 2px 0 2px 0;
+  text-indent: 5px;
+}
+
+.signup {
+  background-color: #fff;
+  padding: 0px;
+}
+
+.signup h3 {
+  background-color: #f1e4d8;
+  border-color: #aa1002;
+  padding: 0px;  
+}
+
+
+.plans {
+  background-color: #fff;
+  padding: 0px;  
+}
+
+.plans h3 {
+  background-color: #fefade;
+  border-color: #ddad08;
+  padding: 0px;  
+}
+
+.readmore {
+  background-color: #fff;
+  padding: 0px;  
+}
+
+.readmore h3 {
+  border-color: #396;
+  background-color: #d8f1e4;
+  padding: 0px;  
+}
