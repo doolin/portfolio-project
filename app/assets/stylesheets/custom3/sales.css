@@ -1,14 +1,13 @@
-
 /**
  * custom3/sales.scss
  */
-
 .row.ads {
   border-style: dotted;
   border-width: 1px;
   margin: 5px;
   padding: 5px;
 }
+
 .sponsor h4 {
   padding-top: 45px;
   font-size: 15px;

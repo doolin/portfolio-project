@@ -201,6 +201,12 @@ p.footer-text {
   padding: 0 0 2em 0;
 }
 
+.herostyle {
+  border-bottom: 1px dotted #ccc;
+  margin: 0 0 20px 0;
+  padding: 0 0 2em 0;
+}
+
 .copy {
   margin: 1em;
   font-size: 120%;
@@ -379,10 +385,82 @@ div > span.label {}
 div.project {}
 div.project > div {}
 */
+/**
+ * custom3/pages.scss which currently controls layout
+ * on the front page sales modules. Probably needs
+ * renaming in the future.
+ */
 .pages {
   background-color: #fff;
-  margin-top: -200px;
+  margin-top: 20px;
   margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 7px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.offset-up {
+  margin-top: -200px;
+}
+
+/**
+ * custom3/google-buybox.scss
+ */
+.buybox {
+  background-color: #f23;
+  padding: 0px;
+  margin: 10px;
+}
+
+.buybox p {
+  margin: 0px 0 0 5px;
+}
+
+.buybox h3 {
+  color: #000;
+  font-family: arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  background-color: #2aa;
+  border-style: solid;
+  border-color: purple;
+  border-top-width: 5px;
+  border-bottom-width: 5px;
+  border-width: 2px 0 2px 0;
+  text-indent: 5px;
+}
+
+.signup {
+  background-color: #fff;
+  padding: 0px;
+}
+
+.signup h3 {
+  background-color: #f1e4d8;
+  border-color: #aa1002;
+  padding: 0px;
+}
+
+.plans {
+  background-color: #fff;
+  padding: 0px;
+}
+
+.plans h3 {
+  background-color: #fefade;
+  border-color: #ddad08;
+  padding: 0px;
+}
+
+.readmore {
+  background-color: #fff;
+  padding: 0px;
+}
+
+.readmore h3 {
+  border-color: #396;
+  background-color: #d8f1e4;
   padding: 0px;
 }
 
@@ -431,4 +509,20 @@ textarea#project_summary {
 textarea#project_requiredskills {
   width: auto;
   height: auto;
+}
+
+/**
+ * custom3/sales.scss
+ */
+.row.ads {
+  border-style: dotted;
+  border-width: 1px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.sponsor h4 {
+  padding-top: 45px;
+  font-size: 15px;
+  color: #ddd;
 }

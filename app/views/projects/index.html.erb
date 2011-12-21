@@ -3,6 +3,8 @@
 
 <h2 class="projects-listing">All Projects</h2>
 
+  <%= render 'sales/rowad' %>
+  
 <table>
   <tr>
     <th>
@@ -10,8 +12,6 @@
     </th>
     <th>Owner</th>
   </tr>
-
-
 <% @projects.each do |project| %>
   <tr>
     <td>
