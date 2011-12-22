@@ -6,11 +6,22 @@
 .row.ads {
   border-style: dotted;
   border-width: 1px;
-  margin: 5px;
-  padding: 5px;
+  //margin: 5px;
+ // padding: 5px;
+ margin-bottom: 15px;
 }
 .sponsor h4 {
   padding-top: 45px;
-  font-size: 15px;
+  font-size: 14px;
+  text-transform: small-caps;
   color: #ddd;
+}
+
+.sponsor-image img {
+  padding-right: 10px;
+}
+
+.sponsor-message {
+  font-size: 12px;
+  color: #222;
 }
