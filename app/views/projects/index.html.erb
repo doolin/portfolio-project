@@ -3,39 +3,37 @@
 
 <h2 class="projects-listing">All Projects</h2>
 
-  <%= render 'sales/rowad' %>
-  
-<table>
-  <tr>
-    <th>
-      Projects
-    </th>
-    <th>Owner</th>
-  </tr>
+<% count = 0 %>
 <% @projects.each do |project| %>
-  <tr>
-    <td>
-<div class='profile-listing'>
-  <h3><%= link_to project.name, project, :class => 'project-name' %></h3>
-  <p class='project-summary'>
-    <span class='label'>Summary</span>
-    <%= project.summary %>
-  </p>
-  <p class='project-tags'>
-    <span class='label'>Tags</span>
-    <%= project.tags %>
-  </p>
-</div>
-    </td>
-	  <td>
-	    <div class="alignRight">
-	    <%= link_to (gravatar_for Member.find(project.member_id),  :size => '64'), '/members/' + project.member_id.to_s %><br />
-      <%= link_to project.membername(project.member_id), '/members/' + project.member_id.to_s %>
+
+  <div class="row project">
+    <div class="seven columns">
+      <div class='listing'>
+        <h3><%= link_to project.name, project, :class => 'project-name' %></h3>
+        <p class='project-summary'>
+         <span class='label'>Summary</span>
+         <%= project.summary %>
+        </p>
+        <p class='project-tags'>
+          <span class='label'>Tags</span>
+          <%= project.tags %>
+        </p>
       </div>
-    </td>
-  </tr>
+      </div>
+      <div class="three columns offset-by-one">
+        <div class="gravatar">
+          <%= link_to (gravatar_for Member.find(project.member_id),  :size => '100'),
+              '/members/' + project.member_id.to_s %><br />
+          <%= link_to project.membername(project.member_id), '/members/' + project.member_id.to_s %>
+        </div>
+      </div>
+    </div>
+<% count += 1 %>
+<% if count == 1 %>
+ <%= render 'sales/rowad' %>
 <% end %>
-</table>
+<% end %>
 
 <br />
 <%= link_to "New Project", new_project_path, :class => "cta cta-yellow" %><br />
+

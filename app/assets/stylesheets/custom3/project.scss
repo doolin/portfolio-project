@@ -1,9 +1,36 @@
 
+.row.project {
+  padding: inherit 0px;
+  background-color: #efefef;
+}
 
-.project {padding: 0 1em; margin:0;}
+.project {
+  padding: 5px 0;
+  margin: 10px 0px;
+}
 
-.project h3 { width: 180px; font-weight: 900; }
-.project .inner { width: 700px; border-left: 1px dotted #ccc; padding: 0 0 0 1.4em; margin: 0 0 1em 0;}     
+.project  .listing {
+  padding: 0 1em;
+  margin: 0px;
+}
+
+.project h3 {
+  width: 180px;
+  font-weight: 900;
+}
+
+.project .gravatar {
+  float: right;
+  text-align: center;
+}
+
+.project .inner {
+  width: 700px;
+  border-left: 1px dotted #ccc;
+  padding: 0 0 0 1.4em;
+  margin: 0 0 1em 0;
+}
+
 
 /*
 div.project {
