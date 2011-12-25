@@ -1,26 +1,29 @@
 
-<div class="container">
   <div class="row ads">
 
-    <div class="four columns sponsor">
+    <div class="three columns sponsor">
       <h4>Sponsored Message</h4>
     </div><!-- columns -->
 
     <div class="five columns">
       <div class="sponsor-image">
-      <%= image_tag('bpe_ecover_square_125x125.png', :class => 'alignLeft') %>
+      <%= link_to image_tag('bpe_badge_100x100.png', :class => 'alignLeft', :size => "100x100"),
+        'http://website-in-a-weekend.net/blog-post-engineering/' %>
       </div>
+
       <div class="sponsor-message">
-        <p><strong>Some bold text here.</strong><br />
-          And more text, wish I had some asdf to
-          help fill this out really fast.
-        </p>
+        <p><strong>Blog Post Engineering</strong><br />
+If you're sick of everybody telling you how you have to "Write for SEO!" (yuck) here's a way retain to your artistic integrity... while still making it easy for search engines to find you.        </p>
       </div>
+
     </div><!-- columns -->
 
     <div class="three columns sponsor">
-      <h4>(tentative) BuySellAds</h4>
+      <div class="solicitation">
+        <a href="/advertising">
+        <h4>Your Ad Here</h4>
+        </a>
+      </div>
     </div><!-- columns -->
 
   </div><!-- row -->
-</div><!-- container -->

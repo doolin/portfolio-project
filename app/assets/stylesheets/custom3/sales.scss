@@ -4,17 +4,26 @@
  */
 
 .row.ads {
-  border-style: dotted;
-  border-width: 1px;
+  //border-style: dotted;
+  //border-width: 1px;
   //margin: 5px;
  // padding: 5px;
- margin-bottom: 15px;
+ margin-bottom: 10px;
+ margin-top: 10px;
 }
 .sponsor h4 {
   padding-top: 45px;
   font-size: 14px;
-  text-transform: small-caps;
+  //text-transform: small-caps;
   color: #ddd;
+}
+
+.ads .solicitation {
+  text-align: right;
+}
+
+.ads .solicitation a {
+  text-decoration: none;
 }
 
 .sponsor-image img {
@@ -23,5 +32,10 @@
 
 .sponsor-message {
   font-size: 12px;
-  color: #222;
+  color: #666;
+}
+
+.contact {
+  list-style-type: disc;
+  list-style-position: inside;
 }
