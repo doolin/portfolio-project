@@ -14,6 +14,7 @@ describe "sales/index.html.erb" do
     @projects = mock(Project).as_null_object
     render
     rendered.should =~ /Talk is cheap/
+    rendered.should_not =~ /Getta buncha/
   end
 
   it "should have the correct <title> element " do
