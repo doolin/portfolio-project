@@ -2,14 +2,34 @@
  * custom3/sales.scss
  */
 .row.ads {
-  border-style: dotted;
-  border-width: 1px;
-  margin: 5px;
-  padding: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .sponsor h4 {
   padding-top: 45px;
-  font-size: 15px;
+  font-size: 14px;
   color: #ddd;
+}
+
+.ads .solicitation {
+  text-align: right;
+}
+
+.ads .solicitation a {
+  text-decoration: none;
+}
+
+.sponsor-image img {
+  padding-right: 10px;
+}
+
+.sponsor-message {
+  font-size: 12px;
+  color: #666;
+}
+
+.contact {
+  list-style-type: disc;
+  list-style-position: inside;
 }
