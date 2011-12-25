@@ -48,7 +48,7 @@ end
 
 group :development do
   gem 'webrat'
-  gem 'ruby-debug19'
+  gem 'ruby-debug19' unless ENV["CI"]
   gem 'wrong'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
