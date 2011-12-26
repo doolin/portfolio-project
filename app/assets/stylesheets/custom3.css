@@ -261,6 +261,28 @@ p.footer-text {
   font-size: 14px;
 }
 
+.profile_block {
+  list-style: none;
+  float: left;
+  width: 25%;
+  margin: 0 0 2em 0;
+}
+
+.profile_block .inner {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  height: 200px;
+  width: 200px;
+}
+
+/** This has to be set specifically override the 
+ * Foundation CSS reset.
+ */
+.profile_block li {
+  margin-bottom: 0px;
+}
+
 /** Individual Profiles **/
 .profile {
   padding: 0 1em;
@@ -366,7 +388,6 @@ div.field input {
 }
 
 .project h3 {
-  width: 180px;
   font-weight: 900;
 }
 
