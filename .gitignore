@@ -1,3 +1,5 @@
+coverage
+coverage/*
 .sass-cache/
 .bundle
 db/*.sqlite3*

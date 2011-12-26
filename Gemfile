@@ -7,6 +7,8 @@ gem 'carrierwave'
 gem 'fog'
 gem 'zurb-foundation'
 
+gem 'simplecov', :require => false, :group => :test
+
 group :production do
   gem "pg"
 end
