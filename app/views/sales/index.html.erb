@@ -4,14 +4,17 @@
 <div class="frontpage">
 
   <!-- modules a la SMACSS -->
-  <%=
-    #render 'sales/featured_profiles'
-  %>
+
   <%= render 'sales/hero' %>
-  <%=
-  #render 'sales/offers'
-  %>
   <%= render 'sales/maincopy' %>
+
+  <%=
+  render 'sales/offers'
+  %>
+
+  <%=
+    render 'sales/featured_profiles'
+  %>
 
 </div>
 
