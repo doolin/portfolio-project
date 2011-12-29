@@ -440,6 +440,13 @@ div.project > div {}
   margin-top: -200px;
 }
 
+.google {
+  margin-right: 0px;
+  padding-right: 0px;
+  margin-left: 0px;
+  padding-left: 5px;
+}
+
 /**
  * custom3/google-buybox.scss
  */
