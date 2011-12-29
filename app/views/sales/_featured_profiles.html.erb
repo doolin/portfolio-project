@@ -1,24 +1,11 @@
 
-
 <div class="row featured profiles">
+  <% profiles = %w{ featured1 featured2 featured3 featured4 } %>
+  <% profiles.each do |p| %>
   <div class="three columns sponsor">
     <ul class="cf">
-      <%= render :partial => 'profiles/gravatar', :locals => { :profile => Profile.find(1) } %>
+      <%= render :partial => 'profiles/gravatar', :locals => { :profile => Profile.find(PROFILES["#{p}"]) } %>
     </ul>
   </div><!-- columns -->
-  <div class="three columns sponsor">
-    <ul class="cf">
-      <%= render :partial => 'profiles/gravatar', :locals => { :profile => Profile.find(2) } %>
-    </ul>
-  </div><!-- columns -->
-  <div class="three columns sponsor">
-    <ul class="cf">
-      <%= render :partial => 'profiles/gravatar', :locals => { :profile => Profile.find(2) } %>
-    </ul>
-  </div><!-- columns -->
-  <div class="three columns sponsor">
-    <ul class="cf">
-      <%= render :partial => 'profiles/gravatar', :locals => { :profile => Profile.find(2) } %>
-    </ul>
-  </div><!-- columns -->
+  <% end %>
 </div><!-- row -->

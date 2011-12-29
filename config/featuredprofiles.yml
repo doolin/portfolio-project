@@ -1,0 +1,17 @@
+
+test:
+  profiles: false
+
+development:
+  profiles: true
+  featured1: 1
+  featured2: 2
+  featured3: 1
+  featured4: 2
+
+production:
+  profiles: true
+  featured1: 7  # Heather
+  featured2: 3  # Roberto
+  featured3: 14 # Teresa
+  featured4: 11 # Adam
