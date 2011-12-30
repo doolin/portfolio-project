@@ -21,6 +21,7 @@ class Project < ActiveRecord::Base
   validates :client,                         :length => { :maximum => 140 }
   validates :tags,        :presence => true
 
+  before_save :check_dates
 
   default_scope :order => 'projects.created_at DESC'
   
@@ -39,6 +40,12 @@ class Project < ActiveRecord::Base
 
   def to_param
     url
+  end
+
+  private
+
+  def check_dates
+    return false if self.startdate > self.finishdate
   end
 
 end

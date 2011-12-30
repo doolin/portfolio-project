@@ -9,8 +9,8 @@ describe Project do
       :summary     => "We did it again.",
       :client      => "Dave D",
       :description => "A short description for testing.",
-      :startdate   => DateTime.new,
-      :finishdate  => DateTime.new,
+      :startdate   => DateTime.new(2010),
+      :finishdate  => DateTime.new(2011),
       :tags        => 'foobar'
     }
   end
@@ -78,6 +78,24 @@ describe Project do
 
     it "should require nonblank Finish date" do
       @member.projects.build(:finishdate =>" ").should_not be_valid
+    end
+
+    it "start date should be less than finish date" do
+      @project = @member.projects.create(@attr)
+      @project.startdate.should < @project.finishdate
+    end
+
+    it "start date should not be greater than finish date" do
+      @project = @member.projects.create(@attr)
+      @project.startdate.should_not > @project.finishdate
+    end
+
+    it "finish date should raise error" do
+      @project = @member.projects.create(@attr)
+      @project.finishdate=(DateTime.new(1999))
+      expect {
+        @project.save!
+      }.to raise_error(ActiveRecord::RecordNotSaved)
     end
 
     # False positive. Where did these tests come from?
