@@ -49,7 +49,8 @@ class ProjectsController < ApplicationController
     @project = current_member.projects.build(params[:project])
     # TODO: Remove if possible...
     #flash[:success] = "New project created!"
-    
+
+=begin
     respond_to do |format|
       if @project.save
         format.html { redirect_to(@project, :flash => { :success => 'Project was successfully created.'}) }
@@ -59,6 +60,33 @@ class ProjectsController < ApplicationController
         format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
       end
     end
+=end
+
+    respond_to do |format|
+      begin
+        @project.save!
+      rescue ActiveRecord::RecordNotSaved => e
+        format.html {
+          # Note: this flash message needs to go before the render method,
+          # else the flash won't display on the next render. It will however
+          # display on the render following.
+          flash[:error] = "Problem: #{e.message}."
+          render :new
+        }
+        format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
+      rescue Exception => e
+        format.html {
+          #flash[:error] = "Problem: #{e.message}."
+          render :action => "new"
+        }
+        format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
+      else
+        format.html { redirect_to(@project, :flash => { :success => 'Project was successfully created.'}) }
+        format.xml  { render :xml => @project, :status => :created, :location => @project }
+      end
+    end
+
+
   end
 
   # PUT /projects/1
