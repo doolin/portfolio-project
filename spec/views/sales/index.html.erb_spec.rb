@@ -2,7 +2,16 @@ require 'spec_helper'
 
 describe "sales/index.html.erb" do
 
+#=begin
+  before(:each) do
+    @member   = Factory(:member)
+    @project   = Factory(:project, :name => 'Slicer', :member => @member)
+    @profile   = Factory(:profile, :member => @member)
+  end
+#=end
+
   it "infers the controller path" do
+    #@profiles = mock(Profile).as_null_object
     controller.request.path_parameters["controller"].should eq('sales')
   end
 
@@ -12,6 +21,7 @@ describe "sales/index.html.erb" do
 
   it "should display the home page" do
     @projects = mock(Project).as_null_object
+    #@profiles = mock(Profile).as_null_object
     render
     rendered.should =~ /Talk is cheap/
     rendered.should_not =~ /Getta buncha/

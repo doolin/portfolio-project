@@ -1,6 +1,10 @@
 
 test:
-  profiles: false
+  profiles: true
+  featured1: 1
+  featured2: 1
+  featured3: 1
+  featured4: 1
 
 development:
   profiles: true
