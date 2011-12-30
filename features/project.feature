@@ -14,7 +14,7 @@ Feature: Member creates project
     Then the member is shown the page for the new project
 
   Scenario: Guest reader is directed to signup page
-    Given a reader is not logged in
+    Given reader is not logged in
     And is on the project page
     When the reader clicks New Project link
     Then the reader should be on the sign in page

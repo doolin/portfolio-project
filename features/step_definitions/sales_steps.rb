@@ -1,5 +1,6 @@
 
 Given /^the visitor is on the home page$/ do
+  step %{member name is "foo" with email "user@test.com" and password "foobar"}
   visit root_path
 end
 

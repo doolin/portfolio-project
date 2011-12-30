@@ -12,12 +12,19 @@ end
 
 #Given /^I am a member named "([^"]*)" with an email "([^"]*)" and password "([^"]*)"$/ do |name, email, password|
 Given /^member name is "([^"]*)" with email "([^"]*)" and password "([^"]*)"$/ do |name, email, password|
-  Member.new(:membername => name,
+  #puts 'name ' + name
+  #puts 'email ' + email
+  #puts 'password ' + password
+  # Using .new and save! returns a boolean for @member.
+  @member = Member.create(:membername => name,
              :email => email,
              :password => password,
              :password_confirmation => password,
              :firstname => 'foo',
-             :lastname => 'bar').save!
+             :lastname => 'bar')#.save!
+  @profile = @member.build_profile({:firstname => 'Foo', :lastname => 'bar'})
+  #puts @profile.inspect # Also, p object is an alias for puts object.inspect
+  @profile.save
 end
 
 Given /^member is on sign_in page$/ do
@@ -50,6 +57,7 @@ Then /^the user is taken to home page$/ do
 end
 
 Given /^member is not logged in$/ do
+  step %{member name is "foo" with email "foo@test.com" and password "please"}
   visit('/members/sign_out') # ensure that at least
 end
 
@@ -83,13 +91,14 @@ end
 Given /^member is signed in as "([^"]*)" and password "([^"]*)"$/ do |email, password|
   name = "foobar"
   # Member.new may not work
-  @member = Member.create(:membername => name,
+  @member = Member.new(:membername => name,
             :email => email,
             :password => password,
             :password_confirmation => password,
             :firstname => 'MFoo',
             :lastname => 'MBar')#.save!
-  #@member.save!
+      
+  @member.save!
   #puts @member.member_id
   @profile = @member.build_profile({:firstname => 'Foo', :lastname => 'bar'})
   #puts @profile.inspect # Also, p object is an alias for puts object.inspect
@@ -167,11 +176,13 @@ end
 
 Then /^the member is shown the page for the new project$/ do
   # Fixme: the url needs to be extracted from the data
+  step %{member name is "foo" with email "user@test.com" and password "foobar"}
   visit ('new-project')
 end
 
 
 Given /^a site visitor who is not a member$/ do
+  step %{member name is "foo" with email "user@test.com" and password "foobar"}
   visit('/members/sign_out') # ensure that at least
 end
 

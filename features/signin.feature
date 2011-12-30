@@ -42,5 +42,5 @@ Feature: Member logs on
     When the visitor is on the sign up page
     And fills in the sign up form
     And presses the "Sign up" button
-    Then the new member should be on the new Profile page
     #Then show me the page
+    Then the new member should be on the new Profile page
