@@ -19,6 +19,15 @@ describe 'projects/show.html.erb' do
     controller.request.path_parameters["action"].should eq("show")
   end
 
+#describe 'layouts/application' do
+#https://github.com/rspec/rspec-rails/issues/176
+  it "renders flash notices" do
+    flash[:notice] = "This is a notice!"
+    render
+    #response.should contain "This is a notice!"
+    rendered.should contain "This is a notice!"
+  end
+#end
 
   it "renders attributes in <p>" do
     render
