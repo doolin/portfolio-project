@@ -1,23 +1,15 @@
 
-<% title 'Projects' %>
 
-
-  <%= 
-    #render 'featured_project' 
-  %>
-
-<h2 class="projects-listing">All Projects</h2>
-
-<% count = 0 %>
-<% @projects.each do |project| %>
+<h2>Featured Project</h2>
 
   <div class="row project">
     <div class="seven columns">
       <div class='listing'>
+        <% project = Project.where(:id => 13)[0] %>
         <h3><%= link_to project.name, project, :class => 'project-name' %></h3>
         <p class='project-summary'>
-         <span class='label'>Summary</span>
-         <%= project.summary %>
+          <span class='label'>Summary</span>
+          <%= project.summary %>
         </p>
         <p class='project-tags'>
           <span class='label'>Tags</span>
@@ -33,15 +25,4 @@
       </div>
     </div>
   </div>
-
-<% count += 1 %>
-<% if count == 1 %>
- <%= render 'sales/thirsty_ad' %>
-<% elsif count == 8 %>
- <%= render 'sales/bpe_ad' %>
-<% end %>
-<% end %>
-
-<br />
-<%= link_to "New Project", new_project_path, :class => "cta cta-yellow" %><br />
 

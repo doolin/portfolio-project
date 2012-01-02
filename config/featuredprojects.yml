@@ -1,0 +1,21 @@
+
+test:
+  projects: true
+  featured1: 1
+  featured2: 1
+  featured3: 1
+  featured4: 1
+
+development:
+  projects: true
+  featured1: 1
+  featured2: 2
+  featured3: 1
+  featured4: 2
+
+production:
+  projects: true
+  featured1: 7  # Heather
+  featured2: 3  # Roberto
+  featured3: 14 # Teresa
+  featured4: 11 # Adam
