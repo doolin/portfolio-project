@@ -25,7 +25,7 @@ describe 'projects/show.html.erb' do
     flash[:notice] = "This is a notice!"
     render
     #response.should contain "This is a notice!"
-    rendered.should contain "This is a notice!"
+    rendered.should =~ /This is a notice!/
   end
 #end
 

@@ -4,8 +4,8 @@
     <div class="profile_info">
       <ul class="cf">
         <li class="member_name"><%= profile.firstname %> <%= profile.lastname %></li>
-        <li>Total Projects - <%= Member.find(profile.member_id).projects.count %></li>
-        <li>Member Since - <%= profile.created_at.strftime("%B %e, %Y") %></li>
+        <li><%= pluralize(Member.find(profile.member_id).projects.count, 'project') %></li>
+        <li>Joined <%= profile.created_at.strftime("%B %e, %Y") %></li>
       </ul>
     </div>    
   </div>
