@@ -6,26 +6,16 @@ gem 'sitemap_generator'
 gem 'carrierwave'
 gem 'fog'
 gem 'zurb-foundation'
-
-gem 'simplecov', :require => false, :group => :test
-
-group :production do
-  gem "pg"
-end
- 
-group :development, :test do
-  gem "sqlite3"
-end
-
 gem 'devise'
 gem 'dynamic_form'
-#gem 'friendly_id' # Looks cool, check into it later.
 gem 'stringex'
 gem 'gravatar_image_tag'
 gem 'dalli'
 gem 'possessive'
 gem 'jquery-rails'
 gem 'aws-s3'
+gem 'escape_utils'
+gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -35,46 +25,35 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'escape_utils'
 
-group :cucumber do
-#  gem "builder", "~> 2.1.2"
-  gem 'webrat'
-#  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'cucumber-rails'
-  gem 'cucumber'
-  gem 'spork'
-  gem 'launchy'    # So you can do Then show me the page
-end  
-
-group :development do
-  gem 'webrat'
+group :production do
+  gem "pg"
+end
+ 
+group :development, :test do
+  gem "sqlite3"
   gem 'ruby-debug19' unless ENV["CI"]
-  gem 'wrong'
-  gem 'rspec-rails'
-  gem 'selenium-webdriver'
   gem 'rb-fsevent'
 end
+gem 'simplecov', :require => false, :group => :test
 
-group :postgresql do
-  gem 'pg'
+
+group :cucumber do
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
+  gem 'spork'
+  gem 'launchy'    # So you can do Then show me the page
 end
+
 
 group :test do
   gem 'mock-aws-s3'
   gem 'rspec'
   gem 'rspec-rails'
-  gem 'webrat'
-#  gem 'capybara'
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'autotest'
   gem 'autotest-rails-pure'
-#  gem 'autotest-fsevent'
   gem 'autotest-growl'
   gem 'spork'
-# metric_fu
-  #gem 'webrat', '0.7.2'
-#  gem 'email_spec' 
 end
