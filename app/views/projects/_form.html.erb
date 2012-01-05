@@ -15,8 +15,8 @@
 
 
 <dl class="tabs contained">
-  <dd><a href="#simpleContained1" class="active">The basics</a></dd>
-  <dd><a href="#simpleContained2">Describe, in detail</a></dd>
+  <dd><a href="#simpleContained1" class="active">Required</a></dd>
+  <dd><a href="#simpleContained2">Detailed description</a></dd>
   <dd><a href="#simpleContained3">Links and extras</a></dd>
 </dl>
 
@@ -25,21 +25,26 @@
 <li class="active" id="simpleContained1Tab">
 
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label :name %><span class="required-field">*</span><br />
     <%= f.text_field :name %><br />
   </div>
   <div class="field date">
-    <%= f.label :startdate %>
+    <%= f.label :startdate %><span class="required-field">*</span><br />
     <%= f.date_select(:startdate, :start_year => 1990) %><br />
   </div>
   <div class="field date">
-    <%= f.label :finishdate %>
+    <%= f.label :finishdate %><span class="required-field">*</span><br />
     <%= f.date_select(:finishdate, :start_year => 1990, :include_blank => true) %><br />
   </div>
   <div class="field" id="summary">
-    <%= f.label :summary %>
+    <%= f.label :summary %><span class="required-field">*</span><br />
     <%= f.text_area :summary, :size => "60x12" %><br />
   </div>
+  <div class="field">
+    <%= f.label :tags %><span class="required-field">*</span><br />
+    <%= f.text_field :tags %><br />
+  </div>
+  <div class="required-field">*Required field</div>
 </li>
 
 
@@ -52,32 +57,29 @@
 
 <li id="simpleContained3Tab">
   <div class="field" id="requiredskills">
-    <%= f.label "Required Skills" %>
+    <%= f.label "Required Skills" %><br />
     <%= f.text_area :requiredskills, :size => "60x6"%><br />
   </div>
   <div class="field">
-    <%= f.label :client %>
+    <%= f.label :client %><br />
     <%= f.text_field :client %><br />
   </div>
   <div class="field">
-    <%= f.label "Anchor text for project link" %>
+    <%= f.label "Anchor text for project link" %><br />
     <%= f.text_field :uri_anchor %><br />
   </div>
   <div class="field">
-    <%= f.label "Link to project" %>
+    <%= f.label "Link to project" %><br />
     <%= f.text_field :uri %><br />
   </div>
   <div class="field">
-    <%= f.label "Point of contact" %>
+    <%= f.label "Point of contact" %><br />
     <%= f.text_field :pointofcontact %><br />
-  </div>
-  <div class="field">
-    <%= f.label :tags %>
-    <%= f.text_field :tags %><br />
   </div>
 </li>
 
 </ul>
+
 
   <div class="actions">
     <%= f.submit %>
