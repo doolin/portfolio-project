@@ -1,5 +1,5 @@
 /**
- * SMACSS-style, base.scss
+ * SMACSS-style base.
  */
 body {
   background: #cccccc url("http://subtlepatterns.com/patterns/square_bg.png");
@@ -40,4 +40,8 @@ table {
 
 tbody tr:nth-child(even) td, tbody tr.even td {
   background: #eee;
+}
+
+.cta {
+  z-index: 0;
 }

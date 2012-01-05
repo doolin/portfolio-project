@@ -50,6 +50,10 @@ tbody tr:nth-child(even) td, tbody tr.even td {
   background: #eee;
 }
 
+.cta {
+  z-index: 0;
+}
+
 /**
  * SMACSS-style layout directives, layouts.scss
  */
@@ -401,6 +405,15 @@ div.field input {
   border-left: 1px dotted #ccc;
   padding: 0 0 0 1.4em;
   margin: 0 0 1em 0;
+}
+
+form#new_project label {
+  display: inline;
+}
+
+.required-field {
+  color: #f66;
+  font-size: 120%;
 }
 
 /*

@@ -29,6 +29,15 @@
   margin: 0 0 1em 0;
 }
 
+form#new_project label {
+  display: inline;
+}
+
+.required-field {
+  color: #f66;
+  font-size: 120%;
+}
+
 /*
 div.project {
   margin-top: 15px;
