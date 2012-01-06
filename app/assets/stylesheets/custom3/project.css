@@ -38,6 +38,10 @@ form#new_project label {
   font-size: 120%;
 }
 
+div.project {
+  font-size: 16px;
+}
+
 /*
 div.project {
   margin-top: 15px;
