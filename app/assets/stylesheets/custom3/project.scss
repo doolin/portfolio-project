@@ -1,7 +1,11 @@
 
 .row.project {
   padding: inherit 0px;
-  //background-color: #efefef;
+  background-color: #efefef;
+}
+
+#project.row.project {
+  background-color: #fff;
 }
 
 .project {
