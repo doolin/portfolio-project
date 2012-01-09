@@ -8,9 +8,6 @@
       <br />
       <br />
       <% if !member_signed_in? %>
-        <span id="project_count"><%= pluralize(@projects.count, 'project') %> created so far.</span>
-        <br />
-        <br />
         <%= link_to "Build Your Portfolio", new_member_registration_path, :class => "cta cta-yellow" %>
       <% end %>
   </div>
