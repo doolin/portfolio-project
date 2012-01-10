@@ -30,7 +30,6 @@ h1 {
 }
 
 h2 {
-  height: 36px;
   font-size: 24px;
 }
 
@@ -338,8 +337,11 @@ p.footer-text {
 }
 
 .profile h2 {
-  height: 54px;
   font-size: 36px;
+}
+
+h2.profile-name {
+  line-height: .9;
 }
 
 .profile span.label {
@@ -378,6 +380,11 @@ div.field input {
 
 .row.project {
   padding: inherit 0px;
+  background-color: #efefef;
+}
+
+#project.row.project {
+  background-color: #fff;
 }
 
 .project {

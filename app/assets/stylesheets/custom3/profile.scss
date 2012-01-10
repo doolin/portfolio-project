@@ -10,6 +10,7 @@
             .profile_info .member_name { font-weight: 900; font-size: 14px;}
 
 
+
 .profile_block {
   list-style: none;
   float: left;
@@ -53,8 +54,12 @@
 
 
 .profile h2 {
-  height: 54px;
+  //height: 54px;
   font-size: 36px;
+}
+
+h2.profile-name {
+  line-height: .9;
 }
 
 .profile span.label {
