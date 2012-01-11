@@ -1,28 +1,6 @@
 
 
-<div class="row">
-  <%=
-  #render 'sales/tempfree'
-  %>
-
-  <div class="five columns signupfree">
-    <div id="signupfree-box">
-      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
-        <input type="hidden" name="lat" value="" id="lat" />
-        <input type="hidden" name="lng" value="" id="lng" />
-        <p><%= f.text_field :email, :placeholder => "email address", :class => 'text' %></p>
-        <p><%= f.password_field :password, :placeholder => "choose a password", :class => 'text' %></p>
-        <p style="text-align: center;">
-            <input type="submit" value="Sign Up Free" class="cta cta-yellow" /></p>
-        <p class="subtext">(Yes, it's that easy!)</p>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-
-<div id="signupfree" class="row herostyle">
+<div class="row herostyle" id="signupfree" >
 
   <div class="seven columns">
     <div id="new-main-pitch-text">
@@ -46,25 +24,7 @@
 
 
   <div class="five columns signupfree">
-    <form action="/signupfree" method="post">
-    <div id="signupfree-box">
-       <div id="fields">
-          <input type="hidden" name="lat" value="" id="lat" />
-          <input type="hidden" name="lng" value="" id="lng" />
-
-
-          <p><input type="text" name="email" id="email" autocomplete="off" placeholder="email address" class="text" /></p>
-          <p><input type="password" name="password" id="password" autocomplete="off" placeholder="choose a password" class="text" /></p>
-          
-          <p style="text-align: center;">
-            <input type="submit" value="Sign Up Free" class="cta cta-yellow" /></p>
-          <p class="subtext">(Yes, it's that easy!)</p>
-        </div>
-        <div id="loading" style="display: none">
-          <p class="center"><img src="/images/auth-load.gif" /></p>
-        </div>
-    </form>
-    </div>
+    <%= render 'sales/signupfreebox' %>
   </div>
 
 </div>

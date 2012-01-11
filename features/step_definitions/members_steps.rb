@@ -6,16 +6,38 @@ require 'cgi'
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
 
-Given /^no user exists with an email of "(.*)"$/ do |email|
-  Member.find(:first, :conditions => { :email => email }).should be_nil
+
+Given /^a site visitor who is not a member$/ do
+  step %{member with email "user@test.com" and password "foobar"}
+  visit('/members/sign_out')
 end
 
-#Given /^I am a member named "([^"]*)" with an email "([^"]*)" and password "([^"]*)"$/ do |name, email, password|
+Given /^member with email "([^"]*)" and password "([^"]*)"$/ do |email, password|
+  @member = Member.create(
+             :email => email,
+             :password => password,
+             :password_confirmation => password,
+             :firstname => 'foo',
+             :lastname => 'bar')
+  @profile = @member.build_profile({:firstname => 'Foo', :lastname => 'bar'})
+  @profile.save
+end
+
+When /^fills in the Sign Up Free form$/ do
+  email = "foo@bar.com"
+  password = "testem"
+  step %{I fill in "member_email" with "#{email}"}
+  step %{I fill in "member_password" with "#{password}"}
+end
+
+When /^fills in the sign up form$/ do
+  email = "foo@bar.com"
+  password = "testem"
+  step %{I fill in "Email" with "#{email}"}
+  step %{I fill in "Password" with "#{password}"}
+end
+
 Given /^member name is "([^"]*)" with email "([^"]*)" and password "([^"]*)"$/ do |name, email, password|
-  #puts 'name ' + name
-  #puts 'email ' + email
-  #puts 'password ' + password
-  # Using .new and save! returns a boolean for @member.
   @member = Member.create(:membername => name,
              :email => email,
              :password => password,
@@ -23,8 +45,11 @@ Given /^member name is "([^"]*)" with email "([^"]*)" and password "([^"]*)"$/ d
              :firstname => 'foo',
              :lastname => 'bar')#.save!
   @profile = @member.build_profile({:firstname => 'Foo', :lastname => 'bar'})
-  #puts @profile.inspect # Also, p object is an alias for puts object.inspect
   @profile.save
+end
+
+Given /^no user exists with an email of "(.*)"$/ do |email|
+  Member.find(:first, :conditions => { :email => email }).should be_nil
 end
 
 Given /^member is on sign_in page$/ do
@@ -180,24 +205,8 @@ Then /^the member is shown the page for the new project$/ do
   visit ('new-project')
 end
 
-
-Given /^a site visitor who is not a member$/ do
-  step %{member name is "foo" with email "user@test.com" and password "foobar"}
-  visit('/members/sign_out') # ensure that at least
-end
-
 When /^the visitor is on the sign up page$/ do
   visit '/members/sign_up'
-end
-
-When /^fills in the sign up form$/ do
-  membername = "foobar"
-  email = "foo@bar.com"
-  password = "testem"
-  step %{I fill in "Membername" with "#{membername}"}
-  step %{I fill in "Email" with "#{email}"}
-  step %{I fill in "Password" with "#{password}"}
-  step %{I fill in "Password confirmation" with "#{password}"}
 end
 
 When /^presses the "([^"]*)" button$/ do |button|

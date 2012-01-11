@@ -3,6 +3,21 @@ Feature: Member logs on
   A member needs to log on for various reasons, such as editing current
   projects, and adding new projects.
 
+  Scenario: New member signs up from front page
+    Given a site visitor who is not a member
+    And fills in the Sign Up Free form
+    And presses the "Sign Up Free" button
+    #Then show me the page
+    Then the new member should be on the new Profile page
+
+  Scenario: New member signs up
+    Given a site visitor who is not a member
+    When the visitor is on the sign up page
+    And fills in the Sign Up Free form
+    And presses the "Sign Up Free" button
+    Then show me the page
+    Then the new member should be on the new Profile page
+
   Scenario: Member signs in successfully with email
     Given member is not logged in
     And member name is "foo" with email "user@test.com" and password "please"
@@ -27,6 +42,7 @@ Feature: Member logs on
     And I go to the home page
     And I should be signed out
 
+  @wip
   Scenario: Member enters wrong password
     Given member is not logged in
     And member name is "foo" with email "user@test.com" and password "please"
@@ -36,11 +52,3 @@ Feature: Member logs on
     Then I should see "Sign up"
     And I go to the home page
     And I should be signed out
-
-  Scenario: New member signs up
-    Given a site visitor who is not a member
-    When the visitor is on the sign up page
-    And fills in the sign up form
-    And presses the "Sign up" button
-    #Then show me the page
-    Then the new member should be on the new Profile page
