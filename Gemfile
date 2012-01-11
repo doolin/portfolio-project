@@ -35,13 +35,14 @@ group :development, :test do
   gem 'ruby-debug19' unless ENV["CI"]
   gem 'rb-fsevent'
 end
+
 gem 'simplecov', :require => false, :group => :test
 
 
 group :cucumber do
   gem 'database_cleaner'
   gem 'cucumber-rails'
-  gem 'spork'
+  gem 'spork', '~> 0.9.0.rc'
   gem 'launchy'    # So you can do Then show me the page
 end
 
@@ -55,5 +56,5 @@ group :test do
   gem 'autotest'
   gem 'autotest-rails-pure'
   gem 'autotest-growl'
-  gem 'spork'
+  gem 'spork', '~> 0.9.0.rc'
 end
