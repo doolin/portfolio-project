@@ -1,0 +1,76 @@
+/**
+ * custom3/signupfree.scss
+ */
+
+.container .row.signupfree {
+  position: relative;
+}
+
+#signupfree .signupfree {
+  position: relative;
+  z-index: 0;
+}
+
+#new-main-pitch-text > h1 {
+  color: #666;
+}
+
+#new-main-pitch-text > p {
+  padding-left: 10px;
+  font-size: 19px;
+  color: #7d7d7d;
+}
+
+#signupfree-box {
+  position: relative;
+  width: 280px;
+  height: 170px;
+  background-color: #eee;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+ -moz-border-radius: 10px;
+ -webkit-border-radius: 10px;
+  padding: 30px 20px;
+  background-clip: padding-box;
+ -moz-background-clip: padding-box;
+ -webkit-background-clip: padding-box;
+  margin: 2;
+}
+
+#signupfree-box:before {
+  z-index: -1;
+  position: absolute;
+  bottom: 0px;
+  left: 20px;
+  width: 280px;
+  height: 20px;
+  content: "";
+  border-radius: 100px 10px;
+ -moz-border-radius: 100px 10px;
+ -webkit-border-radius: 100px 10px;
+  box-shadow: 1px 0px 15px #000;
+ -moz-box-shadow: 1px 0px 15px #000;
+ -webkit-box-shadow: 1px 0px 15px #000;
+}
+
+div#signupfree-box #fields {
+  text-align: center;
+}
+
+div#signupfree-box input.text {
+  border: 1px solid #999;
+  padding: 5px;
+  border-radius: 5px;
+ -moz-border-radius: 5px;
+ -webkit-border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 200px;
+  margin: 0px 5px;
+}
+
+div#signupfree-box .subtext {
+  font-weight: normal;
+  color: #666;
+  font-size: 14px;
+}
