@@ -1,0 +1,17 @@
+
+  <%= 
+  #devise_error_messages! 
+  %>
+
+  <div id="signupfree-box">
+    <div id="fields">
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+        <input type="hidden" name="lat" value="" id="lat" />
+        <input type="hidden" name="lng" value="" id="lng" />
+        <p><%= f.text_field :email, :placeholder => "email address", :class => 'text' %></p>
+        <p><%= f.password_field :password, :placeholder => "choose a password", :class => 'text' %></p>
+        <p style="text-align: center;">
+            <input type="submit" value="Sign Up Free" class="cta cta-yellow" /></p>
+      <% end %>
+    </div>
+  </div>
