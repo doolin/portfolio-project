@@ -19,7 +19,7 @@ PortfolioProject::Application.routes.draw do
   match '/help',               :to => 'pages#help'
   match '/thank-you',          :to => 'pages#thank-you'
   match '/already-subscribed', :to => 'pages#already-subscribed'
-  
+
   match '/advertising',        :to => 'sales#advertising'
 
   # Having a problem dealing with a form in Capybara.
