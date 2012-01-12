@@ -704,9 +704,23 @@ div#signupfree-box .subtext {
 #featured-personas {
   background: black url("orbit/loading.gif") no-repeat center center;
   overflow: hidden;
+  color: #222;
 }
 
 #featured-personas img, #featured-personas div {
+  color: #222;
+  display: block;
+}
+
+#featured-personas h1 {
+  font-size: 30px;
+  color: #222;
+  display: block;
+}
+
+#featured-personas h3 {
+  font-size: 20px;
+  color: #222;
   display: block;
 }
 
@@ -717,4 +731,15 @@ div#signupfree-box .subtext {
 #featured-personas div.personas-content > div.copy {
   padding-left: 140px;
   text-align: center;
+}
+
+#featured-personas p.story {
+  padding: 5px 50px 5px 20px;
+  text-indent: 1em;
+  font-size: 110%;
+  line-height: 1.1;
+  font-style: italic;
+  font-family: serif;
+  color: #444;
+  text-align: left;
 }
