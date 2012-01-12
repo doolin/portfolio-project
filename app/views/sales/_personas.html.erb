@@ -1,9 +1,9 @@
 
 <style type="text/css">
      #featured-personas { 
-          width: 612px;
-          height: 292px;
-           background: #000 url(<%= image_tag('orbit/loading.gif')%> ) no-repeat center center; overflow: hidden;
+          width: 940px;
+          height: 276px;
+           background: #000 url(<%= image_tag('loading.gif')%> ) no-repeat center center; overflow: hidden;
      }
      #featured-personas img, #featured-personas div {
        display: block;
@@ -12,7 +12,14 @@
 
 <script type="text/javascript">
      $(window).load(function() {
-         $('#featured-personas').orbit();
+         $('#featured-personas').orbit({
+           advanceSpeed: 10000,
+           timer: true,
+           animationSpeed: 800,
+           pauseOnHover: true,
+           startClockOnMouseOut: false,   // if clock should start on MouseOut
+           startClockOnMouseOutAfter: 1000,
+         });
      });
 </script>
 
@@ -21,32 +28,35 @@
 
    <div id="featured-personas">
 
-     <div class="row personas-content" style="background-color: #fff; height: 400px;">
-       <div class="six columns">
-       <h1>Orbit does content now.</h1>
-       <h3>Highlight me...I'm text.</h3>
+     <div class="row personas-content" style="background-color: #fff;">
+       <div class="six columns offset-by-one copy" style="padding-left: 20px;">
+         <h1>Irene - Social media consultant</h1>
+         <h3>Highlight me...I'm text.</h3>
+         <p> Here is a bunch of copy for Irene.</p>
        </div>
-       <div class="six columns">
+       <div class="three columns image">
+       <%= image_tag('irene_282px.jpg') %>
+       </div>
+     </div>
+
+     <div class="row personas-content" style="background-color: #fff;">
+       <div class="six columns offset-by-one copy" style="padding-left: 20px;">
+         <h1>Tom - Project manager</h1>
+         <h3>Highlight me...I'm text.</h3>
+         <p> Here is a bunch of copy for Tom.</p>
+       </div>
+       <div class="three columns image">
        <%= image_tag('tom_cropped.jpg') %>
        </div>
      </div>
 
-     <div class="personas-content" style="background-color: #fff; height: 400px;">
-       <div class="six columns">
-       <h1>Orbit does content now.</h1>
-       <h3>Highlight me...I'm text.</h3>
+     <div class="row personas-content" style="background-color: #fff;">
+       <div class="six columns offset-by-one copy" style="padding-left: 20px;">
+         <h1>Jared - Designer/developer</h1>
+         <h3>Highlight me...I'm text.</h3>
+         <p> Here is a bunch of copy for Jared.</p>
        </div>
-       <div class="six columns">
-       <%= image_tag('irene.jpg') %>
-       </div>
-     </div>
-
-     <div class="personas-content" style="background-color: #fff; height: 400px;">
-       <div class="six columns">
-       <h1>Orbit does content now.</h1>
-       <h3>Highlight me...I'm text.</h3>
-       </div>
-       <div class="six columns">
+       <div class="three columns image">
        <%= image_tag('jared_cropped.jpg') %>
        </div>
      </div>

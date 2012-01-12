@@ -692,3 +692,29 @@ div#signupfree-box .subtext {
   color: #666;
   font-size: 14px;
 }
+
+.orbit-wrapper, .orbit {
+  height: 300px;
+}
+
+.orbit > div {
+  height: 300px;
+}
+
+#featured-personas {
+  background: black url("orbit/loading.gif") no-repeat center center;
+  overflow: hidden;
+}
+
+#featured-personas img, #featured-personas div {
+  display: block;
+}
+
+.personas-content .image {
+  text-align: center;
+}
+
+#featured-personas div.personas-content > div.copy {
+  padding-left: 140px;
+  text-align: center;
+}
