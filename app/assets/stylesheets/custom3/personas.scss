@@ -1,0 +1,16 @@
+
+.orbit-wrapper, .orbit {
+  height: 500px;
+}
+
+.orbit>div {
+  height: 500px;
+}
+
+#featured-personas { 
+  background: #000 url('orbit/loading.gif') no-repeat center center; overflow: hidden;
+}
+
+#featured-personas img, #featured-personas div { 
+  display: block;
+}

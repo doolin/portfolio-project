@@ -3,6 +3,7 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require_tree ./foundation
 //= require_self
 //= require ajaxray_textcounting
@@ -21,6 +22,9 @@ $(document).ready( function() {
   ); 
 });
 
+$(window).load(function() {
+         $('#featured').orbit();
+});
 
 // For Google+
 (function() {

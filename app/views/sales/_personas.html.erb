@@ -1,0 +1,59 @@
+
+<style type="text/css">
+     #featured-personas { 
+          width: 612px;
+          height: 292px;
+           background: #000 url(<%= image_tag('orbit/loading.gif')%> ) no-repeat center center; overflow: hidden;
+     }
+     #featured-personas img, #featured-personas div {
+       display: block;
+     }
+</style>
+
+<script type="text/javascript">
+     $(window).load(function() {
+         $('#featured-personas').orbit();
+     });
+</script>
+
+<div class="row herostyle">
+  <div class="twelve columns centered">
+
+   <div id="featured-personas">
+
+     <div class="row personas-content" style="background-color: #fff; height: 400px;">
+       <div class="six columns">
+       <h1>Orbit does content now.</h1>
+       <h3>Highlight me...I'm text.</h3>
+       </div>
+       <div class="six columns">
+       <%= image_tag('tom_cropped.jpg') %>
+       </div>
+     </div>
+
+     <div class="personas-content" style="background-color: #fff; height: 400px;">
+       <div class="six columns">
+       <h1>Orbit does content now.</h1>
+       <h3>Highlight me...I'm text.</h3>
+       </div>
+       <div class="six columns">
+       <%= image_tag('irene.jpg') %>
+       </div>
+     </div>
+
+     <div class="personas-content" style="background-color: #fff; height: 400px;">
+       <div class="six columns">
+       <h1>Orbit does content now.</h1>
+       <h3>Highlight me...I'm text.</h3>
+       </div>
+       <div class="six columns">
+       <%= image_tag('jared_cropped.jpg') %>
+       </div>
+     </div>
+
+   </div>
+
+  </div>
+</div>
+
+
