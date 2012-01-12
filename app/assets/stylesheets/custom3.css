@@ -625,12 +625,16 @@ textarea#project_requiredskills {
   z-index: 0;
 }
 
+#new-main-pitch-text {
+  text-align: center;
+}
+
 #new-main-pitch-text > h1 {
   color: #666;
 }
 
 #new-main-pitch-text > p {
-  padding-left: 10px;
+  padding-left: 20px;
   font-size: 19px;
   color: #7d7d7d;
 }
