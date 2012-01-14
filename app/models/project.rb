@@ -10,7 +10,7 @@ class Project < ActiveRecord::Base
   validates :requiredskills, :length => { :maximum => 255 }
   validates :member_id,      :presence => true
   validates :name,           :presence => true, :length => { :maximum => 140 }
-  validates :description,    :presence => true, :length => { :maximum => 2500 }
+  validates :description,    :length => { :maximum => 2500 }
 
   # The Rails date_select form helper is problematic, being difficult to use
   # for extracting form elements. At the moment, the Rails date_select is
