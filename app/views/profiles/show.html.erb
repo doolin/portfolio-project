@@ -53,7 +53,6 @@
 
       <p>
         <b>LinkedIn:</b>
-        <%= @profile.linkedin %>
         <% if @profile.linkedin? %>
           <%= link_to @profile.linkedin, @profile.linkedin, :class => 'linkedin' %>
         <% else %>
