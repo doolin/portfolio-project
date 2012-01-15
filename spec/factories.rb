@@ -34,9 +34,13 @@ end
 
 
 Factory.define :profile do |p|
-  p.firstname "First"
-  p.lastname  "Last"
-  p.website   "http://mywebsite.com/"
+  p.firstname    "Dave"
+  p.lastname     "Doolin"
+  p.website      "http://ridingrails.net/"
+  p.twitter      "http://twitter.com/#!/doolin"
+  p.facebook     "http://facebook.com/daviddoolin"
+  p.linkedin     "http://www.linkedin.com/in/davidmdoolin"
+  p.gprofile_url "https://plus.google.com/u/0/109975361919530850213"
 end
 
 =begin

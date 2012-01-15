@@ -17,24 +17,50 @@
     <div class="inner alignRight">
       <p>
         <b>Website:</b>
-        <%= link_to @profile.website_anchor, @profile.website %>
+        <% if @profile.website? %>
+          <%= link_to @profile.website, @profile.website, :class => 'website' %>
+        <% else %>
+          <span class="non-given">no website given</span>
+        <% end %>
       </p>
+
       <p>
-        <b>Google </b>
-        <%= link_to 'profile', @profile.gprofile_url, :rel => 'me' if @profile.gprofile_url%>
+        <b>Google: </b>
+        <% if @profile.gprofile_url? %>
+          <%= link_to 'profile', @profile.gprofile_url, :rel => 'me', :class => 'gprofile' %>
+        <% else %>
+          <span class="non-given">no Google profile given</span>
+        <% end %>
       </p>
+
       <p>
         <b>Twitter:</b>
-        <%= @profile.twitter %>
+        <% if @profile.twitter? %>
+          <%= link_to @profile.twitter, @profile.twitter, :class => 'twitter' %>
+        <% else %>
+          <span class="non-given">no Twitter profile given</span>
+        <% end %>
       </p>
+
       <p>
         <b>Facebook:</b>
-        <%= @profile.facebook %>
+        <% if @profile.facebook? %>
+          <%= link_to @profile.facebook, @profile.facebook, :class => 'facebook' %>
+        <% else %>
+          <span class="non-given">no Facebook profile given</span>
+        <% end %>
       </p>
+
       <p>
         <b>LinkedIn:</b>
         <%= @profile.linkedin %>
+        <% if @profile.linkedin? %>
+          <%= link_to @profile.linkedin, @profile.linkedin, :class => 'linkedin' %>
+        <% else %>
+          <span class="non-given">no LinkedIn profile given</span>
+        <% end %>
       </p>
+
     </div>
   </div>
 
