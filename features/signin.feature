@@ -5,6 +5,11 @@ Feature: Member logs on
 
   Scenario: New member signs up from front page
     Given a site visitor who is not a member
+    And presses the "Sign Up Free" button
+    Then I should see "error"
+
+  Scenario: New member signs up from front page
+    Given a site visitor who is not a member
     And fills in the Sign Up Free form
     And presses the "Sign Up Free" button
     #Then show me the page
@@ -15,7 +20,7 @@ Feature: Member logs on
     When the visitor is on the sign up page
     And fills in the Sign Up Free form
     And presses the "Sign Up Free" button
-    Then show me the page
+    #Then show me the page
     Then the new member should be on the new Profile page
 
   Scenario: Member signs in successfully with email
