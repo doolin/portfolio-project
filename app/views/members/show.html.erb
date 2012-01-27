@@ -1,45 +1,21 @@
 
-<% 
-title(@member.firstname + " " + @member.lastname) 
-%>
+<% title(@member.firstname + " " + @member.lastname) %>
+
+<h2>Projects for <%= @member.firstname + " " + @member.lastname %></h2>
 
 <div class="row">
-  <div class="eight columns">
-       <div class='project-listing'>
-         <%= render :partial => "profiles/projects", :collection => @projects, :as => "project" %>
-       </div>
+  <div class="eight columns project">
+    <div class='project-listing'>
+      <%= render :partial => "profiles/projects", :collection => @projects, :as => "project" %>
+    </div>
   </div>
-  <div class="four columns">
-      <%= gravatar_for @member %><br /><br />
-      <strong><%= @member.firstname %> <%= @member.lastname %></strong> |
-      <strong> <%= link_to "Profile", @profile, :rel => 'author' %></strong><br />
-      <strong>Projects</strong> <%= @member.projects.count %><br />
-      <%= link_to "New Project", new_project_path, :class => "cta cta-yellow" %><br />
+  <div class="three columns offset-by-one">
+    <%= gravatar_for @member %><br /><br />
+    <strong><%= @member.firstname %> <%= @member.lastname %></strong> |
+    <strong> <%= link_to "Profile", @profile, :rel => 'author' %></strong><br />
+    <strong>Projects</strong> <%= @member.projects.count %><br />
+    <%= link_to "New Project", new_project_path, :class => "cta cta-yellow" %><br />
   </div>
 </div>
 
 
-<table class="profile">
-  <tr>
-    <td class="main">
-      <h2>My Projects</h2>
-      <% unless @member.projects.empty? %>
-        <table class="projects">
-          <tr>
-            <th>Project name</th>
-            <th>Summary</th>
-            <th>Tags</th>  
-           </tr>
-           <%= render @projects %>
-         </table>
-      <% end %>
-    </td>
-    <td class="sidebar round">
-      <%= gravatar_for @member %><br /><br />
-      <strong><%= @member.firstname %> <%= @member.lastname %></strong> |
-      <strong> <%= link_to "Profile", @profile, :rel => 'author' %></strong><br />
-      <strong>Projects</strong> <%= @member.projects.count %><br />
-      <%= link_to "New Project", new_project_path, :class => "cta cta-yellow" %><br />
-    </td>
-  </tr>
-</table>

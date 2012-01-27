@@ -23,7 +23,7 @@ describe 'members/show.html.erb' do
 
   it "should have link to New Project" do
     render
-    rendered.should have_selector('td') do |n|
+    rendered.should have_selector('div') do |n|
       # This is giving me a false positive, passing on any
       # valid href or content whether that href or content 
       # is in the actual link on the view template.
