@@ -29,7 +29,7 @@ Feature: Member logs on
     When I go to the sign in page
     And I sign in as "user@test.com/please"
     And I should be signed in
-    Then I should see "My Projects"
+    Then I should see "Projects"
 
   @wip
   Scenario: Member saves sesssion information as rememberable
