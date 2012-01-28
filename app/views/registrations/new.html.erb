@@ -2,6 +2,12 @@
 <% title "Start curating your career, now!" %>
 
   <div class="row" id="signupfree">
+    
+    <% devise_error_messages!.each do |key, value| %>
+      <%= content_tag :div, key.to_s + " "  + value, :class => "alert-box error flash #{key}" unless value.blank? %>
+    <% end %>
+
+    
     <div class="five columns signupfree centered">
       <%= 
       render 'sales/signupfreebox' 

@@ -6,7 +6,7 @@ Feature: Member logs on
   Scenario: New member signs up from front page
     Given a site visitor who is not a member
     And presses the "Sign Up Free" button
-    Then I should see "error"
+    Then I should see "email can't be blank"
 
   Scenario: New member signs up from front page
     Given a site visitor who is not a member
