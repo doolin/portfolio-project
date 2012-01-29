@@ -23,8 +23,10 @@ class Member < ActiveRecord::Base
   #validates :firstname, :presence => true
   #validates :lastname, :presence => true
   #validates :membername, :presence => true
-  validates :email, :presence => true
-  validates_uniqueness_of :email
+  #validates :email, :presence => true, :uniqueness => true
+  #validates :email, :presence => true
+  validates :email, :uniqueness => true
+  #validates_uniqueness_of :email
 
 
 end

@@ -1,7 +1,7 @@
 
-  <%= 
-  #devise_error_messages! 
-  %>
+  <% devise_error_messages!.each do |key, value| %>
+    <%= content_tag :div, key.to_s + " "  + value, :class => "alert-box error flash #{key}" unless value.blank? %>
+  <% end %>
 
   <div id="signupfree-box">
     <div id="fields">
