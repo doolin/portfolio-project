@@ -1,7 +1,12 @@
 class MembersController < ApplicationController
-  
+
+  # I don't like this, it smells...
   def show
-    @member   = Member.find(params[:id])
+    if member_signed_in?
+      @member   = Member.find(current_member.id)
+    else
+      @member   = Member.find(params[:id])
+    end
     @projects = @member.projects
     @profile  = @member.profile
   end

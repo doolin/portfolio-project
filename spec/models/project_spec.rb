@@ -21,7 +21,6 @@ describe Project do
   end
   
   describe "member associations" do
-
     before(:each) do
       @project = @member.projects.create(@attr)
     end

@@ -31,6 +31,13 @@ Feature: Member logs on
     And I should be signed in
     Then I should see "Projects"
 
+  Scenario: Member changes email and password
+    Given member is logged in
+    When the member changes email and password
+    Then show me the page
+    Then the member should see "Projects"
+    Then show me the page
+
   @wip
   Scenario: Member saves sesssion information as rememberable
     Given member is signed in

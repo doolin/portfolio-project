@@ -53,7 +53,7 @@ describe 'profiles/show.html.erb' do
 
 end
 
-
+# These may be producing false positives.
 describe "profiles/_profile_links.html.erb" do
   
   before(:each) do
@@ -83,5 +83,10 @@ describe "profiles/_profile_links.html.erb" do
     render
     rendered.should have_selector('a', :content => 'Projects')
   end  
+
+  it "should have a link to Settings" do
+    render
+    rendered.should have_selector('a.settings', :content => 'Settings')
+  end
 
 end

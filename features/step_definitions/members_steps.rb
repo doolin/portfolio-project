@@ -217,3 +217,45 @@ Then /^the new member should be on the new Profile page$/ do
   step %{I should see "New profile"}
 end
 
+Given /^member is logged in$/ do
+#=begin
+  email = 'testing@man.net'
+  password = 'secretpass'
+  #Member.new(:email => email, :password => password, :password_confirmation => password).save!
+  Member.new(:email => email,
+                :password => password,
+                :password_confirmation => password,
+                :firstname => 'Foo',
+                :lastname => 'Bar').save!
+
+  visit '/members/sign_in'
+  fill_in "member_email", :with=>email
+  fill_in "member_password", :with=>password
+  click_button "Sign in"
+#=end
+end
+
+When /^the member changes email and password$/ do
+  email = 'testing2@man.net'
+  password = 'secretpass'
+  #Member.new(:email => email, :password => password, :password_confirmation => password).save!
+  Member.new(:email => email,
+                :password => password,
+                :password_confirmation => password,
+                :firstname => 'Foo',
+                :lastname => 'Bar').save!
+
+  visit '/members/edit'
+  fill_in "member_email", :with=>email
+  fill_in "member_password", :with=>password
+  fill_in "member_password_confirmation", :with=>password
+  fill_in "member_current_password", :with=>password
+  click_button "Update"
+end
+
+
+Then /^the member should see "([^"]*)"$/ do |arg1|
+  page.should have_content('Projects')
+end
+
+
