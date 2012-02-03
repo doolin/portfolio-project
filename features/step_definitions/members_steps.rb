@@ -229,13 +229,17 @@ Given /^member is logged in$/ do
                 :lastname => 'Bar').save!
 
   visit '/members/sign_in'
-  fill_in "member_email", :with=>email
-  fill_in "member_password", :with=>password
+  within("#member_new") do
+    fill_in "member_email", :with=>email
+    fill_in "member_password", :with=>password
+  end 
   click_button "Sign in"
+  #visit('/members/sign_out')
 #=end
 end
 
 When /^the member changes email and password$/ do
+=begin
   email = 'testing2@man.net'
   password = 'secretpass'
   #Member.new(:email => email, :password => password, :password_confirmation => password).save!
@@ -244,9 +248,10 @@ When /^the member changes email and password$/ do
                 :password_confirmation => password,
                 :firstname => 'Foo',
                 :lastname => 'Bar').save!
+=end
 
+  password = 'secretpass'
   visit '/members/edit'
-  fill_in "member_email", :with=>email
   fill_in "member_password", :with=>password
   fill_in "member_password_confirmation", :with=>password
   fill_in "member_current_password", :with=>password
