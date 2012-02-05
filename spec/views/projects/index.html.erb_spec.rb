@@ -14,12 +14,12 @@ describe "projects/index.html.erb" do
     end
 
     
-    xit "renders a list of projects" do
+    it "renders a list of projects" do
       render
       # http://groups.google.com/group/ruby-capybara/browse_thread/thread/944871152dae0272/9ca6dcaf173dab74
       # http://groups.google.com/group/ruby-capybara/msg/9ca6dcaf173dab74
-      rendered.should have_selector('th', :content => 'Projects')
-      rendered.should have_selector('th', :content => 'Owner')
+      rendered.should have_selector('h2.projects-listing')
+      rendered.should have_selector('p.project-summary')
     end
      
   end

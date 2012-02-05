@@ -53,7 +53,7 @@ describe 'projects/show.html.erb' do
   end
   
   # If a field is nil, the .html_safe method doesn't work.
-  xit "handles an error if the skills field is blank"
+  #xit "handles an error if the skills field is blank"
 
   it "does not have a foobar field for the project" do
     render

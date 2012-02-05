@@ -48,35 +48,39 @@ describe Project do
     end
     
     it "should require nonblank Summary" do
-      @member.projects.build(:summary =>" ").should_not be_valid
+      @member.projects.build(@attr.merge(:summary =>" ")).should_not be_valid
     end
     
     it "should reject long Summary" do
-      @member.projects.build(:summary => "a" * 256).should_not be_valid
+      @member.projects.build(@attr.merge(:summary => "a" * 501)).should_not be_valid
     end
 
     it "should require nonblank Name" do
-      @member.projects.build(:name =>" ").should_not be_valid
+      @member.projects.build(@attr.merge(:name =>" ")).should_not be_valid
+    end
+
+    it "should accept short Name" do
+      @member.projects.build(@attr.merge(:name => "a" * 125)).should be_valid
     end
 
     it "should reject long Name" do
-      @member.projects.build(:name => "a" * 141).should_not be_valid
+      @member.projects.build(@attr.merge(:name => "a" * 141)).should_not be_valid
     end
 
-    xit "should require nonblank Description" do
-      @member.projects.build(:description =>" ").should_not be_valid
+    it "should accept blank Description" do
+      @member.projects.build(@attr.merge(:description =>"")).should be_valid
     end
 
     it "should reject long Description" do
-      @member.projects.build(:description => "a" * 2501).should_not be_valid
+      @member.projects.build(@attr.merge(:description => "a" * 2501)).should_not be_valid
     end
 
     it "should require nonblank Start date" do
-      @member.projects.build(:startdate =>" ").should_not be_valid
+      @member.projects.build(@attr.merge(:startdate =>" ")).should_not be_valid
     end
 
     it "should require nonblank Finish date" do
-      @member.projects.build(:finishdate =>" ").should_not be_valid
+      @member.projects.build(@attr.merge(:finishdate =>" ")).should_not be_valid
     end
 
     it "start date should be less than finish date" do
