@@ -29,11 +29,14 @@ end
 group :production do
   gem "pg"
 end
- 
+
+#gem 'xray-rails', :group => :development
+
 group :development, :test do
   gem "sqlite3"
   gem 'ruby-debug19' unless ENV["CI"]
   gem 'rb-fsevent'
+  gem 'pry'
 end
 
 gem 'simplecov', :require => false, :group => :test
