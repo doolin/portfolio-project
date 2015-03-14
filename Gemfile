@@ -34,7 +34,7 @@ end
 
 group :development, :test do
   gem "sqlite3"
-  gem 'ruby-debug19' unless ENV["CI"]
+  # gem 'ruby-debug19' unless ENV["CI"]
   gem 'rb-fsevent'
   gem 'pry'
 end
@@ -46,7 +46,6 @@ group :cucumber do
   gem 'database_cleaner'
   gem 'cucumber-rails'
   gem 'spork', '~> 0.9.0.rc'
-  gem 'launchy'    # So you can do Then show me the page
 end
 
 
@@ -56,8 +55,6 @@ group :test do
   gem 'rspec-rails'
   gem 'launchy'
   gem 'factory_girl_rails'
-  gem 'autotest'
-  gem 'autotest-rails-pure'
-  gem 'autotest-growl'
-  gem 'spork', '~> 0.9.0.rc'
+  # gem 'autotest'
+  # gem 'autotest-rails-pure'
 end
