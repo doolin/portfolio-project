@@ -1,6 +1,4 @@
-
-# By using the symbol ':member', we get Factory Girl to simulate the Member model.
-# This is from the Rails Tutorial Listing 7.16
+=begin
 Factory.define :member do |m|
   m.membername            "Dave Doolin"
   m.email                 "david.doolin+3@example.com"
@@ -9,45 +7,42 @@ Factory.define :member do |m|
   m.firstname             "Dave"
   m.lastname              "Doolin"
 end
-# These atts were moved to Profile
-#  member.firstname             "First"
-#  member.lastname              "Last"
-#end
-
-Factory.define :project do |p|
-  p.name           "Project test"
-  p.summary        "Test example"
-  p.description    "Some short, descriptive text for testing."
-  p.requiredskills "Cat herding"
-  p.client         "RSpec"
-  p.tags           "TDD, BDD"
-  p.startdate       DateTime.new
-  p.finishdate      DateTime.new
-  p.url            'project-test'
-  p.uri            'http://example.com/uri'
-end
-
-
-Factory.sequence :email do |n|
-  "person-#{n}@example.com"
-end
-
-
-Factory.define :profile do |p|
-  p.firstname    "Dave"
-  p.lastname     "Doolin"
-  p.website      "http://ridingrails.net/"
-  p.twitter      "http://twitter.com/#!/doolin"
-  p.facebook     "http://facebook.com/daviddoolin"
-  p.linkedin     "http://www.linkedin.com/in/davidmdoolin"
-  p.gprofile_url "https://plus.google.com/u/0/109975361919530850213"
-end
-
-=begin
-Factory.define :user do |user|
-  user.name                  { |n| "user-#{n}"}
-  user.email                 { |n| "user-#{n}@example.com"}
-  user.password              { |n| "foobar-#{n}"}
-  user.password_confirmation { |n| "foobar-#{n}"}
-end
 =end
+
+FactoryGirl.define do # :member do |m|
+  factory :member do
+    membername            "Dave Doolin"
+    email                 "david.doolin+3@example.com"
+    password              "foobar"
+    password_confirmation "foobar"
+    firstname             "Dave"
+    lastname              "Doolin"
+  end
+
+  factory :project do
+    name           "Project test"
+    summary        "Test example"
+    description    "Some short, descriptive text for testing."
+    requiredskills "Cat herding"
+    client         "RSpec"
+    tags           "TDD, BDD"
+    startdate       DateTime.new
+    finishdate      DateTime.new
+    url            'project-test'
+    uri            'http://example.com/uri'
+  end
+
+  factory :profile do
+    firstname    "Dave"
+    lastname     "Doolin"
+    website      "http://ridingrails.net/"
+    twitter      "http://twitter.com/#!/doolin"
+    facebook     "http://facebook.com/daviddoolin"
+    linkedin     "http://www.linkedin.com/in/davidmdoolin"
+    gprofile_url "https://plus.google.com/u/0/109975361919530850213"
+  end
+
+  sequence :email do |n|
+    "person-#{n}@example.com"
+  end
+end

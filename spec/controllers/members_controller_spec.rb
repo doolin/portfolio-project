@@ -11,14 +11,14 @@ describe MembersController do
   #render_views
 
   before(:each) do
-    @member = Factory(:member)
+    @member = FactoryGirl.create :member
   end
   
   describe "GET 'show'" do
     it "should show the member's projects'" do
       # TODO: these should move to view specs
-      p1 = Factory(:project, :member => @member, :summary => "Foo bar")
-      p2 = Factory(:project, :member => @member, :summary => "Baz quux")
+      p1 = FactoryGirl.create(:project, :member => @member, :summary => "Foo bar")
+      p2 = FactoryGirl.create(:project, :member => @member, :summary => "Baz quux")
       @member.projects = [p1, p2]
       get :show, :id => @member
       response.should render_template("show")
