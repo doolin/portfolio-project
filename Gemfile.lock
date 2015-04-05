@@ -76,6 +76,8 @@ GEM
       orm_adapter (~> 0.1)
       railties (~> 3.1)
       warden (~> 1.2.1)
+    devise-encryptable (0.2.0)
+      devise (>= 2.1.0)
     diff-lcs (1.2.5)
     docile (1.1.5)
     dynamic_form (1.1.4)
@@ -553,6 +555,7 @@ DEPENDENCIES
   dalli
   database_cleaner
   devise
+  devise-encryptable
   dynamic_form
   escape_utils
   factory_girl_rails
