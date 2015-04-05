@@ -35,7 +35,6 @@ end
 
 group :development, :test do
   gem "sqlite3"
-  # gem 'ruby-debug19' unless ENV["CI"]
   gem 'rb-fsevent'
   gem 'pry'
 end
@@ -55,6 +54,4 @@ group :test do
   gem 'rspec-rails'
   gem 'launchy'
   gem 'factory_girl_rails'
-  # gem 'autotest'
-  # gem 'autotest-rails-pure'
 end
