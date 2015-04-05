@@ -45,7 +45,6 @@ gem 'simplecov', :require => false, :group => :test
 group :cucumber do
   gem 'database_cleaner'
   gem 'cucumber-rails'
-  gem 'spork', '~> 0.9.0.rc'
 end
 
 
