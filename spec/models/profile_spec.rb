@@ -1,9 +1,8 @@
 require 'spec_helper'
 
 describe Profile do
-  
   before(:each) do
-    @member = Factory(:member)
+    @member = FactoryGirl.create(:member)
     @attr = {
       :firstname => "Joe",
       :lastname  => "Bloggs",
@@ -11,22 +10,18 @@ describe Profile do
     }
   end
 
-
-# Play around with these calls; some work, some don't.
+  # Play around with these calls; some work, some don't.
   it "should create a new profile given valid attributes" do
     #@member.should be_valid
     # This doesn't work. Why not?
     #@member.profile.create!(@attr)
     #@member.profile.create!(:firstname => 'Joe', :lastname => 'Bloggs')
-    @p1 = Factory(:profile, :member => @member, :created_at => 1.day.ago)
+    @p1 = FactoryGirl.create(:profile, :member => @member, :created_at => 1.day.ago)
     @p1.should be_valid
     @member.profile.should be_valid
   end
 
-
-
   describe "Validations" do
-
     it "should require a member id" do
       Profile.new(@attr).should_not be_valid
     end
@@ -55,7 +50,5 @@ describe Profile do
     xit "should not validate url with bogus domain" do
       @member.build_profile(@attr.merge({:website => 'http://foobar/'})).should_not be_valid
     end
-
   end
-
 end
