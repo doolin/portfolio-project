@@ -1,9 +1,8 @@
 require 'spec_helper'
 
 describe Project do
-
   before(:each) do
-    @member = Factory(:member)
+    @member = FactoryGirl.create(:member)
     @attr = {
       :name        => "Foo project",
       :summary     => "We did it again.",
@@ -19,38 +18,37 @@ describe Project do
     @member.projects.create!(@attr)
     @member.projects.first.should be_valid
   end
-  
+
   describe "member associations" do
     before(:each) do
       @project = @member.projects.create(@attr)
     end
-    
+
     it "should have a member attribute" do
       @project.should respond_to(:member)
     end
-    
+
     it "should have the correct associated member" do
       #@project.member_id.should == @member.id
       @project.member.should == @member
-    end    
+    end
   end
 
 
-# I don't like how these validations are structured. They 
-# can't be used for outside-in testing; it's possible to 
-# write one such that both conditions pass even when the 
-# validation isn't specified in the model. Keep an eye out
-# for a better way to test validations.
+  # I don't like how these validations are structured. They
+  # can't be used for outside-in testing; it's possible to
+  # write one such that both conditions pass even when the
+  # validation isn't specified in the model. Keep an eye out
+  # for a better way to test validations.
   describe "validations" do
-    
     it "should require a member id" do
       Project.new(@attr).should_not be_valid
     end
-    
+
     it "should require nonblank Summary" do
       @member.projects.build(@attr.merge(:summary =>" ")).should_not be_valid
     end
-    
+
     it "should reject long Summary" do
       @member.projects.build(@attr.merge(:summary => "a" * 501)).should_not be_valid
     end
@@ -126,7 +124,6 @@ describe Project do
       @project = @member.projects.first
       @project.uri.should =~ /http:\/\/foobar.com\//
     end
-    
   end
 
 =begin
@@ -143,15 +140,14 @@ group :test do
   gem 'webrat', '0.7.1'
 end
 
-rspec-rails needs to be in the development env in order to expose 
-the rake tasks and the test environment in order to be loaded when 
-you run the spec suite. It has a dependency on rspec, so you don't 
+rspec-rails needs to be in the development env in order to expose
+the rake tasks and the test environment in order to be loaded when
+you run the spec suite. It has a dependency on rspec, so you don't
 need to list rspec explicitly.
 
 Webrat only needs to be in the development env.
 
 HTH,
 David
-=end 
-  
+=end
 end
