@@ -1,11 +1,11 @@
 class ProfilesController < ApplicationController
 
   before_filter :authenticate_member!, :except => [:show, :index]
-      
+
   def index
     @profiles = Profile.find(:all)
   end
-  
+
   def new
 =begin
   if current_member.has_profile?
@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
     # a bad model.
     @firstname = Member.find(current_member.id).firstname
   end
-  
+
   def create
     @profile = current_member.build_profile(params[:profile])
     if @profile.save
@@ -30,17 +30,17 @@ class ProfilesController < ApplicationController
       redirect_to(@profile, :flash => { :success => 'Profile was successfully created.' })
     end
   end
-  
+
   def show
     @profile = Profile.find_by_url(params[:id])
     @member = Member.find(@profile.member_id)
     @projects = @member.projects
   end
-  
+
   def edit
     @profile = Profile.find_by_url(params[:id])
   end
-  
+
   def update
     @profile = Profile.find_by_url(params[:id])
 
@@ -59,7 +59,7 @@ class ProfilesController < ApplicationController
       end
     end
   end
-  
+
   def destroy
     @profile = Profile.find_by_url(params[:id])
     @profile.destroy
@@ -72,14 +72,13 @@ class ProfilesController < ApplicationController
   def number_of_projects(id)
     Member.find(id).projects.count
   end
-  
-  
+
   def current_member?(id)
     current_member.id == id
   end
 
   #:private
-  
+
 #  def firstname
 #    current_member.firstname
 #  end
