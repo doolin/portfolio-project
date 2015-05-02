@@ -5,7 +5,7 @@ Feature: Member creates project
   new projects.
 
   # This is a problem because of date select handling.
-  #@wip
+  @wip
   Scenario: Member creates a new project
     Given member is signed in as "user@test.com" and password "please"
     And is on the create project page

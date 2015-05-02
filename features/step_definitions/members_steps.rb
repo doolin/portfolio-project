@@ -1,6 +1,3 @@
-
-
-# 
 require 'uri'
 require 'cgi'
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
@@ -232,14 +229,14 @@ Given /^member is logged in$/ do
   within("#member_new") do
     fill_in "member_email", :with=>email
     fill_in "member_password", :with=>password
-  end 
+  end
   click_button "Sign in"
   #visit('/members/sign_out')
 #=end
 end
 
 When /^the member changes email and password$/ do
-=begin
+#=begin
   email = 'testing2@man.net'
   password = 'secretpass'
   #Member.new(:email => email, :password => password, :password_confirmation => password).save!
@@ -248,7 +245,7 @@ When /^the member changes email and password$/ do
                 :password_confirmation => password,
                 :firstname => 'Foo',
                 :lastname => 'Bar').save!
-=end
+#=end
 
   password = 'secretpass'
   visit '/members/edit'

@@ -31,6 +31,7 @@ Feature: Member logs on
     And I should be signed in
     Then I should see "Projects"
 
+  @wip
   Scenario: Member changes email and password
     Given member is logged in
     When the member changes email and password
