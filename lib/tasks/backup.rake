@@ -4,23 +4,21 @@
 # http://devcenter.heroku.com/articles/s3
 
 #require 'rake/dsl_definition'
+=begin
 require 'rake'
 require 'yaml'
 require 'aws/s3'
 
-=begin
-module ::PortfolioProject
-  class Application
-    include Rake::DSL
-  end
-end
-=end
+#module ::PortfolioProject
+#  class Application
+#    include Rake::DSL
+#  end
+#end
 
 BACKUP_BUCKET_NAME = 'portfolio-project'
 #FILENAME = 'testfile.txt'
 
 APP_NAME = "portproj"
- 
 
 namespace :perez do
 
@@ -131,3 +129,4 @@ namespace :backups do
   end
 
 end
+=end

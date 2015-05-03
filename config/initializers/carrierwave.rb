@@ -1,4 +1,4 @@
-
+=begin
 CarrierWave.configure do |config|
   config.cache_dir = "#{Rails.root}/tmp/"
   config.storage = :fog
@@ -10,3 +10,4 @@ CarrierWave.configure do |config|
   }
   config.fog_directory  = 'inventium-sitemaps'
 end
+=end

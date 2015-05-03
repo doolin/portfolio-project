@@ -10,7 +10,7 @@ class MembersController < ApplicationController
     @projects = @member.projects
     @profile  = @member.profile
   end
-  
+
   def index
     if member_signed_in?
       redirect_to profiles_path
@@ -18,5 +18,4 @@ class MembersController < ApplicationController
       redirect_to new_member_session_path
     end
   end
-    
 end

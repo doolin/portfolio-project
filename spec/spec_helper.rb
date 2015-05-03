@@ -1,7 +1,7 @@
 require 'rubygems'
 
-require 'simplecov'
-SimpleCov.start 'rails'
+# require 'simplecov'
+# SimpleCov.start 'rails'
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
@@ -12,7 +12,7 @@ require 'controller_macros'
 require 'capybara/rspec'
 require 'capybara/rails'
 
-require 'mock-aws-s3'
+# require 'mock-aws-s3'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -29,7 +29,7 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
-  
+
   ## Devise
   config.include Devise::TestHelpers, :type => :controller
   config.extend ControllerMacros, :type => :controller
