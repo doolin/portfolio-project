@@ -9,7 +9,7 @@ describe "projects/_form.html.erb" do
 
   it "renders the form" do
     render
-    rendered.should have_selector('div.field')
+    expect(rendered).to have_selector('div.field')
   end
 
   # These all used to work, will need to figure out the latest way

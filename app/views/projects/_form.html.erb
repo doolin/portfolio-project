@@ -30,11 +30,11 @@
   </div>
   <div class="field date">
     <%= f.label :startdate %><span class="required-field">*</span><br />
-    <%= f.date_select(:startdate, :start_year => 1990) %><br />
+    <%= f.date_select(:startdate) %><br />
   </div>
   <div class="field date">
     <%= f.label :finishdate %><br />
-    <%= f.date_select(:finishdate, :start_year => 1990, :include_blank => true) %><br />
+    <%= f.date_select(:finishdate, :include_blank => true) %><br />
   </div>
   <div class="field" id="summary">
     <%= f.label :summary %><span class="required-field">*</span><br />
