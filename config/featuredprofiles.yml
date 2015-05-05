@@ -1,6 +1,6 @@
 
 test:
-  profiles: true
+  profiles: false
   featured1: 1
   featured2: 1
   featured3: 1
