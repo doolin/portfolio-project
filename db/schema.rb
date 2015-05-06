@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(:version => 20111117180143) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "membername"
     t.string   "firstname"
     t.string   "lastname"
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(:version => 20111117180143) do
     t.string   "twitter"
     t.string   "facebook"
     t.string   "linkedin"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "firstname"
     t.string   "lastname"
     t.string   "url"
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(:version => 20111117180143) do
     t.string   "name"
     t.text     "summary",        :limit => 255
     t.string   "client"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "tags"
     t.integer  "member_id"
     t.text     "description"
