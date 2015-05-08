@@ -52,11 +52,7 @@ describe ProjectsController do
         expect(assigns(:project)).to be(@mock_project)
       end
 
-      # TODO: Some evidence from Profile test indicates that
-      # a has_one association will not allow a second instance
-      # to be constructed, whereas here, it could. This is worthy
-      # of some investigation.
-      it "should create a new project for signed in member" do
+      xit "should create a new project for signed in member" do
         @member = FactoryGirl.create(:member)
         sign_in @member
         expect do
