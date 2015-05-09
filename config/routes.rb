@@ -7,20 +7,20 @@ PortfolioProject::Application.routes.draw do
   # All non-logged in users go to sales page.
   root :to => "sales#index"
 
-  match '/contact',            :to => 'pages#contact'
-  match '/about',              :to => 'pages#about'
-  match '/faq',                :to => 'pages#faq'
-  match '/terms',              :to => 'pages#terms'
-  match '/disclaimer',         :to => 'pages#disclaimer'
-  match '/disclosure',         :to => 'pages#disclosure'
-  match '/confirmation',       :to => 'pages#confirmation'
-  match '/newsletter',         :to => 'pages#newsletter'
-  match '/privacy',            :to => 'pages#privacy'
-  match '/help',               :to => 'pages#help'
-  match '/thank-you',          :to => 'pages#thank-you'
-  match '/already-subscribed', :to => 'pages#already-subscribed'
+  get '/contact',            :to => 'pages#contact'
+  get '/about',              :to => 'pages#about'
+  get '/faq',                :to => 'pages#faq'
+  get '/terms',              :to => 'pages#terms'
+  get '/disclaimer',         :to => 'pages#disclaimer'
+  get '/disclosure',         :to => 'pages#disclosure'
+  get '/confirmation',       :to => 'pages#confirmation'
+  get '/newsletter',         :to => 'pages#newsletter'
+  get '/privacy',            :to => 'pages#privacy'
+  get '/help',               :to => 'pages#help'
+  get '/thank-you',          :to => 'pages#thank-you'
+  get '/already-subscribed', :to => 'pages#already-subscribed'
 
-  match '/advertising',        :to => 'sales#advertising'
+  get '/advertising',        :to => 'sales#advertising'
 
   # Having a problem dealing with a form in Capybara.
   # Might test this in rspec instead.
