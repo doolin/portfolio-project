@@ -1,8 +1,8 @@
 class Project < ActiveRecord::Base
 
-  attr_accessible :name, :summary, :client, :tags, :description, :pointofcontact,
-                  :startdate, :finishdate, :url, :member_id, :uri, :requiredskills,
-                  :uri_anchor
+  # attr_accessible :name, :summary, :client, :tags, :description, :pointofcontact,
+  #                 :startdate, :finishdate, :url, :member_id, :uri, :requiredskills,
+  #                 :uri_anchor
 
   belongs_to :member
 
@@ -23,8 +23,8 @@ class Project < ActiveRecord::Base
 
   before_save :check_dates
 
-  default_scope :order => 'projects.created_at DESC'
-  
+  default_scope -> { order("projects.created_at DESC") }
+
   acts_as_url :name, :sync_url => :true
 
   def membername(id)
