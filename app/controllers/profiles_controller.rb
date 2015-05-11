@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
   before_filter :authenticate_member!, :except => [:show, :index]
 
   def index
-    @profiles = Profile.find(:all)
+    @profiles = Profile.all
   end
 
   def new
@@ -20,14 +20,22 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = current_member.build_profile(params[:profile])
+    @profile = current_member.build_profile(profile_params)
     if @profile.save
       # TODO: Refactor and test, should go into model
       @member = Member.find(@profile.member_id)
       @member.firstname = @profile.firstname
       @member.lastname = @profile.lastname
-      @member.save
-      redirect_to(@profile, :flash => { :success => 'Profile was successfully created.' })
+      @member.save!
+      # puts @profile.inspect
+      puts @member.profile.inspect
+      # redirect_to(@profile, id: @profile.id, :flash => { :success => 'Profile was successfully created.' })
+      redirect_to(id: @profile.id, :flash => { :success => 'Profile was successfully created.' })
+      # format.html { redirect_to profile_path(@profile.id), status: 'foo bar' } # :flash => { :success => 'Profile was successfully created.' } }
+
+      # format.html { redirect_to travel_cost_path(@travel, @cost),
+      #               notice: 'Cost was successfully created.' }
+
     end
   end
 
@@ -45,7 +53,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find_by_url(params[:id])
 
     respond_to do |format|
-      if @profile.update_attributes(params[:profile])
+      if @profile.update_attributes(profile_params)
       # TODO: Refactor and test, should go into model
         @member = Member.find(@profile.member_id)
         @member.firstname = @profile.firstname
@@ -77,7 +85,12 @@ class ProfilesController < ApplicationController
     current_member.id == id
   end
 
-  #:private
+  private
+
+  def profile_params
+    params.permit(:id, :firstname, :lastname, :website, :firstname, :lastname, :twitter, :bio, :url,
+                  :facebook, :linkedin, :website_anchor, :gprofile_url)
+  end
 
 #  def firstname
 #    current_member.firstname
