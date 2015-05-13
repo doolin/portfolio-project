@@ -6,7 +6,7 @@ describe "projects/index.html.erb" do
       @member   = FactoryGirl.create(:member)
       @slicer   = FactoryGirl.create(:project, :name => 'Slicer', :member => @member)
       @dicer    = FactoryGirl.create(:project, :name => 'Dicer',  :member => @member)
-      @projects = Project.find(:all)
+      @projects = Project.all
       sign_in @member
     end
 

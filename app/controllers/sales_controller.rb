@@ -4,10 +4,10 @@ class SalesController < ApplicationController
     if member_signed_in?
       redirect_to current_member
     else
-      @projects = Project.find(:all)
-      @profiles = Profile.find(:all)
+      @projects = Project.all
+      @profiles = Profile.all
     end
   end
-  
+
   # Add more pages as necessary, but only when necessary.
 end
