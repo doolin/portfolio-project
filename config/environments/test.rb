@@ -33,7 +33,7 @@ PortfolioProject::Application.configure do
   config.active_support.deprecation = :stderr
 
   # Configure static asset server for tests with Cache-Control for performance
-  config.serve_static_assets = true
+  config.serve_static_files = true
   config.static_cache_control = "public, max-age=3600"
   # This config option was shown in the episode but is actually not used, so don't bother adding it.
   config.assets.allow_debugging = true
