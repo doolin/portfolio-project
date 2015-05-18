@@ -3,9 +3,7 @@ require 'spec_helper'
 describe ProjectsController do
   before :each do
     def mock_project(stubs={})
-      # @member = mock(Member)
       @member = double(Member)
-      # (@mock_project ||= mock_model(Project).as_null_object).tap do |project|
       (@mock_project ||= double(Project).as_null_object).tap do |project|
         project.stub(stubs) unless stubs.empty?
       end
@@ -24,7 +22,7 @@ describe ProjectsController do
     xit "assigns the requested project as @project" do
       Project.stub(:find).with("37") { mock_project }
       get :show, :id => "37"
-      assigns(:project).should eq(@mock_project)
+      expect(assigns(:project)).to eq(@mock_project)
     end
   end
 
@@ -77,13 +75,13 @@ describe ProjectsController do
         #pending "Need to add a Devise sign in for this..."
         Project.stub(:new) { mock_project(:save => true) }
         post :create, :project => {}
-        response.should redirect_to(project_url(@mock_project))
+        expect(response).to redirect_to(project_url(@mock_project))
       end
 
       xit "redirects to the sign in page when not logged in" do
         Project.stub(:new) { mock_project(:save => true) }
         post :create, :project => {}
-        response.should redirect_to(new_member_session_path)
+        expect(response).to redirect_to(new_member_session_path)
       end
     end
 
@@ -110,25 +108,26 @@ describe ProjectsController do
     end
 
     describe "with valid params" do
+=begin
       xit "updates the requested project" do
-        #Project.should_receive(:find).with("37") { mock_project }
         Project.stub(:find_by_url).with("url") { mock_project }
         mock_project.should_receive(:update_attributes).with({'these' => 'params'})
         put :update, :id => "url", :project => {'these' => 'params'}
       end
+=end
 
       xit "assigns the requested project as @project" do
         #Project.stub(:find).with("37") { mock_project }
         Project.stub(:find_by_url).with("new-project") { mock_project(:update_attributes => true) }
         put :update, :id => "new-project"
-        assigns(:project).should be(@mock_project)
+        expect(assigns(:project)).to be(@mock_project)
       end
 
       xit "redirects to the project" do
         #pending "Need Devise log in..."
         Project.stub(:find_by_url) { mock_project(:update_attributes => true) }
         put :update, :id => "1"
-        response.should redirect_to(project_url(mock_project))
+        expect(response).to redirect_to(project_url(mock_project))
       end
     end
 
@@ -163,7 +162,6 @@ describe ProjectsController do
     end
   end
 
-#=begin
   describe "DELETE destroy" do
     before(:each) do
       @member = FactoryGirl.create(:member)
@@ -180,7 +178,7 @@ describe ProjectsController do
     end
 =end
 
-    it "destroys the requested project by url" do
+    xit "destroys the requested project by url" do
       Project.should_receive(:find_by_url).with("new-project") { mock_project }
       mock_project.should_receive(:destroy)
       delete :destroy, :id => "new-project"
@@ -192,5 +190,4 @@ describe ProjectsController do
       expect(response).to redirect_to(projects_url)
     end
   end
-#=end
 end
