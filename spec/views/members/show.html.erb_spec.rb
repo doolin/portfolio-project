@@ -7,21 +7,21 @@ describe 'members/show.html.erb' do
   end
 
   it "infers the controller path" do
-    controller.request.path_parameters[:controller].should eq("members")
+    expect(controller.request.path_parameters[:controller]).to eq("members")
   end
 
   it "infers the controller action" do
-    controller.request.path_parameters[:action].should eq("show")
+    expect(controller.request.path_parameters[:action]).to eq("show")
   end
 
   it "renders the member's show page" do
     render
-    rendered.should =~ /Projects/
+    expect(rendered).to match(/Projects/)
   end
 
   it "should have link to New Project" do
     render
-    rendered.should have_selector('div') do |n|
+    expect(rendered).to have_selector('div') do |n|
       # This is giving me a false positive, passing on any
       # valid href or content whether that href or content
       # is in the actual link on the view template.
@@ -37,7 +37,7 @@ describe 'members/show.html.erb' do
     # https://github.com/brynary/webrat/blob/master/lib/webrat/core/matchers/have_selector.rb
     title = "#{@member.firstname} #{@member.lastname} | Portfolio Project"
     #rendered.should have_selector("title", :content => "Dave Doolin | Portfolio Project")
-    rendered.should have_selector("title", :text => title)
+    expect(rendered).to have_selector("title", :text => title)
     # http://blog.carbonfive.com/2011/03/02/a-look-at-specifying-views-in-rspec/
     #view.content_for(:sidebar).should have_selector('div.quote')
   end
