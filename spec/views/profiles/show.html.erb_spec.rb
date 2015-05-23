@@ -16,7 +16,7 @@ describe 'profiles/show.html.erb' do
 
   it "renders the member's profile page" do
     render
-    rendered.should have_selector('div.profile')
+    expect(rendered).to have_selector('div.profile')
   end
 
   xit "should have the correct <title> element " do
@@ -24,20 +24,20 @@ describe 'profiles/show.html.erb' do
     title = @member.firstname + " " + @member.lastname.possessive + ' Profile | Portfolio Project'
     # have_selector is from webrat
     # https://github.com/brynary/webrat/blob/master/lib/webrat/core/matchers/have_selector.rb
-    rendered.should have_selector("title", :text => title)
+    expect(rendered).to have_selector("title", :text => title)
     # http://blog.carbonfive.com/2011/03/02/a-look-at-specifying-views-in-rspec/
     #view.content_for(:sidebar).should have_selector('div.quote')
   end
 
   it "should have a link to Twitter profile" do
     render
-    rendered.should have_selector('a.twitter', :text => @member.profile.twitter)
+    expect(rendered).to have_selector('a.twitter', :text => @member.profile.twitter)
   end
 
   # This is a brittle spec, depending on the word "profile" is not good.
   it "should have a link to Google Profile" do
     render
-    rendered.should have_selector('a', :text => 'profile')
+    expect(rendered).to have_selector('a', :text => 'profile')
     #rendered.should =~ /profile/
   end
 
@@ -46,7 +46,7 @@ describe 'profiles/show.html.erb' do
     @member.save
     render
     #rendered.should_not have_selector('a.gprofile', :content => 'profile')
-    rendered.should =~ /no Google profile given/
+    expect(rendered).to match(/no Google profile given/)
   end
 
 end
@@ -62,7 +62,7 @@ describe "profiles/_profile_links.html.erb" do
 
   it "should have link to Edit" do
     render
-    rendered.should have_selector('a', :text => 'Edit')
+    expect(rendered).to have_selector('a', :text => 'Edit')
   end
 
   it "signed out should not have link to Edit" do
@@ -73,16 +73,16 @@ describe "profiles/_profile_links.html.erb" do
 
   xit "should have link to Delete" do
     render
-    rendered.should have_selector('a', :text => 'Delete')
+    expect(rendered).to have_selector('a', :text => 'Delete')
   end
 
   it "should have a link to Projects" do
     render
-    rendered.should have_selector('a', :text => 'Projects')
+    expect(rendered).to have_selector('a', :text => 'Projects')
   end
 
   it "should have a link to Settings" do
     render
-    rendered.should have_selector('a.settings', :text => 'Settings')
+    expect(rendered).to have_selector('a.settings', :text => 'Settings')
   end
 end
