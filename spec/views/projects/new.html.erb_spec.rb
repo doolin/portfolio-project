@@ -20,18 +20,18 @@ describe "projects/new.html.erb" do
   end
 
   it "infers the controller path" do
-    controller.request.path_parameters[:controller].should eq("projects")
+    expect(controller.request.path_parameters[:controller]).to eq("projects")
   end
 
   it "infers the controller action" do
-    controller.request.path_parameters[:action].should eq("new")
+    expect(controller.request.path_parameters[:action]).to eq("new")
   end
 
   xit "should have the correct <title> element " do
     render(:template => "projects/new.html.erb", :layout => 'layouts/application')
     # have_selector is from webrat
     # https://github.com/brynary/webrat/blob/master/lib/webrat/core/matchers/have_selector.rb
-    rendered.should have_selector("title", :text => "Add your new Project or Accomplishment | Portfolio Project")
+    expect(rendered).to have_selector("title", :text => "Add your new Project or Accomplishment | Portfolio Project")
     # http://blog.carbonfive.com/2011/03/02/a-look-at-specifying-views-in-rspec/
     #view.content_for(:sidebar).should have_selector('div.quote')
   end
