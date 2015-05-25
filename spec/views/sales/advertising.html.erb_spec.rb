@@ -11,7 +11,7 @@ describe "sales/advertising.html.erb" do
 
   it "should display advertising solicitation" do
     render
-    rendered.should =~ /Buy Advertising on Portfolio Project/
+    expect(rendered).to match(/Buy Advertising on Portfolio Project/)
   end
 
   xit "should have the correct <title> element " do
