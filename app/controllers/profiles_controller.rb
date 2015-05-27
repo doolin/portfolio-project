@@ -20,8 +20,11 @@ class ProfilesController < ApplicationController
   end
 
   def create
+    puts "current_member: #{current_member}"
+    puts "profile_params: #{profile_params}"
     @profile = current_member.build_profile(profile_params)
-    if @profile.save
+    puts "@profile: #{@profile.inspect}"
+    if @profile.save!
       # TODO: Refactor and test, should go into model
       @member = Member.find(@profile.member_id)
       @member.firstname = @profile.firstname
@@ -30,12 +33,14 @@ class ProfilesController < ApplicationController
       # puts @profile.inspect
       puts @member.profile.inspect
       # redirect_to(@profile, id: @profile.id, :flash => { :success => 'Profile was successfully created.' })
-      redirect_to(id: @profile.id, :flash => { :success => 'Profile was successfully created.' })
-      # format.html { redirect_to profile_path(@profile.id), status: 'foo bar' } # :flash => { :success => 'Profile was successfully created.' } }
+      # redirect_to(id: @profile.id, :flash => { :success => 'Profile was successfully created.' })
+      format.html { redirect_to profile_path(@profile.id), status: 'foo bar' } # :flash => { :success => 'Profile was successfully created.' } }
 
       # format.html { redirect_to travel_cost_path(@travel, @cost),
       #               notice: 'Cost was successfully created.' }
 
+    else
+      redirect_to :root
     end
   end
 
@@ -88,7 +93,8 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.permit(:id, :firstname, :lastname, :website, :firstname, :lastname, :twitter, :bio, :url,
+    puts "params: #{params}"
+    params.permit(:id, :firstname, :lastname, :website, :twitter, :bio, :url,
                   :facebook, :linkedin, :website_anchor, :gprofile_url)
   end
 

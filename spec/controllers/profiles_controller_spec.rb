@@ -56,12 +56,13 @@ describe ProfilesController do
     # instantiated, this test as originally written fails.
     # Investigate further by deleting the original profile,
     # then rebuilding it here with the :create action
-    xit "should create a new profile for signed in member" do
+    it "should create a new profile for signed in member" do
       sign_out @member
       @newmember  = FactoryGirl.create(:member, :email => 'foofppf@gmail.com')
       sign_in @newmember
       expect do
-        post :create, :profile => { :firstname => 'foo', :lastname => 'bar' }
+        # post :create, profile: { firstname: 'foo', lastname: 'bar' }
+        post :create, firstname: 'foo', lastname: 'bar'
       end.to change(Profile, :count).by(1)
     end
 
