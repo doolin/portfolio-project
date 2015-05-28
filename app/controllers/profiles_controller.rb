@@ -7,40 +7,18 @@ class ProfilesController < ApplicationController
   end
 
   def new
-=begin
-  if current_member.has_profile?
-    redirect_to edit_profile_path
-  else # new profile
-=end
-
     @profile = Profile.new
-    # TODO: Get rid of firstname in Member, it's
-    # a bad model.
     @firstname = Member.find(current_member.id).firstname
   end
 
   def create
-    puts "current_member: #{current_member}"
-    puts "profile_params: #{profile_params}"
     @profile = current_member.build_profile(profile_params)
-    puts "@profile: #{@profile.inspect}"
     if @profile.save!
-      # TODO: Refactor and test, should go into model
       @member = Member.find(@profile.member_id)
       @member.firstname = @profile.firstname
       @member.lastname = @profile.lastname
       @member.save!
-      # puts @profile.inspect
-      puts @member.profile.inspect
-      # redirect_to(@profile, id: @profile.id, :flash => { :success => 'Profile was successfully created.' })
-      # redirect_to(id: @profile.id, :flash => { :success => 'Profile was successfully created.' })
-      format.html { redirect_to profile_path(@profile.id), status: 'foo bar' } # :flash => { :success => 'Profile was successfully created.' } }
-
-      # format.html { redirect_to travel_cost_path(@travel, @cost),
-      #               notice: 'Cost was successfully created.' }
-
-    else
-      redirect_to :root
+      redirect_to(@profile, :flash => { :success => 'Profile was successfully created.' })
     end
   end
 
@@ -59,7 +37,6 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.update_attributes(profile_params)
-      # TODO: Refactor and test, should go into model
         @member = Member.find(@profile.member_id)
         @member.firstname = @profile.firstname
         @member.lastname = @profile.lastname
@@ -76,12 +53,9 @@ class ProfilesController < ApplicationController
   def destroy
     @profile = Profile.find_by_url(params[:id])
     @profile.destroy
-    # From cacklist...
-    #redirect_back_or root_path
     redirect_to(root_path, :flash => { :success => 'Profile was successfully removed.' })
   end
 
-  # FIXME: Make a macro or something to remove ugliness from view.
   def number_of_projects(id)
     Member.find(id).projects.count
   end
@@ -93,12 +67,7 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    puts "params: #{params}"
     params.permit(:id, :firstname, :lastname, :website, :twitter, :bio, :url,
                   :facebook, :linkedin, :website_anchor, :gprofile_url)
   end
-
-#  def firstname
-#    current_member.firstname
-#  end
 end
