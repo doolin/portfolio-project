@@ -51,8 +51,8 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
-    @profile = Profile.find_by_url(params[:id])
-    @profile.destroy
+    profile = Profile.find_by_url(params[:id])
+    profile.destroy
     redirect_to(root_path, :flash => { :success => 'Profile was successfully removed.' })
   end
 

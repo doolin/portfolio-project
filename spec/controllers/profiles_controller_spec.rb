@@ -77,8 +77,14 @@ describe ProfilesController do
 
   describe "PUT 'update'" do
     xit "updates the profile for signed in member" do
-      put :update, :id => @profile.url, :profile => { :firstname => 'Foo', :lastname => 'Bar' }
-      @profile.reload
+      member  = FactoryGirl.create(:member, email: 'foo@bar.com')
+      member.save!
+      profile = FactoryGirl.create(:profile, :member => member)
+      profile.save!
+      # put :update, :id => @profile.url, :profile => { :firstname => 'Foo', :lastname => 'Bar' }
+      put :update, :id => profile.url, :firstname => 'Foo', :lastname => 'Bar'
+      homer = assigns(:profile)
+      profile.reload
       expect(response).to redirect_to(profile_path(@profile))
       expect(@profile.firstname).to eq('Foo')
       expect(@profile.lastname).to eq('Bar')
@@ -102,13 +108,6 @@ describe ProfilesController do
     it "redirects to the projects list" do
       delete :destroy, :id => @profile.url
       expect(response).to redirect_to(root_path)
-    end
-
-    # Leave this in for a bit, the should_receive is a mock_method
-    xit "destroys the requested profile" do
-      #Project.should_receive(:find).with("37") { mock_project }
-      @profile.should_receive(:destroy)
-      delete :destroy, :id => @profile.url
     end
   end
 end
