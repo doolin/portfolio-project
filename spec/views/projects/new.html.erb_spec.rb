@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe "projects/new.html.erb" do
-  # All this machinery here may be replaceable with a Factory
   before(:each) do
     assign(:project, Project.new(:name => "MyString", :summary => "MyString", :client => "MyString"))
   end
@@ -27,12 +26,11 @@ describe "projects/new.html.erb" do
     expect(controller.request.path_parameters[:action]).to eq("new")
   end
 
-  xit "should have the correct <title> element " do
+  it "should have the correct <title> element " do
     render(:template => "projects/new.html.erb", :layout => 'layouts/application')
-    # have_selector is from webrat
-    # https://github.com/brynary/webrat/blob/master/lib/webrat/core/matchers/have_selector.rb
-    expect(rendered).to have_selector("title", :text => "Add your new Project or Accomplishment | Portfolio Project")
+    # expect(rendered).to have_selector("title", :text => "Add your new Project or Accomplishment | Portfolio Project")
+    expect(rendered).to match("Add your new Project or Accomplishment | Portfolio Project")
     # http://blog.carbonfive.com/2011/03/02/a-look-at-specifying-views-in-rspec/
-    #view.content_for(:sidebar).should have_selector('div.quote')
+    # view.content_for(:sidebar).should have_selector('div.quote')
   end
 end
