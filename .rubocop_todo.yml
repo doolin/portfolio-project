@@ -7,7 +7,7 @@
 
 # Offense count: 1
 Lint/AmbiguousOperator:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 74
 Lint/AmbiguousRegexpLiteral:
@@ -15,7 +15,7 @@ Lint/AmbiguousRegexpLiteral:
 
 # Offense count: 1
 Lint/Debugger:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 2
 Lint/DuplicateMethods:
