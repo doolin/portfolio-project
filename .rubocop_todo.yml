@@ -23,7 +23,7 @@ Lint/DuplicateMethods:
 
 # Offense count: 2
 Lint/ParenthesesAsGroupedExpression:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 1
 Lint/RescueException:
@@ -32,7 +32,7 @@ Lint/RescueException:
 # Offense count: 1
 # Cop supports --auto-correct.
 Lint/StringConversionInInterpolation:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 2
 # Cop supports --auto-correct.

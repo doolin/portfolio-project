@@ -152,7 +152,7 @@ end
 
 Then /^the member is shown the page for the new profile$/ do
   # Fixme: the url needs to be extracted from the data
-  visit ('bar')
+  visit('bar')
 end
 
 Given /^is on the create project page$/ do
@@ -199,7 +199,7 @@ end
 Then /^the member is shown the page for the new project$/ do
   # Fixme: the url needs to be extracted from the data
   step %{member name is "foo" with email "user@test.com" and password "foobar"}
-  visit ('new-project')
+  visit('new-project')
 end
 
 When /^the visitor is on the sign up page$/ do
