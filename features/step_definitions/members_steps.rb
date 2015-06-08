@@ -40,7 +40,7 @@ Given /^member name is "([^"]*)" with email "([^"]*)" and password "([^"]*)"$/ d
              :password => password,
              :password_confirmation => password,
              :firstname => 'foo',
-             :lastname => 'bar')#.save!
+             :lastname => 'bar') #.save!
   @profile = @member.build_profile({:firstname => 'Foo', :lastname => 'bar'})
   @profile.save
 end
@@ -118,7 +118,7 @@ Given /^member is signed in as "([^"]*)" and password "([^"]*)"$/ do |email, pas
             :password => password,
             :password_confirmation => password,
             :firstname => 'MFoo',
-            :lastname => 'MBar')#.save!
+            :lastname => 'MBar') #.save!
       
   @member.save!
   #puts @member.member_id
