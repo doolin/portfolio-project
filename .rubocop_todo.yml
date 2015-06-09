@@ -316,4 +316,4 @@ Style/TrailingComma:
 # Offense count: 17
 # Cop supports --auto-correct.
 Style/TrailingWhitespace:
-  Enabled: false
+  Enabled: true

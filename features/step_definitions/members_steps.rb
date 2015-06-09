@@ -119,7 +119,7 @@ Given /^member is signed in as "([^"]*)" and password "([^"]*)"$/ do |email, pas
             :password_confirmation => password,
             :firstname => 'MFoo',
             :lastname => 'MBar') #.save!
-      
+
   @member.save!
   #puts @member.member_id
   @profile = @member.build_profile({:firstname => 'Foo', :lastname => 'bar'})

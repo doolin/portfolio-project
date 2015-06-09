@@ -49,7 +49,7 @@ PortfolioProject::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-  
+
   # From Devise
   # Test this, create a Trac ticket
   config.action_mailer.default_url_options = { :host => 'portfolio-project.com' }
@@ -69,7 +69,7 @@ PortfolioProject::Application.configure do
 
   # Memcache
   config.cache_store = :dalli_store
-  
+
   # Compress JavaScripts and CSS
   config.assets.compress = true
 

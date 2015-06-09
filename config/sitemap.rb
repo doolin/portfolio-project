@@ -7,7 +7,7 @@ SitemapGenerator::Sitemap.sitemaps_path = 'tmp/'
 #SitemapGenerator::Sitemap.yahoo_app_id = "my_app_id"
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::WaveAdapter.new
 SitemapGenerator::Sitemap.create do
-  
+
   Project.find_each do |project|
     add project_path(project), :lastmod => project.updated_at
   end
