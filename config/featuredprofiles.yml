@@ -9,9 +9,9 @@ test:
 development:
   profiles: true
   featured1: 1
-  featured2: 2
+  featured2: 3
   featured3: 1
-  featured4: 2
+  featured4: 3
 
 production:
   profiles: true
