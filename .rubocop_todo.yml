@@ -311,7 +311,7 @@ Style/TrailingBlankLines:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleForMultiline, SupportedStyles.
 Style/TrailingComma:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 17
 # Cop supports --auto-correct.
