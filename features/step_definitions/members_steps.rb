@@ -259,5 +259,3 @@ end
 Then /^the member should see "([^"]*)"$/ do |arg1|
   page.should have_content('Projects')
 end
-
-
