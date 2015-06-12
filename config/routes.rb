@@ -5,7 +5,7 @@ PortfolioProject::Application.routes.draw do
 
 
   # All non-logged in users go to sales page.
-  root :to => "sales#index"
+  root :to => 'sales#index'
 
   get '/contact',            :to => 'pages#contact'
   get '/about',              :to => 'pages#about'
@@ -26,7 +26,7 @@ PortfolioProject::Application.routes.draw do
   # Might test this in rspec instead.
   #match '/scripts/addlead.pl',:to => 'pages#thank-you'
 
-  devise_for :members, :controllers => { :registrations => "registrations" }
+  devise_for :members, :controllers => { :registrations => 'registrations' }
 
   # Needs a controller...
   resources :members

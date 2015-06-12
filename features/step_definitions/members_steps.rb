@@ -1,7 +1,7 @@
 require 'uri'
 require 'cgi'
-require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
-require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'support', 'paths'))
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'support', 'selectors'))
 
 
 Given /^a site visitor who is not a member$/ do
@@ -21,15 +21,15 @@ Given /^member with email "([^"]*)" and password "([^"]*)"$/ do |email, password
 end
 
 When /^fills in the Sign Up Free form$/ do
-  email = "foo@bar.com"
-  password = "testem"
+  email = 'foo@bar.com'
+  password = 'testem'
   step %{I fill in "member_email" with "#{email}"}
   step %{I fill in "member_password" with "#{password}"}
 end
 
 When /^fills in the sign up form$/ do
-  email = "foo@bar.com"
-  password = "testem"
+  email = 'foo@bar.com'
+  password = 'testem'
   step %{I fill in "Email" with "#{email}"}
   step %{I fill in "Password" with "#{password}"}
 end
@@ -111,7 +111,7 @@ end
 
 
 Given /^member is signed in as "([^"]*)" and password "([^"]*)"$/ do |email, password|
-  name = "foobar"
+  name = 'foobar'
   # Member.new may not work
   @member = Member.new(:membername => name,
             :email => email,
@@ -140,8 +140,8 @@ Given /^is on the Create Profile page$/ do
 end
 
 When /^the member fills out all the profile fields correctly$/ do
-  firstname = "Foo"
-  lastname = "Bar"
+  firstname = 'Foo'
+  lastname = 'Bar'
   step %{I fill in "Firstname" with "#{firstname}"}
   step %{I fill in "Lastname" with "#{lastname}"}
 end
@@ -162,12 +162,12 @@ end
 
 # Date and time gem: https://gist.github.com/558786
 When /^the member fills out all the project fields correctly$/ do
-  name = "New project"
-  startdate = "2011-07-16"
-  finishdate = "2011-08-03"
-  summary = "New project summary"
-  description = "New project description"
-  tags = "tag1, tag2"
+  name = 'New project'
+  startdate = '2011-07-16'
+  finishdate = '2011-08-03'
+  summary = 'New project summary'
+  description = 'New project description'
+  tags = 'tag1, tag2'
   step %{I fill in "Name" with "#{name}"}
   step %{I fill in "Summary" with "#{summary}"}
   step %{I fill in "Description" with "#{description}"}
@@ -226,11 +226,11 @@ Given /^member is logged in$/ do
                 :lastname => 'Bar').save!
 
   visit '/members/sign_in'
-  within("#member_new") do
-    fill_in "member_email", :with=>email
-    fill_in "member_password", :with=>password
+  within('#member_new') do
+    fill_in 'member_email', :with=>email
+    fill_in 'member_password', :with=>password
   end
-  click_button "Sign in"
+  click_button 'Sign in'
   #visit('/members/sign_out')
 #=end
 end
@@ -249,10 +249,10 @@ When /^the member changes email and password$/ do
 
   password = 'secretpass'
   visit '/members/edit'
-  fill_in "member_password", :with=>password
-  fill_in "member_password_confirmation", :with=>password
-  fill_in "member_current_password", :with=>password
-  click_button "Update"
+  fill_in 'member_password', :with=>password
+  fill_in 'member_password_confirmation', :with=>password
+  fill_in 'member_current_password', :with=>password
+  click_button 'Update'
 end
 
 

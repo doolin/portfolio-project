@@ -1,9 +1,9 @@
 
 namespace :zurb do
 
-  desc "Updating the Zurb Foundation stylesheets"
+  desc 'Updating the Zurb Foundation stylesheets'
   task :update do
-    puts "Updating..."
+    puts 'Updating...'
     home = ENV['HOME'];
     srcpath    = ENV['HOME'] + '/local/src/foundation'
     jspath     = `pwd`.chomp + '/app/assets/javascripts/foundation'

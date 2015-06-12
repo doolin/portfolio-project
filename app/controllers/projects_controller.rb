@@ -77,7 +77,7 @@ class ProjectsController < ApplicationController
       rescue Exception => e
         format.html {
           #flash[:error] = "Problem: #{e.message}."
-          render :action => "new"
+          render :action => 'new'
         }
         format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
       else
@@ -99,7 +99,7 @@ class ProjectsController < ApplicationController
         format.html { redirect_to(@project, :flash => { :success => 'Project was successfully updated.' }) }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { render :action => 'edit' }
         format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
       end
     end

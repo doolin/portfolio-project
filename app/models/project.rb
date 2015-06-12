@@ -23,14 +23,14 @@ class Project < ActiveRecord::Base
 
   before_save :check_dates
 
-  default_scope -> { order("projects.created_at DESC") }
+  default_scope -> { order('projects.created_at DESC') }
 
   acts_as_url :name, :sync_url => :true
 
   def membername(id)
     member = Member.find(id)
     if member.firstname && member.lastname
-      member.firstname + " " + member.lastname
+      member.firstname + ' ' + member.lastname
     elsif member.membername
       member.membername
     else

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "LayoutLinks" do
+describe 'LayoutLinks' do
   it "should have a Contact page at '/contact'" do
     get '/contact'
     expect(response).to render_template(:contact)

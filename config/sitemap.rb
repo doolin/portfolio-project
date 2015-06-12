@@ -1,6 +1,6 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "http://portfolio-project.com"
-SitemapGenerator::Sitemap.sitemaps_host = "http://s3.amazonaws.com/inventium-sitemap/"
+SitemapGenerator::Sitemap.default_host = 'http://portfolio-project.com'
+SitemapGenerator::Sitemap.sitemaps_host = 'http://s3.amazonaws.com/inventium-sitemap/'
 SitemapGenerator::Sitemap.public_path = 'tmp/'
 SitemapGenerator::Sitemap.sitemaps_path = 'tmp/'
 #SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'

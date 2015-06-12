@@ -5,9 +5,9 @@ Devise.secret_key = ENV['DEVISE_PORTPROJ_SECRET_KEY']
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
-  config.mailer_sender = "david.doolin@gmail.com"
+  config.mailer_sender = 'david.doolin@gmail.com'
   # Configure the class responsible to send e-mails.
-  config.mailer = "Devise::Mailer"
+  config.mailer = 'Devise::Mailer'
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
@@ -47,7 +47,7 @@ Devise.setup do |config|
   config.encryptor = :bcrypt
 
   # Setup a pepper to generate the encrypted password.
-  config.pepper = "e4da4dd7c1fdf86299c28e40bf5c06e2e09e7662aefee71b4bbe05dfb62fef93a275e8e9de44713170a5f8c6a9b96c8fb0fc7eea63f663a21febc99773fc227c"
+  config.pepper = 'e4da4dd7c1fdf86299c28e40bf5c06e2e09e7662aefee71b4bbe05dfb62fef93a275e8e9de44713170a5f8c6a9b96c8fb0fc7eea63f663a21febc99773fc227c'
 
   # ==> Configuration for :confirmable
   # The time you want to give your user to confirm his account. During this time

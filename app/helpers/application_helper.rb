@@ -5,6 +5,6 @@ module ApplicationHelper
   end
 
   def site_name
-    content_for(:site_name) { "Portfolio Project" }
+    content_for(:site_name) { 'Portfolio Project' }
   end
 end

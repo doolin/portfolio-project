@@ -4,31 +4,31 @@ describe Project do
   before(:each) do
     @member = FactoryGirl.create(:member)
     @attr = {
-      :name        => "Foo project",
-      :summary     => "We did it again.",
-      :client      => "Dave D",
-      :description => "A short description for testing.",
+      :name        => 'Foo project',
+      :summary     => 'We did it again.',
+      :client      => 'Dave D',
+      :description => 'A short description for testing.',
       :startdate   => DateTime.new(2010),
       :finishdate  => DateTime.new(2011),
       :tags        => 'foobar'
     }
   end
 
-  it "should create a new instance given valid attributes" do
+  it 'should create a new instance given valid attributes' do
     @member.projects.create!(@attr)
     expect(@member.projects.first).to be_valid
   end
 
-  describe "member associations" do
+  describe 'member associations' do
     before(:each) do
       @project = @member.projects.create(@attr)
     end
 
-    it "should have a member attribute" do
+    it 'should have a member attribute' do
       expect(@project).to respond_to(:member)
     end
 
-    it "should have the correct associated member" do
+    it 'should have the correct associated member' do
       expect(@project.member).to eq @member
     end
   end
@@ -39,58 +39,58 @@ describe Project do
   # write one such that both conditions pass even when the
   # validation isn't specified in the model. Keep an eye out
   # for a better way to test validations.
-  describe "validations" do
-    it "should require a member id" do
+  describe 'validations' do
+    it 'should require a member id' do
       expect(Project.new(@attr)).not_to be_valid
     end
 
-    it "should require nonblank Summary" do
-      expect(@member.projects.build(@attr.merge(:summary =>" "))).not_to be_valid
+    it 'should require nonblank Summary' do
+      expect(@member.projects.build(@attr.merge(:summary =>' '))).not_to be_valid
     end
 
-    it "should reject long Summary" do
-      expect(@member.projects.build(@attr.merge(:summary => "a" * 501))).not_to be_valid
+    it 'should reject long Summary' do
+      expect(@member.projects.build(@attr.merge(:summary => 'a' * 501))).not_to be_valid
     end
 
-    it "should require nonblank Name" do
-      expect(@member.projects.build(@attr.merge(:name =>" "))).not_to be_valid
+    it 'should require nonblank Name' do
+      expect(@member.projects.build(@attr.merge(:name =>' '))).not_to be_valid
     end
 
-    it "should accept short Name" do
-      expect(@member.projects.build(@attr.merge(:name => "a" * 125))).to be_valid
+    it 'should accept short Name' do
+      expect(@member.projects.build(@attr.merge(:name => 'a' * 125))).to be_valid
     end
 
-    it "should reject long Name" do
-      expect(@member.projects.build(@attr.merge(:name => "a" * 141))).not_to be_valid
+    it 'should reject long Name' do
+      expect(@member.projects.build(@attr.merge(:name => 'a' * 141))).not_to be_valid
     end
 
-    it "should accept blank Description" do
-      expect(@member.projects.build(@attr.merge(:description =>""))).to be_valid
+    it 'should accept blank Description' do
+      expect(@member.projects.build(@attr.merge(:description =>''))).to be_valid
     end
 
-    it "should reject long Description" do
-      expect(@member.projects.build(@attr.merge(:description => "a" * 2501))).not_to be_valid
+    it 'should reject long Description' do
+      expect(@member.projects.build(@attr.merge(:description => 'a' * 2501))).not_to be_valid
     end
 
-    it "should require nonblank Start date" do
-      expect(@member.projects.build(@attr.merge(:startdate =>" "))).not_to be_valid
+    it 'should require nonblank Start date' do
+      expect(@member.projects.build(@attr.merge(:startdate =>' '))).not_to be_valid
     end
 
-    it "should require nonblank Finish date" do
-      expect(@member.projects.build(@attr.merge(:finishdate =>" "))).not_to be_valid
+    it 'should require nonblank Finish date' do
+      expect(@member.projects.build(@attr.merge(:finishdate =>' '))).not_to be_valid
     end
 
-    it "start date should be less than finish date" do
+    it 'start date should be less than finish date' do
       @project = @member.projects.create(@attr)
       expect(@project.startdate).to be < @project.finishdate
     end
 
-    it "start date should not be greater than finish date" do
+    it 'start date should not be greater than finish date' do
       @project = @member.projects.create(@attr)
       expect(@project.startdate).not_to be > @project.finishdate
     end
 
-    it "finish date should raise error" do
+    it 'finish date should raise error' do
       @project = @member.projects.create(@attr)
       @project.finishdate=(DateTime.new(1999))
       expect {
@@ -99,24 +99,24 @@ describe Project do
     end
 
     # False positive. Where did these tests come from?
-    it "should reject long Client" do
-      expect(@member.projects.build(:client => "a" * 138)).not_to be_valid
+    it 'should reject long Client' do
+      expect(@member.projects.build(:client => 'a' * 138)).not_to be_valid
     end
 
-    it "should reject long Client" do
-      expect(@member.projects.build(:client => "a" * 141)).not_to be_valid
+    it 'should reject long Client' do
+      expect(@member.projects.build(:client => 'a' * 141)).not_to be_valid
     end
 
   end
 
 
-  describe "accessible attributes" do
+  describe 'accessible attributes' do
 
     # http://guides.rubyonrails.org/association_basics.html#has_many-association-reference
     # This is also a false positive against saving the :uri when it's
     # not given in attr_accessible...
     # TODO: This doesn't smell very good, needs more work.
-    it "should save URI attribute" do
+    it 'should save URI attribute' do
       expect(@member.projects.create(@attr.merge({:uri => 'http://foobar.com/'}))).to be_valid
       #puts @member.projects.to_s
       # This is the smelly part...

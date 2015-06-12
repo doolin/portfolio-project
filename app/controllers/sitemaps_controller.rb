@@ -6,8 +6,8 @@ class SitemapsController < ApplicationController
     @projects = Project.all
     @profiles = Profile.all
     #@other_posts = OtherPosts.all
-    @other_routes = ["/contact","/terms", "/privacy", "/about"]
-    @root_routes = ["/", "/projects", "/profiles"]
+    @other_routes = ['/contact','/terms', '/privacy', '/about']
+    @root_routes = ['/', '/projects', '/profiles']
     respond_to do |format|
       format.xml
     end
