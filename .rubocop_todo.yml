@@ -293,7 +293,7 @@ Style/SpaceInsideBlockBraces:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces, SupportedStyles.
 Style/SpaceInsideHashLiteralBraces:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 588
 # Cop supports --auto-correct.

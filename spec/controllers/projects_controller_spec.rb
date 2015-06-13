@@ -45,8 +45,8 @@ describe ProjectsController do
   describe 'POST create' do
     describe 'with valid params' do
       it 'assigns a newly created project as @project' do
-        Project.stub(:new).with({'these' => 'params'}) { mock_project(:save => true) }
-        post :create, :project => {'these' => 'params'}
+        Project.stub(:new).with({ 'these' => 'params' }) { mock_project(:save => true) }
+        post :create, :project => { 'these' => 'params' }
         expect(assigns(:project)).to be(@mock_project)
       end
 
@@ -87,8 +87,8 @@ describe ProjectsController do
 
     describe 'with invalid params' do
       it 'assigns a newly created but unsaved project as @project' do
-        Project.stub(:new).with({'these' => 'params'}) { mock_project(:save => false) }
-        post :create, :project => {'these' => 'params'}
+        Project.stub(:new).with({ 'these' => 'params' }) { mock_project(:save => false) }
+        post :create, :project => { 'these' => 'params' }
         expect(assigns(:project)).to be(@mock_project)
       end
 

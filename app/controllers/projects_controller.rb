@@ -81,7 +81,7 @@ class ProjectsController < ApplicationController
         }
         format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
       else
-        format.html { redirect_to(@project, :flash => { :success => 'Project was successfully created.'}) }
+        format.html { redirect_to(@project, :flash => { :success => 'Project was successfully created.' }) }
         format.xml  { render :xml => @project, :status => :created, :location => @project }
       end
     end

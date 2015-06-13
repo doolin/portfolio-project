@@ -16,7 +16,7 @@ Given /^member with email "([^"]*)" and password "([^"]*)"$/ do |email, password
              :password_confirmation => password,
              :firstname => 'foo',
              :lastname => 'bar')
-  @profile = @member.build_profile({:firstname => 'Foo', :lastname => 'bar'})
+  @profile = @member.build_profile({ :firstname => 'Foo', :lastname => 'bar' })
   @profile.save
 end
 
@@ -41,7 +41,7 @@ Given /^member name is "([^"]*)" with email "([^"]*)" and password "([^"]*)"$/ d
              :password_confirmation => password,
              :firstname => 'foo',
              :lastname => 'bar') #.save!
-  @profile = @member.build_profile({:firstname => 'Foo', :lastname => 'bar'})
+  @profile = @member.build_profile({ :firstname => 'Foo', :lastname => 'bar' })
   @profile.save
 end
 
@@ -122,7 +122,7 @@ Given /^member is signed in as "([^"]*)" and password "([^"]*)"$/ do |email, pas
 
   @member.save!
   #puts @member.member_id
-  @profile = @member.build_profile({:firstname => 'Foo', :lastname => 'bar'})
+  @profile = @member.build_profile({ :firstname => 'Foo', :lastname => 'bar' })
   #puts @profile.inspect # Also, p object is an alias for puts object.inspect
   @profile.save
   #Given %{member is not logged in}

@@ -27,28 +27,28 @@ describe Profile do
     end
 
     it 'should require nonblank firstname' do
-      expect(@member.build_profile(@attr.merge({:firstname => ' '}))).not_to be_valid
+      expect(@member.build_profile(@attr.merge({ :firstname => ' ' }))).not_to be_valid
     end
 
     it 'should require nonblank lastname' do
-      expect(@member.build_profile(@attr.merge({:lastname => ' '}))).not_to be_valid
+      expect(@member.build_profile(@attr.merge({ :lastname => ' ' }))).not_to be_valid
     end
 
     # http://intridea.com/2009/2/18/quick-tip-url-validation-in-rails?blog=company
     it 'should validate any given urls' do
-      expect(@member.build_profile(@attr.merge({:website => 'http://foobar.com/'}))).to be_valid
+      expect(@member.build_profile(@attr.merge({ :website => 'http://foobar.com/' }))).to be_valid
     end
 
     it 'should validate any given urls without http' do
-      expect(@member.build_profile(@attr.merge({:website => 'foobar.com/'}))).to be_valid
+      expect(@member.build_profile(@attr.merge({ :website => 'foobar.com/' }))).to be_valid
     end
 
     xit 'should not validate url with bogus protocol' do
-      expect(@member.build_profile(@attr.merge({:website => 'httt://foobar.com/'}))).not_to be_valid
+      expect(@member.build_profile(@attr.merge({ :website => 'httt://foobar.com/' }))).not_to be_valid
     end
 
     xit 'should not validate url with bogus domain' do
-      expect(@member.build_profile(@attr.merge({:website => 'http://foobar/'}))).not_to be_valid
+      expect(@member.build_profile(@attr.merge({ :website => 'http://foobar/' }))).not_to be_valid
     end
   end
 end
