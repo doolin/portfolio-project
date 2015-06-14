@@ -45,7 +45,7 @@ describe Project do
     end
 
     it 'should require nonblank Summary' do
-      expect(@member.projects.build(@attr.merge(:summary =>' '))).not_to be_valid
+      expect(@member.projects.build(@attr.merge(:summary => ' '))).not_to be_valid
     end
 
     it 'should reject long Summary' do
@@ -53,7 +53,7 @@ describe Project do
     end
 
     it 'should require nonblank Name' do
-      expect(@member.projects.build(@attr.merge(:name =>' '))).not_to be_valid
+      expect(@member.projects.build(@attr.merge(:name => ' '))).not_to be_valid
     end
 
     it 'should accept short Name' do
@@ -65,7 +65,7 @@ describe Project do
     end
 
     it 'should accept blank Description' do
-      expect(@member.projects.build(@attr.merge(:description =>''))).to be_valid
+      expect(@member.projects.build(@attr.merge(:description => ''))).to be_valid
     end
 
     it 'should reject long Description' do
@@ -73,11 +73,11 @@ describe Project do
     end
 
     it 'should require nonblank Start date' do
-      expect(@member.projects.build(@attr.merge(:startdate =>' '))).not_to be_valid
+      expect(@member.projects.build(@attr.merge(:startdate => ' '))).not_to be_valid
     end
 
     it 'should require nonblank Finish date' do
-      expect(@member.projects.build(@attr.merge(:finishdate =>' '))).not_to be_valid
+      expect(@member.projects.build(@attr.merge(:finishdate => ' '))).not_to be_valid
     end
 
     it 'start date should be less than finish date' do
@@ -92,7 +92,7 @@ describe Project do
 
     it 'finish date should raise error' do
       @project = @member.projects.create(@attr)
-      @project.finishdate=(DateTime.new(1999))
+      @project.finishdate = (DateTime.new(1999))
       expect {
         @project.save!
       }.to raise_error(ActiveRecord::RecordNotSaved)

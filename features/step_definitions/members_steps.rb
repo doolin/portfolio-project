@@ -227,8 +227,8 @@ Given /^member is logged in$/ do
 
   visit '/members/sign_in'
   within('#member_new') do
-    fill_in 'member_email', :with=>email
-    fill_in 'member_password', :with=>password
+    fill_in 'member_email', :with => email
+    fill_in 'member_password', :with => password
   end
   click_button 'Sign in'
   #visit('/members/sign_out')
@@ -249,9 +249,9 @@ When /^the member changes email and password$/ do
 
   password = 'secretpass'
   visit '/members/edit'
-  fill_in 'member_password', :with=>password
-  fill_in 'member_password_confirmation', :with=>password
-  fill_in 'member_current_password', :with=>password
+  fill_in 'member_password', :with => password
+  fill_in 'member_password_confirmation', :with => password
+  fill_in 'member_current_password', :with => password
   click_button 'Update'
 end
 

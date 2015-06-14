@@ -270,13 +270,13 @@ Style/SpaceAroundEqualsInParameterDefault:
 # Cop supports --auto-correct.
 # Configuration parameters: MultiSpaceAllowedForOperators.
 Style/SpaceAroundOperators:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/SpaceBeforeBlockBraces:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 2
 # Cop supports --auto-correct.
