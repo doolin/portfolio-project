@@ -253,7 +253,7 @@ Style/SignalException:
 # Offense count: 62
 # Cop supports --auto-correct.
 Style/SingleSpaceBeforeFirstArg:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 2
 # Cop supports --auto-correct.

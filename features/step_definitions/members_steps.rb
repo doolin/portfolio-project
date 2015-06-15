@@ -84,7 +84,7 @@ Given /^member is not logged in$/ do
 end
 
 Then /^I should be signed in$/ do
-  step  %{I should see "Sign out"}
+  step %{I should see "Sign out"}
   #And  %{I should not see "Sign up"}
 end
 
