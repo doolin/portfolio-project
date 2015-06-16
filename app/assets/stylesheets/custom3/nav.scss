@@ -7,12 +7,12 @@
 /*  border-bottom: solid 4px #00a5ff;*/
 /*  padding: 15px 20px 13px 20px;*/
   padding-top: 20px;
-  height: 40px;
+  height: 80px;
   font-weight: 900;
 }
 
 
-#logo a { 
+#logo a {
   font-size: 2em;
   font-family: "lobster-1","lobster-2";
   text-decoration: none;
@@ -20,20 +20,20 @@
 }
 
 nav {
-  color: #999; 
-  float: right; 
+  color: #999;
+  float: right;
 /*  margin: .8em 0 0 0;*/
 }
 
-nav a { 
-  color: #fff; 
+nav a {
+  color: #fff;
   text-decoration: none;
   font-weight: 900;
 }
 
 
 /* Fool the eye into right alignment with
- * the main body of the page. 
+ * the main body of the page.
  */
 #member_nav {
   padding-right: 5px;

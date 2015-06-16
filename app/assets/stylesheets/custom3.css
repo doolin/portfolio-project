@@ -10,7 +10,7 @@
  * SMACSS-style base.
  */
 body {
-  background: #cccccc url("http://subtlepatterns.com/patterns/square_bg.png");
+  background: #ccc url("http://subtlepatterns.com/patterns/square_bg.png");
   color: #222;
   /*  max-width: 940;*/
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -91,7 +91,7 @@ div > span.label {
   /*  border-bottom: solid 4px #00a5ff;*/
   /*  padding: 15px 20px 13px 20px;*/
   padding-top: 20px;
-  height: 40px;
+  height: 80px;
   font-weight: 900;
 }
 
@@ -115,7 +115,7 @@ nav a {
 }
 
 /* Fool the eye into right alignment with
- * the main body of the page. 
+ * the main body of the page.
  */
 #member_nav {
   padding-right: 5px;
@@ -125,12 +125,12 @@ nav a {
  * Header styling, header.scss
  */
 #header_area {
-  background: white url(/assets/custom2/headerbg.png) bottom center repeat-x;
+  background: #fff url(/assets/custom2/headerbg.png) bottom center repeat-x;
 }
 
 #header {
-  padding: 2em 0 1.5em;
-  height: 200px;
+  /* padding: 2em 0 1.5em; */
+  height: 0px;
 }
 
 /**
@@ -706,7 +706,7 @@ div#signupfree-box .subtext {
 }
 
 #featured-personas {
-  background: black url("orbit/loading.gif") no-repeat center center;
+  background: #000 url("orbit/loading.gif") no-repeat center center;
   overflow: hidden;
   color: #222;
 }
@@ -747,3 +747,5 @@ div#signupfree-box .subtext {
   color: #444;
   text-align: left;
 }
+
+/*# sourceMappingURL=custom3.css.map */
