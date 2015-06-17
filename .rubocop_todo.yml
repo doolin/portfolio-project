@@ -37,7 +37,7 @@ Lint/StringConversionInInterpolation:
 # Offense count: 2
 # Cop supports --auto-correct.
 Lint/UnusedBlockArgument:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 2
 # Cop supports --auto-correct.
