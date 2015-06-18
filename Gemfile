@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rake'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.2'
 gem 'sitemap_generator'
 # gem 'carrierwave'
 # gem 'fog'
