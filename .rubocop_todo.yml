@@ -258,7 +258,7 @@ Style/SingleSpaceBeforeFirstArg:
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/SpaceAfterComma:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 1
 # Cop supports --auto-correct.

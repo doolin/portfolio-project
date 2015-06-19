@@ -256,6 +256,6 @@ When /^the member changes email and password$/ do
 end
 
 
-Then /^the member should see "([^"]*)"$/ do |arg1|
+Then /^the member should see "([^"]*)"$/ do |_arg1|
   page.should have_content('Projects')
 end

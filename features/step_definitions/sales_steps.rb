@@ -28,7 +28,7 @@ When /^fills in "([^"]*)" with "([^"]*)"$/ do |label, value|
   Given %{I fill in "#{label}" with "#{value}"}
 end
 
-When /^presses "([^"]*)"$/ do |arg1|
+When /^presses "([^"]*)"$/ do |_arg1|
   click_button('Submit')
   And %{I dump the response}
 end
