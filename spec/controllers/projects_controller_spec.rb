@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ProjectsController do
   before :each do
-    def mock_project(stubs={})
+    def mock_project(stubs = {})
       @member = double(Member)
       (@mock_project ||= double(Project).as_null_object).tap do |project|
         project.stub(stubs) unless stubs.empty?

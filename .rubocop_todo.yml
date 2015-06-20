@@ -242,13 +242,13 @@ Style/RegexpLiteral:
 # Cop supports --auto-correct.
 # Configuration parameters: AllowAsExpressionSeparator.
 Style/Semicolon:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/SignalException:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 62
 # Cop supports --auto-correct.
@@ -264,7 +264,7 @@ Style/SpaceAfterComma:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/SpaceAroundEqualsInParameterDefault:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 12
 # Cop supports --auto-correct.

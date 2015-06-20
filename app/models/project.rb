@@ -47,7 +47,7 @@ class Project < ActiveRecord::Base
   def check_dates
     #return false if self.startdate > self.finishdate
     if self.startdate > self.finishdate
-      raise ActiveRecord::RecordNotSaved, 'Starting date must precede finishing date'
+      fail ActiveRecord::RecordNotSaved, 'Starting date must precede finishing date'
     end
   end
 
