@@ -219,7 +219,7 @@ Style/PercentLiteralDelimiters:
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/PerlBackrefs:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 1
 # Cop supports --auto-correct.
