@@ -30,7 +30,7 @@ module HtmlSelectorsHelpers
       Regexp.last_match(1)
 
     else
-      fail "Can't find mapping from \"#{locator}\" to a selector.\n" +
+      fail "Can't find mapping from \"#{locator}\" to a selector.\n" \
         "Now, go and add a mapping in #{__FILE__}"
     end
   end
