@@ -93,7 +93,7 @@ Style/AlignHash:
 # Offense count: 8
 # Cop supports --auto-correct.
 Style/BlockComments:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 3
 # Cop supports --auto-correct.

@@ -50,17 +50,15 @@ class ProjectsController < ApplicationController
     # TODO: Remove if possible...
     #flash[:success] = "New project created!"
 
-=begin
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to(@project, :flash => { :success => 'Project was successfully created.'}) }
-        format.xml  { render :xml => @project, :status => :created, :location => @project }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
-      end
-    end
-=end
+#     respond_to do |format|
+#       if @project.save
+#         format.html { redirect_to(@project, :flash => { :success => 'Project was successfully created.'}) }
+#         format.xml  { render :xml => @project, :status => :created, :location => @project }
+#       else
+#         format.html { render :action => "new" }
+#         format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
+#       end
+#     end
 
     respond_to do |format|
       begin

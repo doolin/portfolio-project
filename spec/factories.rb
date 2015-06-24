@@ -1,13 +1,11 @@
-=begin
-Factory.define :member do |m|
-  m.membername            "Dave Doolin"
-  m.email                 "david.doolin+3@example.com"
-  m.password              "foobar"
-  m.password_confirmation "foobar"
-  m.firstname             "Dave"
-  m.lastname              "Doolin"
-end
-=end
+# Factory.define :member do |m|
+#   m.membername            "Dave Doolin"
+#   m.email                 "david.doolin+3@example.com"
+#   m.password              "foobar"
+#   m.password_confirmation "foobar"
+#   m.firstname             "Dave"
+#   m.lastname              "Doolin"
+# end
 
 FactoryGirl.define do # :member do |m|
   factory :member do

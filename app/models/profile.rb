@@ -20,11 +20,9 @@ class Profile < ActiveRecord::Base
     url
   end
 
-=begin
-  def validate_url
-    false
-  end
-=end
+#   def validate_url
+#     false
+#   end
 
 end
 

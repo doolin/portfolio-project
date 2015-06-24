@@ -108,13 +108,11 @@ describe ProjectsController do
     end
 
     describe 'with valid params' do
-=begin
-      xit "updates the requested project" do
-        Project.stub(:find_by_url).with("url") { mock_project }
-        mock_project.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "url", :project => {'these' => 'params'}
-      end
-=end
+#       xit "updates the requested project" do
+#         Project.stub(:find_by_url).with("url") { mock_project }
+#         mock_project.should_receive(:update_attributes).with({'these' => 'params'})
+#         put :update, :id => "url", :project => {'these' => 'params'}
+#       end
 
       xit 'assigns the requested project as @project' do
         #Project.stub(:find).with("37") { mock_project }
@@ -168,15 +166,13 @@ describe ProjectsController do
       sign_in @member
     end
 
-=begin
-    # Uncomment this to see how using the wrong method (:find)
-    # creates an error in the test.
-    xit "destroys the requested project" do
-      Project.should_receive(:find).with("37") { mock_project }
-      mock_project.should_receive(:destroy)
-      delete :destroy, :id => "37"
-    end
-=end
+#     # Uncomment this to see how using the wrong method (:find)
+#     # creates an error in the test.
+#     xit "destroys the requested project" do
+#       Project.should_receive(:find).with("37") { mock_project }
+#       mock_project.should_receive(:destroy)
+#       delete :destroy, :id => "37"
+#     end
 
     xit 'destroys the requested project by url' do
       Project.should_receive(:find_by_url).with('new-project') { mock_project }

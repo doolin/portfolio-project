@@ -42,19 +42,17 @@ class DeviseCreateMembers < ActiveRecord::Migration
 
       t.timestamps
 
-=begin
-      t.database_authenticatable :null => false
-      t.recoverable
-      t.rememberable
-      t.trackable
-
-      # t.confirmable
-      # t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both
-      # t.token_authenticatable
-
-
-      t.timestamps
-=end
+#       t.database_authenticatable :null => false
+#       t.recoverable
+#       t.rememberable
+#       t.trackable
+#
+#       # t.confirmable
+#       # t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both
+#       # t.token_authenticatable
+#
+#
+#       t.timestamps
     end
 
     add_index :members, :email,                :unique => true
