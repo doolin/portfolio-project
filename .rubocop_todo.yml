@@ -66,7 +66,7 @@ Metrics/MethodLength:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, Include.
 Rails/ActionFilter:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 1
 # Configuration parameters: Include.
@@ -82,7 +82,7 @@ Rails/TimeZone:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/AccessModifierIndentation:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 23
 # Cop supports --auto-correct.
