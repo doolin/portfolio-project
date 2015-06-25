@@ -93,9 +93,9 @@ describe Project do
     it 'finish date should raise error' do
       @project = @member.projects.create(@attr)
       @project.finishdate = (DateTime.new(1999))
-      expect {
+      expect do
         @project.save!
-      }.to raise_error(ActiveRecord::RecordNotSaved)
+      end.to raise_error(ActiveRecord::RecordNotSaved)
     end
 
     # False positive. Where did these tests come from?

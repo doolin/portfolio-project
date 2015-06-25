@@ -64,19 +64,19 @@ class ProjectsController < ApplicationController
       begin
         @project.save!
       rescue ActiveRecord::RecordNotSaved => e
-        format.html {
+        format.html do
           # Note: this flash message needs to go before the render method,
           # else the flash won't display on the next render. It will however
           # display on the render following.
           flash[:error] = "Problem: #{e.message}."
           render :new
-        }
+        end
         format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
       rescue Exception => e
-        format.html {
+        format.html do
           #flash[:error] = "Problem: #{e.message}."
           render :action => 'new'
-        }
+        end
         format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
       else
         format.html { redirect_to(@project, :flash => { :success => 'Project was successfully created.' }) }
