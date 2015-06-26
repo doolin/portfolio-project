@@ -117,7 +117,7 @@ describe Project do
     # not given in attr_accessible...
     # TODO: This doesn't smell very good, needs more work.
     it 'should save URI attribute' do
-      expect(@member.projects.create(@attr.merge({ :uri => 'http://foobar.com/' }))).to be_valid
+      expect(@member.projects.create(@attr.merge(:uri => 'http://foobar.com/'))).to be_valid
       #puts @member.projects.to_s
       # This is the smelly part...
       @project = @member.projects.first

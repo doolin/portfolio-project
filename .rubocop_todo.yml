@@ -105,7 +105,7 @@ Style/BlockDelimiters:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/BracesAroundHashParameters:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 1
 # Configuration parameters: EnforcedStyle, SupportedStyles.
