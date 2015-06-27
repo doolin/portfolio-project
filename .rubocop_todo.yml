@@ -131,7 +131,7 @@ Style/Documentation:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/DotPosition:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 23
 # Cop supports --auto-correct.

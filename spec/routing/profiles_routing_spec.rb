@@ -133,7 +133,7 @@ describe 'some false positive routes' do
   end
 
   it 'CORRECTLY FAILS to route GET profile_path(@profile) to the /show action without :id' do
-    expect(:get => profile_path(@profile)).
-      not_to route_to(:controller => 'profiles', :action => 'show')
+    expect(:get => profile_path(@profile))
+      .not_to route_to(:controller => 'profiles', :action => 'show')
   end
 end
