@@ -53,7 +53,7 @@ group :cucumber do
 end
 
 group :test do
-#   gem 'mock-aws-s3'
+  #   gem 'mock-aws-s3'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'launchy'

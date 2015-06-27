@@ -34,11 +34,11 @@ PortfolioProject::Application.routes.draw do
   # After the user is authenticated, reroute
   # to his or her profile.
   # But this isn't working in Cucumber...
-#=begin
+  #=begin
   namespace :member do
     root :to => 'members#show'
   end
-#=end
+  #=end
   #match 'members/:id' => 'members#show', :as => 'member_root'
   #match '/members/:id', :to => redirect {|params| "/#{params[:membername]}" }
 

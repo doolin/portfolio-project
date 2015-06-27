@@ -215,7 +215,7 @@ Then /^the new member should be on the new Profile page$/ do
 end
 
 Given /^member is logged in$/ do
-#=begin
+  #=begin
   email = 'testing@man.net'
   password = 'secretpass'
   #Member.new(:email => email, :password => password, :password_confirmation => password).save!
@@ -232,11 +232,11 @@ Given /^member is logged in$/ do
   end
   click_button 'Sign in'
   #visit('/members/sign_out')
-#=end
+  #=end
 end
 
 When /^the member changes email and password$/ do
-#=begin
+  #=begin
   email = 'testing2@man.net'
   password = 'secretpass'
   #Member.new(:email => email, :password => password, :password_confirmation => password).save!
@@ -245,7 +245,7 @@ When /^the member changes email and password$/ do
                 :password_confirmation => password,
                 :firstname => 'Foo',
                 :lastname => 'Bar').save!
-#=end
+  #=end
 
   password = 'secretpass'
   visit '/members/edit'

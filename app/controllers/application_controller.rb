@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   protected
 #=begin
 def after_sign_in_path_for(resource)
-    #stored_location_for(resource) || member_path
-    #member_path
+  #stored_location_for(resource) || member_path
+  #member_path
 end
 #=end
 

@@ -121,7 +121,7 @@ Style/CommentAnnotation:
 # Offense count: 14
 # Cop supports --auto-correct.
 Style/CommentIndentation:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 44
 Style/Documentation:
