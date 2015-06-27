@@ -116,7 +116,7 @@ Style/ClassAndModuleChildren:
 # Cop supports --auto-correct.
 # Configuration parameters: Keywords.
 Style/CommentAnnotation:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 14
 # Cop supports --auto-correct.
