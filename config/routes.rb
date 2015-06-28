@@ -3,7 +3,6 @@ PortfolioProject::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-
   # All non-logged in users go to sales page.
   root :to => 'sales#index'
 

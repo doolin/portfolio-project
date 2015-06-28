@@ -19,7 +19,6 @@
 @member.save
 #=end
 
-
 #=begin
 @profile_attr = { :firstname => 'Dave',
                  :lastname  => 'Doolin',

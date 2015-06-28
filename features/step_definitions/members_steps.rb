@@ -3,7 +3,6 @@ require 'cgi'
 require File.expand_path(File.join(File.dirname(__FILE__), '..', 'support', 'paths'))
 require File.expand_path(File.join(File.dirname(__FILE__), '..', 'support', 'selectors'))
 
-
 Given /^a site visitor who is not a member$/ do
   step %{member with email "user@test.com" and password "foobar"}
   visit('/members/sign_out')
@@ -106,9 +105,7 @@ Then /^I should be signed out$/ do
   step %{I should not see "Logout"}
 end
 
-
 #########  Project and profile
-
 
 Given /^member is signed in as "([^"]*)" and password "([^"]*)"$/ do |email, password|
   name = 'foobar'
@@ -158,7 +155,6 @@ end
 Given /^is on the create project page$/ do
   visit new_project_path
 end
-
 
 # Date and time gem: https://gist.github.com/558786
 When /^the member fills out all the project fields correctly$/ do
@@ -254,7 +250,6 @@ When /^the member changes email and password$/ do
   fill_in 'member_current_password', :with => password
   click_button 'Update'
 end
-
 
 Then /^the member should see "([^"]*)"$/ do |_arg1|
   page.should have_content('Projects')

@@ -30,8 +30,6 @@ describe 'routes for Profiles (long form)' do
   end
 end
 
-
-
 describe 'routes for Profiles (short form)' do
   it 'routes GET /profiles to the profiles /index page' do
     expect(get('/profiles')).to \
@@ -68,8 +66,6 @@ describe 'routes for Profiles (short form)' do
       route_to('profiles#update', :id => 'bar')
   end
 end
-
-
 
 describe 'named routes for Profiles (long form)' do
   before(:each) do
@@ -111,7 +107,6 @@ describe 'named routes for Profiles (long form)' do
     expect(:put => profile_path(@profile)).to route_to(:controller => 'profiles', :action => 'update', :id => 'bar')
   end
 end
-
 
 describe 'some false positive routes' do
   before(:each) do

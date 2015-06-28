@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
 
-
   def contact
     @site_name = 'Portfolio project'
     @title = 'Contact'

@@ -17,8 +17,6 @@ Then /^I should get a response with status "([^"]*)"$/ do |status|
   page.driver.status_code.should == status.to_i
 end
 
-
-
 # AWeber form handling...
 When /^the visitor fills in "([^"]*)" with "([^"]*)"$/ do |label, value|
   Given %{I fill in "#{label}" with "#{value}"}

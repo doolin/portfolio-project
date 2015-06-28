@@ -33,7 +33,6 @@ describe Project do
     end
   end
 
-
   # I don't like how these validations are structured. They
   # can't be used for outside-in testing; it's possible to
   # write one such that both conditions pass even when the
@@ -108,7 +107,6 @@ describe Project do
     end
 
   end
-
 
   describe 'accessible attributes' do
 

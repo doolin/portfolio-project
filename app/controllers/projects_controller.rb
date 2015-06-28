@@ -84,7 +84,6 @@ class ProjectsController < ApplicationController
       end
     end
 
-
   end
 
   # PUT /projects/1
