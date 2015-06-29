@@ -1,5 +1,4 @@
 class Profile < ActiveRecord::Base
-
   # attr_accessible :website, :firstname, :lastname, :twitter, :bio, :url,
   #                 :facebook, :linkedin, :website_anchor, :gprofile_url
 
@@ -23,7 +22,6 @@ class Profile < ActiveRecord::Base
   #   def validate_url
   #     false
   #   end
-
 end
 
 # http://railsforum.com/viewtopic.php?id=42819

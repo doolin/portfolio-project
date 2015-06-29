@@ -1,5 +1,4 @@
 class SalesController < ApplicationController
-
   def index
     if member_signed_in?
       redirect_to current_member

@@ -11,7 +11,6 @@ end
 
 module PortfolioProject
   class Application < Rails::Application
-
     # Enable the asset pipeline
     config.assets.enabled = true
 

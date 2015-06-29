@@ -27,5 +27,4 @@ class Member < ActiveRecord::Base
   #validates :email, :presence => true
   validates :email, :uniqueness => true
   #validates_uniqueness_of :email
-
 end

@@ -1,5 +1,4 @@
 class ProfilesController < ApplicationController
-
   before_filter :authenticate_member!, :except => [:show, :index]
 
   def index

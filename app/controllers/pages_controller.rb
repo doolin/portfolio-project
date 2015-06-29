@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-
   def contact
     @site_name = 'Portfolio project'
     @title = 'Contact'
@@ -37,5 +36,4 @@ class PagesController < ApplicationController
   def help
     @site_name = 'Portfolio Project'
   end
-
 end

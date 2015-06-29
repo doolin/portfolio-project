@@ -1,5 +1,4 @@
 class ProjectsController < ApplicationController
-
   before_filter :authenticate_member!, :except => [:show, :index]
 
   # GET /projects

@@ -1,5 +1,4 @@
 class Project < ActiveRecord::Base
-
   # attr_accessible :name, :summary, :client, :tags, :description, :pointofcontact,
   #                 :startdate, :finishdate, :url, :member_id, :uri, :requiredskills,
   #                 :uri_anchor
@@ -50,5 +49,4 @@ class Project < ActiveRecord::Base
       fail ActiveRecord::RecordNotSaved, 'Starting date must precede finishing date'
     end
   end
-
 end

@@ -1,5 +1,4 @@
 class MembersController < ApplicationController
-
   # I don't like this, it smells...
   def show
     if member_signed_in?
