@@ -42,7 +42,7 @@ Lint/UnusedBlockArgument:
 # Offense count: 2
 # Cop supports --auto-correct.
 Lint/UnusedMethodArgument:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 9
 Lint/UselessAssignment:
