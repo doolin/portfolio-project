@@ -12,7 +12,6 @@
 # It's strongly recommended to check this file into your version control system.
 
 ActiveRecord::Schema.define(:version => 20111117180143) do
-
   create_table 'members', :force => true do |t|
     t.string 'email',                  :default => '', :null => false
     t.string 'encrypted_password',     :default => '', :null => false
@@ -69,5 +68,4 @@ ActiveRecord::Schema.define(:version => 20111117180143) do
   end
 
   add_index 'projects', ['member_id'], :name => 'index_projects_on_member_id'
-
 end

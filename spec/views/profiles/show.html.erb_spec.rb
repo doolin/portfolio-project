@@ -48,7 +48,6 @@ describe 'profiles/show.html.erb' do
     #rendered.should_not have_selector('a.gprofile', :content => 'profile')
     expect(rendered).to match(/no Google profile given/)
   end
-
 end
 
 # These may be producing false positives.

@@ -141,13 +141,13 @@ Style/EmptyLines:
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/EmptyLinesAroundAccessModifier:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 11
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/EmptyLinesAroundBlockBody:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 12
 # Cop supports --auto-correct.
@@ -158,7 +158,7 @@ Style/EmptyLinesAroundClassBody:
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/EmptyLinesAroundMethodBody:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 2
 # Cop supports --auto-correct.

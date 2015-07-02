@@ -105,11 +105,9 @@ describe Project do
     it 'should reject long Client' do
       expect(@member.projects.build(:client => 'a' * 141)).not_to be_valid
     end
-
   end
 
   describe 'accessible attributes' do
-
     # http://guides.rubyonrails.org/association_basics.html#has_many-association-reference
     # This is also a false positive against saving the :uri when it's
     # not given in attr_accessible...

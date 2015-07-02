@@ -82,7 +82,6 @@ class ProjectsController < ApplicationController
         format.xml  { render :xml => @project, :status => :created, :location => @project }
       end
     end
-
   end
 
   # PUT /projects/1

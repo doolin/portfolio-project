@@ -1,7 +1,6 @@
 class DeviseCreateMembers < ActiveRecord::Migration
   def self.up
     create_table(:members) do |t|
-
       ## Database authenticatable
       t.string :email,              :null => false, :default => ''
       t.string :encrypted_password, :null => false, :default => ''

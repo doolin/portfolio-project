@@ -1,6 +1,5 @@
 
 namespace :zurb do
-
   desc 'Updating the Zurb Foundation stylesheets'
   task :update do
     puts 'Updating...'
@@ -19,5 +18,4 @@ namespace :zurb do
     system "rm #{jspath}/jquery.min.js"
     system "cp -R #{srcpath}/stylesheets/ #{csspath}"
   end
-
 end
