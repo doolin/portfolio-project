@@ -1,5 +1,4 @@
 module SalesHelper
-
   def resource_name
     :member
   end
