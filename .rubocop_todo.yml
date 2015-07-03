@@ -170,7 +170,7 @@ Style/EmptyLinesAroundModuleBody:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/FirstParameterIndentation:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 2
 # Configuration parameters: MinBodyLength.

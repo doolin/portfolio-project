@@ -10,11 +10,11 @@ end
 
 Given /^member with email "([^"]*)" and password "([^"]*)"$/ do |email, password|
   @member = Member.create(
-             :email => email,
-             :password => password,
-             :password_confirmation => password,
-             :firstname => 'foo',
-             :lastname => 'bar')
+    :email => email,
+    :password => password,
+    :password_confirmation => password,
+    :firstname => 'foo',
+    :lastname => 'bar')
   @profile = @member.build_profile(:firstname => 'Foo', :lastname => 'bar')
   @profile.save
 end
