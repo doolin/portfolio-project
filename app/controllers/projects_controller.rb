@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :authenticate_member!, :except => [:show, :index]
+  before_filter :authenticate_member!, except: [:show, :index]
 
   # GET /projects
   # GET /projects.xml
@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @projects }
+      format.xml  { render xml: @projects }
     end
   end
 
@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @project }
+      format.xml  { render xml: @project }
     end
   end
 
@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @project }
+      format.xml  { render xml: @project }
     end
   end
 
@@ -70,16 +70,16 @@ class ProjectsController < ApplicationController
           flash[:error] = "Problem: #{e.message}."
           render :new
         end
-        format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
+        format.xml  { render xml: @project.errors, status: :unprocessable_entity }
       rescue Exception => e
         format.html do
           #flash[:error] = "Problem: #{e.message}."
-          render :action => 'new'
+          render action: 'new'
         end
-        format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
+        format.xml  { render xml: @project.errors, status: :unprocessable_entity }
       else
-        format.html { redirect_to(@project, :flash => { :success => 'Project was successfully created.' }) }
-        format.xml  { render :xml => @project, :status => :created, :location => @project }
+        format.html { redirect_to(@project, flash: { success: 'Project was successfully created.' }) }
+        format.xml  { render xml: @project, status: :created, location: @project }
       end
     end
   end
@@ -91,11 +91,11 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
-        format.html { redirect_to(@project, :flash => { :success => 'Project was successfully updated.' }) }
+        format.html { redirect_to(@project, flash: { success: 'Project was successfully updated.' }) }
         format.xml  { head :ok }
       else
-        format.html { render :action => 'edit' }
-        format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
+        format.html { render action: 'edit' }
+        format.xml  { render xml: @project.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -107,7 +107,7 @@ class ProjectsController < ApplicationController
     @project.destroy
 
     respond_to do |format|
-      format.html { redirect_to(projects_url, :flash => { :success => 'Project was successfully deleted.' }) }
+      format.html { redirect_to(projects_url, flash: { success: 'Project was successfully deleted.' }) }
       format.xml  { head :ok }
     end
   end

@@ -3,37 +3,37 @@ require 'spec_helper'
 describe ProjectsController do
   describe 'routing, explicit, long form' do
     it 'recognizes and generates #index' do
-      expect(:get => '/projects').to route_to(:controller => 'projects', :action => 'index')
+      expect(get: '/projects').to route_to(controller: 'projects', action: 'index')
     end
 
     it 'recognizes and generates #new' do
-      expect(:get => '/projects/new').to route_to(:controller => 'projects', :action => 'new')
+      expect(get: '/projects/new').to route_to(controller: 'projects', action: 'new')
     end
 
     it 'recognizes and generates #show' do
-      expect(:get => '/projects/1').to route_to(:controller => 'projects', :action => 'show', :id => '1')
+      expect(get: '/projects/1').to route_to(controller: 'projects', action: 'show', id: '1')
     end
 
     it 'recognizes and generates #edit' do
-      expect(:get => '/projects/1/edit').to route_to(:controller => 'projects', :action => 'edit', :id => '1')
+      expect(get: '/projects/1/edit').to route_to(controller: 'projects', action: 'edit', id: '1')
     end
 
     it 'recognizes and generates #create' do
-      expect(:post => '/projects').to route_to(:controller => 'projects', :action => 'create')
+      expect(post: '/projects').to route_to(controller: 'projects', action: 'create')
     end
 
     it 'recognizes and generates #update' do
-      expect(:put => '/projects/1').to route_to(:controller => 'projects', :action => 'update', :id => '1')
+      expect(put: '/projects/1').to route_to(controller: 'projects', action: 'update', id: '1')
     end
 
     it 'recognizes and generates #destroy' do
-      expect(:delete => '/projects/1').to route_to(:controller => 'projects', :action => 'destroy', :id => '1')
+      expect(delete: '/projects/1').to route_to(controller: 'projects', action: 'destroy', id: '1')
     end
   end
 
   describe 'routing short form, url redirect' do
     before(:each) do
-      @project = Project.create(:name => 'New project')
+      @project = Project.create(name: 'New project')
     end
 
     it 'routes GET projects_path to the /index action' do
@@ -43,12 +43,12 @@ describe ProjectsController do
 
     it 'routes GET project_path(@project) to the /show action' do
       expect(get(project_path(@project))).to \
-        route_to('projects#show', :id => @project.url)
+        route_to('projects#show', id: @project.url)
     end
 
     it 'routes GET edit_project_path(@project) to the /edit action' do
       expect(get(edit_project_path(@project))).to \
-        route_to('projects#edit', :id => @project.url)
+        route_to('projects#edit', id: @project.url)
     end
 
     it 'routes GET new_project_path to the /new action' do
@@ -63,12 +63,12 @@ describe ProjectsController do
 
     it 'routes DELETE project_path(@project) to the /destroy action' do
       expect(delete(project_path(@project))).to \
-        route_to('projects#destroy', :id => @project.url)
+        route_to('projects#destroy', id: @project.url)
     end
 
     it 'routes PUT project_path(@project) to the /update action' do
       expect(put(project_path(@project))).to \
-        route_to('projects#update', :id => @project.url)
+        route_to('projects#update', id: @project.url)
     end
   end
 end

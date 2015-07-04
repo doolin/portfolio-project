@@ -7,10 +7,10 @@ describe MembersController do
 
   describe "GET 'show'" do
     it "should show the member's projects'" do
-      p1 = FactoryGirl.create(:project, :member => @member, :summary => 'Foo bar')
-      p2 = FactoryGirl.create(:project, :member => @member, :summary => 'Baz quux')
+      p1 = FactoryGirl.create(:project, member: @member, summary: 'Foo bar')
+      p2 = FactoryGirl.create(:project, member: @member, summary: 'Baz quux')
       @member.projects = [p1, p2]
-      get :show, :id => @member
+      get :show, id: @member
       expect(response).to render_template('show')
     end
   end

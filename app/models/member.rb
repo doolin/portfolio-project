@@ -9,8 +9,8 @@ class Member < ActiveRecord::Base
   #                 :firstname, :lastname, :membername, :profile_attributes,
   #                 :recoverable #, password_confirmation
 
-  has_many :projects, :dependent => :destroy
-  has_one :profile, :dependent => :destroy
+  has_many :projects, dependent: :destroy
+  has_one :profile, dependent: :destroy
 
   # TODO: the f.fields_for form code got removed
   # while trying to figure out a redirect for
@@ -25,6 +25,6 @@ class Member < ActiveRecord::Base
   #validates :membername, :presence => true
   #validates :email, :presence => true, :uniqueness => true
   #validates :email, :presence => true
-  validates :email, :uniqueness => true
+  validates :email, uniqueness: true
   #validates_uniqueness_of :email
 end

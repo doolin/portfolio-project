@@ -21,7 +21,7 @@ PortfolioProject::Application.configure do
   config.active_support.deprecation = :log
 
   # From Devise
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin

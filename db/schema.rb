@@ -11,37 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111117180143) do
-  create_table 'members', :force => true do |t|
-    t.string 'email',                  :default => '', :null => false
-    t.string 'encrypted_password',     :default => '', :null => false
+ActiveRecord::Schema.define(version: 20111117180143) do
+  create_table 'members', force: true do |t|
+    t.string 'email',                  default: '', null: false
+    t.string 'encrypted_password',     default: '', null: false
     t.string 'reset_password_token'
     t.datetime 'reset_password_sent_at'
     t.datetime 'remember_created_at'
-    t.integer 'sign_in_count',          :default => 0
+    t.integer 'sign_in_count',          default: 0
     t.datetime 'current_sign_in_at'
     t.datetime 'last_sign_in_at'
     t.string 'current_sign_in_ip'
     t.string 'last_sign_in_ip'
-    t.datetime 'created_at',                             :null => false
-    t.datetime 'updated_at',                             :null => false
+    t.datetime 'created_at',                             null: false
+    t.datetime 'updated_at',                             null: false
     t.string 'membername'
     t.string 'firstname'
     t.string 'lastname'
   end
 
-  add_index 'members', ['email'], :name => 'index_members_on_email', :unique => true
-  add_index 'members', ['reset_password_token'], :name => 'index_members_on_reset_password_token', :unique => true
+  add_index 'members', ['email'], name: 'index_members_on_email', unique: true
+  add_index 'members', ['reset_password_token'], name: 'index_members_on_reset_password_token', unique: true
 
-  create_table 'profiles', :force => true do |t|
+  create_table 'profiles', force: true do |t|
     t.integer 'member_id'
     t.text 'bio'
     t.string 'website'
     t.string 'twitter'
     t.string 'facebook'
     t.string 'linkedin'
-    t.datetime 'created_at',     :null => false
-    t.datetime 'updated_at',     :null => false
+    t.datetime 'created_at',     null: false
+    t.datetime 'updated_at',     null: false
     t.string 'firstname'
     t.string 'lastname'
     t.string 'url'
@@ -49,12 +49,12 @@ ActiveRecord::Schema.define(:version => 20111117180143) do
     t.string 'gprofile_url'
   end
 
-  create_table 'projects', :force => true do |t|
+  create_table 'projects', force: true do |t|
     t.string 'name'
-    t.text 'summary',        :limit => 255
+    t.text 'summary',        limit: 255
     t.string 'client'
-    t.datetime 'created_at',                    :null => false
-    t.datetime 'updated_at',                    :null => false
+    t.datetime 'created_at',                    null: false
+    t.datetime 'updated_at',                    null: false
     t.string 'tags'
     t.integer 'member_id'
     t.text 'description'
@@ -67,5 +67,5 @@ ActiveRecord::Schema.define(:version => 20111117180143) do
     t.string 'uri_anchor'
   end
 
-  add_index 'projects', ['member_id'], :name => 'index_projects_on_member_id'
+  add_index 'projects', ['member_id'], name: 'index_projects_on_member_id'
 end

@@ -15,7 +15,7 @@ describe 'sales/new.html.erb' do
   end
 
   it 'should have the correct <title> element ' do
-    render(:template => 'sales/new.html.erb', :layout => 'layouts/application')
+    render(template: 'sales/new.html.erb', layout: 'layouts/application')
     expect(rendered).to match('Premium Membership | Portfolio Project')
   end
 end

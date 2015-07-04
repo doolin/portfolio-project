@@ -12,6 +12,6 @@ describe 'profiles/destroy.html.erb' do
 
   it 'renders the profile destroyed page' do
     render
-    expect(rendered).to have_selector('h2', :text => 'Thank you for your time')
+    expect(rendered).to have_selector('h2', text: 'Thank you for your time')
   end
 end

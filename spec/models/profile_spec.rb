@@ -4,9 +4,9 @@ describe Profile do
   before(:each) do
     @member = FactoryGirl.create(:member)
     @attr = {
-      :firstname => 'Joe',
-      :lastname  => 'Bloggs',
-      :created_at => 1.day.ago
+      firstname: 'Joe',
+      lastname: 'Bloggs',
+      created_at: 1.day.ago
     }
   end
 
@@ -16,7 +16,7 @@ describe Profile do
     # This doesn't work. Why not?
     #@member.profile.create!(@attr)
     #@member.profile.create!(:firstname => 'Joe', :lastname => 'Bloggs')
-    @p1 = FactoryGirl.create(:profile, :member => @member, :created_at => 1.day.ago)
+    @p1 = FactoryGirl.create(:profile, member: @member, created_at: 1.day.ago)
     expect(@p1).to be_valid
     expect(@member.profile).to be_valid
   end
@@ -27,28 +27,28 @@ describe Profile do
     end
 
     it 'should require nonblank firstname' do
-      expect(@member.build_profile(@attr.merge(:firstname => ' '))).not_to be_valid
+      expect(@member.build_profile(@attr.merge(firstname: ' '))).not_to be_valid
     end
 
     it 'should require nonblank lastname' do
-      expect(@member.build_profile(@attr.merge(:lastname => ' '))).not_to be_valid
+      expect(@member.build_profile(@attr.merge(lastname: ' '))).not_to be_valid
     end
 
     # http://intridea.com/2009/2/18/quick-tip-url-validation-in-rails?blog=company
     it 'should validate any given urls' do
-      expect(@member.build_profile(@attr.merge(:website => 'http://foobar.com/'))).to be_valid
+      expect(@member.build_profile(@attr.merge(website: 'http://foobar.com/'))).to be_valid
     end
 
     it 'should validate any given urls without http' do
-      expect(@member.build_profile(@attr.merge(:website => 'foobar.com/'))).to be_valid
+      expect(@member.build_profile(@attr.merge(website: 'foobar.com/'))).to be_valid
     end
 
     xit 'should not validate url with bogus protocol' do
-      expect(@member.build_profile(@attr.merge(:website => 'httt://foobar.com/'))).not_to be_valid
+      expect(@member.build_profile(@attr.merge(website: 'httt://foobar.com/'))).not_to be_valid
     end
 
     xit 'should not validate url with bogus domain' do
-      expect(@member.build_profile(@attr.merge(:website => 'http://foobar/'))).not_to be_valid
+      expect(@member.build_profile(@attr.merge(website: 'http://foobar/'))).not_to be_valid
     end
   end
 end

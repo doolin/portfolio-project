@@ -21,7 +21,7 @@ describe ProjectsController do
   describe 'GET show' do
     xit 'assigns the requested project as @project' do
       Project.stub(:find).with('37') { mock_project }
-      get :show, :id => '37'
+      get :show, id: '37'
       expect(assigns(:project)).to eq(@mock_project)
     end
   end
@@ -37,7 +37,7 @@ describe ProjectsController do
   describe 'GET edit' do
     it 'assigns the requested project as @project' do
       Project.stub(:find).with('37') { mock_project }
-      get :edit, :id => '37'
+      get :edit, id: '37'
       expect(assigns(:project)).to be(@mock_project)
     end
   end
@@ -45,8 +45,8 @@ describe ProjectsController do
   describe 'POST create' do
     describe 'with valid params' do
       it 'assigns a newly created project as @project' do
-        Project.stub(:new).with('these' => 'params') { mock_project(:save => true) }
-        post :create, :project => { 'these' => 'params' }
+        Project.stub(:new).with('these' => 'params') { mock_project(save: true) }
+        post :create, project: { 'these' => 'params' }
         expect(assigns(:project)).to be(@mock_project)
       end
 
@@ -54,16 +54,16 @@ describe ProjectsController do
         @member = FactoryGirl.create(:member)
         sign_in @member
         expect do
-          post :create, :project => {
-            :name => 'Project test',
-            :summary        => 'Test example',
-            :description    => 'Some short, descriptive text for testing.',
-            :requiredskills => 'Cat herding',
-            :client         => 'RSpec',
-            :tags           => 'TDD, BDD',
-            :startdate      =>  DateTime.new,
-            :finishdate     =>  DateTime.new,
-            :url            => 'project-test'
+          post :create, project: {
+            name: 'Project test',
+            summary: 'Test example',
+            description: 'Some short, descriptive text for testing.',
+            requiredskills: 'Cat herding',
+            client: 'RSpec',
+            tags: 'TDD, BDD',
+            startdate: DateTime.new,
+            finishdate: DateTime.new,
+            url: 'project-test'
           }
         end.to change(Project, :count).by(1)
       end
@@ -73,28 +73,28 @@ describe ProjectsController do
         sign_in member
         #member.build_profile(stub(Profile))
         #pending "Need to add a Devise sign in for this..."
-        Project.stub(:new) { mock_project(:save => true) }
-        post :create, :project => {}
+        Project.stub(:new) { mock_project(save: true) }
+        post :create, project: {}
         expect(response).to redirect_to(project_url(@mock_project))
       end
 
       xit 'redirects to the sign in page when not logged in' do
-        Project.stub(:new) { mock_project(:save => true) }
-        post :create, :project => {}
+        Project.stub(:new) { mock_project(save: true) }
+        post :create, project: {}
         expect(response).to redirect_to(new_member_session_path)
       end
     end
 
     describe 'with invalid params' do
       it 'assigns a newly created but unsaved project as @project' do
-        Project.stub(:new).with('these' => 'params') { mock_project(:save => false) }
-        post :create, :project => { 'these' => 'params' }
+        Project.stub(:new).with('these' => 'params') { mock_project(save: false) }
+        post :create, project: { 'these' => 'params' }
         expect(assigns(:project)).to be(@mock_project)
       end
 
       xit "re-renders the 'new' template" do
-        Project.stub(:new) { mock_project(:save => false) }
-        post :create, :project => {}
+        Project.stub(:new) { mock_project(save: false) }
+        post :create, project: {}
         puts response
         expect(response).to render_template(:new)
       end
@@ -116,15 +116,15 @@ describe ProjectsController do
 
       xit 'assigns the requested project as @project' do
         #Project.stub(:find).with("37") { mock_project }
-        Project.stub(:find_by_url).with('new-project') { mock_project(:update_attributes => true) }
-        put :update, :id => 'new-project'
+        Project.stub(:find_by_url).with('new-project') { mock_project(update_attributes: true) }
+        put :update, id: 'new-project'
         expect(assigns(:project)).to be(@mock_project)
       end
 
       xit 'redirects to the project' do
         #pending "Need Devise log in..."
-        Project.stub(:find_by_url) { mock_project(:update_attributes => true) }
-        put :update, :id => '1'
+        Project.stub(:find_by_url) { mock_project(update_attributes: true) }
+        put :update, id: '1'
         expect(response).to redirect_to(project_url(mock_project))
       end
     end
@@ -138,23 +138,23 @@ describe ProjectsController do
       end
 
       it 'assigns the project as @project' do
-        Project.stub(:find_by_url) { mock_project(:update_attributes => false) }
-        put :update, :id => '1'
+        Project.stub(:find_by_url) { mock_project(update_attributes: false) }
+        put :update, id: '1'
         expect(assigns(:project)).to be(@mock_project)
       end
 
       xit "re-renders the 'edit' template" do
-        Project.stub(:find) { mock_project(:update_attributes => false) }
-        put :update, :id => '1'
-        expect(response).to render_template(:action => 'edit')
+        Project.stub(:find) { mock_project(update_attributes: false) }
+        put :update, id: '1'
+        expect(response).to render_template(action: 'edit')
       end
     end
 
     describe 'when not an authenticated member' do
        it 'should redirect to the sign in page' do
          sign_out @member
-         Project.stub(:find) { mock_project(:update_attributes => true) }
-         put :update, :id => '1'
+         Project.stub(:find) { mock_project(update_attributes: true) }
+         put :update, id: '1'
          expect(response).to redirect_to(new_member_session_path)
        end
     end
@@ -177,12 +177,12 @@ describe ProjectsController do
     xit 'destroys the requested project by url' do
       Project.should_receive(:find_by_url).with('new-project') { mock_project }
       mock_project.should_receive(:destroy)
-      delete :destroy, :id => 'new-project'
+      delete :destroy, id: 'new-project'
     end
 
     it 'redirects to the projects list' do
       Project.stub(:find_by_url) { mock_project }
-      delete :destroy, :id => 'new-project'
+      delete :destroy, id: 'new-project'
       expect(response).to redirect_to(projects_url)
     end
   end

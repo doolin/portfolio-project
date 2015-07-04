@@ -10,12 +10,12 @@ end
 
 Given /^member with email "([^"]*)" and password "([^"]*)"$/ do |email, password|
   @member = Member.create(
-    :email => email,
-    :password => password,
-    :password_confirmation => password,
-    :firstname => 'foo',
-    :lastname => 'bar')
-  @profile = @member.build_profile(:firstname => 'Foo', :lastname => 'bar')
+    email: email,
+    password: password,
+    password_confirmation: password,
+    firstname: 'foo',
+    lastname: 'bar')
+  @profile = @member.build_profile(firstname: 'Foo', lastname: 'bar')
   @profile.save
 end
 
@@ -34,18 +34,18 @@ When /^fills in the sign up form$/ do
 end
 
 Given /^member name is "([^"]*)" with email "([^"]*)" and password "([^"]*)"$/ do |name, email, password|
-  @member = Member.create(:membername => name,
-             :email => email,
-             :password => password,
-             :password_confirmation => password,
-             :firstname => 'foo',
-             :lastname => 'bar') #.save!
-  @profile = @member.build_profile(:firstname => 'Foo', :lastname => 'bar')
+  @member = Member.create(membername: name,
+             email: email,
+             password: password,
+             password_confirmation: password,
+             firstname: 'foo',
+             lastname: 'bar') #.save!
+  @profile = @member.build_profile(firstname: 'Foo', lastname: 'bar')
   @profile.save
 end
 
 Given /^no user exists with an email of "(.*)"$/ do |email|
-  Member.find(:first, :conditions => { :email => email }).should be_nil
+  Member.find(:first, conditions: { email: email }).should be_nil
 end
 
 Given /^member is on sign_in page$/ do
@@ -110,16 +110,16 @@ end
 Given /^member is signed in as "([^"]*)" and password "([^"]*)"$/ do |email, password|
   name = 'foobar'
   # Member.new may not work
-  @member = Member.new(:membername => name,
-            :email => email,
-            :password => password,
-            :password_confirmation => password,
-            :firstname => 'MFoo',
-            :lastname => 'MBar') #.save!
+  @member = Member.new(membername: name,
+            email: email,
+            password: password,
+            password_confirmation: password,
+            firstname: 'MFoo',
+            lastname: 'MBar') #.save!
 
   @member.save!
   #puts @member.member_id
-  @profile = @member.build_profile(:firstname => 'Foo', :lastname => 'bar')
+  @profile = @member.build_profile(firstname: 'Foo', lastname: 'bar')
   #puts @profile.inspect # Also, p object is an alias for puts object.inspect
   @profile.save
   #Given %{member is not logged in}
@@ -184,8 +184,8 @@ When /^the member fills out all the project fields correctly$/ do
   #select_date("July 16, 2011", :from => 'jksfglkadhg Starting date')
   #select_date("July 16, 2011", :with => 'project_startdate')
   #select_date("2011-07-16")
-  select_date('Startdate', :with => startdate)
-  select_date('Finishdate', :with => finishdate)
+  select_date('Startdate', with: startdate)
+  select_date('Finishdate', with: finishdate)
   #select_date("July 16, 2011")
   #select_date('2011-07-16 00:00:00', :from => 'Starting date')
   #And %{I select "#{startdate}" from "Startdate"}
@@ -215,16 +215,16 @@ Given /^member is logged in$/ do
   email = 'testing@man.net'
   password = 'secretpass'
   #Member.new(:email => email, :password => password, :password_confirmation => password).save!
-  Member.new(:email => email,
-                :password => password,
-                :password_confirmation => password,
-                :firstname => 'Foo',
-                :lastname => 'Bar').save!
+  Member.new(email: email,
+                password: password,
+                password_confirmation: password,
+                firstname: 'Foo',
+                lastname: 'Bar').save!
 
   visit '/members/sign_in'
   within('#member_new') do
-    fill_in 'member_email', :with => email
-    fill_in 'member_password', :with => password
+    fill_in 'member_email', with: email
+    fill_in 'member_password', with: password
   end
   click_button 'Sign in'
   #visit('/members/sign_out')
@@ -236,18 +236,18 @@ When /^the member changes email and password$/ do
   email = 'testing2@man.net'
   password = 'secretpass'
   #Member.new(:email => email, :password => password, :password_confirmation => password).save!
-  Member.new(:email => email,
-                :password => password,
-                :password_confirmation => password,
-                :firstname => 'Foo',
-                :lastname => 'Bar').save!
+  Member.new(email: email,
+                password: password,
+                password_confirmation: password,
+                firstname: 'Foo',
+                lastname: 'Bar').save!
   #=end
 
   password = 'secretpass'
   visit '/members/edit'
-  fill_in 'member_password', :with => password
-  fill_in 'member_password_confirmation', :with => password
-  fill_in 'member_current_password', :with => password
+  fill_in 'member_password', with: password
+  fill_in 'member_password_confirmation', with: password
+  fill_in 'member_current_password', with: password
   click_button 'Update'
 end
 

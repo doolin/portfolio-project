@@ -8,11 +8,11 @@ SitemapGenerator::Sitemap.sitemaps_path = 'tmp/'
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::WaveAdapter.new
 SitemapGenerator::Sitemap.create do
   Project.find_each do |project|
-    add project_path(project), :lastmod => project.updated_at
+    add project_path(project), lastmod: project.updated_at
   end
 
   Profile.find_each do |profile|
-    add profile_path(profile), :lastmod => profile.updated_at
+    add profile_path(profile), lastmod: profile.updated_at
   end
 
   add '/about'

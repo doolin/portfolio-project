@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'projects/_form.html.erb' do
   before(:each) do
     @member = FactoryGirl.create(:member)
-    @project = FactoryGirl.create(:project, :member => @member)
+    @project = FactoryGirl.create(:project, member: @member)
     sign_in @member
   end
 
@@ -16,16 +16,16 @@ describe 'projects/_form.html.erb' do
   # to write these tests.
   xit 'has a Point of Contact field for the project' do
     render
-    rendered.should have_selector('input', :text => 'project[pointofcontact]')
+    rendered.should have_selector('input', text: 'project[pointofcontact]')
   end
 
   xit 'has a URI field for the project' do
     render
-    rendered.should have_selector('input', :text => 'project[uri]')
+    rendered.should have_selector('input', text: 'project[uri]')
   end
 
   xit 'has a Required Skills field for the project' do
     render
-    rendered.should have_selector('textarea', :text => 'project[requiredskills]')
+    rendered.should have_selector('textarea', text: 'project[requiredskills]')
   end
 end

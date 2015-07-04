@@ -3,7 +3,7 @@ require 'spec_helper'
 describe ProfilesController do
   before(:each) do
     @member  = FactoryGirl.create(:member)
-    @profile = FactoryGirl.create(:profile, :member => @member)
+    @profile = FactoryGirl.create(:profile, member: @member)
     sign_in @member
   end
 
@@ -25,13 +25,13 @@ describe ProfilesController do
   describe "GET 'show'" do
     it 'should be successful' do
       sign_out @member
-      get :show, :id => @profile.url
+      get :show, id: @profile.url
       expect(response).to be_success
     end
 
     it "displays the member's profile" do
       sign_out @member
-      get :show, :id => @profile.url
+      get :show, id: @profile.url
       expect(response).to render_template('show')
     end
   end
@@ -45,7 +45,7 @@ describe ProfilesController do
 
   describe "GET 'edit'" do
     it 'renders the edit profile page' do
-      get :edit, :id => @profile.url
+      get :edit, id: @profile.url
       expect(response).to render_template('edit')
     end
   end
@@ -53,7 +53,7 @@ describe ProfilesController do
   describe "POST 'create'" do
     it 'creates a new profile for signed in member' do
       sign_out @member
-      @newmember  = FactoryGirl.create(:member, :email => 'foofppf@gmail.com')
+      @newmember  = FactoryGirl.create(:member, email: 'foofppf@gmail.com')
       sign_in @newmember
       expect do
         post :create, firstname: 'foo', lastname: 'bar'
@@ -63,7 +63,7 @@ describe ProfilesController do
     it 'creates a profile for member without a profile' do
       @member.profile.destroy
       expect do
-        post :create, :firstname => 'foo', :lastname => 'bar'
+        post :create, firstname: 'foo', lastname: 'bar'
       end.to change(Profile, :count).by(1)
     end
 
@@ -79,10 +79,10 @@ describe ProfilesController do
     xit 'updates the profile for signed in member' do
       member  = FactoryGirl.create(:member, email: 'foo@bar.com')
       member.save!
-      profile = FactoryGirl.create(:profile, :member => member)
+      profile = FactoryGirl.create(:profile, member: member)
       profile.save!
       # put :update, :id => @profile.url, :profile => { :firstname => 'Foo', :lastname => 'Bar' }
-      put :update, :id => profile.url, :firstname => 'Foo', :lastname => 'Bar'
+      put :update, id: profile.url, firstname: 'Foo', lastname: 'Bar'
       homer = assigns(:profile)
       profile.reload
       expect(response).to redirect_to(profile_path(@profile))
@@ -91,7 +91,7 @@ describe ProfilesController do
     end
 
     xit 'updates the profile for nil website' do
-      put :update, :id => @profile.url, :profile => { :firstname => 'Foo', :lastname => 'Bar', :website => nil }
+      put :update, id: @profile.url, profile: { firstname: 'Foo', lastname: 'Bar', website: nil }
       @profile.reload
       expect(response).to redirect_to(profile_path(@profile))
       expect(@profile.website).to be_nil
@@ -101,12 +101,12 @@ describe ProfilesController do
   describe "DELETE 'destroy'" do
     it 'should destroy the profile' do
       expect do
-        delete :destroy, :id => @profile.url
+        delete :destroy, id: @profile.url
       end.to change(Profile, :count).by(-1)
     end
 
     it 'redirects to the projects list' do
-      delete :destroy, :id => @profile.url
+      delete :destroy, id: @profile.url
       expect(response).to redirect_to(root_path)
     end
   end

@@ -5,8 +5,8 @@ describe 'projects/show.html.erb' do
     # p. 333 Lightbulb
     #assign(:project, mock_model(Project).as_new_record.as_null_object)
     @member   = FactoryGirl.create(:member)
-    @project   = FactoryGirl.create(:project, :name => 'Slicer', :member => @member)
-    @profile   = FactoryGirl.create(:profile, :member => @member)
+    @project   = FactoryGirl.create(:project, name: 'Slicer', member: @member)
+    @profile   = FactoryGirl.create(:profile, member: @member)
     #sign_in @member
   end
 
@@ -60,10 +60,10 @@ describe 'projects/show.html.erb' do
   end
 
   xit 'should have the correct <title> element ' do
-    render(:template => 'projects/show.html.erb', :layout => 'layouts/application')
+    render(template: 'projects/show.html.erb', layout: 'layouts/application')
     # have_selector is from webrat
     # https://github.com/brynary/webrat/blob/master/lib/webrat/core/matchers/have_selector.rb
-    expect(rendered).to have_selector('title', :text => @project.name + ' | Portfolio Project')
+    expect(rendered).to have_selector('title', text: @project.name + ' | Portfolio Project')
     # http://blog.carbonfive.com/2011/03/02/a-look-at-specifying-views-in-rspec/
     #view.content_for(:sidebar).should have_selector('div.quote')
   end

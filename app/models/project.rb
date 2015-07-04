@@ -5,26 +5,26 @@ class Project < ActiveRecord::Base
 
   belongs_to :member
 
-  validates :summary,        :presence => true, :length => { :maximum => 500 }
-  validates :requiredskills, :length => { :maximum => 255 }
-  validates :member_id,      :presence => true
-  validates :name,           :presence => true, :length => { :maximum => 140 }
-  validates :description,    :length => { :maximum => 2500 }
+  validates :summary,        presence: true, length: { maximum: 500 }
+  validates :requiredskills, length: { maximum: 255 }
+  validates :member_id,      presence: true
+  validates :name,           presence: true, length: { maximum: 140 }
+  validates :description,    length: { maximum: 2500 }
 
   # The Rails date_select form helper is problematic, being difficult to use
   # for extracting form elements. At the moment, the Rails date_select is
   # providing a default Date (and time) value, which means that the Capybara
   # matcher is working without selecting a date. Not good.
-  validates :startdate,   :presence => true
-  validates :finishdate,  :presence => true
-  validates :client,                         :length => { :maximum => 140 }
-  validates :tags,        :presence => true
+  validates :startdate,   presence: true
+  validates :finishdate,  presence: true
+  validates :client,                         length: { maximum: 140 }
+  validates :tags,        presence: true
 
   before_save :check_dates
 
   default_scope -> { order('projects.created_at DESC') }
 
-  acts_as_url :name, :sync_url => :true
+  acts_as_url :name, sync_url: :true
 
   def membername(id)
     member = Member.find(id)

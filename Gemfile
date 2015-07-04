@@ -43,7 +43,7 @@ group :development, :test do
   gem 'xray-rails'
 end
 
-gem 'simplecov', :require => false, :group => :test
+gem 'simplecov', require: false, group: :test
 
 group :cucumber do
   gem 'database_cleaner'

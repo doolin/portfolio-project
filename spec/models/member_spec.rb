@@ -4,8 +4,8 @@ describe Member do
   describe 'project associations' do
     before(:each) do
       @member = FactoryGirl.create(:member)
-      @p1 = FactoryGirl.create(:project, :member => @member, :created_at => 1.day.ago)
-      @p2 = FactoryGirl.create(:project, :member => @member, :created_at => 1.hour.ago)
+      @p1 = FactoryGirl.create(:project, member: @member, created_at: 1.day.ago)
+      @p2 = FactoryGirl.create(:project, member: @member, created_at: 1.hour.ago)
     end
 
     it 'should have a projects attribute' do
@@ -27,7 +27,7 @@ describe Member do
   describe 'profile associations' do
     before(:each) do
       @member = FactoryGirl.create(:member)
-      @p1 = FactoryGirl.create(:profile, :member => @member, :created_at => 1.day.ago)
+      @p1 = FactoryGirl.create(:profile, member: @member, created_at: 1.day.ago)
     end
 
     it 'should have a profile' do
@@ -45,13 +45,13 @@ describe Member do
   describe 'saving' do
     it 'requires first and last name' do
       expect(FactoryGirl.create(:member)).to be_valid
-      expect(FactoryGirl.build(:member, :firstname => nil)).not_to be_valid
-      expect(FactoryGirl.build(:member, :lastname => nil)).not_to be_valid
+      expect(FactoryGirl.build(:member, firstname: nil)).not_to be_valid
+      expect(FactoryGirl.build(:member, lastname: nil)).not_to be_valid
     end
 
     it 'should enforce unique email' do
       m1 = FactoryGirl.create(:member)
-      expect(FactoryGirl.build(:member, :email => m1.email)).not_to be_valid
+      expect(FactoryGirl.build(:member, email: m1.email)).not_to be_valid
     end
   end
 end

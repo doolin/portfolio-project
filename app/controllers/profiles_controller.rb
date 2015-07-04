@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_filter :authenticate_member!, :except => [:show, :index]
+  before_filter :authenticate_member!, except: [:show, :index]
 
   def index
     @profiles = Profile.all
@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
       @member.firstname = @profile.firstname
       @member.lastname = @profile.lastname
       @member.save!
-      redirect_to(@profile, :flash => { :success => 'Profile was successfully created.' })
+      redirect_to(@profile, flash: { success: 'Profile was successfully created.' })
     end
   end
 
@@ -40,11 +40,11 @@ class ProfilesController < ApplicationController
         @member.firstname = @profile.firstname
         @member.lastname = @profile.lastname
         @member.save
-        format.html { redirect_to(@profile, :flash => { :success => 'Profile was successfully updated.' }) }
+        format.html { redirect_to(@profile, flash: { success: 'Profile was successfully updated.' }) }
         format.xml  { head :ok }
       else
-        format.html { render :action => 'edit' }
-        format.xml  { render :xml => @profile.errors, :status => :unprocessable_entity }
+        format.html { render action: 'edit' }
+        format.xml  { render xml: @profile.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -52,7 +52,7 @@ class ProfilesController < ApplicationController
   def destroy
     profile = Profile.find_by_url(params[:id])
     profile.destroy
-    redirect_to(root_path, :flash => { :success => 'Profile was successfully removed.' })
+    redirect_to(root_path, flash: { success: 'Profile was successfully removed.' })
   end
 
   def number_of_projects(id)
