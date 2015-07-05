@@ -3,11 +3,11 @@ class ApplicationController < ActionController::Base
 
   protected
 
-#=begin
-def after_sign_in_path_for(_resource)
-  #stored_location_for(resource) || member_path
-  #member_path
-end
+  #=begin
+  def after_sign_in_path_for(_resource)
+    #stored_location_for(resource) || member_path
+    #member_path
+  end
 #=end
 
 =begin
