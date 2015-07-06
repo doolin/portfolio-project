@@ -193,7 +193,7 @@ Style/IndentationConsistency:
 # Cop supports --auto-correct.
 # Configuration parameters: Width.
 Style/IndentationWidth:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 98
 # Cop supports --auto-correct.

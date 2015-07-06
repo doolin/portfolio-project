@@ -151,12 +151,12 @@ describe ProjectsController do
     end
 
     describe 'when not an authenticated member' do
-       it 'should redirect to the sign in page' do
-         sign_out @member
-         Project.stub(:find) { mock_project(update_attributes: true) }
-         put :update, id: '1'
-         expect(response).to redirect_to(new_member_session_path)
-       end
+      it 'should redirect to the sign in page' do
+        sign_out @member
+        Project.stub(:find) { mock_project(update_attributes: true) }
+        put :update, id: '1'
+        expect(response).to redirect_to(new_member_session_path)
+      end
     end
   end
 
