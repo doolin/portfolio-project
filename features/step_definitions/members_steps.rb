@@ -39,7 +39,7 @@ Given /^member name is "([^"]*)" with email "([^"]*)" and password "([^"]*)"$/ d
              password: password,
              password_confirmation: password,
              firstname: 'foo',
-             lastname: 'bar') #.save!
+             lastname: 'bar') # .save!
   @profile = @member.build_profile(firstname: 'Foo', lastname: 'bar')
   @profile.save
 end
@@ -58,7 +58,7 @@ Given /^member is on sign_in page$/ do
   And %{I fill in "user_email" with "#{email}"}
   And %{I fill in "user_password" with "#{password}"}
   And %{I press "Sign in"}
-  #pending # express the regexp above with the code you wish you had
+  # pending # express the regexp above with the code you wish you had
 end
 
 When /^I sign in as "(.*)\/(.*)"$/ do |email, password|
@@ -84,7 +84,7 @@ end
 
 Then /^I should be signed in$/ do
   step %{I should see "Sign out"}
-  #And  %{I should not see "Sign up"}
+  # And  %{I should not see "Sign up"}
 end
 
 Then /^I should be already signed in$/ do
@@ -115,25 +115,25 @@ Given /^member is signed in as "([^"]*)" and password "([^"]*)"$/ do |email, pas
             password: password,
             password_confirmation: password,
             firstname: 'MFoo',
-            lastname: 'MBar') #.save!
+            lastname: 'MBar') # .save!
 
   @member.save!
-  #puts @member.member_id
+  # puts @member.member_id
   @profile = @member.build_profile(firstname: 'Foo', lastname: 'bar')
-  #puts @profile.inspect # Also, p object is an alias for puts object.inspect
+  # puts @profile.inspect # Also, p object is an alias for puts object.inspect
   @profile.save
-  #Given %{member is not logged in}
+  # Given %{member is not logged in}
   step %{member is not logged in}
   step %{I go to the sign in page}
   step %{I fill in "Email" with "#{email}"}
   step %{I fill in "Password" with "#{password}"}
   step %{I press "Sign in"}
-  #Then %{I should be signed in}
+  # Then %{I should be signed in}
 end
 
 Given /^is on the Create Profile page$/ do
   visit new_profile_path
-  #puts new_profile_path
+  # puts new_profile_path
 end
 
 When /^the member fills out all the profile fields correctly$/ do
@@ -179,17 +179,17 @@ When /^the member fills out all the project fields correctly$/ do
   # Note that webrat select_date and cucumber select_date
   # have different parameters. Not sure about Capybara,
   # might be worth checking.
-  #select(value, :from => field)
-  #select_date("July 16, 2011", :from => 'Starting date')
-  #select_date("July 16, 2011", :from => 'jksfglkadhg Starting date')
-  #select_date("July 16, 2011", :with => 'project_startdate')
-  #select_date("2011-07-16")
+  # select(value, :from => field)
+  # select_date("July 16, 2011", :from => 'Starting date')
+  # select_date("July 16, 2011", :from => 'jksfglkadhg Starting date')
+  # select_date("July 16, 2011", :with => 'project_startdate')
+  # select_date("2011-07-16")
   select_date('Startdate', with: startdate)
   select_date('Finishdate', with: finishdate)
-  #select_date("July 16, 2011")
-  #select_date('2011-07-16 00:00:00', :from => 'Starting date')
-  #And %{I select "#{startdate}" from "Startdate"}
-  #And %{I select #{finishdate} from "Finishdate"}
+  # select_date("July 16, 2011")
+  # select_date('2011-07-16 00:00:00', :from => 'Starting date')
+  # And %{I select "#{startdate}" from "Startdate"}
+  # And %{I select #{finishdate} from "Finishdate"}
 end
 
 Then /^the member is shown the page for the new project$/ do
@@ -214,7 +214,7 @@ Given /^member is logged in$/ do
   #=begin
   email = 'testing@man.net'
   password = 'secretpass'
-  #Member.new(:email => email, :password => password, :password_confirmation => password).save!
+  # Member.new(:email => email, :password => password, :password_confirmation => password).save!
   Member.new(email: email,
                 password: password,
                 password_confirmation: password,
@@ -227,7 +227,7 @@ Given /^member is logged in$/ do
     fill_in 'member_password', with: password
   end
   click_button 'Sign in'
-  #visit('/members/sign_out')
+  # visit('/members/sign_out')
   #=end
 end
 
@@ -235,7 +235,7 @@ When /^the member changes email and password$/ do
   #=begin
   email = 'testing2@man.net'
   password = 'secretpass'
-  #Member.new(:email => email, :password => password, :password_confirmation => password).save!
+  # Member.new(:email => email, :password => password, :password_confirmation => password).save!
   Member.new(email: email,
                 password: password,
                 password_confirmation: password,

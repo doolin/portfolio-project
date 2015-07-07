@@ -36,9 +36,9 @@ describe 'members/show.html.erb' do
     # have_selector is from webrat
     # https://github.com/brynary/webrat/blob/master/lib/webrat/core/matchers/have_selector.rb
     title = "#{@member.firstname} #{@member.lastname} | Portfolio Project"
-    #rendered.should have_selector("title", :content => "Dave Doolin | Portfolio Project")
+    # rendered.should have_selector("title", :content => "Dave Doolin | Portfolio Project")
     expect(rendered).to have_selector('title', text: title)
     # http://blog.carbonfive.com/2011/03/02/a-look-at-specifying-views-in-rspec/
-    #view.content_for(:sidebar).should have_selector('div.quote')
+    # view.content_for(:sidebar).should have_selector('div.quote')
   end
 end

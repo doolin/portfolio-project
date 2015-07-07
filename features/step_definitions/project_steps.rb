@@ -18,13 +18,13 @@ Then /^the reader should be on the sign in page$/ do
 end
 
 Given /^is on the member's show page$/ do
-  #puts member_root_path
-  #visit member_root_path # This is namespaced in routes.rb
+  # puts member_root_path
+  # visit member_root_path # This is namespaced in routes.rb
   visit member_path
 end
 
 When /^the member clicks "([^"]*)"$/ do |link|
-  #puts link
+  # puts link
   click_link(link)
 end
 

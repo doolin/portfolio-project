@@ -44,10 +44,10 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.xml
   def create
-    #@project = Project.new(params[:project])
+    # @project = Project.new(params[:project])
     @project = current_member.projects.build(params[:project])
     # TODO: Remove if possible...
-    #flash[:success] = "New project created!"
+    # flash[:success] = "New project created!"
 
     #     respond_to do |format|
     #       if @project.save
@@ -73,7 +73,7 @@ class ProjectsController < ApplicationController
         format.xml  { render xml: @project.errors, status: :unprocessable_entity }
       rescue Exception => e
         format.html do
-          #flash[:error] = "Problem: #{e.message}."
+          # flash[:error] = "Problem: #{e.message}."
           render action: 'new'
         end
         format.xml  { render xml: @project.errors, status: :unprocessable_entity }

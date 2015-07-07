@@ -198,7 +198,7 @@ Style/IndentationWidth:
 # Offense count: 98
 # Cop supports --auto-correct.
 Style/LeadingCommentSpace:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 2
 # Cop supports --auto-correct.

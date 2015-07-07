@@ -77,8 +77,8 @@ describe 'named routes for Profiles (long form)' do
   end
 
   it 'routes GET profile_path to the /index action' do
-    #p @member.profile.url
-    #p profile_path(@profile)
+    # p @member.profile.url
+    # p profile_path(@profile)
     expect(get: profiles_path).to route_to(controller: 'profiles', action: 'index')
   end
 
@@ -91,7 +91,7 @@ describe 'named routes for Profiles (long form)' do
   end
 
   it 'routes GET new_profile_path to the /new action' do
-    #p new_profile_path
+    # p new_profile_path
     expect(get: new_profile_path).to route_to(controller: 'profiles', action: 'new')
   end
 

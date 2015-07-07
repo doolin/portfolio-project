@@ -8,10 +8,10 @@ namespace :zurb do
     jspath     = `pwd`.chomp + '/app/assets/javascripts/foundation'
     csspath    = `pwd`.chomp + '/app/assets/stylesheets/foundation'
     imagepath  = `pwd`.chomp + '/app/assets/images/foundation'
-    #puts srcpath
-    #puts jspath
-    #puts csspath
-    #puts imagepath
+    # puts srcpath
+    # puts jspath
+    # puts csspath
+    # puts imagepath
     system "cp -R #{srcpath}/images/ #{imagepath}"
     # Change to rsync to exclude jquery.min.js
     system "cp -R #{srcpath}/javascripts/ #{jspath}"

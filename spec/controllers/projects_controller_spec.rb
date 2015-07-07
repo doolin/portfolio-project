@@ -71,8 +71,8 @@ describe ProjectsController do
       xit 'redirects to the created project' do
         member = FactoryGirl.create(:member)
         sign_in member
-        #member.build_profile(stub(Profile))
-        #pending "Need to add a Devise sign in for this..."
+        # member.build_profile(stub(Profile))
+        # pending "Need to add a Devise sign in for this..."
         Project.stub(:new) { mock_project(save: true) }
         post :create, project: {}
         expect(response).to redirect_to(project_url(@mock_project))
@@ -115,14 +115,14 @@ describe ProjectsController do
       #       end
 
       xit 'assigns the requested project as @project' do
-        #Project.stub(:find).with("37") { mock_project }
+        # Project.stub(:find).with("37") { mock_project }
         Project.stub(:find_by_url).with('new-project') { mock_project(update_attributes: true) }
         put :update, id: 'new-project'
         expect(assigns(:project)).to be(@mock_project)
       end
 
       xit 'redirects to the project' do
-        #pending "Need Devise log in..."
+        # pending "Need Devise log in..."
         Project.stub(:find_by_url) { mock_project(update_attributes: true) }
         put :update, id: '1'
         expect(response).to redirect_to(project_url(mock_project))

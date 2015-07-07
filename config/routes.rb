@@ -22,7 +22,7 @@ PortfolioProject::Application.routes.draw do
 
   # Having a problem dealing with a form in Capybara.
   # Might test this in rspec instead.
-  #match '/scripts/addlead.pl',:to => 'pages#thank-you'
+  # match '/scripts/addlead.pl',:to => 'pages#thank-you'
 
   devise_for :members, controllers: { registrations: 'registrations' }
 
@@ -37,12 +37,12 @@ PortfolioProject::Application.routes.draw do
     root to: 'members#show'
   end
   #=end
-  #match 'members/:id' => 'members#show', :as => 'member_root'
-  #match '/members/:id', :to => redirect {|params| "/#{params[:membername]}" }
+  # match 'members/:id' => 'members#show', :as => 'member_root'
+  # match '/members/:id', :to => redirect {|params| "/#{params[:membername]}" }
 
   resources :profiles
   resources :projects
 
   resources :sitemaps, only: :index
-  #match '/sitemap', :to => '/sitemap.xml', :controller => 'sitemaps'
+  # match '/sitemap', :to => '/sitemap.xml', :controller => 'sitemaps'
 end

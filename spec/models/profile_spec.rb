@@ -12,10 +12,10 @@ describe Profile do
 
   # Play around with these calls; some work, some don't.
   it 'should create a new profile given valid attributes' do
-    #@member.should be_valid
+    # @member.should be_valid
     # This doesn't work. Why not?
-    #@member.profile.create!(@attr)
-    #@member.profile.create!(:firstname => 'Joe', :lastname => 'Bloggs')
+    # @member.profile.create!(@attr)
+    # @member.profile.create!(:firstname => 'Joe', :lastname => 'Bloggs')
     @p1 = FactoryGirl.create(:profile, member: @member, created_at: 1.day.ago)
     expect(@p1).to be_valid
     expect(@member.profile).to be_valid

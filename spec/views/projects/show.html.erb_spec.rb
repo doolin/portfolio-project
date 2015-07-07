@@ -3,11 +3,11 @@ require 'spec_helper'
 describe 'projects/show.html.erb' do
   before(:each) do
     # p. 333 Lightbulb
-    #assign(:project, mock_model(Project).as_new_record.as_null_object)
+    # assign(:project, mock_model(Project).as_new_record.as_null_object)
     @member   = FactoryGirl.create(:member)
     @project   = FactoryGirl.create(:project, name: 'Slicer', member: @member)
     @profile   = FactoryGirl.create(:profile, member: @member)
-    #sign_in @member
+    # sign_in @member
   end
 
   it 'infers the controller path' do
@@ -18,20 +18,20 @@ describe 'projects/show.html.erb' do
     expect(controller.request.path_parameters[:action]).to eq('show')
   end
 
-  #describe 'layouts/application' do
-  #https://github.com/rspec/rspec-rails/issues/176
+  # describe 'layouts/application' do
+  # https://github.com/rspec/rspec-rails/issues/176
   it 'renders flash notices' do
     flash[:notice] = 'This is a notice!'
     render
-    #response.should contain "This is a notice!"
+    # response.should contain "This is a notice!"
     expect(rendered).to match(/This is a notice!/)
   end
-  #end
+  # end
 
   it 'renders attributes in <p>' do
     render
     # Name changed to h1 element
-    #rendered.should match(/Name/)
+    # rendered.should match(/Name/)
     expect(rendered).to match(/Summary/)
     expect(rendered).to match(/Client/)
   end
@@ -52,7 +52,7 @@ describe 'projects/show.html.erb' do
   end
 
   # If a field is nil, the .html_safe method doesn't work.
-  #xit "handles an error if the skills field is blank"
+  # xit "handles an error if the skills field is blank"
 
   it 'does not have a foobar field for the project' do
     render
@@ -65,6 +65,6 @@ describe 'projects/show.html.erb' do
     # https://github.com/brynary/webrat/blob/master/lib/webrat/core/matchers/have_selector.rb
     expect(rendered).to have_selector('title', text: @project.name + ' | Portfolio Project')
     # http://blog.carbonfive.com/2011/03/02/a-look-at-specifying-views-in-rspec/
-    #view.content_for(:sidebar).should have_selector('div.quote')
+    # view.content_for(:sidebar).should have_selector('div.quote')
   end
 end

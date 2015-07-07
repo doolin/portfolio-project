@@ -13,6 +13,6 @@ describe 'pages/about.html.erb' do
     expect(rendered).to have_selector('title', text: 'About | Portfolio Project')
 
     # http://blog.carbonfive.com/2011/03/02/a-look-at-specifying-views-in-rspec/
-    #view.content_for(:sidebar).should have_selector('div.quote')
+    # view.content_for(:sidebar).should have_selector('div.quote')
   end
 end

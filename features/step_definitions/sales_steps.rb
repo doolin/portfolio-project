@@ -13,7 +13,7 @@ Then /^the visitor should see the privacy policy web page$/ do
 end
 
 Then /^I should get a response with status "([^"]*)"$/ do |status|
-  #Then /^I should get a response with status (\d+)$/ do |status|
+  # Then /^I should get a response with status (\d+)$/ do |status|
   page.driver.status_code.should == status.to_i
 end
 

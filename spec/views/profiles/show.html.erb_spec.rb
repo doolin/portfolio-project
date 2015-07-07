@@ -26,7 +26,7 @@ describe 'profiles/show.html.erb' do
     # https://github.com/brynary/webrat/blob/master/lib/webrat/core/matchers/have_selector.rb
     expect(rendered).to have_selector('title', text: title)
     # http://blog.carbonfive.com/2011/03/02/a-look-at-specifying-views-in-rspec/
-    #view.content_for(:sidebar).should have_selector('div.quote')
+    # view.content_for(:sidebar).should have_selector('div.quote')
   end
 
   it 'should have a link to Twitter profile' do
@@ -38,14 +38,14 @@ describe 'profiles/show.html.erb' do
   it 'should have a link to Google Profile' do
     render
     expect(rendered).to have_selector('a', text: 'profile')
-    #rendered.should =~ /profile/
+    # rendered.should =~ /profile/
   end
 
   xit 'should not display Google Profile information when no link' do
     @member.profile.gprofile_url = ''
     @member.save
     render
-    #rendered.should_not have_selector('a.gprofile', :content => 'profile')
+    # rendered.should_not have_selector('a.gprofile', :content => 'profile')
     expect(rendered).to match(/no Google profile given/)
   end
 end

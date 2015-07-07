@@ -17,7 +17,7 @@ describe ProfilesController do
       sign_out @member
       get :index
       # Changing the behavior, we want the profiles page indexed for SEO.
-      #response.should redirect_to(new_member_session_path)
+      # response.should redirect_to(new_member_session_path)
       expect(response).to render_template('index')
     end
   end
