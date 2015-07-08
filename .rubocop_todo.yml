@@ -214,7 +214,7 @@ Style/NumericLiterals:
 # Cop supports --auto-correct.
 # Configuration parameters: PreferredDelimiters.
 Style/PercentLiteralDelimiters:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 2
 # Cop supports --auto-correct.

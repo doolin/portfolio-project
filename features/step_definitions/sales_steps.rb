@@ -1,6 +1,6 @@
 
 Given /^the visitor is on the home page$/ do
-  step %{member name is "foo" with email "user@test.com" and password "foobar"}
+  step %(member name is "foo" with email "user@test.com" and password "foobar")
   visit root_path
 end
 
@@ -19,16 +19,16 @@ end
 
 # AWeber form handling...
 When /^the visitor fills in "([^"]*)" with "([^"]*)"$/ do |label, value|
-  Given %{I fill in "#{label}" with "#{value}"}
+  Given %(I fill in "#{label}" with "#{value}")
 end
 
 When /^fills in "([^"]*)" with "([^"]*)"$/ do |label, value|
-  Given %{I fill in "#{label}" with "#{value}"}
+  Given %(I fill in "#{label}" with "#{value}")
 end
 
 When /^presses "([^"]*)"$/ do |_arg1|
   click_button('Submit')
-  And %{I dump the response}
+  And %(I dump the response)
 end
 
 Then /^I should be redirected to "(.*)"$/ do |url|

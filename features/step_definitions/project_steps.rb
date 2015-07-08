@@ -1,7 +1,7 @@
 
 
 Given /^reader is not logged in$/ do
-  step %{member name is "foo" with email "foo@test.com" and password "please"}
+  step %(member name is "foo" with email "foo@test.com" and password "please")
   visit('/members/sign_out')
 end
 
@@ -14,7 +14,7 @@ When /^the reader clicks New Project link$/ do
 end
 
 Then /^the reader should be on the sign in page$/ do
-  step %{I should be on the sign in page}
+  step %(I should be on the sign in page)
 end
 
 Given /^is on the member's show page$/ do
