@@ -88,7 +88,7 @@ Style/AccessModifierIndentation:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedHashRocketStyle, EnforcedColonStyle, EnforcedLastArgumentHashStyle, SupportedLastArgumentHashStyles.
 Style/AlignHash:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 8
 # Cop supports --auto-correct.

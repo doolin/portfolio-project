@@ -70,8 +70,8 @@ end
 describe 'named routes for Profiles (long form)' do
   before(:each) do
     @member = Member.create(email: 'foo@bar.com',
-      password: 'bar',
-      password_confirmation: 'bar')
+                            password: 'bar',
+                            password_confirmation: 'bar')
     @profile = @member.build_profile(firstname: 'Foo', lastname: 'Bar')
     @profile.save
   end
@@ -111,8 +111,8 @@ end
 describe 'some false positive routes' do
   before(:each) do
     @member = Member.create(email: 'foo@bar.com',
-      password: 'bar',
-      password_confirmation: 'bar')
+                            password: 'bar',
+                            password_confirmation: 'bar')
     @profile = @member.build_profile(firstname: 'Foo', lastname: 'Bar')
     @profile.save
   end

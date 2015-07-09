@@ -10,19 +10,19 @@
 
 #=begin
 @project_attrs = { name: 'First project from seed',
-                  summary: 'This is the summary',
-                  description: 'This is the description',
-                  startdate: '2011-12-10 00:00:00',
-                  finishdate: '2011-12-10 00:00:00',
-                  tags: 'foo bar' }
+                   summary: 'This is the summary',
+                   description: 'This is the description',
+                   startdate: '2011-12-10 00:00:00',
+                   finishdate: '2011-12-10 00:00:00',
+                   tags: 'foo bar' }
 @member.projects.build(@project_attrs)
 @member.save
 #=end
 
 #=begin
 @profile_attr = { firstname: 'Dave',
-                 lastname: 'Doolin',
-                 created_at: 1.minute.ago }
+                  lastname: 'Doolin',
+                  created_at: 1.minute.ago }
 @member.build_profile(@profile_attr)
 @member.save
 #=end

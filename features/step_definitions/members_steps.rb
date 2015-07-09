@@ -35,11 +35,11 @@ end
 
 Given /^member name is "([^"]*)" with email "([^"]*)" and password "([^"]*)"$/ do |name, email, password|
   @member = Member.create(membername: name,
-             email: email,
-             password: password,
-             password_confirmation: password,
-             firstname: 'foo',
-             lastname: 'bar') # .save!
+                          email: email,
+                          password: password,
+                          password_confirmation: password,
+                          firstname: 'foo',
+                          lastname: 'bar') # .save!
   @profile = @member.build_profile(firstname: 'Foo', lastname: 'bar')
   @profile.save
 end
@@ -111,11 +111,11 @@ Given /^member is signed in as "([^"]*)" and password "([^"]*)"$/ do |email, pas
   name = 'foobar'
   # Member.new may not work
   @member = Member.new(membername: name,
-            email: email,
-            password: password,
-            password_confirmation: password,
-            firstname: 'MFoo',
-            lastname: 'MBar') # .save!
+                       email: email,
+                       password: password,
+                       password_confirmation: password,
+                       firstname: 'MFoo',
+                       lastname: 'MBar') # .save!
 
   @member.save!
   # puts @member.member_id
@@ -216,10 +216,10 @@ Given /^member is logged in$/ do
   password = 'secretpass'
   # Member.new(:email => email, :password => password, :password_confirmation => password).save!
   Member.new(email: email,
-                password: password,
-                password_confirmation: password,
-                firstname: 'Foo',
-                lastname: 'Bar').save!
+             password: password,
+             password_confirmation: password,
+             firstname: 'Foo',
+             lastname: 'Bar').save!
 
   visit '/members/sign_in'
   within('#member_new') do
@@ -237,10 +237,10 @@ When /^the member changes email and password$/ do
   password = 'secretpass'
   # Member.new(:email => email, :password => password, :password_confirmation => password).save!
   Member.new(email: email,
-                password: password,
-                password_confirmation: password,
-                firstname: 'Foo',
-                lastname: 'Bar').save!
+             password: password,
+             password_confirmation: password,
+             firstname: 'Foo',
+             lastname: 'Bar').save!
   #=end
 
   password = 'secretpass'

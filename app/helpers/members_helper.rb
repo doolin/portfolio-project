@@ -2,6 +2,6 @@
 module MembersHelper
   def gravatar_for(member, options = { size: 50 })
     gravatar_image_tag(member.email.downcase, class: 'gravatar',
-                                            gravatar: options)
+                                              gravatar: options)
   end
 end
