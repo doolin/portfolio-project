@@ -4,7 +4,9 @@
 # http://devcenter.heroku.com/articles/s3
 
 # require 'rake/dsl_definition'
-= begin
+
+=begin
+
 require 'rake'
 require 'yaml'
 require 'aws/s3'

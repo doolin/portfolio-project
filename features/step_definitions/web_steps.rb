@@ -109,7 +109,7 @@ Then /^(?:|I )should see "([^"]*)"$/ do |text|
   end
 end
 
-Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
+Then %r{^(?:|I )should see /([^/]*)/$} do |regexp|
   regexp = Regexp.new(regexp)
 
   if page.respond_to? :should
@@ -127,7 +127,7 @@ Then /^(?:|I )should not see "([^"]*)"$/ do |text|
   end
 end
 
-Then /^(?:|I )should not see \/([^\/]*)\/$/ do |regexp|
+Then %r{^(?:|I )should not see \/([^/]*)/$} do |regexp|
   regexp = Regexp.new(regexp)
 
   if page.respond_to? :should

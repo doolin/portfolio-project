@@ -117,7 +117,7 @@ describe Project do
       # puts @member.projects.to_s
       # This is the smelly part...
       @project = @member.projects.first
-      expect(@project.uri).to match(/http:\/\/foobar.com\//)
+      expect(@project.uri).to match(%r{http://foobar.com/})
     end
   end
 

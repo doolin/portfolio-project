@@ -61,7 +61,7 @@ Given /^member is on sign_in page$/ do
   # pending # express the regexp above with the code you wish you had
 end
 
-When /^I sign in as "(.*)\/(.*)"$/ do |email, password|
+When(%r{^I sign in as "(.*)/(.*)"$})do |email, password|
   step %(member is not logged in)
   step %(I go to the sign in page)
   step %(I fill in "Email" with "#{email}")
@@ -69,7 +69,7 @@ When /^I sign in as "(.*)\/(.*)"$/ do |email, password|
   step %(I press "Sign in")
 end
 
-When /^the user signs in$/ do
+When(/^the user signs in$/)do
   pending # express the regexp above with the code you wish you had
 end
 
