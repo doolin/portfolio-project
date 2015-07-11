@@ -4,13 +4,7 @@ class PagesController < ApplicationController
     @title = 'Contact'
   end
 
-  def disclaimer
-  end
-
   def disclosure
-  end
-
-  def help
   end
 
   def confirmation

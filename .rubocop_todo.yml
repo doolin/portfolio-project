@@ -15,11 +15,11 @@ Lint/AmbiguousRegexpLiteral:
 
 # Offense count: 1
 Lint/Debugger:
-  Enabled: true
+  Enabled: false
 
 # Offense count: 2
 Lint/DuplicateMethods:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 2
 Lint/ParenthesesAsGroupedExpression:
