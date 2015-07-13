@@ -1,8 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_member!, except: [:show, :index]
 
-  # GET /projects
-  # GET /projects.xml
   def index
     @projects = Project.all
 
@@ -12,8 +10,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # GET /projects/1
-  # GET /projects/1.xml
   def show
     @project = Project.find_by_url(params[:id])
     @member = Member.find(@project.member_id)
@@ -25,8 +21,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # GET /projects/new
-  # GET /projects/new.xml
   def new
     @project = Project.new
 
@@ -36,13 +30,10 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # GET /projects/1/edit
   def edit
     @project = Project.find_by_url(params[:id])
   end
 
-  # POST /projects
-  # POST /projects.xml
   def create
     # @project = Project.new(params[:project])
     @project = current_member.projects.build(params[:project])
@@ -71,7 +62,8 @@ class ProjectsController < ApplicationController
           render :new
         end
         format.xml  { render xml: @project.errors, status: :unprocessable_entity }
-      rescue Exception => e
+      # rescue Exception => e
+      rescue StandardErrot => e
         format.html do
           # flash[:error] = "Problem: #{e.message}."
           render action: 'new'
@@ -84,8 +76,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # PUT /projects/1
-  # PUT /projects/1.xml
   def update
     @project = Project.find_by_url(params[:id])
 
@@ -100,8 +90,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # DELETE /projects/1
-  # DELETE /projects/1.xml
   def destroy
     @project = Project.find_by_url(params[:id])
     @project.destroy

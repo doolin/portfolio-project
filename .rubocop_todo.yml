@@ -27,7 +27,7 @@ Lint/ParenthesesAsGroupedExpression:
 
 # Offense count: 1
 Lint/RescueException:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 1
 # Cop supports --auto-correct.
