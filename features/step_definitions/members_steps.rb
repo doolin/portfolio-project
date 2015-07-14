@@ -50,7 +50,6 @@ end
 
 Given /^member is on sign_in page$/ do
   email = 'testing@man.net'
-  login = 'Testing man'
   password = 'secretpass'
 
   Given %(I have one user "#{email}" with password "#{password}")

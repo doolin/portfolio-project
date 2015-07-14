@@ -83,7 +83,6 @@ describe ProfilesController do
       profile.save!
       # put :update, :id => @profile.url, :profile => { :firstname => 'Foo', :lastname => 'Bar' }
       put :update, id: profile.url, firstname: 'Foo', lastname: 'Bar'
-      homer = assigns(:profile)
       profile.reload
       expect(response).to redirect_to(profile_path(@profile))
       expect(@profile.firstname).to eq('Foo')
