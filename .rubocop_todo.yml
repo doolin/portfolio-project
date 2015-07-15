@@ -15,7 +15,7 @@ Lint/AmbiguousRegexpLiteral:
 
 # Offense count: 1
 Lint/Debugger:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 2
 Lint/DuplicateMethods:
@@ -71,12 +71,12 @@ Rails/ActionFilter:
 # Offense count: 1
 # Configuration parameters: Include.
 Rails/DefaultScope:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 7
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Rails/TimeZone:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -110,7 +110,7 @@ Style/BracesAroundHashParameters:
 # Offense count: 1
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/ClassAndModuleChildren:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -208,7 +208,9 @@ Style/LineEndConcatenation:
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/NumericLiterals:
-  MinDigits: 15
+  MinDigits: 8
+  Exclude:
+    - db/schema.rb
 
 # Offense count: 42
 # Cop supports --auto-correct.
