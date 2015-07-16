@@ -12,6 +12,7 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = current_member.build_profile(profile_params)
+    # rubocop:disable Style/GuardClause
     if @profile.save!
       @member = Member.find(@profile.member_id)
       @member.firstname = @profile.firstname
@@ -19,6 +20,7 @@ class ProfilesController < ApplicationController
       @member.save!
       redirect_to(@profile, flash: { success: 'Profile was successfully created.' })
     end
+    # rubocop:enable Style/GuardClause
   end
 
   def show

@@ -44,9 +44,8 @@ class Project < ActiveRecord::Base
   private
 
   def check_dates
-    # return false if self.startdate > self.finishdate
-    if startdate > finishdate
-      fail ActiveRecord::RecordNotSaved, 'Starting date must precede finishing date'
-    end
+    # TODO: move 'message' to locale
+    message = 'Starting date must precede finishing date'
+    fail ActiveRecord::RecordNotSaved, message if startdate > finishdate
   end
 end

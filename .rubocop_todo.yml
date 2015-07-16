@@ -175,7 +175,7 @@ Style/FirstParameterIndentation:
 # Offense count: 2
 # Configuration parameters: MinBodyLength.
 Style/GuardClause:
-  Enabled: false
+  Enabled: true
 
 # Offense count: 512
 # Cop supports --auto-correct.
