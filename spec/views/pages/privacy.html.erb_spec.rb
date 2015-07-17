@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'pages/privacy.html.erb' do
   it 'should render the Privacy page' do
     render
-    expect(rendered).to match /privacy/
+    expect(rendered).to match(/privacy/)
   end
 
   xit 'should have the correct <title> element ' do

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'pages/confirmation.html.erb' do
   it 'should render the Confirmation page' do
     render
-    expect(rendered).to match /Subscription Confirmed/
+    expect(rendered).to match(/Subscription Confirmed/)
   end
 
   xit 'should have the correct <title> element ' do

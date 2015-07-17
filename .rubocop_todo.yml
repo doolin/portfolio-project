@@ -5,13 +5,19 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
+AllCops:
+  Exclude:
+    - lib/tasks/backup.rake
+
 # Offense count: 1
 Lint/AmbiguousOperator:
   Enabled: true
 
 # Offense count: 74
 Lint/AmbiguousRegexpLiteral:
-  Enabled: false
+  Enabled: true
+  Exclude:
+    - features/step_definitions/*
 
 # Offense count: 1
 Lint/Debugger:
