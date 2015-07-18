@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_filter :authenticate_member!, except: [:show, :index]
+  before_action :authenticate_member!, except: [:show, :index]
 
   def index
     @profiles = Profile.all
