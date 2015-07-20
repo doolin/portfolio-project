@@ -17,6 +17,7 @@ gem 'jquery-rails'
 # gem 'aws-s3'
 gem 'escape_utils'
 gem 'thin'
+gem 'haml-rails'
 
 gem 'haml-rails'
 gem 'brakeman'

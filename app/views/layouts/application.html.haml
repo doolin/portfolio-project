@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    / From foundation theme for WP
+    %meta{:charset => "utf-8"}/
+    %title
+      = content_for?(:title) ? yield(:title) : "Your Accomplishments"
+      | Portfolio Project
+    %meta{:content => "UPtemx8lzwim6H0JAhLQG-6Tam4H_E1uimeuKTEs0jk", :name => "google-site-verification"}/
+    = stylesheet_link_tag 'application', :media => 'screen'
+    = javascript_include_tag 'application'
+    %script{:src => "http://use.typekit.com/zac5ngr.js", :type => "text/javascript"}
+    :javascript
+      try{Typekit.load();}catch(e){}
+    = csrf_meta_tag
+  %body
+    = render 'layouts/nav'
+    = render 'layouts/header'
+    .container
+      .row.pages.offset-up
+        .twelve.columns.centered
+          = yield
+        / columns
+      / row
+    / container
+    = render 'layouts/footer'
+    = render 'layouts/analytics'
