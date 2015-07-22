@@ -8,12 +8,11 @@ class MembersControllerTest < ActionController::TestCase
   end
 
   test "should show the member's projects'" do
-    skip
     p1 = FactoryGirl.create(:project, member: @member, summary: 'Foo bar')
     p2 = FactoryGirl.create(:project, member: @member, summary: 'Baz quux')
     @member.projects = [p1, p2]
     get :show, id: @member
-    expect(response).to render_template('show')
+    assert_template 'show'
   end
 
   test 'signed in should list member profiles' do
