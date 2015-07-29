@@ -2,34 +2,53 @@ require_relative '../test_helper'
 
 class ProfilesLongRoutesTest < ActionController::TestCase
   test 'routes GET /profiles to the profiles /index page' do
-    # expect(get: '/profiles').to route_to(controller: 'profiles', action: 'index')
-    # assert_routing (get: '/profiles').to route_to(controller: 'profiles', action: 'index')
     assert_routing '/profiles', { controller: 'profiles', action: 'index' }
   end
 
   test 'routes GET /profiles/bar to the /show action' do
-    # expect(get: '/profiles/bar').to route_to(controller: 'profiles', action: 'show', id: 'bar')
     assert_routing '/profiles/bar', { controller: 'profiles', action: 'show', id: 'bar' }
   end
 
   test 'routes GET /profiles/bar/edit to the /edit action' do
-    skip
-    expect(get: '/profiles/bar/edit').to route_to(controller: 'profiles', action: 'edit', id: 'bar')
+    assert_routing({
+      method: 'get',
+      path: '/profiles/bar/edit'
+    }, {
+      controller: 'profiles',
+      action: 'edit',
+      id: 'bar'
+    })
   end
 
   test 'routes GET /profiles/new to the /new action' do
-    skip
-    expect(get: '/profiles/new').to route_to(controller: 'profiles', action: 'new')
+    assert_routing({
+      method: 'get',
+      path: '/profiles/new'
+    }, {
+      controller: 'profiles',
+      action: 'new'
+    })
   end
 
   test 'routes POST /profiles/ to the /create action' do
-    skip
-    expect(post: '/profiles').to route_to(controller: 'profiles', action: 'create')
+    assert_routing({
+      method: 'post',
+      path: '/profiles'
+    }, {
+      controller: 'profiles',
+      action: 'create'
+    })
   end
 
   test 'routes DELETE /profiles/bar to the /destroy action' do
-    skip
-    expect(delete: '/profiles/bar').to route_to(controller: 'profiles', action: 'destroy', id: 'bar')
+    assert_routing({
+      method: 'delete',
+      path: '/profiles/bar'
+    }, {
+      controller: 'profiles',
+      action: 'destroy',
+      id: 'bar'
+    })
   end
 
   test 'routes PUT /profiles/1 to the /update action' do
