@@ -1,5 +1,3 @@
-# TODO: some of these are framework tests and should be replaced.
-
 require_relative '../test_helper'
 
 class MemberTest < ActiveSupport::TestCase

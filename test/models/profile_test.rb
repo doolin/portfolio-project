@@ -10,12 +10,7 @@ class ProfileTest < ActiveSupport::TestCase
     }
   end
 
-  # Play around with these calls; some work, some don't.
   test 'should create a new profile given valid attributes' do
-    # @member.should be_valid
-    # This doesn't work. Why not?
-    # @member.profile.create!(@attr)
-    # @member.profile.create!(:firstname => 'Joe', :lastname => 'Bloggs')
     @p1 = FactoryGirl.create(:profile, member: @member, created_at: 1.day.ago)
     assert @p1.valid?
     assert @member.profile.valid?
@@ -33,7 +28,6 @@ class ProfileTest < ActiveSupport::TestCase
     refute @member.build_profile(@attr.merge(lastname: ' ')).valid?
   end
 
-  # http://intridea.com/2009/2/18/quick-tip-url-validation-in-rails?blog=company
   test 'should validate any given urls' do
     assert @member.build_profile(@attr.merge(website: 'http://foobar.com/')).valid?
   end

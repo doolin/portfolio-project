@@ -63,13 +63,16 @@ class ProfilesLongRoutesTest < ActionController::TestCase
   end
 end
 
+class ProfilesShortRoutesTest < ActionController::TestCase
+  test 'routes GET /profiles to the profiles /index page' do
+    method = { method: 'get', path: '/profiles' }
+    params = { controller: 'profiles', action: 'index' }
+    assert_routing method, params
+  end
+end
+
 =begin
 describe 'routes for Profiles (short form)' do
-  it 'routes GET /profiles to the profiles /index page' do
-    expect(get('/profiles')).to \
-      route_to('profiles#index')
-  end
-
   it 'routes GET /profiles/bar to the /show action' do
     expect(get('/profiles/bar')).to \
       route_to('profiles#show', id: 'bar')
