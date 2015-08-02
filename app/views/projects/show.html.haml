@@ -1,0 +1,57 @@
+- title @project.name
+/ Why is this flash message here?
+- flash.each do |key, value|
+  = content_tag :div, value, :class => "alert-box success flash #{key}" unless value.blank?
+= render 'profiles/profile_header'
+%section
+  #project.row.project{:itemscope => "", :itemtype => "http://schema.org/Project"}
+    %h1.name.fn{:itemprop => "name"}
+      = @project.name
+    .profile_summary.cf{:itemprop => "summary"}
+      .three.columns
+        %h3.alignLeft Summary
+      .eight.columns.inner
+        = @project.summary
+    .dates.cf
+      .three.columns
+        %h3.alignLeft Dates
+      .eight.columns.inner
+        %time.start-date{:datetime => "#{@project.startdate.strftime("%Y-%m-%d")}", :itemprop => "startTime"}= @project.startdate.strftime("%B %Y")
+        %em to
+        %time.end-date{:datetime => "#{@project.startdate.strftime("%Y-%m-%d")}", :itemprop => "endTime"}= @project.finishdate.strftime("%B %Y")
+    - unless @project.description.blank?
+      .description.cf{:itemprop => "description"}
+        .three.columns
+          %h3.alignLeft Description
+        .eight.columns.inner
+          = @project.description.html_safe
+    - unless @project.requiredskills.blank?
+      .requiredskills.cf
+        .three.columns
+          %h3.alignLeft Required skills
+        .eight.columns.inner
+          = @project.requiredskills.html_safe unless @project.requiredskills.blank?
+    - unless @project.client.blank?
+      .client.cf{:itemprop => "client"}
+        .three.columns
+          %h3.alignLeft Client
+        .eight.columns.inner
+          = @project.client
+    - unless @project.uri.blank?
+      .uri.cf
+        .three.columns
+          %h3.alignLeft Link to project
+        .eight.columns.inner
+          = link_to @project.uri_anchor, @project.uri
+    - unless @project.pointofcontact.blank?
+      .point-of-contact.cf
+        .three.columns
+          %h3.alignLeft Point of contact
+        .eight.columns.inner
+          = @project.pointofcontact
+    .tags.cf
+      .three.columns
+        %h3.alignLeft Tags:
+      .eight.columns.inner
+        = @project.tags
+    = render 'project_links'

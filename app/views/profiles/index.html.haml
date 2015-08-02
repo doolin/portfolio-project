@@ -1,0 +1,3 @@
+%h2.profiles-listing All Profiles
+%ul#profiles_display_block.cf
+  = render :partial => 'profiles/gravatar', :collection => @profiles, :as => :profile

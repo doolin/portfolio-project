@@ -1,0 +1,10 @@
+.profile_header.cf
+  .profile_name
+    %h2
+      = @profile.firstname
+      = @profile.lastname
+    = render :partial => "profiles/social_links"
+  .profile_gravatar
+    = link_to (gravatar_for Member.find(@profile.member_id),  :size => '140'), @profile, :rel => 'author'
+    = render 'profiles/profile_links'
+    %br/

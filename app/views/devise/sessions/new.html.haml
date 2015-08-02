@@ -1,0 +1,22 @@
+- title "Sign in"
+.container
+  .row
+    .eight.columns.centered
+      %h2 Sign in
+      - flash.each do |key, value|
+        = content_tag :div, value, :class => "alert-box error flash #{key}" unless value.blank?
+      = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+        %p
+          = f.label :email
+          %br/
+          = f.text_field :email
+        %p
+          = f.label :password
+          %br/
+          = f.password_field :password
+        - if devise_mapping.rememberable?
+          %p
+            = f.check_box :remember_me
+            = f.label :remember_me
+        %p= f.submit "Sign in"
+      = render :partial => "devise/shared/links"

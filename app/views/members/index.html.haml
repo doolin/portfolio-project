@@ -1,0 +1,11 @@
+%h2 Members
+%table.profile
+  %tr
+    %td.main
+      - unless @members.empty?
+        %table.projects{:summary => "Members"}
+          %tr
+            %th Member name
+            %th Member since
+            %th Number of projects
+          = render @members

@@ -1,0 +1,4 @@
+%tr
+  %td= link_to member.firstname + ' ' + member.lastname, member
+  %td= member.created_at.strftime("%B %e, %Y")
+  %td= @member.projects.count

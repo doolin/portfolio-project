@@ -1,0 +1,12 @@
+- title('Your Accomplishments Matter')
+.frontpage
+  / modules a la SMACSS
+  = #render 'sales/hero'
+  = render 'sales/signupfree'
+  = render 'sales/maincopy'
+  = render 'sales/personas'
+  = #render 'sales/offers'
+  = render 'sales/featured_profiles'
+= link_to "Sign up", new_member_registration_path
+, or
+check out the #{link_to 'list of projects', projects_path}

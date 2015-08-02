@@ -1,0 +1,34 @@
+.newsletter-form
+  %form.af-form-wrapper{:action => "http://www.aweber.com/scripts/addlead.pl", :method => "post"}
+    %div{:style => "display: none;"}
+      %input{:name => "meta_web_form_id", :type => "hidden", :value => "924707027"}/
+      %input{:name => "meta_split_id", :type => "hidden", :value => ""}/
+      %input{:name => "listname", :type => "hidden", :value => "portproject"}/
+      %input#redirect_8dbbfe4db52d454becbe0c85cc52ee94{:name => "redirect", :type => "hidden", :value => "http://portfolio-project.com/thank-you"}/
+      %input{:name => "meta_redirect_onlist", :type => "hidden", :value => "http://portfolio-project.com/already-subscribed"}/
+      %input{:name => "meta_adtracking", :type => "hidden", :value => "front-page"}/
+      %input{:name => "meta_message", :type => "hidden", :value => "1"}/
+      %input{:name => "meta_required", :type => "hidden", :value => "name,email"}/
+      %input{:name => "meta_tooltip", :type => "hidden", :value => ""}/
+    #af-form-924707027.af-form
+      #af-body-924707027.af-body.af-standards
+        .af-element
+          %label.previewLabel{:for => "awf_field-25311430"} Name:
+          .af-textWrap
+            %input#awf_field-25311430.text{:name => "name", :tabindex => "500", :type => "text", :value => ""}/
+          .af-clear
+        .af-element
+          %label.previewLabel{:for => "awf_field-25311431"} Email:
+          .af-textWrap
+            %input#awf_field-25311431.text{:name => "email", :tabindex => "501", :type => "text", :value => ""}/
+          .af-clear
+        .af-element.buttonContainer
+          %input.submit{:name => "submit", :tabindex => "502", :type => "submit", :value => "Submit"}/
+          .af-clear
+        .af-element.privacyPolicy{:style => "text-align: center"}
+          %p
+            = link_to "We respect your email privacy", privacy_path, :target => '_blank', :title => 'Privacy Policy'
+          .af-clear
+    %div{:style => "display: none;"}
+      %img{:alt => "", :src => "http://forms.aweber.com/form/displays.htm?id=nEws7AzsDEzs"}/
+  / /AWeber Web Form Generator 3.0

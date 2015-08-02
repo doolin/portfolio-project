@@ -1,0 +1,29 @@
+- title 'Projects'
+= #render 'featured_project'
+%h2.projects-listing All Projects
+- count = 0
+- @projects.each do |project|
+  .row.project
+    .seven.columns
+      .listing
+        %h3= link_to project.name, project, :class => 'project-name'
+        %p.project-summary
+          %span.label Summary
+          = project.summary
+        %p.project-tags
+          %span.label Tags
+          = project.tags
+    .three.columns.offset-by-one
+      .gravatar
+        = link_to (gravatar_for Member.find(project.member_id),  :size => '100'), |
+          '/members/' + project.member_id.to_s                                    |
+        %br/
+        = link_to project.membername(project.member_id), '/members/' + project.member_id.to_s
+  - count += 1
+  - if count == 1
+    = render 'sales/thirsty_ad'
+  - elsif count == 8
+    = render 'sales/bpe_ad'
+%br/
+= link_to "New Project", new_project_path, :class => "cta cta-yellow"
+%br/

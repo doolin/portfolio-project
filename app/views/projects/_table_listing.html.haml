@@ -1,0 +1,27 @@
+%table.profile
+  %tr
+    %td.main
+      %h2 My Projects
+      - unless @member.projects.empty?
+        %table.projects
+          %tr
+            %th Project name
+            %th Summary
+            %th Tags
+          = render @projects
+    %td.sidebar.round
+      = gravatar_for @member
+      %br/
+      %br/
+      %strong
+        = @member.firstname
+        = @member.lastname
+      |
+      %strong
+        = link_to "Profile", @profile, :rel => 'author'
+      %br/
+      %strong Projects
+      = @member.projects.count
+      %br/
+      = link_to "New Project", new_project_path, :class => "cta cta-yellow"
+      %br/

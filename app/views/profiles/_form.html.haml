@@ -1,0 +1,54 @@
+= form_for(@profile) do |f|
+  - if @profile.errors.any?
+    #error_explanation.alert-box.error
+      %h2
+        = pluralize(@profile.errors.count, "error")
+        prohibited this project from being saved:
+      %ul
+        - @profile.errors.full_messages.each do |msg|
+          %li= msg
+  %dl.tabs.contained
+    %dd
+      %a.active{:href => "#simpleContained1"} Basic Profile
+    %dd
+      %a{:href => "#simpleContained2"} Links  Stuff
+  %ul.tabs-content.contained
+    %li#simpleContained1Tab.active
+      .field
+        = f.label :firstname
+        = f.text_field :firstname
+        %br/
+      .field
+        = f.label :lastname
+        = f.text_field :lastname
+        %br/
+      .field
+        = f.label :bio
+        = f.text_area :bio
+    %li#simpleContained2Tab
+      .field
+        = f.label Google Profile
+        = f.text_field :gprofile_url
+        %br/
+      .field
+        = f.label Anchor link text for website
+        = f.text_field :website_anchor
+        %br/
+      .field
+        = f.label :website
+        = f.text_field :website
+        %br/
+      .field
+        = f.label :twitter
+        = f.text_field :twitter
+        %br/
+      .field
+        = f.label :facebook
+        = f.text_field :facebook
+        %br/
+      .field
+        = f.label :linkedin
+        = f.text_field :linkedin
+        %br/
+  .actions
+    = f.submit

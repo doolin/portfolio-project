@@ -1,0 +1,8 @@
+- title('Add your new Project or Accomplishment')
+- flash.each do |key, value|
+  = content_tag :div, value, :class => "alert-box error flash #{key}" unless value.blank?
+%h1 New project
+.row
+  .twelve.columns
+    = render 'form'
+= link_to 'Back', projects_path

@@ -1,0 +1,20 @@
+.row.ads
+  .three.columns.sponsor
+    %h4 Sponsored Message
+  / columns
+  .five.columns
+    .sponsor-image
+      = link_to image_tag('bpe_badge_100x100.png', :class => 'alignLeft', :size => "100x100"), |
+        'http://website-in-a-weekend.net/blog-post-engineering/'                               |
+    .sponsor-message
+      %p
+        %strong Blog Post Engineering
+        %br/
+        If you're sick of everybody telling you how you have to "Write for SEO!" (yuck) here's a way retain to your artistic integrity... while still making it easy for search engines to find you.
+  / columns
+  .three.columns.sponsor
+    .solicitation
+      %a{:href => "/advertising"}
+        %h4 Your Ad Here
+  / columns
+/ row

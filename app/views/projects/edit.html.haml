@@ -1,0 +1,8 @@
+- title 'Edit ' + @project.name
+%h2 Editing project
+.row
+  .twelve.columns
+    = render 'form'
+= link_to 'Show', @project
+|
+= link_to 'Back', projects_path

@@ -1,0 +1,9 @@
+.profile-listing
+  %h2.profile-name
+    = link_to project.name, project, :class => 'project-name'
+  %p.project-summary
+    %span.label Summary
+    = project.summary
+  %p.project-tags
+    %span.label Tags
+    = project.tags

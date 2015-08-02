@@ -1,0 +1,18 @@
+%h2 Featured Project
+.row.project
+  .seven.columns
+    .listing
+      - project = Project.where(:id => 13)[0]
+      %h3= link_to project.name, project, :class => 'project-name'
+      %p.project-summary
+        %span.label Summary
+        = project.summary
+      %p.project-tags
+        %span.label Tags
+        = project.tags
+  .three.columns.offset-by-one
+    .gravatar
+      = link_to (gravatar_for Member.find(project.member_id),  :size => '100'), |
+        '/members/' + project.member_id.to_s                                    |
+      %br/
+      = link_to project.membername(project.member_id), '/members/' + project.member_id.to_s

@@ -1,0 +1,12 @@
+%li.profile_block
+  .inner
+    = link_to (gravatar_for Member.find(profile.member_id),  :size => '200'), profile
+    .profile_info
+      %ul.cf
+        %li.member_name
+          = profile.firstname
+          = profile.lastname
+        %li= pluralize(Member.find(profile.member_id).projects.count, 'project')
+        %li
+          Joined #{profile.created_at.strftime("%B %e, %Y")}
+/ End of profile's block

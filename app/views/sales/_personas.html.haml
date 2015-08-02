@@ -1,0 +1,54 @@
+:css
+  #featured-personas { 
+       width: 940px;
+       height: 276px;
+        background: #000 url(#{image_tag('loading.gif')} ) no-repeat center center; overflow: hidden;
+  }
+  #featured-personas img, #featured-personas div {
+    display: block;
+  }
+:javascript
+  $(window).load(function() {
+      $('#featured-personas').orbit({
+        advanceSpeed: 10000,
+        timer: true,
+        animationSpeed: 800,
+        pauseOnHover: true,
+        startClockOnMouseOut: true,   // if clock should start on MouseOut
+        startClockOnMouseOutAfter: 1000,
+      });
+  });
+.row.herostyle
+  .twelve.columns.centered
+    #featured-personas
+      .row.personas-content{:style => "background-color: #fff;"}
+        .six.columns.offset-by-one.copy{:style => "padding-left: 20px;"}
+          %h1 Irene - Social media consultant
+          %h3.tagline Design + Social media = Communication Design
+          %p.story
+            Irene is returning to the job market via freelancing
+            as a designer and social media consultant. Her long term goal is to combine her
+            freelancing experience with her MFA in Design to build a COmmunication
+            Design agency.
+        .three.columns.image
+          = image_tag('irene_282px.jpg')
+      .row.personas-content{:style => "background-color: #fff;"}
+        .six.columns.offset-by-one.copy{:style => "padding-left: 20px;"}
+          %h1 Tom - Project manager
+          %h3.tagline Transitioning from construction to IT infrastructure management
+          %p.story
+            Tom worked in commercial and light industrial construction
+            for most of his career. Now, he is looking to use that experience as a
+            springboard into managing information techonology infrastructure.
+        .three.columns.image
+          = image_tag('tom_cropped.jpg')
+      .row.personas-content{:style => "background-color: #fff;"}
+        .six.columns.offset-by-one.copy{:style => "padding-left: 20px;"}
+          %h1 Jared - Graphic designer
+          %h3.tagline Leveraging design expertise for humanizing computer technology
+          %p.story
+            Jared was trained - and practiced - as an architect until
+            the real estate and construction markets collapsed. Jared is leveraging
+            his design skills to learn software and product development.
+        .three.columns.image
+          = image_tag('jared_cropped.jpg')

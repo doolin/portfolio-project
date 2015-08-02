@@ -1,0 +1,81 @@
+= form_for(@project) do |f|
+  - if @project.errors.any?
+    #error_explanation.alert-box.error
+      %h2
+        = pluralize(@project.errors.count, "error")
+        prohibited this project from being saved:
+      %ul
+        - @project.errors.full_messages.each do |msg|
+          %li= msg
+  %dl.tabs.contained
+    %dd
+      %a.active{:href => "#simpleContained1"} Required
+    %dd
+      %a{:href => "#simpleContained2"} Detailed description
+    %dd
+      %a{:href => "#simpleContained3"} Links and extras
+  %ul.tabs-content.contained
+    %li#simpleContained1Tab.active
+      .field
+        = f.label :name
+        %span.required-field *
+        %br/
+        = f.text_field :name
+        %br/
+      .field.date
+        = f.label :startdate
+        %span.required-field *
+        %br/
+        = f.date_select(:startdate)
+        %br/
+      .field.date
+        = f.label :finishdate
+        %br/
+        = f.date_select(:finishdate, :include_blank => true)
+        %br/
+      #summary.field
+        = f.label :summary
+        %span.required-field *
+        %br/
+        = f.text_area :summary, :size => "60x12"
+        %br/
+      .field
+        = f.label :tags
+        %span.required-field *
+        %br/
+        = f.text_field :tags
+        %br/
+      .required-field *Required field
+    %li#simpleContained2Tab
+      #description.field
+        = f.label :description
+        = f.text_area :description, :size => "60x24"
+        %br/
+    %li#simpleContained3Tab
+      #requiredskills.field
+        = f.label "Required Skills"
+        %br/
+        = f.text_area :requiredskills, :size => "60x6"
+        %br/
+      .field
+        = f.label :client
+        %br/
+        = f.text_field :client
+        %br/
+      .field
+        = f.label "Anchor text for project link"
+        %br/
+        = f.text_field :uri_anchor
+        %br/
+      .field
+        = f.label "Link to project"
+        %br/
+        = f.text_field :uri
+        %br/
+      .field
+        = f.label "Point of contact"
+        %br/
+        = f.text_field :pointofcontact
+        %br/
+  .actions
+    = f.submit

@@ -1,0 +1,8 @@
+%p
+  - if (member_signed_in? && (current_member.id == @project.member_id))
+    = link_to 'Edit', edit_project_path(@project)
+    |
+    \#{link_to 'Delete', project_path(@project), :confirm => 'Are you sure?', :method => :delete} |
+  = link_to @project.membername(@project.member_id).possessive + ' projects', '/members/' + @project.member_id.to_s
+  |
+  \#{link_to 'All projects', projects_path}

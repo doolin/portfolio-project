@@ -1,0 +1,11 @@
+- devise_error_messages!.each do |key, value|
+  = content_tag :div, key.to_s + " "  + value, :class => "alert-box error flash #{key}" unless value.blank?
+#signupfree-box
+  #fields
+    = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+      %input#lat{:name => "lat", :type => "hidden", :value => ""}/
+      %input#lng{:name => "lng", :type => "hidden", :value => ""}/
+      %p= f.text_field :email, :placeholder => "email address", :class => 'text'
+      %p= f.password_field :password, :placeholder => "choose a password", :class => 'text'
+      %p{:style => "text-align: center;"}
+        %input.cta.cta-yellow{:type => "submit", :value => "Sign Up Free"}/

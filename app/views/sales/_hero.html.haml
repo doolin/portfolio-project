@@ -1,0 +1,8 @@
+%h1 Your Professional Portfolio
+#hero.herostyle
+  %h2 A new, better way to show your work.
+  / img src="http://placehold.it/900x300" /
+  %br/
+  %br/
+  - if !member_signed_in?
+    = link_to "Build Your Portfolio", new_member_registration_path, :class => "cta cta-yellow"

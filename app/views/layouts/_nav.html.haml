@@ -1,0 +1,30 @@
+#topbar-asset.container
+  .row
+    .four.columns
+      %p#logo.nav-text= link_to "The Portfolio Project", root_path
+    .eight.columns
+      %nav#member_nav.alignRight
+        - if member_signed_in?
+          - if current_member.profile
+            = link_to "My Profile", profile_path(current_member.lastname.downcase), :rel => 'author'
+            |
+          - if !current_member.projects.empty?
+            = link_to "My Projects", member_path(current_member), :rel => 'author'
+            |
+            \#{link_to "All Profiles", profiles_path} |
+            - count = Project.count
+            = link_to "All Projects", projects_path
+            |
+          = link_to 'Settings', edit_member_registration_path
+          |
+          \#{link_to "Sign out", destroy_member_session_path}
+        - else
+          = link_to "Home", root_path
+          |
+          \#{link_to "About", '/about'} |
+          \#{link_to "All Profiles", profiles_path} |
+          - count = Project.count
+          = link_to "All Projects", projects_path
+          |
+          \#{link_to "Sign up", new_member_registration_path} |
+          \#{link_to "Sign in", new_member_session_path}
