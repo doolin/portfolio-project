@@ -53,6 +53,7 @@ end
 
 group :test do
   #   gem 'mock-aws-s3'
+  gem 'mocha'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'launchy'

@@ -74,7 +74,6 @@ class ProfilesControllerTest < ActionController::TestCase
     member.save!
     profile = FactoryGirl.create(:profile, member: member)
     profile.save!
-    # put :update, :id => @profile.url, :profile => { :firstname => 'Foo', :lastname => 'Bar' }
     put :update, id: profile.url, firstname: 'Foo', lastname: 'Bar'
     profile.reload
     assert_redirect_to profile_path(@profile)
