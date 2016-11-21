@@ -5,20 +5,20 @@ describe 'profiles/new.html.erb' do
     assign(:profile, Profile.new(firstname: 'Dave', lastname: 'Doolin', url: 'doolin'))
   end
 
-  it 'infers the controller path' do
+  xit 'infers the controller path' do
     expect(controller.request.path_parameters[:controller]).to eq('profiles')
   end
 
-  it 'infers the controller action' do
+  xit 'infers the controller action' do
     expect(controller.request.path_parameters[:action]).to eq('new')
   end
 
-  it 'renders the new Profile page' do
+  xit 'renders the new Profile page' do
     render
     expect(rendered).to match(/New profile/)
   end
 
-  it 'renders included form' do
+  xit 'renders included form' do
     render
     expect(rendered).to match(/Firstname/)
   end
@@ -38,14 +38,14 @@ describe 'profiles/_form.html.erb' do
     assign(:profile, Profile.new(firstname: 'Dave', lastname: 'Doolin', url: 'doolin'))
   end
 
-  it 'form contains input element for Firstname' do
+  xit 'form contains input element for Firstname' do
     render
     assert_select 'form', action: profiles_path, method: 'post' do
       assert_select 'input#profile_firstname', name: 'profile[firstname]'
     end
   end
 
-  it 'form contains input element for Lastname' do
+  xit 'form contains input element for Lastname' do
     render
     assert_select 'form', action: profiles_path, method: 'post' do
       assert_select 'input#profile_lastname', name: 'profile[lastname]'

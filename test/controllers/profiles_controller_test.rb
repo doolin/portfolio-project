@@ -69,12 +69,13 @@ class ProfilesControllerTest < ActionController::TestCase
   end
 
   test 'updates the profile for signed in member' do
-    skip
+    # skip
     member  = FactoryGirl.create(:member, email: 'foo@bar.com')
-    member.save!
+    # member.save!
     profile = FactoryGirl.create(:profile, member: member)
-    profile.save!
-    put :update, id: profile.url, firstname: 'Foo', lastname: 'Bar'
+    # profile.save!
+    # put :update, id: profile.url, firstname: 'Foo', lastname: 'Bar'
+    put :update, id: profile.id, firstname: 'Foo', lastname: 'Bar'
     profile.reload
     assert_redirect_to profile_path(@profile)
     assert_equal 'Foo', @profile.firstname

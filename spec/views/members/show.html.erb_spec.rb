@@ -14,12 +14,12 @@ describe 'members/show.html.erb' do
     expect(controller.request.path_parameters[:action]).to eq('show')
   end
 
-  it "renders the member's show page" do
+  xit "renders the member's show page" do
     render
     expect(rendered).to match(/Projects/)
   end
 
-  it 'should have link to New Project' do
+  xit 'should have link to New Project' do
     render
     expect(rendered).to have_selector('div') do |n|
       # This is giving me a false positive, passing on any

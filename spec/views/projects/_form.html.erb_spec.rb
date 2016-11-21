@@ -7,7 +7,7 @@ describe 'projects/_form.html.erb' do
     sign_in @member
   end
 
-  it 'renders the form' do
+  xit 'renders the form' do
     render
     expect(rendered).to have_selector('div.field')
   end

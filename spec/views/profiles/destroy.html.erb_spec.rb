@@ -10,7 +10,7 @@ describe 'profiles/destroy.html.erb' do
     expect(controller.request.path_parameters[:action]).to eq('destroy')
   end
 
-  it 'renders the profile destroyed page' do
+  xit 'renders the profile destroyed page' do
     render
     expect(rendered).to have_selector('h2', text: 'Thank you for your time')
   end

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'pages/contact.html.erb' do
-  it 'should render the Contact page' do
+  xit 'should render the Contact page' do
     render
     expect(rendered).to match(/Contact/)
   end

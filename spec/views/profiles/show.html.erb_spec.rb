@@ -14,7 +14,7 @@ describe 'profiles/show.html.erb' do
     expect(controller.request.path_parameters[:action]).to eq('show')
   end
 
-  it "renders the member's profile page" do
+  xit "renders the member's profile page" do
     render
     expect(rendered).to have_selector('div.profile')
   end
@@ -29,13 +29,13 @@ describe 'profiles/show.html.erb' do
     # view.content_for(:sidebar).should have_selector('div.quote')
   end
 
-  it 'should have a link to Twitter profile' do
+  xit 'should have a link to Twitter profile' do
     render
     expect(rendered).to have_selector('a.twitter', text: @member.profile.twitter)
   end
 
   # This is a brittle spec, depending on the word "profile" is not good.
-  it 'should have a link to Google Profile' do
+  xit 'should have a link to Google Profile' do
     render
     expect(rendered).to have_selector('a', text: 'profile')
     # rendered.should =~ /profile/
@@ -59,12 +59,12 @@ describe 'profiles/_profile_links.html.erb' do
     sign_in @member
   end
 
-  it 'should have link to Edit' do
+  xit 'should have link to Edit' do
     render
     expect(rendered).to have_selector('a', text: 'Edit')
   end
 
-  it 'signed out should not have link to Edit' do
+  xit 'signed out should not have link to Edit' do
     sign_out @member
     render
     expect(rendered).to_not have_selector('a', text: 'Edit')
@@ -75,12 +75,12 @@ describe 'profiles/_profile_links.html.erb' do
     expect(rendered).to have_selector('a', text: 'Delete')
   end
 
-  it 'should have a link to Projects' do
+  xit 'should have a link to Projects' do
     render
     expect(rendered).to have_selector('a', text: 'Projects')
   end
 
-  it 'should have a link to Settings' do
+  xit 'should have a link to Settings' do
     render
     expect(rendered).to have_selector('a.settings', text: 'Settings')
   end

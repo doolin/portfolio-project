@@ -5,7 +5,7 @@ describe 'projects/new.html.erb' do
     assign(:project, Project.new(name: 'MyString', summary: 'MyString', client: 'MyString'))
   end
 
-  it 'renders new project form' do
+  xit 'renders new project form' do
     render
 
     assert_select 'form', action: projects_path, method: 'post' do
@@ -26,7 +26,7 @@ describe 'projects/new.html.erb' do
     expect(controller.request.path_parameters[:action]).to eq('new')
   end
 
-  it 'should have the correct <title> element ' do
+  xit 'should have the correct <title> element ' do
     render(template: 'projects/new.html.erb', layout: 'layouts/application')
     # expect(rendered).to have_selector("title", :text => "Add your new Project or Accomplishment | Portfolio Project")
     expect(rendered).to match('Add your new Project or Accomplishment | Portfolio Project')
