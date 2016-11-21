@@ -31,6 +31,6 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
 
   ## Devise
-  config.include Devise::TestHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
   config.extend ControllerMacros, type: :controller
 end
