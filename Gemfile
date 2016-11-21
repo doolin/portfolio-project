@@ -19,30 +19,29 @@ gem 'escape_utils'
 gem 'thin'
 gem 'haml-rails'
 
-gem 'haml-rails'
 gem 'brakeman'
 gem 'rubocop'
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
+# group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
-end
+# end
 
 group :production do
   gem 'pg'
 end
 
-group :development, :test do
+# group :development, :test do
   gem 'sqlite3'
   gem 'rb-fsevent'
   gem 'pry'
   gem 'pry-nav'
   gem 'pry-rails'
   gem 'xray-rails'
-end
+# end
 
 gem 'simplecov', require: false, group: :test
 
@@ -51,11 +50,11 @@ group :cucumber do
   gem 'cucumber-rails'
 end
 
-group :test do
+# group :test do
   #   gem 'mock-aws-s3'
   gem 'mocha'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'launchy'
   gem 'factory_girl_rails'
-end
+# end
