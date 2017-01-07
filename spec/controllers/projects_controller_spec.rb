@@ -21,7 +21,7 @@ describe ProjectsController do
   describe 'GET show' do
     xit 'assigns the requested project as @project' do
       Project.stub(:find).with('37') { mock_project }
-      get :show, id: '37'
+      get :show, params: { id: '37' }
       expect(assigns(:project)).to eq(@mock_project)
     end
   end
@@ -37,7 +37,7 @@ describe ProjectsController do
   describe 'GET edit' do
     it 'assigns the requested project as @project' do
       Project.stub(:find).with('37') { mock_project }
-      get :edit, id: '37'
+      get :edit, params: { id: '37' }
       expect(assigns(:project)).to be(@mock_project)
     end
   end
@@ -46,7 +46,7 @@ describe ProjectsController do
     describe 'with valid params' do
       it 'assigns a newly created project as @project' do
         Project.stub(:new).with('these' => 'params') { mock_project(save: true) }
-        post :create, project: { 'these' => 'params' }
+        post :create, params: { project: { 'these' => 'params' } }
         expect(assigns(:project)).to be(@mock_project)
       end
 
@@ -88,7 +88,7 @@ describe ProjectsController do
     describe 'with invalid params' do
       it 'assigns a newly created but unsaved project as @project' do
         Project.stub(:new).with('these' => 'params') { mock_project(save: false) }
-        post :create, project: { 'these' => 'params' }
+        post :create, params: { project: { 'these' => 'params' } }
         expect(assigns(:project)).to be(@mock_project)
       end
 
@@ -139,13 +139,13 @@ describe ProjectsController do
 
       it 'assigns the project as @project' do
         Project.stub(:find_by_url) { mock_project(update_attributes: false) }
-        put :update, id: '1'
+        put :update, params: { id: '1' }
         expect(assigns(:project)).to be(@mock_project)
       end
 
       xit "re-renders the 'edit' template" do
         Project.stub(:find) { mock_project(update_attributes: false) }
-        put :update, id: '1'
+        put :update, params: { id: '1' }
         expect(response).to render_template(action: 'edit')
       end
     end
@@ -154,7 +154,7 @@ describe ProjectsController do
       it 'should redirect to the sign in page' do
         sign_out @member
         Project.stub(:find) { mock_project(update_attributes: true) }
-        put :update, id: '1'
+        put :update, params: { id: '1' }
         expect(response).to redirect_to(new_member_session_path)
       end
     end
@@ -182,7 +182,7 @@ describe ProjectsController do
 
     it 'redirects to the projects list' do
       Project.stub(:find_by_url) { mock_project }
-      delete :destroy, id: 'new-project'
+      delete :destroy, params: { id: 'new-project' }
       expect(response).to redirect_to(projects_url)
     end
   end

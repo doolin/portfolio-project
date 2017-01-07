@@ -25,13 +25,13 @@ describe ProfilesController do
   describe "GET 'show'" do
     it 'should be successful' do
       sign_out @member
-      get :show, id: @profile.url
+      get :show, params: { id: @profile.url }
       expect(response).to be_success
     end
 
     it "displays the member's profile" do
       sign_out @member
-      get :show, id: @profile.url
+      get :show, params: { id: @profile.url }
       expect(response).to render_template('show')
     end
   end
@@ -45,7 +45,7 @@ describe ProfilesController do
 
   describe "GET 'edit'" do
     it 'renders the edit profile page' do
-      get :edit, id: @profile.url
+      get :edit, params: { id: @profile.url }
       expect(response).to render_template('edit')
     end
   end
@@ -56,14 +56,14 @@ describe ProfilesController do
       @newmember  = FactoryGirl.create(:member, email: 'foofppf@gmail.com')
       sign_in @newmember
       expect do
-        post :create, firstname: 'foo', lastname: 'bar'
+        post :create, params: { firstname: 'foo', lastname: 'bar' }
       end.to change(Profile, :count).by(1)
     end
 
     it 'creates a profile for member without a profile' do
       @member.profile.destroy
       expect do
-        post :create, firstname: 'foo', lastname: 'bar'
+        post :create, params: { firstname: 'foo', lastname: 'bar' }
       end.to change(Profile, :count).by(1)
     end
 
@@ -100,12 +100,12 @@ describe ProfilesController do
   describe "DELETE 'destroy'" do
     it 'should destroy the profile' do
       expect do
-        delete :destroy, id: @profile.url
+        delete :destroy, params: { id: @profile.url }
       end.to change(Profile, :count).by(-1)
     end
 
     it 'redirects to the projects list' do
-      delete :destroy, id: @profile.url
+      delete :destroy, params: { id: @profile.url }
       expect(response).to redirect_to(root_path)
     end
   end

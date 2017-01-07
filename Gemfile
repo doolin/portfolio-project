@@ -57,4 +57,5 @@ end
   gem 'rspec-rails'
   gem 'launchy'
   gem 'factory_girl_rails'
+  gem 'rails-controller-testing'
 # end

@@ -38,7 +38,6 @@ PortfolioProject::Application.configure do
   # config.serve_static_files = true
   config.public_file_server.enabled = true
   config.public_file_server.headers = { 'Cache-Control' => 'public, max-age=3600' }
-  config.static_cache_control = 'public, max-age=3600'
   # This config option was shown in the episode but is actually not used, so don't bother adding it.
   config.assets.allow_debugging = true
 end

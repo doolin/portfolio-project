@@ -10,7 +10,7 @@ describe MembersController do
       p1 = FactoryGirl.create(:project, member: @member, summary: 'Foo bar')
       p2 = FactoryGirl.create(:project, member: @member, summary: 'Baz quux')
       @member.projects = [p1, p2]
-      get :show, id: @member
+      get :show, params: { id: @member }
       expect(response).to render_template('show')
     end
   end
