@@ -74,11 +74,6 @@ Metrics/MethodLength:
 Rails/ActionFilter:
   Enabled: true
 
-# Offense count: 1
-# Configuration parameters: Include.
-Rails/DefaultScope:
-  Enabled: true
-
 # Offense count: 7
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Rails/TimeZone:
@@ -318,7 +313,7 @@ Style/TrailingBlankLines:
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleForMultiline, SupportedStyles.
-Style/TrailingComma:
+Style/TrailingCommaInLiteral:
   Enabled: true
 
 # Offense count: 17
