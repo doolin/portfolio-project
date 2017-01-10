@@ -15,8 +15,24 @@ describe 'sales/index' do
     expect(controller.request.path_parameters[:action]).to eq('index')
   end
 
-  xit 'should display the home page' do
+  # View specs don't load the controller so the helpers aren't loaded
+  # either, hence this fails on no method error for title.
+  # let(:title) { double String }
+  it 'should display the home page' do
+
+    # allow(controller).to receive(:title).and_return('123')
+
+    view.stub(:title).and_return('foo')
+    view.stub(:devise_error_messages!).and_return([])
+    # view.stub(:profiles).and_return([])
+    profile = Profile.new id: 1
+    expect(Profile).to receive(:find).with(anything).and_return(profile)
+    expect(Member).to receive(:find).with(nil).and_return(nil)
+
+
+
     render
+    ap rendered.class
     expect(rendered).to match(/Talk is cheap/)
     expect(rendered).not_to match(/Getta buncha/)
   end
