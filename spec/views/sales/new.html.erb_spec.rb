@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'sales/new.html.erb' do
+describe 'sales/new' do
   it 'infers the controller path' do
     expect(controller.request.path_parameters[:controller]).to eq('sales')
   end
@@ -9,13 +9,16 @@ describe 'sales/new.html.erb' do
     expect(controller.request.path_parameters[:action]).to eq('new')
   end
 
-  xit 'should display default scaffolding text' do
+  it 'should display default scaffolding text' do
+    allow(view).to receive(:title).and_return('')
     render
     expect(rendered).to match(/Sales#new/)
   end
 
+  # This passes but it shouldn't.
   xit 'should have the correct <title> element ' do
-    render(template: 'sales/new.html.erb', layout: 'layouts/application')
+    allow(view).to receive(:title).and_return('')
+    render(template: 'sales/new', layout: 'layouts/application')
     expect(rendered).to match('Premium Membership | Portfolio Project')
   end
 end
