@@ -14,7 +14,8 @@ describe 'members/show' do
     expect(controller.request.path_parameters[:action]).to eq('show')
   end
 
-  xit "renders the member's show page" do
+  it "renders the member's show page" do
+    allow(view).to receive(:title).and_return('')
     render
     expect(rendered).to match(/Projects/)
   end
