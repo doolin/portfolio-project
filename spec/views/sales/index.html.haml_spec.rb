@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 describe 'sales/index' do
@@ -21,7 +22,7 @@ describe 'sales/index' do
 
     allow(view).to receive(:title).and_return('foo')
     allow(view).to receive(:devise_error_messages!).and_return([])
-    allow(view).to receive(:gravatar_for).with(member, {:size=>"200"}).and_return('foo')
+    allow(view).to receive(:gravatar_for).with(member, size: '200').and_return('foo')
     allow(view).to receive(:pluralize).with(0, 'project').and_return('foo')
     allow(member).to receive(:projects).and_return(projects = [Project.new])
     allow(projects).to receive(:count).and_return(0)
