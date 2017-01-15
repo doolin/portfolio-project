@@ -41,6 +41,7 @@ end
   gem 'pry-nav'
   gem 'pry-rails'
   gem 'xray-rails'
+  gem 'awesome_print'
 # end
 
 gem 'simplecov', require: false, group: :test
