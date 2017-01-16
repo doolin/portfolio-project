@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'projects/show.html.erb' do
+describe 'projects/show' do
   before(:each) do
     # p. 333 Lightbulb
     # assign(:project, mock_model(Project).as_new_record.as_null_object)
@@ -18,12 +18,13 @@ describe 'projects/show.html.erb' do
     expect(controller.request.path_parameters[:action]).to eq('show')
   end
 
-  # describe 'layouts/application' do
-  # https://github.com/rspec/rspec-rails/issues/176
-  xit 'renders flash notices' do
+  it 'renders flash notices' do
+    allow(view).to receive(:title).and_return('')
+    allow(view).to receive(:gravatar_for).with(@member, size: '140').and_return('foo')
+    expect(Member).to receive(:find).with(@member.id).and_return(@member).exactly(2).times
+
     flash[:notice] = 'This is a notice!'
     render
-    # response.should contain "This is a notice!"
     expect(rendered).to match(/This is a notice!/)
   end
   # end
