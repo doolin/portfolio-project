@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe 'projects/show' do
   before(:each) do
+    allow(view).to receive(:title).and_return('')
     # p. 333 Lightbulb
     # assign(:project, mock_model(Project).as_new_record.as_null_object)
     @member   = FactoryGirl.create(:member)
@@ -19,7 +20,7 @@ describe 'projects/show' do
   end
 
   it 'renders flash notices' do
-    allow(view).to receive(:title).and_return('')
+    # allow(view).to receive(:title).and_return('')
     allow(view).to receive(:gravatar_for).with(@member, size: '140').and_return('foo')
     expect(Member).to receive(:find).with(@member.id).and_return(@member).exactly(2).times
 
@@ -29,7 +30,9 @@ describe 'projects/show' do
   end
   # end
 
-  xit 'renders attributes in <p>' do
+  it 'renders attributes in <p>' do
+    allow(view).to receive(:gravatar_for).with(@member, size: '140').and_return('foo')
+    expect(Member).to receive(:find).with(@member.id).and_return(@member).exactly(2).times
     render
     # Name changed to h1 element
     # rendered.should match(/Name/)
@@ -37,7 +40,9 @@ describe 'projects/show' do
     expect(rendered).to match(/Client/)
   end
 
-  xit 'has a description block for the project' do
+  it 'has a description block for the project' do
+    allow(view).to receive(:gravatar_for).with(@member, size: '140').and_return('foo')
+    expect(Member).to receive(:find).with(@member.id).and_return(@member).exactly(2).times
     render
     expect(rendered).to have_selector('div.description')
   end
