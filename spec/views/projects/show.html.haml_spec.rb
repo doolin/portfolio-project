@@ -20,7 +20,6 @@ describe 'projects/show' do
   end
 
   it 'renders flash notices' do
-    # allow(view).to receive(:title).and_return('')
     allow(view).to receive(:gravatar_for).with(@member, size: '140').and_return('foo')
     expect(Member).to receive(:find).with(@member.id).and_return(@member).exactly(2).times
 
@@ -34,8 +33,6 @@ describe 'projects/show' do
     allow(view).to receive(:gravatar_for).with(@member, size: '140').and_return('foo')
     expect(Member).to receive(:find).with(@member.id).and_return(@member).exactly(2).times
     render
-    # Name changed to h1 element
-    # rendered.should match(/Name/)
     expect(rendered).to match(/Summary/)
     expect(rendered).to match(/Client/)
   end
@@ -47,12 +44,15 @@ describe 'projects/show' do
     expect(rendered).to have_selector('div.description')
   end
 
-  xit 'has a URI field for the project' do
+  it 'has a URI field for the project' do
+    allow(view).to receive(:gravatar_for).with(@member, size: '140').and_return('foo')
     render
     expect(rendered).to have_selector('div.uri')
   end
 
-  xit 'has a Required Skills field for the project' do
+  it 'has a Required Skills field for the project' do
+    allow(view).to receive(:gravatar_for).with(@member, size: '140').and_return('foo')
+    render
     render
     expect(rendered).to have_selector('div.requiredskills')
   end
@@ -60,16 +60,18 @@ describe 'projects/show' do
   # If a field is nil, the .html_safe method doesn't work.
   # xit "handles an error if the skills field is blank"
 
-  xit 'does not have a foobar field for the project' do
+  it 'does not have a foobar field for the project' do
+    allow(view).to receive(:gravatar_for).with(@member, size: '140').and_return('foo')
     render
     expect(rendered).not_to have_selector('div.foobar')
   end
 
   xit 'should have the correct <title> element ' do
-    render(template: 'projects/show.html.erb', layout: 'layouts/application')
+    allow(view).to receive(:gravatar_for).with(@member, size: '140').and_return('foo')
+    render
     # have_selector is from webrat
     # https://github.com/brynary/webrat/blob/master/lib/webrat/core/matchers/have_selector.rb
-    expect(rendered).to have_selector('title', text: @project.name + ' | Portfolio Project')
+    expect(rendered).to have_selector('title', text: @project.name + ' | Portfolio Project', visible: false)
     # http://blog.carbonfive.com/2011/03/02/a-look-at-specifying-views-in-rspec/
     # view.content_for(:sidebar).should have_selector('div.quote')
   end
