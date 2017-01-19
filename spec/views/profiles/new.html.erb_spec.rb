@@ -1,19 +1,20 @@
 require 'spec_helper'
 
-describe 'profiles/new.html.erb' do
+describe 'profiles/new' do
   before(:each) do
     assign(:profile, Profile.new(firstname: 'Dave', lastname: 'Doolin', url: 'doolin'))
   end
 
-  xit 'infers the controller path' do
+  it 'infers the controller path' do
     expect(controller.request.path_parameters[:controller]).to eq('profiles')
   end
 
-  xit 'infers the controller action' do
+  it 'infers the controller action' do
     expect(controller.request.path_parameters[:action]).to eq('new')
   end
 
-  xit 'renders the new Profile page' do
+  it 'renders the new Profile page' do
+    allow(view).to receive(:title).and_return('')
     render
     expect(rendered).to match(/New profile/)
   end
