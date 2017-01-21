@@ -13,10 +13,9 @@ describe 'projects/edit' do
     expect(rendered).to have_selector('input', id: 'project_name') # , name: 'project[name]')
   end
 
-  xit 'renders the project name' do
+  it 'renders the project name' do
     render
-    expect(rendered).to have_selector('input#project_project_name', text: 'project[name]')
-    # rendered.should have_selector('input#project_project_name', text: 'project[name]')
+    expect(rendered).to have_selector('input', id: 'project_name')
   end
 
   xit 'should have the correct <title> element ' do
