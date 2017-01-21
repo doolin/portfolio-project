@@ -4,6 +4,7 @@ describe 'members/show' do
   before(:each) do
     @member = FactoryGirl.create(:member)
     @profile = FactoryGirl.create(:profile, member: @member, created_at: 1.day.ago)
+    allow(view).to receive(:title).and_return('')
   end
 
   it 'infers the controller path' do
@@ -15,12 +16,11 @@ describe 'members/show' do
   end
 
   it "renders the member's show page" do
-    allow(view).to receive(:title).and_return('')
     render
     expect(rendered).to match(/Projects/)
   end
 
-  xit 'should have link to New Project' do
+  it 'should have link to New Project' do
     render
     expect(rendered).to have_selector('div') do |n|
       # This is giving me a false positive, passing on any
