@@ -36,11 +36,9 @@ describe 'profiles/show' do
     expect(rendered).to have_selector('a.twitter', text: @member.profile.twitter)
   end
 
-  # This is a brittle spec, depending on the word "profile" is not good.
   it 'should have a link to Google Profile' do
     render
     expect(rendered).to have_selector('a', text: 'profile')
-    # rendered.should =~ /profile/
   end
 
   it 'should not display Google Profile information when no link' do

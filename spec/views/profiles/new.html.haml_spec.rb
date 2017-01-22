@@ -3,6 +3,7 @@ require 'spec_helper'
 describe 'profiles/new' do
   before(:each) do
     assign(:profile, Profile.new(firstname: 'Dave', lastname: 'Doolin', url: 'doolin'))
+    allow(view).to receive(:title).and_return('')
   end
 
   it 'infers the controller path' do
@@ -14,12 +15,11 @@ describe 'profiles/new' do
   end
 
   it 'renders the new Profile page' do
-    allow(view).to receive(:title).and_return('')
     render
     expect(rendered).to match(/New profile/)
   end
 
-  xit 'renders included form' do
+  it 'renders included form' do
     render
     expect(rendered).to match(/Firstname/)
   end
@@ -34,19 +34,19 @@ describe 'profiles/new' do
   end
 end
 
-describe 'profiles/_form.html.erb' do
+describe 'profiles/_form' do
   before(:each) do
     assign(:profile, Profile.new(firstname: 'Dave', lastname: 'Doolin', url: 'doolin'))
   end
 
-  xit 'form contains input element for Firstname' do
+  it 'form contains input element for Firstname' do
     render
     assert_select 'form', action: profiles_path, method: 'post' do
       assert_select 'input#profile_firstname', name: 'profile[firstname]'
     end
   end
 
-  xit 'form contains input element for Lastname' do
+  it 'form contains input element for Lastname' do
     render
     assert_select 'form', action: profiles_path, method: 'post' do
       assert_select 'input#profile_lastname', name: 'profile[lastname]'
