@@ -68,23 +68,26 @@ describe ProfilesController do
     end
 
     xit 'creates a new profile' do
-      Profile.should_receive(:new).with(firstname: 'foo', lastname: 'bar')
-      post :create, firstname: 'foo', lastname: 'bar'
+      # Profile.should_receive(:new).with(firstname: 'foo', lastname: 'bar')
+      # <ActionController::Parameters {"firstname"=>"foo", "lastname"=>"bar"} permitted: true>
+      expect(Profile).to receive(:new).with(firstname: 'foo', lastname: 'bar')
+      post :create, params: { firstname: 'foo', lastname: 'bar' }
     end
-
-    it 'saves the profile'
   end
 
   describe "PUT 'update'" do
-    xit 'updates the profile for signed in member' do
+    it 'updates the profile for signed in member' do
       member  = FactoryGirl.create(:member, email: 'foo@bar.com')
       member.save!
       profile = FactoryGirl.create(:profile, member: member)
-      profile.save!
+      # profile.save!
+      # profile.reload
       # put :update, :id => @profile.url, :profile => { :firstname => 'Foo', :lastname => 'Bar' }
-      put :update, id: profile.url, firstname: 'Foo', lastname: 'Bar'
+      ap profile
+      put :update, params: { id: profile.url, firstname: 'Foo', lastname: 'Bar'  }
+      binding.pry
       profile.reload
-      expect(response).to redirect_to(profile_path(@profile))
+      expect(response).to redirect_to(profile_path(profile))
       expect(@profile.firstname).to eq('Foo')
       expect(@profile.lastname).to eq('Bar')
     end
