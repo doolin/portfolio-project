@@ -84,6 +84,9 @@ describe ProfilesController do
       # profile.reload
       # put :update, :id => @profile.url, :profile => { :firstname => 'Foo', :lastname => 'Bar' }
       ap profile
+      # The controller updates the id as it's in the permitted parameters, hence isn't the same object
+      # once the associated member is saved. There is a still a problem where the profile
+      # attributes are not updating.
       put :update, params: { id: profile.url, firstname: 'Foo', lastname: 'Bar'  }
       binding.pry
       profile.reload

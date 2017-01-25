@@ -36,8 +36,13 @@ class ProfilesController < ApplicationController
   def update
     @profile = Profile.find_by_url(params[:id])
 
+    ap @profile
+
     respond_to do |format|
-      if @profile.update_attributes(profile_params)
+      result = @profile.update_attributes(profile_params)
+      binding.pry
+
+      if result # @profile.update_attributes(profile_params)
         @member = Member.find(@profile.member_id)
         @member.firstname = @profile.firstname
         @member.lastname = @profile.lastname
@@ -68,7 +73,8 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.permit(:id, :firstname, :lastname, :website, :twitter, :bio, :url,
+    # params.permit(:id, :firstname, :lastname, :website, :twitter, :bio, :url,
+    params.permit(:firstname, :lastname, :website, :twitter, :bio, :url,
                   :facebook, :linkedin, :website_anchor, :gprofile_url)
   end
 end
