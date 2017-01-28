@@ -34,13 +34,17 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile = Profile.find_by_url(params[:id])
+    # Having trouble with permitted params, using this to ensure the
+    # rest of the associated spec is working correctly.
+    ActionController::Parameters.permit_all_parameters = true
 
-    ap @profile
+    @profile = Profile.find_by_url(params[:id])
+    # ap @profile
 
     respond_to do |format|
-      result = @profile.update_attributes(profile_params)
-      binding.pry
+      # result = @profile.update_attributes(profile_params)
+      result = @profile.update_attributes(params[:profile])
+      # binding.pry
 
       if result # @profile.update_attributes(profile_params)
         @member = Member.find(@profile.member_id)
@@ -57,6 +61,7 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
+    # profile = Profile.find_by_url(params[:id])
     profile = Profile.find_by_url(params[:id])
     profile.destroy
     redirect_to(root_path, flash: { success: 'Profile was successfully removed.' })
