@@ -42,8 +42,8 @@ class ProfilesController < ApplicationController
     # ap @profile
 
     respond_to do |format|
-      # result = @profile.update_attributes(profile_params)
-      result = @profile.update_attributes(params[:profile])
+      result = @profile.update_attributes(profile_params)
+      # result = @profile.update_attributes(params[:profile])
       # binding.pry
 
       if result # @profile.update_attributes(profile_params)

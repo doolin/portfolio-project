@@ -69,30 +69,20 @@ describe ProfilesController do
   end
 
   describe "PUT 'update'" do
-    xit 'updates the profile for signed in member' do
+    it 'updates the profile for signed in member' do
       member  = FactoryGirl.create(:member, email: 'foo@bar.com')
       member.save!
       profile = FactoryGirl.create(:profile, member: member)
-      # profile.save!
-      # profile.reload
-      # put :update, :id => @profile.url, :profile => { :firstname => 'Foo', :lastname => 'Bar' }
-      ap profile
-      # The controller updates the id as it's in the permitted parameters, hence isn't the same object
-      # once the associated member is saved. There is a still a problem where the profile
-      # attributes are not updating.
       put :update, params: { id: profile.url, firstname: 'Foo', lastname: 'Bar'  }
-      binding.pry
       profile.reload
+
       expect(response).to redirect_to(profile_path(profile))
-      expect(@profile.firstname).to eq('Foo')
-      expect(@profile.lastname).to eq('Bar')
+      expect(profile.firstname).to eq('Foo')
+      expect(profile.lastname).to eq('Bar')
     end
 
     it 'updates the profile for nil website' do
-      # The parameter structure here is probably bad, which would be why the
-      # update query won't resolve permitted parameters.
-      put :update, params: { id: @profile.url, profile: { firstname: 'Foo', lastname: 'Bar', website: nil } }
-      # binding.pry
+      put :update, params: { id: @profile.url, firstname: 'Foo', lastname: 'Bar', website: nil }
       @profile.reload
       expect(response).to redirect_to(profile_path(@profile))
       expect(@profile.website).to match('')
