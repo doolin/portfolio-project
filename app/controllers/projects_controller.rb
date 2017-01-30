@@ -34,9 +34,14 @@ class ProjectsController < ApplicationController
     @project = Project.find_by_url(params[:id])
   end
 
+  def permitted_params
+    params.permit(:name, :startdate, :summary, :finishdate, :tags)
+  end
+
   def create
     # @project = Project.new(params[:project])
-    @project = current_member.projects.build(params[:project])
+    # @project = current_member.projects.build(params[:project])
+    @project = current_member.projects.build(permitted_params)
     # TODO: Remove if possible...
     # flash[:success] = "New project created!"
 

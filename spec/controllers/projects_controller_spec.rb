@@ -50,11 +50,12 @@ describe ProjectsController do
         expect(assigns(:project)).to be(@mock_project)
       end
 
-      xit 'should create a new project for signed in member' do
+      it 'should create a new project for signed in member' do
         @member = FactoryGirl.create(:member)
         sign_in @member
         expect do
-          post :create, project: {
+          # post :create, project: {
+          post :create, params: {
             name: 'Project test',
             summary: 'Test example',
             description: 'Some short, descriptive text for testing.',
@@ -71,16 +72,15 @@ describe ProjectsController do
       xit 'redirects to the created project' do
         member = FactoryGirl.create(:member)
         sign_in member
-        # member.build_profile(stub(Profile))
-        # pending "Need to add a Devise sign in for this..."
+        member.build_profile(stub(Profile))
         Project.stub(:new) { mock_project(save: true) }
-        post :create, project: {}
+        post :create, params: {}
         expect(response).to redirect_to(project_url(@mock_project))
       end
 
-      xit 'redirects to the sign in page when not logged in' do
+      it 'redirects to the sign in page when not logged in' do
         Project.stub(:new) { mock_project(save: true) }
-        post :create, project: {}
+        post :create, params: {}
         expect(response).to redirect_to(new_member_session_path)
       end
     end
@@ -93,8 +93,10 @@ describe ProjectsController do
       end
 
       xit "re-renders the 'new' template" do
+        member = FactoryGirl.create(:member)
+        sign_in member
         Project.stub(:new) { mock_project(save: false) }
-        post :create, project: {}
+        post :create, params: {}
         puts response
         expect(response).to render_template(:new)
       end
