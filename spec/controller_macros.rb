@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # macros for controllers
 # more comment - this is a rubocop thing. I don't
 # think I like it.

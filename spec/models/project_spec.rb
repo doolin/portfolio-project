@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 describe Project do
@@ -91,7 +92,7 @@ describe Project do
 
     it 'finish date should raise error' do
       @project = @member.projects.create(@attr)
-      @project.finishdate = (DateTime.new(1999))
+      @project.finishdate = DateTime.new(1999)
       expect do
         @project.save!
       end.to raise_error(ActiveRecord::RecordNotSaved)
