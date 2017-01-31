@@ -6,7 +6,7 @@ development:
   encoding: unicode
   database: portproj
   pool: 5
-  username: postgres
+  username: doolin
   password:
 
 
