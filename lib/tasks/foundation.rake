@@ -1,4 +1,5 @@
 
+# frozen_string_literal: true
 namespace :zurb do
   desc 'Updating the Zurb Foundation stylesheets'
   task :update do
