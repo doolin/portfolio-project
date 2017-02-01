@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Project < ActiveRecord::Base
   # attr_accessible :name, :summary, :client, :tags, :description, :pointofcontact,
   #                 :startdate, :finishdate, :url, :member_id, :uri, :requiredskills,
@@ -17,8 +18,8 @@ class Project < ActiveRecord::Base
   # matcher is working without selecting a date. Not good.
   validates :startdate,   presence: true
   validates :finishdate,  presence: true
-  validates :client,                         length: { maximum: 140 }
-  validates :tags,        presence: true
+  validates :client, length: { maximum: 140 }
+  validates :tags, presence: true
 
   before_save :check_dates
 
@@ -46,6 +47,6 @@ class Project < ActiveRecord::Base
   def check_dates
     # TODO: move 'message' to locale
     message = 'Starting date must precede finishing date'
-    fail ActiveRecord::RecordNotSaved, message if startdate > finishdate
+    raise ActiveRecord::RecordNotSaved, message if startdate > finishdate
   end
 end

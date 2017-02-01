@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Member < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable

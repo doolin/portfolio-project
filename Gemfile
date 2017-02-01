@@ -1,23 +1,24 @@
+# frozen_string_literal: true
 source 'http://rubygems.org'
 
-gem 'rake'
 gem 'rails', '5.0.1'
+gem 'rake'
 gem 'sitemap_generator'
 # gem 'carrierwave'
 # gem 'fog'
-gem 'zurb-foundation'
+gem 'dalli'
 gem 'devise'
 gem 'devise-encryptable'
 gem 'dynamic_form'
-gem 'stringex'
 gem 'gravatar_image_tag'
-gem 'dalli'
-gem 'possessive'
 gem 'jquery-rails'
+gem 'possessive'
+gem 'stringex'
+gem 'zurb-foundation'
 # gem 'aws-s3'
 gem 'escape_utils'
-gem 'thin'
 gem 'haml-rails'
+gem 'thin'
 
 gem 'brakeman'
 gem 'rubocop'
@@ -25,9 +26,9 @@ gem 'rubocop'
 # Gems used only for assets and not required
 # in production environments by default.
 # group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
+gem 'coffee-rails'
+gem 'sass-rails'
+gem 'uglifier'
 # end
 
 group :production do
@@ -35,28 +36,28 @@ group :production do
 end
 
 # group :development, :test do
-  gem 'sqlite3'
-  gem 'rb-fsevent'
-  gem 'pry'
-  gem 'pry-nav'
-  gem 'pry-rails'
-  gem 'xray-rails'
-  gem 'awesome_print'
+gem 'awesome_print'
+gem 'pry'
+gem 'pry-nav'
+gem 'pry-rails'
+gem 'rb-fsevent'
+gem 'sqlite3'
+gem 'xray-rails'
 # end
 
 gem 'simplecov', require: false, group: :test
 
 group :cucumber do
-  gem 'database_cleaner'
   gem 'cucumber-rails'
+  gem 'database_cleaner'
 end
 
 # group :test do
-  #   gem 'mock-aws-s3'
-  gem 'mocha'
-  gem 'rspec'
-  gem 'rspec-rails'
-  gem 'launchy'
-  gem 'factory_girl_rails'
-  gem 'rails-controller-testing'
+#   gem 'mock-aws-s3'
+gem 'factory_girl_rails'
+gem 'launchy'
+gem 'mocha'
+gem 'rails-controller-testing'
+gem 'rspec'
+gem 'rspec-rails'
 # end

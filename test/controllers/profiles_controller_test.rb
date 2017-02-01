@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative '../test_helper'
 
 class ProfilesControllerTest < ActionController::TestCase
@@ -47,7 +48,7 @@ class ProfilesControllerTest < ActionController::TestCase
   test 'creates a new profile for signed in member' do
     skip
     sign_out @member
-    @newmember  = FactoryGirl.create(:member, email: 'foofppf@gmail.com')
+    @newmember = FactoryGirl.create(:member, email: 'foofppf@gmail.com')
     sign_in @newmember
     expect do
       post :create, firstname: 'foo', lastname: 'bar'

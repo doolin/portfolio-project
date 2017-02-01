@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative '../test_helper'
 
 class ProfileTest < ActiveSupport::TestCase
@@ -17,7 +18,7 @@ class ProfileTest < ActiveSupport::TestCase
   end
 
   test 'should require a member id' do
-    refute  Profile.new(@attr).valid?
+    refute Profile.new(@attr).valid?
   end
 
   test 'should require nonblank firstname' do

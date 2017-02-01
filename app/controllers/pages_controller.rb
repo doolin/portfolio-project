@@ -1,14 +1,13 @@
+# frozen_string_literal: true
 class PagesController < ApplicationController
   def contact
     @site_name = 'Portfolio project'
     @title = 'Contact'
   end
 
-  def disclosure
-  end
+  def disclosure; end
 
-  def confirmation
-  end
+  def confirmation; end
 
   def terms
     @site_name = 'Portfolio Project'

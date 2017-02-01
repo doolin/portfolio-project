@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class SalesController < ApplicationController
   def index
     if member_signed_in?

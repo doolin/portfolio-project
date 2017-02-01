@@ -45,6 +45,13 @@ Lint/StringConversionInInterpolation:
 Lint/UnusedBlockArgument:
   Enabled: true
 
+Style/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'test/**/*.rb'
+    - 'spec/**/*.rb'
+
 # Offense count: 2
 # Cop supports --auto-correct.
 Lint/UnusedMethodArgument:

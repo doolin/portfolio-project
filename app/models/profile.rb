@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Profile < ActiveRecord::Base
   # attr_accessible :website, :firstname, :lastname, :twitter, :bio, :url,
   #                 :facebook, :linkedin, :website_anchor, :gprofile_url

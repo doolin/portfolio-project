@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative '../test_helper'
 
 class ProjectTest < ActiveSupport::TestCase
@@ -85,7 +86,7 @@ class ProjectTest < ActiveSupport::TestCase
   test 'finish date should raise error' do
     skip
     @project = @member.projects.create(@attr)
-    @project.finishdate = (DateTime.new(1999))
+    @project.finishdate = DateTime.new(1999)
     expect do
       @project.save!
     end.to raise_error(ActiveRecord::RecordNotSaved)
