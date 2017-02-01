@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # gem install aws-s3
 # add gem 'aws-s3' to Gemfile, bundle install
 # http://devcenter.heroku.com/articles/config-vars

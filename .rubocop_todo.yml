@@ -7,7 +7,10 @@
 
 AllCops:
   Exclude:
-    - lib/tasks/backup.rake
+    - db/schema.rb
+
+Rails:
+  Enabled: true
 
 # Offense count: 1
 Lint/AmbiguousOperator:

@@ -25,13 +25,13 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find_by_url(params[:id])
+    @profile = Profile.find_by(url: params[:id])
     @member = Member.find(@profile.member_id)
     @projects = @member.projects
   end
 
   def edit
-    @profile = Profile.find_by_url(params[:id])
+    @profile = Profile.find_by(url: params[:id])
   end
 
   def update
@@ -39,7 +39,7 @@ class ProfilesController < ApplicationController
     # rest of the associated spec is working correctly.
     ActionController::Parameters.permit_all_parameters = true
 
-    @profile = Profile.find_by_url(params[:id])
+    @profile = Profile.find_by(url: params[:id])
     # ap @profile
 
     respond_to do |format|
@@ -63,7 +63,7 @@ class ProfilesController < ApplicationController
 
   def destroy
     # profile = Profile.find_by_url(params[:id])
-    profile = Profile.find_by_url(params[:id])
+    profile = Profile.find_by(url: params[:id])
     profile.destroy
     redirect_to(root_path, flash: { success: 'Profile was successfully removed.' })
   end
