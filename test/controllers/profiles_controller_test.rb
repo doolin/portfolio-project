@@ -25,13 +25,13 @@ class ProfilesControllerTest < ActionController::TestCase
 
   test 'should be successful' do
     sign_out @member
-    get :show, id: @profile.url
+    get :show, params: { id: @profile.url }
     assert_response :success
   end
 
   test "displays the member's profile" do
     sign_out @member
-    get :show, id: @profile.url
+    get :show, params: { id: @profile.url }
     assert_template 'show'
   end
 
@@ -41,7 +41,7 @@ class ProfilesControllerTest < ActionController::TestCase
   end
 
   test 'renders the edit profile page' do
-    get :edit, id: @profile.url
+    get :edit, params: { id: @profile.url }
     assert_template 'edit'
   end
 
@@ -51,7 +51,7 @@ class ProfilesControllerTest < ActionController::TestCase
     @newmember = FactoryGirl.create(:member, email: 'foofppf@gmail.com')
     sign_in @newmember
     expect do
-      post :create, firstname: 'foo', lastname: 'bar'
+      post :create, params: { firstname: 'foo', lastname: 'bar' }
     end.to change(Profile, :count).by(1)
   end
 
@@ -59,14 +59,14 @@ class ProfilesControllerTest < ActionController::TestCase
     skip
     @member.profile.destroy
     expect do
-      post :create, firstname: 'foo', lastname: 'bar'
+      post :create, params: { firstname: 'foo', lastname: 'bar' }
     end.to change(Profile, :count).by(1)
   end
 
   test 'creates a new profile' do
     skip
     Profile.should_receive(:new).with(firstname: 'foo', lastname: 'bar')
-    post :create, firstname: 'foo', lastname: 'bar'
+    post :create, params: { firstname: 'foo', lastname: 'bar' }
   end
 
   test 'updates the profile for signed in member' do
@@ -76,7 +76,7 @@ class ProfilesControllerTest < ActionController::TestCase
     profile = FactoryGirl.create(:profile, member: member)
     # profile.save!
     # put :update, id: profile.url, firstname: 'Foo', lastname: 'Bar'
-    put :update, id: profile.id, firstname: 'Foo', lastname: 'Bar'
+    put :update, params: { id: profile.id, firstname: 'Foo', lastname: 'Bar' }
     profile.reload
     assert_redirect_to profile_path(@profile)
     assert_equal 'Foo', @profile.firstname
@@ -85,7 +85,7 @@ class ProfilesControllerTest < ActionController::TestCase
 
   test 'updates the profile for nil website' do
     skip
-    put :update, id: @profile.url, profile: { firstname: 'Foo', lastname: 'Bar', website: nil }
+    put :update, params: { id: @profile.url, profile: { firstname: 'Foo', lastname: 'Bar', website: nil } }
     @profile.reload
     expect(response).to redirect_to(profile_path(@profile))
     expect(@profile.website).to be_nil
@@ -94,12 +94,12 @@ class ProfilesControllerTest < ActionController::TestCase
   test 'should destroy the profile' do
     skip
     expect do
-      delete :destroy, id: @profile.url
+      delete :destroy, params: { id: @profile.url }
     end.to change(Profile, :count).by(-1)
   end
 
   test 'redirects to the projects list' do
-    delete :destroy, id: @profile.url
+    delete :destroy, params: { id: @profile.url }
     assert_redirected_to root_path
   end
 end

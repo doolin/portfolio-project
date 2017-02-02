@@ -20,7 +20,7 @@ class MemberTest < ActiveSupport::TestCase
   test 'should destroy associated projects' do
     @member.destroy
     [@p1, @p2].each do |p|
-      assert_nil Project.find_by_id(p.id)
+      assert_nil Project.find_by(id: p.id)
     end
   end
 
@@ -31,7 +31,7 @@ class MemberTest < ActiveSupport::TestCase
   test 'destroys the associated profile' do
     @member.destroy
     [@profile].each do |p|
-      assert_nil Profile.find_by_id(p.id)
+      assert_nil Profile.find_by(id: p.id)
     end
   end
 
