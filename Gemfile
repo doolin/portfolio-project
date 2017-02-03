@@ -19,6 +19,8 @@ gem 'zurb-foundation'
 gem 'escape_utils'
 gem 'haml-rails'
 gem 'thin'
+gem 'public_suffix'
+gem 'validate_url'
 
 gem 'brakeman'
 gem 'rubocop'

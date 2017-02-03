@@ -262,6 +262,9 @@ GEM
     uglifier (3.0.4)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.1.3)
+    validate_url (1.0.2)
+      activemodel (>= 3.0.0)
+      addressable
     warden (1.2.7)
       rack (>= 1.0)
     websocket-driver (0.6.5)
@@ -299,6 +302,7 @@ DEPENDENCIES
   pry
   pry-nav
   pry-rails
+  public_suffix
   rails (= 5.0.1)
   rails-controller-testing
   rake
@@ -313,6 +317,7 @@ DEPENDENCIES
   stringex
   thin
   uglifier
+  validate_url
   xray-rails
   zurb-foundation
 

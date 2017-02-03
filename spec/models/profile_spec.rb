@@ -44,11 +44,11 @@ describe Profile do
       expect(@member.build_profile(@attr.merge(website: 'foobar.com/'))).to be_valid
     end
 
-    xit 'should not validate url with bogus protocol' do
+    it 'should not validate url with bogus protocol' do
       expect(@member.build_profile(@attr.merge(website: 'httt://foobar.com/'))).not_to be_valid
     end
 
-    xit 'should not validate url with bogus domain' do
+    it 'should not validate url with bogus domain' do
       expect(@member.build_profile(@attr.merge(website: 'http://foobar/'))).not_to be_valid
     end
   end

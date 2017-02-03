@@ -14,10 +14,42 @@ class Profile < ActiveRecord::Base
   # validates :website, :format => { :with => /(^$)|(^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix, :allow_nil => true, :on => :create }
   # validates :website, :format => { :with => /(^$)|(^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix, :allow_nil => true, :on => :create }
 
+  validate :website_validator
+  validates :website, url: true
+  validate :url_scheme
+  #before_validation :smart_add_url_protocol
+
+  def website_validator
+    # PublicSuffix.valid?("google.com")
+    ap "website: #{website}"
+    PublicSuffix.valid?(website)
+  end
+
   acts_as_url :lastname, sync_url: :true
 
   def to_param
     url
+  end
+
+  def url_scheme
+    ap "url_scheme: #{website}"
+    # website = URI.parse(website) # && !website.host.nil?
+    # URI.parse(website) #&& !website.host.nil?
+    URI.parse(website) && PublicSuffix.valid?(website)
+  rescue URI::InvalidURIError
+    ap "url_scheme, invalid: #{website}"
+    errors.add(:website, "is not a valid HTTP URL")
+    false
+  end
+
+
+  protected
+
+  def smart_add_url_protocol
+    return if self.website.nil?
+    unless self.website[/\Ahttp:\/\//] || self.website[/\Ahttps:\/\//]
+      self.website = "http://#{self.website}"
+    end
   end
 
   #   def validate_url
