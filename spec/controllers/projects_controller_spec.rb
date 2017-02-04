@@ -64,8 +64,8 @@ describe ProjectsController do
             requiredskills: 'Cat herding',
             client: 'RSpec',
             tags: 'TDD, BDD',
-            startdate: DateTime.new,
-            finishdate: DateTime.new,
+            startdate: Time.now.utc,
+            finishdate: Time.now.utc,
             url: 'project-test'
           }
         end.to change(Project, :count).by(1)
