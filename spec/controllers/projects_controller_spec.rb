@@ -120,14 +120,14 @@ describe ProjectsController do
       xit 'assigns the requested project as @project' do
         # Project.stub(:find).with("37") { mock_project }
         Project.stub(:find_by_url).with('new-project') { mock_project(update_attributes: true) }
-        put :update, id: 'new-project'
+        put :update, params: { id: 'new-project' }
         expect(assigns(:project)).to be(@mock_project)
       end
 
       xit 'redirects to the project' do
         # pending "Need Devise log in..."
         Project.stub(:find_by_url) { mock_project(update_attributes: true) }
-        put :update, id: '1'
+        put :update, params: { id: '1' }
         expect(response).to redirect_to(project_url(mock_project))
       end
     end
@@ -182,7 +182,7 @@ describe ProjectsController do
       allow(Project).to receive(:find_by_url).with('new-project') { mock_project }
       # mock_project.should_receive(:destroy)
       allow(mock_project).to receive(:destroy)
-      delete :destroy, id: 'new-project'
+      delete :destroy, params: { id: 'new-project' }
     end
 
     it 'redirects to the projects list' do
