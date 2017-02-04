@@ -14,9 +14,9 @@ class Profile < ActiveRecord::Base
   # validates :website, :format => { :with => /(^$)|(^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix, :allow_nil => true, :on => :create }
   # validates :website, :format => { :with => /(^$)|(^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix, :allow_nil => true, :on => :create }
 
-  validate :website_validator
-  validates :website, url: true
-  validate :url_scheme
+  # validate :website_validator
+  # validates :website, url: true
+  # validate :url_scheme
   #before_validation :smart_add_url_protocol
 
   def website_validator

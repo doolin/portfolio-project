@@ -35,10 +35,6 @@ class ProjectsController < ApplicationController
     @project = Project.find_by_url(params[:id])
   end
 
-  def permitted_params
-    params.permit(:name, :startdate, :summary, :finishdate, :tags)
-  end
-
   def create
     # @project = Project.new(params[:project])
     # @project = current_member.projects.build(params[:project])
@@ -69,7 +65,7 @@ class ProjectsController < ApplicationController
         end
         format.xml  { render xml: @project.errors, status: :unprocessable_entity }
       # rescue Exception => e
-      rescue StandardErrot => e
+      rescue StandardError => e
         format.html do
           # flash[:error] = "Problem: #{e.message}."
           render action: 'new'
@@ -104,5 +100,9 @@ class ProjectsController < ApplicationController
       format.html { redirect_to(projects_url, flash: { success: 'Project was successfully deleted.' }) }
       format.xml  { head :ok }
     end
+  end
+
+  def permitted_params
+    params.permit(:name, :startdate, :summary, :finishdate, :tags)
   end
 end

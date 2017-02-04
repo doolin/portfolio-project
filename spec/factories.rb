@@ -11,7 +11,7 @@
 FactoryGirl.define do # :member do |m|
   factory :member do
     membername 'Dave Doolin'
-    email 'david.doolin+3@example.com'
+    email # 'david.doolin+3@example.com'
     password 'foobar'
     password_confirmation 'foobar'
     firstname 'Dave'
