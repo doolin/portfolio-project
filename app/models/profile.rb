@@ -17,11 +17,11 @@ class Profile < ActiveRecord::Base
   # validate :website_validator
   # validates :website, url: true
   # validate :url_scheme
-  #before_validation :smart_add_url_protocol
+  # before_validation :smart_add_url_protocol
 
   def website_validator
     # PublicSuffix.valid?("google.com")
-    ap "website: #{website}"
+    # ap "website: #{website}"
     PublicSuffix.valid?(website)
   end
 
@@ -32,24 +32,22 @@ class Profile < ActiveRecord::Base
   end
 
   def url_scheme
-    ap "url_scheme: #{website}"
+    # ap "url_scheme: #{website}"
     # website = URI.parse(website) # && !website.host.nil?
     # URI.parse(website) #&& !website.host.nil?
     URI.parse(website) && PublicSuffix.valid?(website)
   rescue URI::InvalidURIError
-    ap "url_scheme, invalid: #{website}"
-    errors.add(:website, "is not a valid HTTP URL")
+    # ap "url_scheme, invalid: #{website}"
+    errors.add(:website, 'is not a valid HTTP URL')
     false
   end
-
 
   protected
 
   def smart_add_url_protocol
-    return if self.website.nil?
-    unless self.website[/\Ahttp:\/\//] || self.website[/\Ahttps:\/\//]
-      self.website = "http://#{self.website}"
-    end
+    return if website.nil?
+    # self.website = "http://#{website}" unless website[/\Ahttp:\/\//] || website[/\Ahttps:\/\//]
+    self.website = "http://#{website}" unless website[%r{/\Ahttp:\/\//}] || website[%r{/\Ahttps:\/\//}]
   end
 
   #   def validate_url
