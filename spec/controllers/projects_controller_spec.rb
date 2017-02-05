@@ -13,7 +13,7 @@ describe ProjectsController do
 
   describe 'GET index' do
     it 'assigns all projects as @projects' do
-      Project.stub(:all) { [mock_project] }
+      allow(Project).to receive(:all) { [mock_project] }
       get :index
       expect(assigns(:projects)).to eq([mock_project])
     end
@@ -21,7 +21,7 @@ describe ProjectsController do
 
   describe 'GET show' do
     it 'assigns the requested project as @project' do
-      Project.stub(:find).with('37') { mock_project }
+      allow(Project).to receive(:find).with('37') { mock_project }
       allow(@mock_project).to receive(:member_id).and_return(@member.id)
       get :show, params: { id: '37' }
       expect(assigns(:project)).to eq(@mock_project)
@@ -30,7 +30,7 @@ describe ProjectsController do
 
   describe 'GET new' do
     it 'assigns a new project as @project' do
-      Project.stub(:new) { mock_project }
+      allow(Project).to receive(:new) { mock_project }
       get :new
       expect(assigns(:project)).to eq(@mock_project)
     end
@@ -52,7 +52,7 @@ describe ProjectsController do
         expect(assigns(:project)).to be(@mock_project)
       end
 
-      it 'should create a new project for signed in member' do
+      it 'creates a new project for signed in member' do
         @member = FactoryGirl.create(:member)
         sign_in @member
         expect do
@@ -119,14 +119,15 @@ describe ProjectsController do
 
       xit 'assigns the requested project as @project' do
         # Project.stub(:find).with("37") { mock_project }
-        Project.stub(:find_by_url).with('new-project') { mock_project(update_attributes: true) }
+        # Project.stub(:find_by_url).with('new-project') { mock_project(update_attributes: true) }
+        allow(Project).to receive(:find_by_url).with('new-project') { mock_project(update_attributes: true) }
         put :update, params: { id: 'new-project' }
         expect(assigns(:project)).to be(@mock_project)
       end
 
       xit 'redirects to the project' do
-        # pending "Need Devise log in..."
-        Project.stub(:find_by_url) { mock_project(update_attributes: true) }
+        # Project.stub(:find_by_url) { mock_project(update_attributes: true) }
+        allow(Project).to receive(:find_by_url) { mock_project(update_attributes: true) }
         put :update, params: { id: '1' }
         expect(response).to redirect_to(project_url(mock_project))
       end
@@ -137,7 +138,8 @@ describe ProjectsController do
     # TODO: Fix these to work correctly instead of simply passing.
     describe 'with invalid params' do
       before(:each) do
-        sign_out @member
+        #sign_out @member
+        sign_in @member
       end
 
       it 'assigns the project as @project' do
@@ -147,9 +149,10 @@ describe ProjectsController do
       end
 
       xit "re-renders the 'edit' template" do
-        Project.stub(:find) { mock_project(update_attributes: false) }
+        # sign_out @member
+        allow(Project).to receive(:find) { mock_project(update_attributes: false) }
         put :update, params: { id: '1' }
-        expect(response).to render_template(action: 'edit')
+        expect(response).to render_template(:edit)
       end
     end
 
@@ -178,9 +181,7 @@ describe ProjectsController do
     #     end
 
     it 'destroys the requested project by url' do
-      # Project.should_receive(:find_by_url).with('new-project') { mock_project }
       allow(Project).to receive(:find_by_url).with('new-project') { mock_project }
-      # mock_project.should_receive(:destroy)
       allow(mock_project).to receive(:destroy)
       delete :destroy, params: { id: 'new-project' }
     end
