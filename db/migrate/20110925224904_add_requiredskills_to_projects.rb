@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddRequiredskillsToProjects < ActiveRecord::Migration
   def self.up
     add_column :projects, :requiredskills, :string

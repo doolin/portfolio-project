@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddLastnameToMembers < ActiveRecord::Migration
   def self.up
     add_column :members, :lastname, :string

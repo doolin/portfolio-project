@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddStartdateToProjects < ActiveRecord::Migration
   def self.up
     add_column :projects, :startdate, :datetime

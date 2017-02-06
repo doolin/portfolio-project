@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddMemberIdToProject < ActiveRecord::Migration
   def self.up
     add_column :projects, :member_id, :integer

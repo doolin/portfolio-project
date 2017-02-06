@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddUrlToProfiles < ActiveRecord::Migration
   def self.up
     add_column :profiles, :url, :string

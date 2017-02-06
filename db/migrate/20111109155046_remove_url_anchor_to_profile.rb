@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class RemoveUrlAnchorToProfile < ActiveRecord::Migration
   def up
     remove_column :profiles, :url_anchor

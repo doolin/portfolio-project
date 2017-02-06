@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddLastnameToProfile < ActiveRecord::Migration
   def self.up
     add_column :profiles, :lastname, :string
