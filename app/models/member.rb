@@ -21,8 +21,8 @@ class Member < ActiveRecord::Base
   # has_many :websites, :through => :profile
 
   # Move these to Profiles
-  # validates :firstname, :presence => true
-  # validates :lastname, :presence => true
+  validates :firstname, :presence => true
+  validates :lastname, :presence => true
   # validates :membername, :presence => true
   # validates :email, :presence => true, :uniqueness => true
   # validates :email, :presence => true

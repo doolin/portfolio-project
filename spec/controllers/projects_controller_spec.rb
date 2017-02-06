@@ -138,7 +138,7 @@ describe ProjectsController do
     # TODO: Fix these to work correctly instead of simply passing.
     describe 'with invalid params' do
       before(:each) do
-        #sign_out @member
+        # sign_out @member
         sign_in @member
       end
 
