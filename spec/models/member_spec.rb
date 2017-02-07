@@ -20,7 +20,7 @@ describe Member do
     it 'should destroy associated projects' do
       @member.destroy
       [@p1, @p2].each do |p|
-        expect(Project.find_by_id(p.id)).to be_nil
+        expect(Project.find_by(id: p.id)).to be_nil
       end
     end
   end
@@ -38,7 +38,7 @@ describe Member do
     it 'destroys the associated profile' do
       @member.destroy
       [@p1].each do |p|
-        expect(Profile.find_by_id(p.id)).to be_nil
+        expect(Profile.find_by(id: p.id)).to be_nil
       end
     end
   end

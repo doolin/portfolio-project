@@ -25,8 +25,8 @@ FactoryGirl.define do # :member do |m|
     requiredskills 'Cat herding'
     client 'RSpec'
     tags 'TDD, BDD'
-    startdate Time.now
-    finishdate Time.now
+    startdate Time.now.utc
+    finishdate Time.now.utc
     url 'project-test'
     uri 'http://example.com/uri'
   end
