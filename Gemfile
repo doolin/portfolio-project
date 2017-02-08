@@ -54,12 +54,12 @@ group :cucumber do
   gem 'database_cleaner'
 end
 
-# group :test do
+group :test do
 #   gem 'mock-aws-s3'
-gem 'factory_girl_rails'
-gem 'launchy'
-gem 'mocha'
-gem 'rails-controller-testing'
-gem 'rspec'
-gem 'rspec-rails'
-# end
+  gem 'factory_girl_rails'
+  gem 'launchy'
+  gem 'rails-controller-testing'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'capybara'
+end
