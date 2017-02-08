@@ -12,7 +12,7 @@ describe 'sales/new' do
 
   describe '.rendered' do
     before do
-      allow(view).to receive(:title).and_return('')
+      allow(view).to receive(:title).with('Premium Membership').and_return('Premium Membership | Portfolio Project')
     end
 
     it 'displays default scaffolding text' do
@@ -21,9 +21,10 @@ describe 'sales/new' do
     end
 
     # This passes but it shouldn't, false positive.
-    xit 'has the correct <title> element ' do
+    it 'has the correct <title> element ' do
       render(template: 'sales/new', layout: 'layouts/application')
-      expect(rendered).to match('Premium Membership | Portfolio Project')
+      # expect(rendered).to match(/Premium Membership | Portfolio Project/)
+      expect(rendered).to have_title('Premium Membership | Portfolio Project')
     end
   end
 end
