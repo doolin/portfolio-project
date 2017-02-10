@@ -11,20 +11,23 @@
           - if !current_member.projects.empty?
             = link_to "My Projects", member_path(current_member), :rel => 'author'
             |
-            \#{link_to "All Profiles", profiles_path} |
+            = link_to "All Profiles", profiles_path |
             - count = Project.count
             = link_to "All Projects", projects_path
             |
           = link_to 'Settings', edit_member_registration_path
           |
-          \#{link_to "Sign out", destroy_member_session_path}
+          #{link_to "Sign out", destroy_member_session_path}
         - else
           = link_to "Home", root_path
           |
-          \#{link_to "About", '/about'} |
-          \#{link_to "All Profiles", profiles_path} |
+          = link_to "About", '/about'
+          |
+          = link_to "All Profiles", profiles_path
+          |
           - count = Project.count
           = link_to "All Projects", projects_path
           |
-          \#{link_to "Sign up", new_member_registration_path} |
+          \#{link_to "Sign up", new_member_registration_path}
+          |
           \#{link_to "Sign in", new_member_session_path}
