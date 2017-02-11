@@ -3,3 +3,7 @@
 
 en:
   hello: "Hello world"
+  views:
+    layouts:
+      _nav:
+        foo: Baz
