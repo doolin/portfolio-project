@@ -7,3 +7,13 @@ en:
     layouts:
       _nav:
         foo: Baz
+        home: Home
+        about: About
+        settings: Settings
+        all_profiles: All Profiles
+        all_projects: All Projects
+        sign_up: Sign Up
+        sign_in: Sign In
+        sign_out: Sign Out
+        my_profile: My Profile
+        my_projects: My Projects
