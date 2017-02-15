@@ -12,7 +12,7 @@ describe 'sales/advertising' do
 
   describe '.rendered' do
     before do
-      allow(view).to receive(:title).and_return('Premium Membership')
+      allow(view).to receive(:title).and_return(->{ 'Premium Membership' })
     end
 
     it 'should display advertising solicitation' do

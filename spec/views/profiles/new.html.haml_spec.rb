@@ -4,7 +4,7 @@ require 'spec_helper'
 describe 'profiles/new' do
   before(:each) do
     assign(:profile, Profile.new(firstname: 'Dave', lastname: 'Doolin', url: 'doolin'))
-    allow(view).to receive(:title).and_return('')
+    allow(view).to receive(:title).and_return(->{ 'Create your profile' })
   end
 
   it 'infers the controller path' do
@@ -25,13 +25,14 @@ describe 'profiles/new' do
     expect(rendered).to match(/Firstname/)
   end
 
-  xit 'should have the correct <title> element ' do
-    render(template: 'profiles/new.html.erb', layout: 'layouts/application')
-    # have_selector is from webrat
-    # https://github.com/brynary/webrat/blob/master/lib/webrat/core/matchers/have_selector.rb
-    expect(rendered).to have_selector('title', text: 'Create your Profile | Portfolio Project')
-    # http://blog.carbonfive.com/2011/03/02/a-look-at-specifying-views-in-rspec/
-    # view.content_for(:sidebar).should have_selector('div.quote')
+  xit 'has the correct <title> element ' do
+    title = ->{ 'Create your Profile' }
+    # allow(view).to receive(:title).and_return(->{ 'Create your Profile' })
+    allow(view).to receive(:content_for?).with(:title).and_yield('Create your Profile')
+    # allow(view).to receive(:title).and_return(->{ 'Create your Profile' })
+    render(template: 'profiles/new', layout: 'layouts/application')
+    expect(view).to receive(:title).with(title)
+    expect(rendered).to have_title('Create your Profile | Portfolio Project')
   end
 end
 
