@@ -24,16 +24,6 @@ describe 'profiles/new' do
     render
     expect(rendered).to match(/Firstname/)
   end
-
-  xit 'has the correct <title> element ' do
-    title = ->{ 'Create your Profile' }
-    # allow(view).to receive(:title).and_return(->{ 'Create your Profile' })
-    allow(view).to receive(:content_for?).with(:title).and_yield('Create your Profile')
-    # allow(view).to receive(:title).and_return(->{ 'Create your Profile' })
-    render(template: 'profiles/new', layout: 'layouts/application')
-    expect(view).to receive(:title).with(title)
-    expect(rendered).to have_title('Create your Profile | Portfolio Project')
-  end
 end
 
 describe 'profiles/_form' do

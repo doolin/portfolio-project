@@ -27,12 +27,4 @@ describe 'projects/new' do
       assert_select 'input#project_tags', name: 'project[tags]'
     end
   end
-
-  xit 'should have the correct <title> element ' do
-    render(template: 'projects/new.html.erb', layout: 'layouts/application')
-    # expect(rendered).to have_selector("title", :text => "Add your new Project or Accomplishment | Portfolio Project")
-    expect(rendered).to match('Add your new Project or Accomplishment | Portfolio Project')
-    # http://blog.carbonfive.com/2011/03/02/a-look-at-specifying-views-in-rspec/
-    # view.content_for(:sidebar).should have_selector('div.quote')
-  end
 end

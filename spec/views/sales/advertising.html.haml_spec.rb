@@ -19,11 +19,5 @@ describe 'sales/advertising' do
       render
       expect(rendered).to match(/Buy Advertising on Portfolio Project/)
     end
-
-    # This is a false positive
-    xit 'should have the correct <title> element ' do
-      render(template: 'sales/advertising', layout: 'layouts/application')
-      expect(rendered).to match('Premium Membership | Portfolio Project')
-    end
   end
 end

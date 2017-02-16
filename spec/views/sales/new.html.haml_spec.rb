@@ -19,12 +19,5 @@ describe 'sales/new' do
       render
       expect(rendered).to match(/Sales#new/)
     end
-
-    # This passes but it shouldn't, false positive.
-    xit 'has the correct <title> element ' do
-      render(template: 'sales/new', layout: 'layouts/application')
-      # expect(rendered).to match(/Premium Membership | Portfolio Project/)
-      expect(rendered).to have_title('Premium Membership | Portfolio Project')
-    end
   end
 end

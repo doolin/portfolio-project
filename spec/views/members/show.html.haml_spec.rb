@@ -30,15 +30,4 @@ describe 'members/show' do
       n.should have_selector('a', href: '/projects/new', text: 'New Project')
     end
   end
-
-  # Cannot seem to find the correct title
-  xit 'should have the correct <title> element ' do
-    @member.firstname = 'Foo'
-    @member.lastname = 'Bar'
-    render(template: 'members/show', layout: 'layouts/application')
-    # title = "#{@member.firstname} #{@member.lastname} | Portfolio Project"
-    title = "\nYour Accomplishments\n| Portfolio Project\n"
-
-    expect(rendered).to have_selector('title', text: title, visible: false)
-  end
 end

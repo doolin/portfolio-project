@@ -22,16 +22,6 @@ describe 'profiles/show' do
     expect(rendered).to have_selector('div.profile')
   end
 
-  xit 'should have the correct <title> element ' do
-    render # (template: 'profiles/show.html.erb', layout: 'layouts/application')
-    title = @member.firstname + ' ' + @member.lastname.possessive + ' Profile | Portfolio Project'
-    # have_selector is from webrat
-    # https://github.com/brynary/webrat/blob/master/lib/webrat/core/matchers/have_selector.rb
-    expect(rendered).to have_selector('title', text: title, visible: false)
-    # http://blog.carbonfive.com/2011/03/02/a-look-at-specifying-views-in-rspec/
-    # view.content_for(:sidebar).should have_selector('div.quote')
-  end
-
   it 'should have a link to Twitter profile' do
     render
     expect(rendered).to have_selector('a.twitter', text: @member.profile.twitter)

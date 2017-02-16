@@ -10,8 +10,8 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'controller_macros'
 
-# require 'capybara/rspec'
 require 'capybara/rails'
+require 'capybara/rspec'
 
 # require 'mock-aws-s3'
 

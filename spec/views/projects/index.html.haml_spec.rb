@@ -21,14 +21,4 @@ describe 'projects/index' do
       expect(rendered).to have_selector('p.project-summary')
     end
   end
-
-  xit 'should have the correct <title> element ' do
-    @projects = mock(Project).as_null_object
-    render(template: 'projects/index.html.erb', layout: 'layouts/application')
-    # have_selector is from webrat
-    # https://github.com/brynary/webrat/blob/master/lib/webrat/core/matchers/have_selector.rb
-    rendered.should have_selector('title', content: 'Projects | Portfolio Project')
-    # http://blog.carbonfive.com/2011/03/02/a-look-at-specifying-views-in-rspec/
-    # view.content_for(:sidebar).should have_selector('div.quote')
-  end
 end
