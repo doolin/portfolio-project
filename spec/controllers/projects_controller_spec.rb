@@ -46,6 +46,20 @@ describe ProjectsController do
 
   describe 'POST create' do
     describe 'with valid params' do
+      let(:params) {
+        {
+          name: 'Project test',
+          summary: 'Test example',
+          description: 'Some short, descriptive text for testing.',
+          requiredskills: 'Cat herding',
+          client: 'RSpec',
+          tags: 'TDD, BDD',
+          startdate: Time.now.utc,
+          finishdate: Time.now.utc,
+          url: 'project-test'
+        }
+      }
+
       it 'assigns a newly created project as @project' do
         Project.stub(:new).with('these' => 'params') { mock_project(save: true) }
         post :create, params: { project: { 'these' => 'params' } }
@@ -71,13 +85,13 @@ describe ProjectsController do
         end.to change(Project, :count).by(1)
       end
 
-      xit 'redirects to the created project' do
+      it 'redirects to the created project' do
         member = FactoryGirl.create(:member)
+        FactoryGirl.create :profile, member: member
         sign_in member
-        member.build_profile(stub(Profile))
-        Project.stub(:new) { mock_project(save: true) }
-        post :create, params: {}
-        expect(response).to redirect_to(project_url(@mock_project))
+        post :create, params: params # {}
+        project = Project.find_by(name: 'Project test')
+        expect(response).to redirect_to(project_url(project))
       end
 
       it 'redirects to the sign in page when not logged in' do
@@ -98,7 +112,6 @@ describe ProjectsController do
         member = FactoryGirl.create(:member)
         sign_in member
         post :create, params: {}
-        puts response
         expect(response).to render_template(:new)
       end
     end

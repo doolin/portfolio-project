@@ -38,6 +38,7 @@ class ProjectsController < ApplicationController
   def create
     # @project = Project.new(params[:project])
     # @project = current_member.projects.build(params[:project])
+    # binding.pry
     @project = current_member.projects.build(permitted_params)
     # TODO: Remove if possible...
     # flash[:success] = "New project created!"
