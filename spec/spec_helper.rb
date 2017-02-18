@@ -12,6 +12,7 @@ require 'controller_macros'
 
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'factory_girl_rails'
 
 # require 'mock-aws-s3'
 
@@ -30,6 +31,8 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+
+  config.include FactoryGirl::Syntax::Methods
 
   ## Devise
   config.include Devise::Test::ControllerHelpers, type: :controller

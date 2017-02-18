@@ -119,7 +119,7 @@ describe ProjectsController do
 
   describe 'PUT update' do
     before(:each) do
-      @member = FactoryGirl.create(:member)
+      @member = create :member
       sign_in @member
     end
 
