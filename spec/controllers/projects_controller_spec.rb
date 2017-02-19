@@ -161,9 +161,8 @@ describe ProjectsController do
         expect(assigns(:project)).to be(@mock_project)
       end
 
-      xit "re-renders the 'edit' template" do
-        # sign_out @member
-        allow(Project).to receive(:find) { mock_project(update_attributes: false) }
+      it "re-renders the 'edit' template" do
+        allow(Project).to receive(:find_by_url) { mock_project(update_attributes: false) }
         put :update, params: { id: '1' }
         expect(response).to render_template(:edit)
       end
