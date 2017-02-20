@@ -123,23 +123,20 @@ describe ProjectsController do
       sign_in @member
     end
 
-    describe 'with valid params' do
-      #       xit "updates the requested project" do
-      #         Project.stub(:find_by_url).with("url") { mock_project }
-      #         mock_project.should_receive(:update_attributes).with({'these' => 'params'})
-      #         put :update, :id => "url", :project => {'these' => 'params'}
-      #       end
+    context 'with valid params' do
+      xit "updates the requested project" do
+        allow(Project).to receive(:find_by_url).with("url") { mock_project }
+        mock_project.should_receive(:update_attributes).with({'these' => 'params'})
+        put :update, :id => "url", :project => {'these' => 'params'}
+      end
 
       xit 'assigns the requested project as @project' do
-        # Project.stub(:find).with("37") { mock_project }
-        # Project.stub(:find_by_url).with('new-project') { mock_project(update_attributes: true) }
-        allow(Project).to receive(:find_by_url).with('new-project') { mock_project(update_attributes: true) }
-        put :update, params: { id: 'new-project' }
+        allow(Project).to receive(:find_by_url) { mock_project(update_attributes: true) }
+        patch :update, params: { id: 'project-test', project: { id: 'new-project' } }
         expect(assigns(:project)).to be(@mock_project)
       end
 
       xit 'redirects to the project' do
-        # Project.stub(:find_by_url) { mock_project(update_attributes: true) }
         allow(Project).to receive(:find_by_url) { mock_project(update_attributes: true) }
         put :update, params: { id: '1' }
         expect(response).to redirect_to(project_url(mock_project))
@@ -149,9 +146,8 @@ describe ProjectsController do
     # Some false positives here: Invalid params should mean that the
     # Project parameters are invalid, not that the member is signed out.
     # TODO: Fix these to work correctly instead of simply passing.
-    describe 'with invalid params' do
+    context 'with invalid params' do
       before(:each) do
-        # sign_out @member
         sign_in @member
       end
 
@@ -168,8 +164,8 @@ describe ProjectsController do
       end
     end
 
-    describe 'when not an authenticated member' do
-      it 'should redirect to the sign in page' do
+    context 'when not an authenticated member' do
+      it 'redirects to the sign in page' do
         sign_out @member
         Project.stub(:find) { mock_project(update_attributes: true) }
         put :update, params: { id: '1' }

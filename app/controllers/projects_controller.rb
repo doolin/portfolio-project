@@ -79,11 +79,28 @@ class ProjectsController < ApplicationController
     end
   end
 
+  # At the time this comment was written, controller testing for #update was
+  # being performed with a complicated stubbing technique auto-generated from
+  # rspec 2.*. This technique has proven to be difficult to maintain, especially
+  # since RSpec's API has changed to remove the stub method in favor of `allow`
+  # and `receive` expectations. Currently, this `update` method is the remaining
+  # controller spec which is failing the tests. Since RSpecs's previous stubbing
+  # technique is so clunky, the goal now is to determine all the paths trhough
+  # the `update` method, then test those paths explicitly.
+  #
+  # As a review the testing should check authentication as well.
+  #
+  # 1. given signed out check authentication
+  # 2. given signed in have project not found
+  # 3. given signed in, have project found, but attributes are wrong
+  # 4. given signed in, have project found, but attributes won't validate
+  # 5. given signed in, have project found, attributes validate & success.
   def update
     @project = Project.find_by_url(params[:id])
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
+        # binding.pry
         format.html { redirect_to(@project, flash: { success: 'Project was successfully updated.' }) }
         format.xml  { head :ok }
       else
@@ -104,6 +121,6 @@ class ProjectsController < ApplicationController
   end
 
   def permitted_params
-    params.permit(:name, :startdate, :summary, :finishdate, :tags)
+    params.permit(:id, :name, :startdate, :summary, :finishdate, :tags, :project)
   end
 end
