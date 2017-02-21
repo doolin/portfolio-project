@@ -58,7 +58,7 @@ group :test do
 #   gem 'mock-aws-s3'
   gem 'factory_girl_rails'
   gem 'launchy'
-  gem 'rails-controller-testing'
+  gem 'rails-controller-testing' # consider getting rid of this later
   gem 'rspec'
   gem 'rspec-rails'
   gem 'capybara'

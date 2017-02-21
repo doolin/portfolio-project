@@ -99,8 +99,7 @@ class ProjectsController < ApplicationController
     @project = Project.find_by_url(params[:id])
 
     respond_to do |format|
-      if @project.update_attributes(params[:project])
-        # binding.pry
+      if @project.update_attributes(permitted_params)
         format.html { redirect_to(@project, flash: { success: 'Project was successfully updated.' }) }
         format.xml  { head :ok }
       else
@@ -121,6 +120,6 @@ class ProjectsController < ApplicationController
   end
 
   def permitted_params
-    params.permit(:id, :name, :startdate, :summary, :finishdate, :tags, :project)
+    params.require(:project).permit(:url, :name, :startdate, :summary, :finishdate, :tags, :project)
   end
 end

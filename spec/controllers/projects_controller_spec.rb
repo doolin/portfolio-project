@@ -46,8 +46,8 @@ describe ProjectsController do
 
   describe 'POST create' do
     describe 'with valid params' do
-      let(:params) {
-        {
+      let(:params) do
+        { project: {
           name: 'Project test',
           summary: 'Test example',
           description: 'Some short, descriptive text for testing.',
@@ -57,8 +57,8 @@ describe ProjectsController do
           startdate: Time.now.utc,
           finishdate: Time.now.utc,
           url: 'project-test'
-        }
-      }
+        } }
+      end
 
       it 'assigns a newly created project as @project' do
         Project.stub(:new).with('these' => 'params') { mock_project(save: true) }
@@ -70,8 +70,7 @@ describe ProjectsController do
         @member = FactoryGirl.create(:member)
         sign_in @member
         expect do
-          # post :create, project: {
-          post :create, params: {
+          post :create, params: { project: {
             name: 'Project test',
             summary: 'Test example',
             description: 'Some short, descriptive text for testing.',
@@ -81,7 +80,7 @@ describe ProjectsController do
             startdate: Time.now.utc,
             finishdate: Time.now.utc,
             url: 'project-test'
-          }
+          } }
         end.to change(Project, :count).by(1)
       end
 
@@ -89,7 +88,7 @@ describe ProjectsController do
         member = FactoryGirl.create(:member)
         FactoryGirl.create :profile, member: member
         sign_in member
-        post :create, params: params # {}
+        post :create, params: params
         project = Project.find_by(name: 'Project test')
         expect(response).to redirect_to(project_url(project))
       end
@@ -111,35 +110,36 @@ describe ProjectsController do
       it "re-renders the 'new' template" do
         member = FactoryGirl.create(:member)
         sign_in member
-        post :create, params: {}
+        post :create, params: { project: {
+          name: 'Project test',
+          summary: 'Test example',
+          foo: 'bar'
+        } }
         expect(response).to render_template(:new)
       end
     end
   end
 
-  describe 'PUT update' do
+  describe 'PATCH update' do
     before(:each) do
       @member = create :member
       sign_in @member
     end
 
     context 'with valid params' do
-      xit "updates the requested project" do
-        allow(Project).to receive(:find_by_url).with("url") { mock_project }
-        mock_project.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "url", :project => {'these' => 'params'}
+      let(:project) { create :project, member: @member }
+
+      it 'updates the requested project' do
+        new_name = 'Updated test'
+        patch :update, params: { id: project.url, project: { name: new_name } }
+        project.reload
+        expect(project.name).to eq new_name
       end
 
       xit 'assigns the requested project as @project' do
-        allow(Project).to receive(:find_by_url) { mock_project(update_attributes: true) }
-        patch :update, params: { id: 'project-test', project: { id: 'new-project' } }
-        expect(assigns(:project)).to be(@mock_project)
       end
 
       xit 'redirects to the project' do
-        allow(Project).to receive(:find_by_url) { mock_project(update_attributes: true) }
-        put :update, params: { id: '1' }
-        expect(response).to redirect_to(project_url(mock_project))
       end
     end
 
@@ -152,14 +152,15 @@ describe ProjectsController do
       end
 
       it 'assigns the project as @project' do
-        Project.stub(:find_by_url) { mock_project(update_attributes: false) }
-        put :update, params: { id: '1' }
+        allow(Project).to receive(:find_by_url) { mock_project(update_attributes: false) }
+        patch :update, params: { id: '1', project: attributes_for(:project) }
         expect(assigns(:project)).to be(@mock_project)
       end
 
       it "re-renders the 'edit' template" do
         allow(Project).to receive(:find_by_url) { mock_project(update_attributes: false) }
-        put :update, params: { id: '1' }
+        patch :update, params: { id: '1', project: attributes_for(:project) }
+        # change to `redirects_to`
         expect(response).to render_template(:edit)
       end
     end
@@ -167,8 +168,8 @@ describe ProjectsController do
     context 'when not an authenticated member' do
       it 'redirects to the sign in page' do
         sign_out @member
-        Project.stub(:find) { mock_project(update_attributes: true) }
-        put :update, params: { id: '1' }
+        allow(Project).to receive(:find_by_url) { mock_project(update_attributes: true) }
+        patch :update, params: { id: '1' }
         expect(response).to redirect_to(new_member_session_path)
       end
     end
@@ -180,13 +181,13 @@ describe ProjectsController do
       sign_in @member
     end
 
-    #     # Uncomment this to see how using the wrong method (:find)
-    #     # creates an error in the test.
-    #     xit "destroys the requested project" do
-    #       Project.should_receive(:find).with("37") { mock_project }
-    #       mock_project.should_receive(:destroy)
-    #       delete :destroy, :id => "37"
-    #     end
+    # Uncomment this to see how using the wrong method (:find)
+    # creates an error in the test.
+    xit "destroys the requested project" do
+      Project.should_receive(:find).with("37") { mock_project }
+      mock_project.should_receive(:destroy)
+      delete :destroy, :id => "37"
+    end
 
     it 'destroys the requested project by url' do
       allow(Project).to receive(:find_by_url).with('new-project') { mock_project }
