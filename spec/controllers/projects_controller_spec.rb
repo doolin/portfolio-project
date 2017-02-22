@@ -11,7 +11,7 @@ describe ProjectsController do
     @member = FactoryGirl.create :member
   end
 
-  describe 'GET index' do
+  describe '#index' do
     it 'assigns all projects as @projects' do
       allow(Project).to receive(:all) { [mock_project] }
       get :index
@@ -19,7 +19,7 @@ describe ProjectsController do
     end
   end
 
-  describe 'GET show' do
+  describe '#show' do
     it 'assigns the requested project as @project' do
       allow(Project).to receive(:find).with('37') { mock_project }
       allow(@mock_project).to receive(:member_id).and_return(@member.id)
@@ -36,20 +36,20 @@ describe ProjectsController do
     end
   end
 
-  describe 'GET edit' do
+  describe '#edit' do
     it 'assigns the requested project as @project' do
-      Project.stub(:find).with('37') { mock_project }
+      allow(Project).to receive(:find).with('37') { mock_project }
       get :edit, params: { id: '37' }
       expect(assigns(:project)).to be(@mock_project)
     end
   end
 
-  describe 'POST create' do
+  describe '#create' do
     describe 'with valid params' do
       let(:params) { { project: attributes_for(:project) } }
 
       it 'assigns a newly created project as @project' do
-        Project.stub(:new).with('these' => 'params') { mock_project(save: true) }
+        allow(Project).to receive(:new).with('these' => 'params') { mock_project(save: true) }
         post :create, params: { project: { 'these' => 'params' } }
         expect(assigns(:project)).to be(@mock_project)
       end
@@ -72,7 +72,7 @@ describe ProjectsController do
       end
 
       it 'redirects to the sign in page when not logged in' do
-        Project.stub(:new) { mock_project(save: true) }
+        allow(Project).to receive(:new) { mock_project(save: true) }
         post :create, params: {}
         expect(response).to redirect_to(new_member_session_path)
       end
@@ -80,7 +80,7 @@ describe ProjectsController do
 
     describe 'with invalid params' do
       it 'assigns a newly created but unsaved project as @project' do
-        Project.stub(:new).with('these' => 'params') { mock_project(save: false) }
+        allow(Project).to receive(:new).with('these' => 'params') { mock_project(save: false) }
         post :create, params: { project: { 'these' => 'params' } }
         expect(assigns(:project)).to be(@mock_project)
       end
@@ -107,7 +107,7 @@ describe ProjectsController do
     context 'with valid params' do
       let(:new_name) { 'Updated test' }
       let(:project) { create :project, member: @member }
-      subject { patch :update, params: { id: project.url, project: { name: new_name } } }
+      subject(:updated) { patch :update, params: { id: project.url, project: { name: new_name } } }
 
       it 'updates the requested project' do
         patch :update, params: { id: project.url, project: { name: new_name } }
@@ -117,19 +117,14 @@ describe ProjectsController do
 
       it 'assigns the requested project as @project' do
         patch :update, params: { id: project.url, project: { name: new_name } }
-        project.reload
         expect(assigns(:project).name).to eq new_name
       end
 
       it 'redirects to the project' do
-        project.reload
-        expect(subject).to redirect_to(project_url(assigns(:project)))
+        expect(updated).to redirect_to(project_url(assigns(:project)))
       end
     end
 
-    # Some false positives here: Invalid params should mean that the
-    # Project parameters are invalid, not that the member is signed out.
-    # TODO: Fix these to work correctly instead of simply passing.
     context 'with invalid params' do
       it 'assigns the project as @project' do
         allow(Project).to receive(:find_by_url) { mock_project(update_attributes: false) }
@@ -140,7 +135,6 @@ describe ProjectsController do
       it "re-renders the 'edit' template" do
         allow(Project).to receive(:find_by_url) { mock_project(update_attributes: false) }
         patch :update, params: { id: '1', project: attributes_for(:project) }
-        # change to `redirects_to`
         expect(response).to render_template(:edit)
       end
     end
@@ -156,29 +150,26 @@ describe ProjectsController do
   end
 
   describe '#destroy' do
-    before(:each) do
-      @member = create(:member)
-      sign_in @member
-    end
+    let(:member) { create :member }
+    subject { delete :destroy, params: { id: 'some-project' } }
 
-    it "destroys the requested project" do
-      allow(Project).to receive(:find_by_url).with('37') { mock_project }
-      allow(mock_project).to receive(:destroy)
-      delete :destroy, params: { :id => "37" }
+    before(:each) do
+      sign_in member
+      allow(Project).to receive(:find_by_url).with('some-project') { mock_project }
     end
 
     it 'destroys the requested project by url' do
-      allow(Project).to receive(:find_by_url).with('new-project') { mock_project }
-      allow(mock_project).to receive(:destroy)
-      delete :destroy, params: { id: 'new-project' }
+      expect(mock_project).to receive(:destroy)
+      delete :destroy, params: { id: 'some-project' }
     end
 
     it 'redirects to the projects list' do
-      allow(Project).to receive (:find_by_url) { mock_project }
-      delete :destroy, params: { id: 'new-project' }
-      expect(response).to redirect_to(projects_url)
+      expect(subject).to redirect_to(projects_url)
     end
 
-    it 'redirects to sign_in when not logged in'
+    it 'redirects to sign_in when not logged in' do
+      sign_out member
+      expect(subject).to redirect_to(new_member_session_path)
+    end
   end
 end
