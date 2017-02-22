@@ -46,19 +46,7 @@ describe ProjectsController do
 
   describe 'POST create' do
     describe 'with valid params' do
-      let(:params) do
-        { project: {
-          name: 'Project test',
-          summary: 'Test example',
-          description: 'Some short, descriptive text for testing.',
-          requiredskills: 'Cat herding',
-          client: 'RSpec',
-          tags: 'TDD, BDD',
-          startdate: Time.now.utc,
-          finishdate: Time.now.utc,
-          url: 'project-test'
-        } }
-      end
+      let(:params) { { project: attributes_for(:project) } }
 
       it 'assigns a newly created project as @project' do
         Project.stub(:new).with('these' => 'params') { mock_project(save: true) }
@@ -70,17 +58,7 @@ describe ProjectsController do
         @member = FactoryGirl.create(:member)
         sign_in @member
         expect do
-          post :create, params: { project: {
-            name: 'Project test',
-            summary: 'Test example',
-            description: 'Some short, descriptive text for testing.',
-            requiredskills: 'Cat herding',
-            client: 'RSpec',
-            tags: 'TDD, BDD',
-            startdate: Time.now.utc,
-            finishdate: Time.now.utc,
-            url: 'project-test'
-          } }
+          post :create, params: params
         end.to change(Project, :count).by(1)
       end
 
@@ -121,17 +99,15 @@ describe ProjectsController do
   end
 
   describe 'PATCH update' do
-    let(:new_name) { 'Updated test' }
-
-    subject { patch :update, params: { id: project.url, project: { name: new_name } } }
-
     before(:each) do
       @member = create :member
       sign_in @member
     end
 
     context 'with valid params' do
+      let(:new_name) { 'Updated test' }
       let(:project) { create :project, member: @member }
+      subject { patch :update, params: { id: project.url, project: { name: new_name } } }
 
       it 'updates the requested project' do
         patch :update, params: { id: project.url, project: { name: new_name } }
@@ -155,10 +131,6 @@ describe ProjectsController do
     # Project parameters are invalid, not that the member is signed out.
     # TODO: Fix these to work correctly instead of simply passing.
     context 'with invalid params' do
-      before(:each) do
-        sign_in @member
-      end
-
       it 'assigns the project as @project' do
         allow(Project).to receive(:find_by_url) { mock_project(update_attributes: false) }
         patch :update, params: { id: '1', project: attributes_for(:project) }
