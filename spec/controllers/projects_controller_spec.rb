@@ -98,7 +98,7 @@ describe ProjectsController do
     end
   end
 
-  describe 'PATCH update' do
+  describe '#update' do
     before(:each) do
       @member = create :member
       sign_in @member
@@ -155,18 +155,16 @@ describe ProjectsController do
     end
   end
 
-  describe 'DELETE destroy' do
+  describe '#destroy' do
     before(:each) do
-      @member = FactoryGirl.create(:member)
+      @member = create(:member)
       sign_in @member
     end
 
-    # Uncomment this to see how using the wrong method (:find)
-    # creates an error in the test.
-    xit "destroys the requested project" do
-      Project.should_receive(:find).with("37") { mock_project }
-      mock_project.should_receive(:destroy)
-      delete :destroy, :id => "37"
+    it "destroys the requested project" do
+      allow(Project).to receive(:find_by_url).with('37') { mock_project }
+      allow(mock_project).to receive(:destroy)
+      delete :destroy, params: { :id => "37" }
     end
 
     it 'destroys the requested project by url' do
@@ -176,9 +174,11 @@ describe ProjectsController do
     end
 
     it 'redirects to the projects list' do
-      Project.stub(:find_by_url) { mock_project }
+      allow(Project).to receive (:find_by_url) { mock_project }
       delete :destroy, params: { id: 'new-project' }
       expect(response).to redirect_to(projects_url)
     end
+
+    it 'redirects to sign_in when not logged in'
   end
 end
