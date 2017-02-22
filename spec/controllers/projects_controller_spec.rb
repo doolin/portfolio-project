@@ -121,6 +121,10 @@ describe ProjectsController do
   end
 
   describe 'PATCH update' do
+    let(:new_name) { 'Updated test' }
+
+    subject { patch :update, params: { id: project.url, project: { name: new_name } } }
+
     before(:each) do
       @member = create :member
       sign_in @member
@@ -130,20 +134,20 @@ describe ProjectsController do
       let(:project) { create :project, member: @member }
 
       it 'updates the requested project' do
-        new_name = 'Updated test'
         patch :update, params: { id: project.url, project: { name: new_name } }
         project.reload
         expect(project.name).to eq new_name
       end
 
       it 'assigns the requested project as @project' do
-        new_name = 'Updated test'
         patch :update, params: { id: project.url, project: { name: new_name } }
         project.reload
         expect(assigns(:project).name).to eq new_name
       end
 
-      xit 'redirects to the project' do
+      it 'redirects to the project' do
+        project.reload
+        expect(subject).to redirect_to(project_url(assigns(:project)))
       end
     end
 
