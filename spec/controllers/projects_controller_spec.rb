@@ -136,7 +136,11 @@ describe ProjectsController do
         expect(project.name).to eq new_name
       end
 
-      xit 'assigns the requested project as @project' do
+      it 'assigns the requested project as @project' do
+        new_name = 'Updated test'
+        patch :update, params: { id: project.url, project: { name: new_name } }
+        project.reload
+        expect(assigns(:project).name).to eq new_name
       end
 
       xit 'redirects to the project' do
