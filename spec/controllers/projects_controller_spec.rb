@@ -2,13 +2,14 @@
 require 'spec_helper'
 
 describe ProjectsController do
+  let(:member) { create :member }
+
   before :each do
     def mock_project(stubs = {})
       (@mock_project ||= double(Project).as_null_object).tap do |project|
         project.stub(stubs) unless stubs.empty?
       end
     end
-    @member = FactoryGirl.create :member
   end
 
   describe '#index' do
@@ -22,7 +23,7 @@ describe ProjectsController do
   describe '#show' do
     it 'assigns the requested project as @project' do
       allow(Project).to receive(:find).with('37') { mock_project }
-      allow(@mock_project).to receive(:member_id).and_return(@member.id)
+      allow(@mock_project).to receive(:member_id).and_return(member.id)
       get :show, params: { id: '37' }
       expect(assigns(:project)).to eq(@mock_project)
     end
@@ -55,16 +56,13 @@ describe ProjectsController do
       end
 
       it 'creates a new project for signed in member' do
-        @member = FactoryGirl.create(:member)
-        sign_in @member
+        sign_in member
         expect do
           post :create, params: params
         end.to change(Project, :count).by(1)
       end
 
       it 'redirects to the created project' do
-        member = FactoryGirl.create(:member)
-        FactoryGirl.create :profile, member: member
         sign_in member
         post :create, params: params
         project = Project.find_by(name: 'Project test')
@@ -86,7 +84,6 @@ describe ProjectsController do
       end
 
       it "re-renders the 'new' template" do
-        member = FactoryGirl.create(:member)
         sign_in member
         post :create, params: { project: {
           name: 'Project test',
@@ -100,13 +97,12 @@ describe ProjectsController do
 
   describe '#update' do
     before(:each) do
-      @member = create :member
-      sign_in @member
+      sign_in member
     end
 
     context 'with valid params' do
       let(:new_name) { 'Updated test' }
-      let(:project) { create :project, member: @member }
+      let(:project) { create :project, member: member }
       subject(:updated) { patch :update, params: { id: project.url, project: { name: new_name } } }
 
       it 'updates the requested project' do
@@ -141,7 +137,7 @@ describe ProjectsController do
 
     context 'when not an authenticated member' do
       it 'redirects to the sign in page' do
-        sign_out @member
+        sign_out member
         allow(Project).to receive(:find_by_url) { mock_project(update_attributes: true) }
         patch :update, params: { id: '1' }
         expect(response).to redirect_to(new_member_session_path)
@@ -150,7 +146,6 @@ describe ProjectsController do
   end
 
   describe '#destroy' do
-    let(:member) { create :member }
     subject { delete :destroy, params: { id: 'some-project' } }
 
     before(:each) do
