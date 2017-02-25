@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe Profile do
+RSpec.describe Profile do
   let(:member) { create :member }
   let(:attr) { { # attributes_for :profile
       firstname: 'Joe',
@@ -17,7 +17,7 @@ describe Profile do
     expect(profile).to be_valid
   end
 
-  describe 'Validations' do
+  context 'validations' do
     it 'requires a member id' do
       attr[:member] = nil
       expect(profile).not_to be_valid
