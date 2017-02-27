@@ -11,26 +11,25 @@ describe Project do
       description: 'A short description for testing.',
       startdate: Time.utc(2010),
       finishdate: Time.utc(2011),
+      member_id: member.id,
       tags: 'foobar'
     }
   end
 
-  it 'should create a new instance given valid attributes' do
-    member.projects.create!(attrs)
-    expect(member.projects.first).to be_valid
-    # expect(Project.new(attrs)).to be_valid
+  it 'valid attributes are indeed valid' do
+    expect(Project.new(attrs)).to be_valid
   end
 
-  describe 'member associations' do
+  context 'member associations' do
     before(:each) do
       @project = member.projects.create(attrs)
     end
 
-    it 'should have a member attribute' do
+    it 'has a non-nil member attribute' do
       expect(@project).to respond_to(:member)
     end
 
-    it 'should have the correct associated member' do
+    it 'has the correct associated member' do
       expect(@project.member).to eq member
     end
   end
@@ -41,10 +40,6 @@ describe Project do
   # validation isn't specified in the model. Keep an eye out
   # for a better way to test validations.
   describe 'validations' do
-    it 'requires a member id' do
-      expect(Project.new(attrs)).not_to be_valid
-    end
-
     it 'requires nonblank Summary' do
       expect(member.projects.build(attrs.merge(summary: ' '))).not_to be_valid
     end
