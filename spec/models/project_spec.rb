@@ -3,8 +3,8 @@ require 'spec_helper'
 
 describe Project do
   let(:member) { create :member }
-  before(:each) do
-    @attr = {
+  let(:attr) do
+    {
       name: 'Foo project',
       summary: 'We did it again.',
       client: 'Dave D',
@@ -16,13 +16,13 @@ describe Project do
   end
 
   it 'should create a new instance given valid attributes' do
-    member.projects.create!(@attr)
+    member.projects.create!(attr)
     expect(member.projects.first).to be_valid
   end
 
   describe 'member associations' do
     before(:each) do
-      @project = member.projects.create(@attr)
+      @project = member.projects.create(attr)
     end
 
     it 'should have a member attribute' do
@@ -41,57 +41,57 @@ describe Project do
   # for a better way to test validations.
   describe 'validations' do
     it 'requires a member id' do
-      expect(Project.new(@attr)).not_to be_valid
+      expect(Project.new(attr)).not_to be_valid
     end
 
     it 'requires nonblank Summary' do
-      expect(member.projects.build(@attr.merge(summary: ' '))).not_to be_valid
+      expect(member.projects.build(attr.merge(summary: ' '))).not_to be_valid
     end
 
     it 'rejects long Summary' do
-      expect(member.projects.build(@attr.merge(summary: 'a' * 501))).not_to be_valid
+      expect(member.projects.build(attr.merge(summary: 'a' * 501))).not_to be_valid
     end
 
     it 'requires nonblank Name' do
-      expect(member.projects.build(@attr.merge(name: ' '))).not_to be_valid
+      expect(member.projects.build(attr.merge(name: ' '))).not_to be_valid
     end
 
     it 'accepts short Name' do
-      expect(member.projects.build(@attr.merge(name: 'a' * 125))).to be_valid
+      expect(member.projects.build(attr.merge(name: 'a' * 125))).to be_valid
     end
 
     it 'rejects long Name' do
-      expect(member.projects.build(@attr.merge(name: 'a' * 141))).not_to be_valid
+      expect(member.projects.build(attr.merge(name: 'a' * 141))).not_to be_valid
     end
 
     it 'accepts blank Description' do
-      expect(member.projects.build(@attr.merge(description: ''))).to be_valid
+      expect(member.projects.build(attr.merge(description: ''))).to be_valid
     end
 
     it 'rejects long Description' do
-      expect(member.projects.build(@attr.merge(description: 'a' * 2501))).not_to be_valid
+      expect(member.projects.build(attr.merge(description: 'a' * 2501))).not_to be_valid
     end
 
     it 'requires nonblank Start date' do
-      expect(member.projects.build(@attr.merge(startdate: ' '))).not_to be_valid
+      expect(member.projects.build(attr.merge(startdate: ' '))).not_to be_valid
     end
 
     it 'requires nonblank Finish date' do
-      expect(member.projects.build(@attr.merge(finishdate: ' '))).not_to be_valid
+      expect(member.projects.build(attr.merge(finishdate: ' '))).not_to be_valid
     end
 
     it 'start date should be less than finish date' do
-      @project = member.projects.create(@attr)
+      @project = member.projects.create(attr)
       expect(@project.startdate).to be < @project.finishdate
     end
 
     it 'start date should not be greater than finish date' do
-      @project = member.projects.create(@attr)
+      @project = member.projects.create(attr)
       expect(@project.startdate).not_to be > @project.finishdate
     end
 
     it 'finish date should raise error' do
-      @project = member.projects.create(@attr)
+      @project = member.projects.create(attr)
       @project.finishdate = DateTime.new(1999)
       expect do
         @project.save!
@@ -114,7 +114,7 @@ describe Project do
     # not given in attr_accessible...
     # TODO: This doesn't smell very good, needs more work.
     it 'saves URI attribute' do
-      expect(member.projects.create(@attr.merge(uri: 'http://foobar.com/'))).to be_valid
+      expect(member.projects.create(attr.merge(uri: 'http://foobar.com/'))).to be_valid
       # puts @member.projects.to_s
       # This is the smelly part...
       @project = member.projects.first
