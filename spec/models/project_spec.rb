@@ -21,16 +21,14 @@ describe Project do
   end
 
   context 'member associations' do
-    before(:each) do
-      @project = member.projects.create(attrs)
-    end
+    subject(:project) { Project.create!(attrs) }
 
     it 'has a non-nil member attribute' do
-      expect(@project).to respond_to(:member)
+      expect(project).to respond_to(:member)
     end
 
     it 'has the correct associated member' do
-      expect(@project.member).to eq member
+      expect(project.member).to eq member
     end
   end
 
