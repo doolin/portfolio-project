@@ -2,5 +2,7 @@
   - if (member_signed_in? && (current_member.id == @profile.member_id))
     = link_to 'Edit', edit_profile_path(@profile)
     |
+    = link_to 'Delete', profile_path(@profile), method: :delete
+    |
     \#{link_to 'Settings', edit_member_registration_path(@profile.member_id), :class => 'settings'} |
   = link_to 'Projects', '/members/' + @profile.member_id.to_s
