@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 source 'http://rubygems.org'
 
-gem 'rails', '5.1.0.rc1'
+gem 'rails', '5.1.0.rc2'
 gem 'rake'
 gem 'sitemap_generator'
 # gem 'carrierwave'
@@ -50,7 +50,12 @@ gem 'xray-rails'
 gem 'simplecov', require: false, group: :test
 
 group :cucumber do
-  gem 'cucumber-rails'
+  # cucumber-rails provide a generator for installing the
+  # relevant cucumber files. It's worth having around to
+  # ensure the configuration stays up to date as cucumber
+  # is developed. At the moment, it requires rails < 5.1,
+  # so it's temporarily commented out.
+  # gem 'cucumber-rails'
   gem 'database_cleaner'
 end
 
