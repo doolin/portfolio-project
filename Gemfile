@@ -21,6 +21,7 @@ gem 'haml-rails'
 gem 'thin'
 gem 'public_suffix'
 gem 'validate_url'
+gem 'listen'
 
 gem 'brakeman'
 gem 'rubocop'
