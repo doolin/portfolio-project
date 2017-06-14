@@ -1,5 +1,6 @@
 require 'uri'
 require 'cgi'
+
 require File.expand_path(File.join(File.dirname(__FILE__), '..', 'support', 'paths'))
 require File.expand_path(File.join(File.dirname(__FILE__), '..', 'support', 'selectors'))
 
@@ -108,26 +109,20 @@ end
 
 Given /^member is signed in as "([^"]*)" and password "([^"]*)"$/ do |email, password|
   name = 'foobar'
-  # Member.new may not work
   @member = Member.new(membername: name,
                        email: email,
                        password: password,
                        password_confirmation: password,
                        firstname: 'MFoo',
-                       lastname: 'MBar') # .save!
-
+                       lastname: 'MBar')
   @member.save!
-  # puts @member.member_id
   @profile = @member.build_profile(firstname: 'Foo', lastname: 'bar')
-  # puts @profile.inspect # Also, p object is an alias for puts object.inspect
   @profile.save
-  # Given %{member is not logged in}
-  step %(member is not logged in)
+
   step %(I go to the sign in page)
   step %(I fill in "Email" with "#{email}")
   step %(I fill in "Password" with "#{password}")
   step %(I press "Sign in")
-  # Then %{I should be signed in}
 end
 
 Given /^is on the Create Profile page$/ do
