@@ -51,20 +51,24 @@ describe ProfilesController do
     end
   end
 
+  # TODO: probably need to fix the params and permitted params
+  # in the controller for this one. A good argument for removing
+  # these sorts of controller tests, they just aren't supported
+  # well by rails.
   describe "POST 'create'" do
     it 'creates a new profile for signed in member' do
       sign_out @member
       @newmember = create(:member, email: 'foofppf@gmail.com')
       sign_in @newmember
       expect do
-        post :create, params: { firstname: 'foo', lastname: 'bar' }
+        post :create, params: { profile: { firstname: 'foo', lastname: 'bar' } }
       end.to change(Profile, :count).by(1)
     end
 
     it 'creates a profile for member without a profile' do
       @member.profile.destroy
       expect do
-        post :create, params: { firstname: 'foo', lastname: 'bar' }
+        post :create, params: { profile: { firstname: 'foo', lastname: 'bar' } }
       end.to change(Profile, :count).by(1)
     end
   end
@@ -74,7 +78,7 @@ describe ProfilesController do
       member = create(:member, email: 'foo@bar.com')
       member.save!
       profile = create(:profile, member: member)
-      put :update, params: { id: profile.url, firstname: 'Foo', lastname: 'Bar' }
+      put :update, params: { id: profile.url, profile: { firstname: 'Foo', lastname: 'Bar' } }
       profile.reload
 
       expect(response).to redirect_to(profile_path(profile))
@@ -83,7 +87,7 @@ describe ProfilesController do
     end
 
     it 'updates the profile for nil website' do
-      put :update, params: { id: @profile.url, firstname: 'Foo', lastname: 'Bar', website: nil }
+      put :update, params: { id: @profile.url, profile: { firstname: 'Foo', lastname: 'Bar', website: nil } }
       @profile.reload
       expect(response).to redirect_to(profile_path(@profile))
       expect(@profile.website).to match('')

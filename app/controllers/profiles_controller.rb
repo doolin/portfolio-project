@@ -12,7 +12,10 @@ class ProfilesController < ApplicationController
   end
 
   def create
+    # TODO: I think the profile_params are incorrect. Will need to
+    # update rspec here as well.
     @profile = current_member.build_profile(profile_params)
+    # binding.pry
     # rubocop:disable Style/GuardClause
     if @profile.save!
       @member = Member.find(@profile.member_id)
@@ -34,11 +37,16 @@ class ProfilesController < ApplicationController
     @profile = Profile.find_by(url: params[:id])
   end
 
+  def url
+    params[:profile][:url]
+  end
+
   def update
     # Having trouble with permitted params, using this to ensure the
     # rest of the associated spec is working correctly.
-    ActionController::Parameters.permit_all_parameters = true
+    # ActionController::Parameters.permit_all_parameters = true
 
+    # @profile = Profile.find_by(url: params[:id])
     @profile = Profile.find_by(url: params[:id])
     # ap @profile
 
@@ -80,7 +88,7 @@ class ProfilesController < ApplicationController
 
   def profile_params
     # params.permit(:id, :firstname, :lastname, :website, :twitter, :bio, :url,
-    params.permit(:firstname, :lastname, :website, :twitter, :bio, :url,
+    params.require(:profile).permit(:firstname, :lastname, :website, :twitter, :bio, :url,
                   :facebook, :linkedin, :website_anchor, :gprofile_url)
   end
 end

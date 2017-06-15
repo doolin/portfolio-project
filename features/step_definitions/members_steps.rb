@@ -116,12 +116,14 @@ Given /^member is signed in as "([^"]*)" and password "([^"]*)"$/ do |email, pas
                        firstname: 'MFoo',
                        lastname: 'MBar')
   @member.save!
-  @profile = @member.build_profile(firstname: 'Foo', lastname: 'bar')
-  @profile.save
+  # @profile = @member.build_profile(firstname: 'Foo', lastname: 'bar')
+  # @profile.save
 
   step %(I go to the sign in page)
   step %(I fill in "Email" with "#{email}")
   step %(I fill in "Password" with "#{password}")
+  # save_and_open_page
+  # binding.pry
   step %(I press "Sign in")
 end
 
@@ -134,7 +136,12 @@ When /^the member fills out all the profile fields correctly$/ do
   firstname = 'Foo'
   lastname = 'Bar'
   step %(I fill in "Firstname" with "#{firstname}")
+  # fill_in('profile_firstname', with: 'Foobar')
+  # fill_in('Firstname', with: 'Foobar')
   step %(I fill in "Lastname" with "#{lastname}")
+  # fill_in(:profile_lastname, with: 'Barski')
+
+  # save_and_open_page
 end
 
 When /^the member presses the "([^"]*)" button$/ do |button|
@@ -144,6 +151,9 @@ end
 Then /^the member is shown the page for the new profile$/ do
   # FIXME: the url needs to be extracted from the data
   visit('bar')
+  # FIXME: the assertion needs to be made against the name on
+  # the profile
+  expect(page).to have_content('Contact Information')
 end
 
 Given /^is on the create project page$/ do
