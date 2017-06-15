@@ -21,6 +21,6 @@ Feature: Member creates project
 
   Scenario: Member creates new project from member's page
     Given member is signed in as "user@test.com" and password "please"
-    #And is on the member's show page # TODO: get rid of the juju here
+    And is on the member's show page
     When the member clicks "New Project"
     Then the member is on the Create Project page

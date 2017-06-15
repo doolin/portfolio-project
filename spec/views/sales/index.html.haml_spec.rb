@@ -16,7 +16,7 @@ describe 'sales/index' do
     expect(controller.request.path_parameters[:action]).to eq('index')
   end
 
-  it 'should display the home page' do
+  it 'displays the home page' do
     member = Member.new id: 1
     profile = Profile.new id: 1, member_id: 1, created_at: Time.now.utc
 
@@ -29,6 +29,13 @@ describe 'sales/index' do
 
     expect(Profile).to receive(:find).with(anything).and_return(profile).exactly(4).times
     expect(Member).to receive(:find).with(member.id).and_return(member).exactly(8).times
+
+    @featured_profiles = [
+      Profile.find(1),
+      Profile.find(1),
+      Profile.find(1),
+      Profile.find(1)
+    ]
 
     render
 

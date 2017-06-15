@@ -1,5 +1,19 @@
 
 Given /^the visitor is on the home page$/ do
+  member = FactoryGirl.create :member
+  profile = FactoryGirl.create :profile, member_id: member.id
+
+  featured_profiles = [
+    Profile.find(profile.id),
+    Profile.find(profile.id),
+    Profile.find(profile.id),
+    Profile.find(profile.id)
+  ]
+
+  sales_controller = instance_double("SalesController")
+
+  expect(Profile).to receive(:find).with(anything).and_return(profile).exactly(4).times
+
   step %(member name is "foo" with email "user@test.com" and password "foobar")
   visit root_path
 end

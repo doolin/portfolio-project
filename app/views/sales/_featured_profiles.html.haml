@@ -3,9 +3,7 @@
     %h2 Featured Profiles
 .row.featured.profiles
   - profiles = %w{ featured1 featured2 featured3 featured4 }
-  - profiles.each do |p|
+  - @featured_profiles.each do |p|
     .three.columns.sponsor
       %ul.cf
-        = render :partial => 'profiles/gravatar', :locals => { :profile => Profile.find(PROFILES["#{p}"]) }
-    / columns
-/ row
+        = render :partial => 'profiles/gravatar', :locals => { :profile => p }

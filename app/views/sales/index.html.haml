@@ -6,7 +6,7 @@
   = render 'sales/maincopy'
   = render 'sales/personas'
   = #render 'sales/offers'
-  = render 'sales/featured_profiles'
+  = render 'sales/featured_profiles', locals: { featured_profiles: @featured_profiles }
 = link_to "Sign up", new_member_registration_path
 , or
 check out the #{link_to 'list of projects', projects_path}

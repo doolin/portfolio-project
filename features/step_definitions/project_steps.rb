@@ -1,7 +1,7 @@
 
 
 Given /^reader is not logged in$/ do
-  step %(member name is "foo" with email "foo@test.com" and password "please")
+  # step %(member name is "foo" with email "foo@test.com" and password "please")
   visit('/members/sign_out')
 end
 

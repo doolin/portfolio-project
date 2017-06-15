@@ -4,10 +4,19 @@ class SalesController < ApplicationController
     if member_signed_in?
       redirect_to current_member
     else
+      @info = 'Some information'
+      @featured_profiles = featured_profiles
       @projects = Project.all
       @profiles = Profile.all
     end
   end
 
-  # Add more pages as necessary, but only when necessary.
+  private
+
+  def featured_profiles
+    puts "IN FEATURED PROFILES"
+    profiles = %w{ featured1 featured2 featured3 featured4 }
+    result = profiles.map { |p| Profile.find(PROFILES[p]) }
+    result
+  end
 end
