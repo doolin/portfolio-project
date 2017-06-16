@@ -5,8 +5,21 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', 'support', 'pat
 require File.expand_path(File.join(File.dirname(__FILE__), '..', 'support', 'selectors'))
 
 Given /^a site visitor who is not a member$/ do
-  step %(member with email "user@test.com" and password "foobar")
-  visit('/members/sign_out')
+  # step %(member with email "user@test.com" and password "foobar")
+  # visit('/members/sign_out')
+  member = FactoryGirl.create :member
+  profile = FactoryGirl.create :profile, member_id: member.id
+
+  featured_profiles = [
+    Profile.find(profile.id),
+    Profile.find(profile.id),
+    Profile.find(profile.id),
+    Profile.find(profile.id)
+  ]
+
+  expect(Profile).to receive(:find).with(anything).and_return(profile).exactly(4).times
+
+  visit('/')
 end
 
 Given /^member with email "([^"]*)" and password "([^"]*)"$/ do |email, password|

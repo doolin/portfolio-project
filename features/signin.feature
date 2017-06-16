@@ -12,7 +12,6 @@ Feature: Member logs on
     Given a site visitor who is not a member
     And fills in the Sign Up Free form
     And presses the "Sign Up Free" button
-    #Then show me the page
     Then the new member should be on the new Profile page
 
   Scenario: New member signs up
