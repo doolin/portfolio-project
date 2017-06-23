@@ -59,7 +59,8 @@ Given /^member name is "([^"]*)" with email "([^"]*)" and password "([^"]*)"$/ d
 end
 
 Given /^no user exists with an email of "(.*)"$/ do |email|
-  Member.find(:first, conditions: { email: email }).should be_nil
+  # Member.find(:first, conditions: { email: email }).should be_nil
+  expect(Member.where(email: email)).to match_array([])
 end
 
 Given /^member is on sign_in page$/ do
@@ -75,7 +76,7 @@ Given /^member is on sign_in page$/ do
 end
 
 When(%r{^I sign in as "(.*)/(.*)"$})do |email, password|
-  step %(member is not logged in)
+  # step %(member is not logged in)
   step %(I go to the sign in page)
   step %(I fill in "Email" with "#{email}")
   step %(I fill in "Password" with "#{password}")
@@ -91,8 +92,10 @@ Then /^the user is taken to home page$/ do
 end
 
 Given /^member is not logged in$/ do
-  step %(member name is "foo" with email "foo@test.com" and password "please")
-  visit('/members/sign_out') # ensure that at least
+  # step %(member name is "foo" with email "foo@test.com" and password "please")
+  # visit('/members/sign_out') # ensure that at least
+  step %(a site visitor who is not a member)
+  # visit '/'
 end
 
 Then /^I should be signed in$/ do
@@ -220,6 +223,8 @@ When /^the visitor is on the sign up page$/ do
 end
 
 When /^presses the "([^"]*)" button$/ do |button|
+  # save_and_open_page
+  # binding.pry
   click_button(button)
 end
 
