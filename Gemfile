@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 source 'http://rubygems.org'
 
-gem 'rails', '5.1.2'
+gem 'rails', '5.1.4'
 gem 'rake'
 gem 'sitemap_generator'
 # gem 'carrierwave'
