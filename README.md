@@ -42,3 +42,12 @@ reminders on how to keep the code running in development environment.
 postgres configuration: apparently, a dump from 5 years ago successfully
 restored. Had to change the user in `config/database.yml` to get the
 application correct privileges to run.
+
+### Restoring from S3
+
+* Find the latest dump on S3 portfolio-project.
+
+This is a hassle, I didn't document how I did this a few months ago,
+I've now forgotten, and it's not restoring cleanly. Will have to take
+some time and figure it out. Sadly, I can't really go much further on
+the active admin branch without having working data.

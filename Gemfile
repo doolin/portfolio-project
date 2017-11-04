@@ -23,6 +23,8 @@ gem 'public_suffix'
 gem 'validate_url'
 gem 'listen'
 
+gem 'activeadmin'
+
 gem 'strong_migrations'
 
 gem 'brakeman'
