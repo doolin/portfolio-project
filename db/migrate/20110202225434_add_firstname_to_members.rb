@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class AddFirstnameToMembers < ActiveRecord::Migration
+class AddFirstnameToMembers < ActiveRecord::Migration[5.1]
   def self.up
     add_column :members, :firstname, :string
   end

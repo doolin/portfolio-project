@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -17,60 +16,58 @@ ActiveRecord::Schema.define(version: 20111117180143) do
   enable_extension "plpgsql"
 
   create_table "members", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0
+    t.integer "sign_in_count", default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "membername"
-    t.string   "firstname"
-    t.string   "lastname"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "membername"
+    t.string "firstname"
+    t.string "lastname"
+    t.index ["email"], name: "index_members_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
-  add_index "members", ["email"], name: "index_members_on_email", unique: true, using: :btree
-  add_index "members", ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true, using: :btree
-
   create_table "profiles", force: :cascade do |t|
-    t.integer  "member_id"
-    t.text     "bio"
-    t.string   "website"
-    t.string   "twitter"
-    t.string   "facebook"
-    t.string   "linkedin"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "url"
-    t.string   "website_anchor"
-    t.string   "gprofile_url"
+    t.integer "member_id"
+    t.text "bio"
+    t.string "website"
+    t.string "twitter"
+    t.string "facebook"
+    t.string "linkedin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "firstname"
+    t.string "lastname"
+    t.string "url"
+    t.string "website_anchor"
+    t.string "gprofile_url"
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string   "name"
-    t.text     "summary"
-    t.string   "client"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "tags"
-    t.integer  "member_id"
-    t.text     "description"
-    t.string   "pointofcontact"
+    t.string "name"
+    t.text "summary"
+    t.string "client"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "tags"
+    t.integer "member_id"
+    t.text "description"
+    t.string "pointofcontact"
     t.datetime "startdate"
     t.datetime "finishdate"
-    t.string   "url"
-    t.string   "uri"
-    t.string   "requiredskills"
-    t.string   "uri_anchor"
+    t.string "url"
+    t.string "uri"
+    t.string "requiredskills"
+    t.string "uri_anchor"
+    t.index ["member_id"], name: "index_projects_on_member_id"
   end
-
-  add_index "projects", ["member_id"], name: "index_projects_on_member_id", using: :btree
 
 end
