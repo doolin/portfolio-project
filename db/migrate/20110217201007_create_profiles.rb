@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class CreateProfiles < ActiveRecord::Migration
+class CreateProfiles < ActiveRecord::Migration[5.1]
   def self.up
     create_table :profiles do |t|
       t.integer :member_id

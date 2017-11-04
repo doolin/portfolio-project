@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class AddUrlToProjects < ActiveRecord::Migration
+class AddUrlToProjects < ActiveRecord::Migration[5.1]
   def self.up
     add_column :projects, :url, :string
   end

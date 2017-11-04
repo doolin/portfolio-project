@@ -266,8 +266,6 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.3.13)
     stringex (2.7.1)
-    strong_migrations (0.1.9)
-      activerecord (>= 3.2.0)
     temple (0.8.0)
     thin (1.7.2)
       daemons (~> 1.0, >= 1.0.9)
@@ -335,7 +333,6 @@ DEPENDENCIES
   sitemap_generator
   sqlite3
   stringex
-  strong_migrations
   thin
   uglifier
   validate_url
@@ -343,4 +340,4 @@ DEPENDENCIES
   zurb-foundation
 
 BUNDLED WITH
-   1.14.6
+   1.15.4

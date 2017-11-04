@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class CreateProjects < ActiveRecord::Migration
+class CreateProjects < ActiveRecord::Migration[5.1]
   def self.up
     create_table :projects do |t|
       t.string :name
