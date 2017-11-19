@@ -6,9 +6,9 @@ describe 'projects/show' do
     allow(view).to receive(:title).and_return('')
     # p. 333 Lightbulb
     # assign(:project, mock_model(Project).as_new_record.as_null_object)
-    @member = FactoryGirl.create(:member)
-    @project   = FactoryGirl.create(:project, name: 'Slicer', member: @member)
-    @profile   = FactoryGirl.create(:profile, member: @member)
+    @member = create(:member)
+    @project   = create(:project, name: 'Slicer', member: @member)
+    @profile   = create(:profile, member: @member)
     # sign_in @member
   end
 

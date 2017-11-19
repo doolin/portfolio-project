@@ -3,8 +3,8 @@ require 'spec_helper'
 
 describe 'projects/_form' do
   before(:each) do
-    @member = FactoryGirl.create(:member)
-    @project = FactoryGirl.create(:project, member: @member)
+    @member = create(:member)
+    @project = create(:project, member: @member)
     sign_in @member
   end
 

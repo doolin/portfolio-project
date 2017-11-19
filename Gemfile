@@ -64,7 +64,7 @@ end
 
 group :test do
 #   gem 'mock-aws-s3'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'launchy'
   gem 'rails-controller-testing' # consider getting rid of this later
   gem 'rspec'

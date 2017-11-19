@@ -3,9 +3,9 @@ require 'spec_helper'
 
 describe 'sales/index' do
   before(:each) do
-    @member  = FactoryGirl.create(:member)
-    @project = FactoryGirl.create(:project, name: 'Slicer', member: @member)
-    @profile = FactoryGirl.create(:profile, member: @member)
+    @member  = create(:member)
+    @project = create(:project, name: 'Slicer', member: @member)
+    @profile = create(:profile, member: @member)
   end
 
   it 'infers the controller path' do

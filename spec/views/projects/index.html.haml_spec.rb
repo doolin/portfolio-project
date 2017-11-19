@@ -4,9 +4,9 @@ require 'spec_helper'
 describe 'projects/index' do
   context 'with 2 projects' do
     before(:each) do
-      @member   = FactoryGirl.create(:member)
-      @slicer   = FactoryGirl.create(:project, name: 'Slicer', member: @member)
-      @dicer    = FactoryGirl.create(:project, name: 'Dicer',  member: @member)
+      @member   = create(:member)
+      @slicer   = create(:project, name: 'Slicer', member: @member)
+      @dicer    = create(:project, name: 'Dicer',  member: @member)
       @projects = Project.all
       sign_in @member
     end

@@ -3,8 +3,8 @@ require 'spec_helper'
 
 describe ProfilesController do
   before(:each) do
-    @member  = FactoryGirl.create(:member)
-    @profile = FactoryGirl.create(:profile, member: @member)
+    @member  = create(:member)
+    @profile = create(:profile, member: @member)
     sign_in @member
   end
 
@@ -54,7 +54,7 @@ describe ProfilesController do
   describe "POST 'create'" do
     it 'creates a new profile for signed in member' do
       sign_out @member
-      @newmember = FactoryGirl.create(:member, email: 'foofppf@gmail.com')
+      @newmember = create(:member, email: 'foofppf@gmail.com')
       sign_in @newmember
       expect do
         post :create, params: { firstname: 'foo', lastname: 'bar' }
@@ -71,9 +71,9 @@ describe ProfilesController do
 
   describe "PUT 'update'" do
     it 'updates the profile for signed in member' do
-      member = FactoryGirl.create(:member, email: 'foo@bar.com')
+      member = create(:member, email: 'foo@bar.com')
       member.save!
-      profile = FactoryGirl.create(:profile, member: member)
+      profile = create(:profile, member: member)
       put :update, params: { id: profile.url, firstname: 'Foo', lastname: 'Bar' }
       profile.reload
 

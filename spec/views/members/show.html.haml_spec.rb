@@ -3,8 +3,8 @@ require 'spec_helper'
 
 describe 'members/show' do
   before(:each) do
-    @member = FactoryGirl.create(:member)
-    @profile = FactoryGirl.create(:profile, member: @member, created_at: 1.day.ago)
+    @member = create(:member)
+    @profile = create(:profile, member: @member, created_at: 1.day.ago)
     allow(view).to receive(:title).and_return('')
   end
 

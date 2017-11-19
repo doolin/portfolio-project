@@ -19,3 +19,4 @@ coverage.data
 bin/
 bin/*
 dump.rdb
+*.dump
