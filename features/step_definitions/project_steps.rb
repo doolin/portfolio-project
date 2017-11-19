@@ -1,8 +1,8 @@
 
 
 Given /^reader is not logged in$/ do
-  @member = FactoryGirl.create :member
-  profile = FactoryGirl.create :profile, member_id: @member.id
+  @member = FactoryBot.create :member
+  profile = FactoryBot.create :profile, member_id: @member.id
 
   featured_profiles = [
     Profile.find(profile.id),
