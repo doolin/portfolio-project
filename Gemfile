@@ -23,7 +23,7 @@ gem 'public_suffix'
 gem 'validate_url'
 gem 'listen'
 
-gem 'strong_migrations'
+# gem 'strong_migrations'
 
 gem 'brakeman'
 gem 'rubocop'
