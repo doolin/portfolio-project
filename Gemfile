@@ -40,15 +40,16 @@ group :production do
   gem 'pg'
 end
 
-# group :development, :test do
-gem 'awesome_print'
-gem 'pry'
-gem 'pry-nav'
-gem 'pry-rails'
-gem 'rb-fsevent'
-gem 'sqlite3'
-gem 'xray-rails'
-# end
+group :development, :test do
+  gem 'awesome_print'
+  # gem 'pry'
+  # gem 'pry-nav'
+  # gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'rb-fsevent'
+  gem 'sqlite3'
+  gem 'xray-rails'
+end
 
 gem 'simplecov', require: false, group: :test
 
