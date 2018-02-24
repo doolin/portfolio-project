@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 source 'http://rubygems.org'
 
-gem 'rails', '5.1.4'
+gem 'rails', '5.1.5'
 gem 'rake'
 gem 'sitemap_generator'
 # gem 'carrierwave'
@@ -16,9 +16,9 @@ gem 'possessive'
 gem 'stringex'
 gem 'zurb-foundation'
 # gem 'aws-s3'
-gem 'escape_utils'
+# gem 'escape_utils'
 gem 'haml-rails'
-gem 'thin'
+# gem 'thin'
 gem 'public_suffix'
 gem 'validate_url'
 gem 'listen'
@@ -36,9 +36,7 @@ gem 'sass-rails'
 gem 'uglifier'
 # end
 
-group :production do
-  gem 'pg'
-end
+gem 'pg'
 
 group :development, :test do
   gem 'awesome_print'
@@ -46,8 +44,8 @@ group :development, :test do
   # gem 'pry-nav'
   # gem 'pry-rails'
   gem 'pry-byebug'
-  gem 'rb-fsevent'
-  gem 'sqlite3'
+#   gem 'rb-fsevent'
+  # gem 'sqlite3'
   gem 'xray-rails'
 end
 
