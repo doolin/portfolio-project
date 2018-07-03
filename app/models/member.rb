@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-class Member < ActiveRecord::Base
+
+class Member < ApplicationRecord
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
@@ -21,8 +22,8 @@ class Member < ActiveRecord::Base
   # has_many :websites, :through => :profile
 
   # Move these to Profiles
-  validates :firstname, :presence => true
-  validates :lastname, :presence => true
+  validates :firstname, presence: true
+  validates :lastname, presence: true
   # validates :membername, :presence => true
   # validates :email, :presence => true, :uniqueness => true
   # validates :email, :presence => true

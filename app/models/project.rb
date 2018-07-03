@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-class Project < ActiveRecord::Base
+
+class Project < ApplicationRecord
   # attr_accessible :name, :summary, :client, :tags, :description, :pointofcontact,
   #                 :startdate, :finishdate, :url, :member_id, :uri, :requiredskills,
   #                 :uri_anchor
