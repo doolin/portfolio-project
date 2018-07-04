@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # TODO: Find a way to add first and last name for :alt tag
 module MembersHelper
   def gravatar_for(member, options = { size: 50 })

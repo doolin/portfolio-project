@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module SalesHelper
   def resource_name
     :member
