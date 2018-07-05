@@ -1,10 +1,11 @@
 # frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'profiles/new' do
   before(:each) do
     assign(:profile, Profile.new(firstname: 'Dave', lastname: 'Doolin', url: 'doolin'))
-    allow(view).to receive(:title).and_return(->{ 'Create your profile' })
+    allow(view).to receive(:title).and_return(-> { 'Create your profile' })
   end
 
   it 'infers the controller path' do

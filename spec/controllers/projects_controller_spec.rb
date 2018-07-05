@@ -1,9 +1,10 @@
 # frozen_string_literal: true
+
 require 'spec_helper'
 
 # Code smell, really, suppressed warning on #show
 # where @mock_project is set.
-RSpec.configure { |config| RSpec::Mocks.configuration.allow_message_expectations_on_nil = true }
+RSpec.configure { |_config| RSpec::Mocks.configuration.allow_message_expectations_on_nil = true }
 
 describe ProjectsController do
   let(:member) { create :member }
@@ -11,7 +12,7 @@ describe ProjectsController do
   before :each do
     def mock_project(stubs = {})
       (@mock_project ||= double(Project).as_null_object).tap do |project|
-        stubs.each do |k, v|
+        stubs.each do |k, _v|
           allow(project).to receive(k)
         end
       end

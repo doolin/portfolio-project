@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Factory.define :member do |m|
 #   m.membername            "Dave Doolin"
 #   m.email                 "david.doolin+3@example.com"

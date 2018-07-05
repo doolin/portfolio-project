@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'sales/advertising' do
@@ -12,7 +13,7 @@ describe 'sales/advertising' do
 
   describe '.rendered' do
     before do
-      allow(view).to receive(:title).and_return(->{ 'Premium Membership' })
+      allow(view).to receive(:title).and_return(-> { 'Premium Membership' })
     end
 
     it 'should display advertising solicitation' do

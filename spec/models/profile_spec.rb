@@ -1,15 +1,17 @@
 # frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe Profile do
   let(:member) { create :member }
-  let(:attr) { { # attributes_for :profile
+  let(:attr) do
+    { # attributes_for :profile
       firstname: 'Joe',
       lastname: 'Bloggs',
       member: member,
       created_at: 1.day.ago
     }
-  }
+  end
 
   subject(:profile) { Profile.new attr }
 

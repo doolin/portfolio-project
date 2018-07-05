@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'layouts/application' do
@@ -9,4 +10,3 @@ describe 'layouts/application' do
     expect(rendered).to have_content title
   end
 end
-
