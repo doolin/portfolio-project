@@ -657,7 +657,7 @@ Metrics/BlockLength:
   Enabled: true
   CountComments: false
   Max: 25
-  ExcludedMethods: []
+  ExcludedMethods: [describe]
 
 Naming/HeredocDelimiterCase:
   Description: Use configured case for heredoc delimiters.
