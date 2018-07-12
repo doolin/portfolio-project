@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class MembersController < ApplicationController
   # I don't like this, it smells...
   def show

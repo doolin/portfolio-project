@@ -1,6 +1,7 @@
 # frozen_string_literal: true
+
 class ProfilesController < ApplicationController
-  before_action :authenticate_member!, except: [:show, :index]
+  before_action :authenticate_member!, except: %i[show index]
 
   def index
     @profiles = Profile.all
@@ -43,7 +44,7 @@ class ProfilesController < ApplicationController
     # ap @profile
 
     respond_to do |format|
-      result = @profile.update_attributes(profile_params)
+      result = @profile.update(profile_params)
       # result = @profile.update_attributes(params[:profile])
       # binding.pry
 

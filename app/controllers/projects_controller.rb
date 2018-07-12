@@ -1,6 +1,7 @@
 # frozen_string_literal: true
+
 class ProjectsController < ApplicationController
-  before_action :authenticate_member!, except: [:show, :index]
+  before_action :authenticate_member!, except: %i[show index]
 
   def index
     @projects = Project.all
@@ -12,7 +13,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find_by_url(params[:id])
+    @project = Project.find_by(url: params[:id])
     @member = Member.find(@project.member_id)
     @profile = @member.profile
 
@@ -32,7 +33,7 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project = Project.find_by_url(params[:id])
+    @project = Project.find_by(url: params[:id])
   end
 
   def create
@@ -54,28 +55,26 @@ class ProjectsController < ApplicationController
     #     end
 
     respond_to do |format|
-      begin
-        @project.save!
-      rescue ActiveRecord::RecordNotSaved => e
-        format.html do
-          # Note: this flash message needs to go before the render method,
-          # else the flash won't display on the next render. It will however
-          # display on the render following.
-          flash[:error] = "Problem: #{e.message}."
-          render :new
-        end
-        format.xml  { render xml: @project.errors, status: :unprocessable_entity }
-      # rescue Exception => e
-      rescue StandardError => e
-        format.html do
-          # flash[:error] = "Problem: #{e.message}."
-          render action: 'new'
-        end
-        format.xml  { render xml: @project.errors, status: :unprocessable_entity }
-      else
-        format.html { redirect_to(@project, flash: { success: 'Project was successfully created.' }) }
-        format.xml  { render xml: @project, status: :created, location: @project }
+      @project.save!
+    rescue ActiveRecord::RecordNotSaved => e
+      format.html do
+        # Note: this flash message needs to go before the render method,
+        # else the flash won't display on the next render. It will however
+        # display on the render following.
+        flash[:error] = "Problem: #{e.message}."
+        render :new
       end
+      format.xml  { render xml: @project.errors, status: :unprocessable_entity }
+    # rescue Exception => e
+    rescue StandardError => e
+      format.html do
+        # flash[:error] = "Problem: #{e.message}."
+        render action: 'new'
+      end
+      format.xml  { render xml: @project.errors, status: :unprocessable_entity }
+    else
+      format.html { redirect_to(@project, flash: { success: 'Project was successfully created.' }) }
+      format.xml { render xml: @project, status: :created, location: @project }
     end
   end
 
@@ -96,10 +95,10 @@ class ProjectsController < ApplicationController
   # 4. given signed in, have project found, but attributes won't validate
   # 5. given signed in, have project found, attributes validate & success.
   def update
-    @project = Project.find_by_url(params[:id])
+    @project = Project.find_by(url: params[:id])
 
     respond_to do |format|
-      if @project.update_attributes(permitted_params)
+      if @project.update(permitted_params)
         format.html { redirect_to(@project, flash: { success: 'Project was successfully updated.' }) }
         format.xml  { head :ok }
       else
@@ -110,7 +109,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find_by_url(params[:id])
+    @project = Project.find_by(url: params[:id])
     @project.destroy
 
     respond_to do |format|
