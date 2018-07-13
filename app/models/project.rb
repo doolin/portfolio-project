@@ -26,7 +26,7 @@ class Project < ApplicationRecord
 
   default_scope -> { order('projects.created_at DESC') }
 
-  acts_as_url :name, sync_url: :true
+  acts_as_url :name, sync_url: true
 
   def membername(id)
     member = Member.find(id)

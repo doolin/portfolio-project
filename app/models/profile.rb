@@ -26,7 +26,7 @@ class Profile < ApplicationRecord
     PublicSuffix.valid?(website)
   end
 
-  acts_as_url :lastname, sync_url: :true
+  acts_as_url :lastname, sync_url: true
 
   def to_param
     url
