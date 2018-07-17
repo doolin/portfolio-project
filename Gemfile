@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 source 'http://rubygems.org'
 
 gem 'rails', '5.2.0'
@@ -19,9 +20,9 @@ gem 'zurb-foundation'
 # gem 'escape_utils'
 gem 'haml-rails'
 # gem 'thin'
+gem 'listen'
 gem 'public_suffix'
 gem 'validate_url'
-gem 'listen'
 
 # gem 'strong_migrations'
 
@@ -48,7 +49,7 @@ group :development, :test do
   # gem 'pry-nav'
   # gem 'pry-rails'
   gem 'pry-byebug'
-#   gem 'rb-fsevent'
+  #   gem 'rb-fsevent'
   # gem 'sqlite3'
   gem 'xray-rails'
 end
@@ -66,11 +67,11 @@ group :cucumber do
 end
 
 group :test do
-#   gem 'mock-aws-s3'
+  #   gem 'mock-aws-s3'
+  gem 'capybara'
   gem 'factory_bot_rails'
   gem 'launchy'
   gem 'rails-controller-testing' # consider getting rid of this later
   gem 'rspec'
   gem 'rspec-rails'
-  gem 'capybara'
 end
