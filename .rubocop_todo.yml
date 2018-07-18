@@ -10,6 +10,9 @@ AllCops:
     - db/schema.rb
     - db/migrate/*.rb
     - lib/tasks/*.rake
+    - features/**/*.rb
+    - config/**/*.rb
+    - bin
 
 Rails:
   Enabled: true
