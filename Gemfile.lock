@@ -49,7 +49,7 @@ GEM
     awesome_print (1.8.0)
     backports (3.11.3)
     bcrypt (3.1.12)
-    brakeman (4.3.1)
+    brakeman (4.6.1)
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.4.2)
