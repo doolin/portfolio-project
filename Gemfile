@@ -2,7 +2,7 @@
 
 source 'http://rubygems.org'
 
-gem 'rails', '5.2.0'
+gem 'rails', '5.2.3'
 gem 'rake'
 gem 'sitemap_generator'
 # gem 'carrierwave'
