@@ -62,7 +62,7 @@ group :cucumber do
   # ensure the configuration stays up to date as cucumber
   # is developed. At the moment, it requires rails < 5.1,
   # so it's temporarily commented out.
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
 end
 
